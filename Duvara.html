@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Duvara — a race of two spirits and many forms in the Verdigris Isles."
+  >
+
+  <title>Duvara | Verdigris Isles</title>
+
+  <style>
+    :root {
+      --ocean: #287f8b;
+      --deep-ocean: #145665;
+      --seafoam: #a9d9cf;
+      --sky: #dff3f2;
+      --sand: #f5e6c8;
+      --sand-dark: #d7bd91;
+      --coral: #dc846c;
+      --sun: #e9b85c;
+      --ink: #21454b;
+      --muted: #5d7779;
+      --white: #fffdf7;
+      --border: rgba(33, 69, 75, 0.13);
+      --shadow: 0 12px 35px rgba(32, 77, 82, 0.12);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--sky);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 247, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--deep-ocean);
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--seafoam);
+      color: var(--deep-ocean);
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      list-style: none;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--seafoam);
+      color: var(--deep-ocean);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 95px 0 85px;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(233, 184, 92, 0.28),
+          transparent 18%
+        ),
+        linear-gradient(
+          135deg,
+          var(--sky),
+          var(--seafoam)
+        );
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -5%;
+      right: -5%;
+      bottom: -70px;
+      height: 140px;
+      background: var(--white);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(255, 253, 247, 0.75);
+      color: var(--deep-ocean);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      color: var(--deep-ocean);
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 750px;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .hero-quote {
+      margin-top: 30px;
+      padding: 22px 28px;
+      max-width: 650px;
+      background: rgba(255, 253, 247, 0.72);
+      border-left: 5px solid var(--coral);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--white);
+    }
+
+    .heading {
+      max-width: 780px;
+      margin-bottom: 45px;
+    }
+
+    .kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--coral);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: var(--deep-ocean);
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      line-height: 1.1;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: var(--deep-ocean);
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    /* ================= STORY ================= */
+
+    .story {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .story-copy {
+      font-size: 1.05rem;
+    }
+
+    .island-note {
+      padding: 35px;
+      background: var(--sand);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transform: rotate(1deg);
+    }
+
+    .island-note .symbol {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .island-note blockquote {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--deep-ocean);
+    }
+
+    /* ================= CARDS ================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    section:nth-of-type(even) .card {
+      background: var(--sky);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(32, 77, 82, 0.16);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--seafoam);
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    /* ================= PATHS ================= */
+
+    .path-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--ocean);
+    }
+
+    .path-card.mythic::before {
+      background: var(--sun);
+    }
+
+    .path-card.veiled::before {
+      background: var(--coral);
+    }
+
+    .path-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: var(--seafoam);
+      color: var(--deep-ocean);
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .feature-box {
+      padding: 30px;
+      background: var(--sky);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .feature-box h3 {
+      margin-bottom: 15px;
+    }
+
+    .feature-box ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .feature-box li {
+      margin-bottom: 7px;
+    }
+
+    /* ================= QUOTE BANNER ================= */
+
+    .spirit-banner {
+      padding: 85px 0;
+      background:
+        linear-gradient(
+          135deg,
+          var(--deep-ocean),
+          var(--ocean)
+        );
+      color: var(--white);
+      text-align: center;
+    }
+
+    .spirit-banner h2 {
+      color: var(--white);
+    }
+
+    .spirit-banner p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+    }
+
+    /* ================= CREATION ================= */
+
+    .creation-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .creation-item {
+      padding: 18px 20px;
+      background: var(--sand);
+      border-radius: 16px;
+    }
+
+    .creation-item strong {
+      display: block;
+      color: var(--deep-ocean);
+      margin-bottom: 4px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 50px 0;
+      background: var(--deep-ocean);
+      color: var(--seafoam);
+      text-align: center;
+    }
+
+    footer .brand {
+      justify-content: center;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 850px) {
+      .grid,
+      .feature-grid,
+      .creation-list,
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .hero-description {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="index.html">
+          <span class="brand-icon">✦</span>
+          Verdigris Isles
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#identity">Identity</a></li>
+          <li><a href="#origins">Origins</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#biology">Biology</a></li>
+          <li><a href="#creation">Character Creation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            ✦ People of the Verdigris Isles
+          </div>
+
+          <h1>Duvara</h1>
+
+          <p class="hero-description">
+            A people born with two spiritual natures existing within a single
+            self, capable of crossing between forms without ever becoming
+            someone else.
+          </p>
+
+          <div class="hero-quote">
+            “Two Spirits. One Self.”
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= IDENTITY ================= -->
+
+    <section id="identity">
+
+      <div class="container">
+
+        <div class="heading">
+          <span class="kicker">Identity</span>
+
+          <h2>Two Spirits. One Self.</h2>
+
+          <p>
+            The Duvara are a people born with two spiritual natures existing
+            within a single self. Unlike Beastials, whose animal ancestry is
+            permanently reflected in their physical forms, or Aelori, whose
+            bodies are adapted to the waters, the Duvara possess an innate
+            ability to cross between forms.
+          </p>
+
+          <p>
+            Among the Duvara, transformation is not viewed as becoming
+            something else. Instead, it is understood as revealing another
+            expression of the self.
+          </p>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <h3>The Still Spirit</h3>
+
+            <p>
+              The Still Spirit represents identity, memory, and personhood.
+              It is the part of the individual that remains constant regardless
+              of the form they wear.
+            </p>
+
+            <h3>The Wild Spirit</h3>
+
+            <p>
+              The Wild Spirit represents instinct, possibility, and alternate
+              form. It is not a separate being, but an equal part of the
+              individual.
+            </p>
+
+          </div>
+
+          <aside class="island-note">
+
+            <div class="symbol">✦</div>
+
+            <blockquote>
+              The spirit is greater than the shape it wears.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PATHS ================= -->
+
+    <section id="paths">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Paths</span>
+
+          <h2>Three Expressions of the Wild Spirit</h2>
+
+          <p>
+            The appearance and nature of a Duvara’s alternate form varies
+            greatly depending upon ancestry, family traditions, and spiritual
+            lineage.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <article class="card path-card">
+
+            <span class="path-label">Natural Forms</span>
+
+            <h3>Wild</h3>
+
+            <p>
+              Wild Duvara possess alternate forms associated with natural
+              creatures found throughout the Verdigris Isles.
+            </p>
+
+            <p>
+              Common forms include wolves, foxes, deer, great cats, birds,
+              reptiles, bears, marine animals, insects, and countless others.
+            </p>
+
+            <p>
+              Their transformations often reflect ancient family lineages
+              passed through generations.
+            </p>
+
+          </article>
+
+
+          <article class="card path-card mythic">
+
+            <span class="path-label">Legendary Forms</span>
+
+            <h3>Mythic</h3>
+
+            <p>
+              Mythic Duvara possess forms associated with legendary or
+              supernatural creatures.
+            </p>
+
+            <p>
+              Common forms include dragons, phoenixes, serpents, griffins,
+              great stags, spirits, and creatures known primarily through
+              folklore.
+            </p>
+
+            <p>
+              Mythic forms are often associated with strong cultural
+              traditions, ancient bloodlines, or unusual Aether influences.
+            </p>
+
+          </article>
+
+
+          <article class="card path-card veiled">
+
+            <span class="path-label">Unclassified Forms</span>
+
+            <h3>Veiled</h3>
+
+            <p>
+              Veiled Duvara possess unusual or difficult-to-classify forms.
+            </p>
+
+            <p>
+              Their transformations may be spectral, monstrous, elemental,
+              or otherwise unique.
+            </p>
+
+            <p>
+              Some are believed to descend from ancient magical phenomena,
+              while others emerge from rare spiritual lineages.
+            </p>
+
+            <p>
+              No two Veiled Duvara are necessarily alike.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ORIGINS ================= -->
+
+    <section id="origins">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Overview & Origins</span>
+
+          <h2>Many Forms, One Spirit</h2>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              The origins of the Duvara remain uncertain.
+            </p>
+
+            <p>
+              Ancient traditions claim that the first Duvara were blessed by
+              spirits who taught them that identity was never limited to a
+              single shape.
+            </p>
+
+            <p>
+              Others believe the Duvara descend from ancient peoples whose
+              connection to Aether allowed them to walk between forms.
+            </p>
+
+            <p>
+              Some scholars suggest that the Duvara emerged from the early
+              history of the Verdigris Isles, adapting over generations to
+              environments where survival demanded flexibility and change.
+            </p>
+
+            <p>
+              Whatever their beginnings, the Duvara have existed throughout
+              recorded history and can be found in nearly every region of the
+              Isles.
+            </p>
+
+            <p>
+              Though their communities vary greatly, most Duvara share a
+              common belief: the spirit is greater than the shape it wears.
+            </p>
+
+          </div>
+
+          <aside class="island-note">
+
+            <div class="symbol">🦋</div>
+
+            <blockquote>
+              A person may wear many faces throughout their life while
+              remaining wholly themselves.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PHYSICAL CHARACTERISTICS ================= -->
+
+    <section id="appearance">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Physical Characteristics</span>
+
+          <h2>The Still Form & Wild Form</h2>
+
+          <p>
+            Every Duvara possesses a fundamentally humanoid form, often
+            called the Still Form.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-box">
+
+            <h3>Still Form</h3>
+
+            <p>
+              Many Duvara appear entirely human, while others display subtle
+              features associated with their alternate nature.
+            </p>
+
+            <ul>
+              <li>Unusual eyes or pupils</li>
+              <li>Fangs or sharp teeth</li>
+              <li>Claws</li>
+              <li>Horns or antlers</li>
+              <li>Animal ears</li>
+              <li>Tails</li>
+              <li>Feathers or scales</li>
+              <li>Unusual markings</li>
+              <li>Enhanced senses</li>
+              <li>Minor magical traits</li>
+            </ul>
+
+            <p>
+              These characteristics are highly variable and are not required.
+            </p>
+
+          </div>
+
+
+          <div class="feature-box">
+
+            <h3>Wild Form</h3>
+
+            <p>
+              A Duvara's alternate form may resemble:
+            </p>
+
+            <ul>
+              <li>Natural animals</li>
+              <li>Mythical creatures</li>
+              <li>Spirits</li>
+              <li>Strange magical beings</li>
+              <li>Unique forms specific to a family or lineage</li>
+            </ul>
+
+            <p>
+              No two Duvara transformations are exactly alike.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="feature-box" style="margin-top:25px;">
+
+          <h3>Partial Shifting</h3>
+
+          <p>
+            Some Duvara are capable of Partial Shifting, temporarily
+            manifesting traits from their Wild Form without fully transforming.
+          </p>
+
+          <ul>
+            <li>Growing claws</li>
+            <li>Manifesting wings</li>
+            <li>Developing scales</li>
+            <li>Enhancing sight, hearing, or scent</li>
+            <li>Producing horns or antlers</li>
+            <li>Temporarily altering their eyes</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CULTURE ================= -->
+
+    <section id="culture">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Culture & Society</span>
+
+          <h2>Identity Is Layered</h2>
+
+          <p>
+            Duvara culture is shaped by the belief that identity is made of
+            many parts.
+          </p>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              Rather than viewing transformation as a gift or curse, most
+              Duvara see it as a natural expression of self.
+            </p>
+
+            <p>
+              The relationship between a person's Still Spirit and Wild Spirit
+              is considered deeply personal, and understanding that balance is
+              an important part of Duvara life.
+            </p>
+
+            <p>
+              Duvara communities vary greatly across the Verdigris Isles.
+              Some live among other peoples, while others maintain traditions
+              passed through ancient family lines.
+            </p>
+
+            <p>
+              Some communities treat the Wild Spirit as an important part of
+              childhood education, teaching young Duvara to understand and
+              control their transformations from an early age.
+            </p>
+
+            <p>
+              Others consider the relationship between the two spirits deeply
+              private.
+            </p>
+
+          </div>
+
+
+          <aside class="island-note">
+
+            <div class="symbol">🌿</div>
+
+            <blockquote>
+              A powerful transformation does not make someone more important,
+              nor does an ordinary form make someone lesser.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CUSTOMS ================= -->
+
+    <section id="customs">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Customs & Traditions</span>
+
+          <h2>Traditions of the Two Spirits</h2>
+
+          <p>
+            Duvara traditions vary significantly between communities, but
+            several customs are widespread.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <article class="card">
+
+            <div class="icon">✦</div>
+
+            <h3>Second Naming</h3>
+
+            <p>
+              Some Duvara receive a second name after successfully mastering
+              their transformation.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">🌙</div>
+
+            <h3>Spirit Walk</h3>
+
+            <p>
+              Young Duvara may undertake a personal journey intended to help
+              them understand their Wild Spirit.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">🎭</div>
+
+            <h3>Mask Traditions</h3>
+
+            <p>
+              Some communities create ceremonial masks representing the
+              relationship between the Still and Wild Spirits.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">🤝</div>
+
+            <h3>Dual Oaths</h3>
+
+            <p>
+              Important promises may be sworn in both forms.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">✧</div>
+
+            <h3>Spirit Marks</h3>
+
+            <p>
+              Some families use tattoos, jewelry, carvings, or magical symbols
+              to represent an individual's connection to their Wild Spirit.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">🪶</div>
+
+            <h3>Many Faces</h3>
+
+            <p>
+              For many Duvara, identity is not fixed, but layered. A person
+              may wear many faces throughout their life while remaining
+              wholly themselves.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BANNER ================= -->
+
+    <section class="spirit-banner">
+
+      <div class="container">
+
+        <h2>Two Spirits. One Self.</h2>
+
+        <p>
+          The Duvara do not become something else when they transform.
+          They reveal another part of what they have always been.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= OCCUPATIONS ================= -->
+
+    <section id="occupations">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Common Occupations</span>
+
+          <h2>Many Paths, Many Forms</h2>
+
+          <p>
+            Duvara can be found in nearly every profession throughout the
+            Verdigris Isles.
+          </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+          <p>
+            Their ability to transform often makes them particularly suited
+            to occupations such as:
+          </p>
+
+          <div class="creation-list">
+
+            <div class="creation-item"><strong>Scouts</strong></div>
+            <div class="creation-item"><strong>Rangers</strong></div>
+            <div class="creation-item"><strong>Explorers</strong></div>
+            <div class="creation-item"><strong>Couriers</strong></div>
+            <div class="creation-item"><strong>Hunters</strong></div>
+            <div class="creation-item"><strong>Navigators</strong></div>
+            <div class="creation-item"><strong>Salvagers</strong></div>
+            <div class="creation-item"><strong>Wardens</strong></div>
+            <div class="creation-item"><strong>Relic Hunters</strong></div>
+            <div class="creation-item"><strong>Guides</strong></div>
+            <div class="creation-item"><strong>Performers</strong></div>
+            <div class="creation-item"><strong>Messengers</strong></div>
+            <div class="creation-item"><strong>Trackers</strong></div>
+            <div class="creation-item"><strong>Scholars</strong></div>
+            <div class="creation-item"><strong>Mercenaries</strong></div>
+            <div class="creation-item"><strong>Cartographers</strong></div>
+            <div class="creation-item"><strong>Aether Researchers</strong></div>
+
+          </div>
+
+          <p style="margin-top:25px;">
+            Their alternate forms may allow them to travel through environments
+            inaccessible to others. However, transformation does not determine
+            occupation, personality, beliefs, or morality.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BIOLOGY ================= -->
+
+    <section id="biology">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Lifespan & Biology</span>
+
+          <h2>A Body That Can Change</h2>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              Most Duvara mature at roughly the same rate as humans and
+              generally live between <strong>110 and 160 years</strong>,
+              though individual lineages may naturally live longer or shorter
+              lives.
+            </p>
+
+            <p>
+              Their biology remains primarily humanoid while in their Still
+              Form.
+            </p>
+
+            <p>
+              When transformed, their bodies temporarily reorganize to
+              accommodate their alternate anatomy.
+            </p>
+
+            <p>
+              Scholars continue to debate whether this process is biological,
+              magical, spiritual, or some combination of all three.
+            </p>
+
+            <p>
+              Despite these differences, all Duvara possess humanoid
+              intelligence and participate fully in the societies of the
+              Verdigris Isles.
+            </p>
+
+          </div>
+
+          <aside class="island-note">
+
+            <div class="symbol">☯</div>
+
+            <blockquote>
+              Two forms can belong to the same life.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CHARACTER CREATION ================= -->
+
+    <section id="creation">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Character Creation</span>
+
+          <h2>Creating a Duvara</h2>
+
+          <p>
+            When creating a Duvara character, consider the relationship
+            between their Still Spirit and Wild Spirit.
+          </p>
+
+        </div>
+
+
+        <div class="creation-list">
+
+          <div class="creation-item">
+            <strong>Race</strong>
+            Duvara
+          </div>
+
+          <div class="creation-item">
+            <strong>Path</strong>
+            Wild, Mythic, or Veiled
+          </div>
+
+          <div class="creation-item">
+            <strong>Wild Form</strong>
+            The creature, spirit, or alternate form associated with the character
+          </div>
+
+          <div class="creation-item">
+            <strong>Partial Shifting</strong>
+            Decide whether the character can manifest traits without fully transforming
+          </div>
+
+          <div class="creation-item">
+            <strong>Distinctive Traits</strong>
+            Physical features associated with their alternate nature
+          </div>
+
+          <div class="creation-item">
+            <strong>Personal Appearance</strong>
+            Hair, eye, skin, fur, scale, feather, or other coloration is highly variable
+          </div>
+
+          <div class="creation-item">
+            <strong>Cultural Background</strong>
+            Consider where the character was raised and how transformation influenced their upbringing
+          </div>
+
+        </div>
+
+
+        <div class="feature-box" style="margin-top:30px;">
+
+          <p>
+            A Duvara's alternate form influences their appearance, abilities,
+            and potential cultural traditions, but it does not determine their
+            personality, occupation, beliefs, or morality.
+          </p>
+
+          <p style="margin-bottom:0;">
+            <strong>Their form is ancestry and spirit — not destiny.</strong>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="brand">
+        <span class="brand-icon">✦</span>
+        Verdigris Isles
+      </div>
+
+      <p>
+        Two spirits. One self. Many forms.
+      </p>
+
+      <p style="margin-top:10px;">
+        © 2026 Verdigris Isles
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
