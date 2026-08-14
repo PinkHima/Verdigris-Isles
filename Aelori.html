@@ -1,1 +1,1511 @@
-[aelori race page]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aelori | Peoples of the Verdigris Isles</title>
+
+<style>
+
+:root {
+  --lagoon: #39b9bb;
+  --lagoon-dark: #087f91;
+  --deep-sea: #075c6c;
+  --coral: #e9836b;
+  --sand: #f2dfb6;
+  --cream: #fff6df;
+  --foam: #fffdf7;
+  --leaf: #4f8c4b;
+  --leaf-dark: #27643d;
+  --stone: #5c625e;
+  --ink: #193f46;
+  --muted: #617678;
+
+  --line: rgba(25,63,70,.12);
+  --shadow: 0 18px 45px rgba(14,83,91,.14);
+
+  --radius: 28px;
+  --max: 1180px;
+}
+
+/* ------------------------------
+   BASE
+------------------------------ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(92%, var(--max));
+  margin-inline: auto;
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,253,247,.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--lagoon);
+  color: white;
+
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
+}
+
+.nav-links {
+  list-style: none;
+
+  display: flex;
+  gap: 4px;
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.nav-links a {
+  display: block;
+
+  padding: 9px 11px;
+
+  border-radius: 999px;
+
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #d9f2ec;
+  color: var(--deep-sea);
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  padding: 90px 0 105px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #c6f0e9 0%,
+      #eff0ce 55%,
+      #f5dfb7 100%
+    );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+
+  gap: 50px;
+
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  padding: 8px 15px;
+  margin-bottom: 18px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.72);
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--deep-sea);
+
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+
+  line-height: .88;
+
+  letter-spacing: -.04em;
+
+  margin-bottom: 22px;
+}
+
+.hero-description {
+  max-width: 720px;
+
+  color: #28575c;
+
+  font-size: 1.12rem;
+}
+
+.hero-art {
+  min-height: 470px;
+
+  border-radius: 45px 45px 30px 30px;
+
+  overflow: hidden;
+
+  border: 7px solid rgba(255,255,255,.75);
+
+  background: var(--lagoon);
+
+  box-shadow: 0 28px 55px rgba(18,79,81,.22);
+}
+
+.hero-art img {
+  width: 100%;
+  height: 470px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* ------------------------------
+   CONTENT
+------------------------------ */
+
+section {
+  padding: 85px 0;
+}
+
+.heading {
+  max-width: 850px;
+
+  margin-bottom: 40px;
+}
+
+.kicker {
+  color: var(--coral);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--deep-sea);
+
+  font-size: clamp(2rem, 5vw, 3.3rem);
+
+  line-height: 1.05;
+
+  margin: 8px 0 15px;
+}
+
+h3 {
+  color: var(--deep-sea);
+
+  font-size: 1.35rem;
+
+  margin-bottom: 8px;
+}
+
+.heading p {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+.prose {
+  max-width: 850px;
+}
+
+.prose p + p {
+  margin-top: 18px;
+}
+
+.prose strong {
+  color: var(--deep-sea);
+}
+
+/* ------------------------------
+   CARDS
+------------------------------ */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.card {
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius);
+
+  padding: 28px;
+
+  box-shadow: 0 8px 25px rgba(14,83,91,.06);
+
+  transition: .22s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow);
+}
+
+.card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.card p + p {
+  margin-top: 14px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 17px;
+
+  background: #d8f1e9;
+
+  font-size: 1.3rem;
+}
+
+/* ------------------------------
+   BRANCH CARDS
+------------------------------ */
+
+.branch-card {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.branch-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -30px;
+  top: -30px;
+
+  border-radius: 50%;
+
+  background: rgba(57,185,187,.08);
+}
+
+.branch-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 10px;
+}
+
+.branch-name span {
+  font-family: Arial, sans-serif;
+
+  font-size: .68rem;
+  font-weight: 700;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: #e4f3ed;
+
+  color: var(--leaf-dark);
+
+  text-transform: uppercase;
+
+  letter-spacing: .07em;
+}
+
+/* ------------------------------
+   VARIANT CARDS
+------------------------------ */
+
+.variant {
+  background: #f4e4c3;
+
+  border: 1px solid rgba(25,63,70,.08);
+
+  border-radius: var(--radius);
+
+  padding: 25px;
+}
+
+.variant h3 {
+  margin-bottom: 5px;
+}
+
+.variant p {
+  color: #64706c;
+
+  font-size: .92rem;
+}
+
+/* ------------------------------
+   FEATURE STRIP
+------------------------------ */
+
+.feature-strip {
+  background: var(--deep-sea);
+
+  color: white;
+
+  padding: 70px 0;
+}
+
+.feature-strip h2 {
+  color: white;
+}
+
+.feature-strip p {
+  color: #d8efea;
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.feature {
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.feature strong {
+  display: block;
+
+  color: white;
+
+  margin-bottom: 5px;
+}
+
+.feature span {
+  color: #c9e5df;
+
+  font-size: .88rem;
+}
+
+/* ------------------------------
+   OCCUPATIONS
+------------------------------ */
+
+.occupation-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.occupation {
+  padding: 9px 14px;
+
+  border-radius: 999px;
+
+  background: #d9f2ec;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .78rem;
+
+  font-weight: 700;
+}
+
+/* ------------------------------
+   CREATION BOX
+------------------------------ */
+
+.creation-box {
+  padding: 38px;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e3f4eb,
+      #f4e1b9
+    );
+
+  box-shadow: var(--shadow);
+}
+
+.creation-list {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.creation-item {
+  padding: 18px 20px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.72);
+}
+
+.creation-item strong {
+  display: block;
+
+  color: var(--deep-sea);
+
+  margin-bottom: 4px;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  padding: 45px 0;
+
+  text-align: center;
+
+  color: #d8efea;
+
+  background: var(--deep-sea);
+}
+
+footer .brand {
+  justify-content: center;
+
+  color: white;
+
+  margin-bottom: 9px;
+}
+
+footer p {
+  font-family: Arial, sans-serif;
+
+  font-size: .8rem;
+
+  opacity: .84;
+}
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .grid,
+  .creation-list,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art,
+  .hero-art img {
+    height: 380px;
+    min-height: 380px;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a class="brand" href="index.html">
+
+        <span class="brand-mark">🐚</span>
+
+        Verdigris Isles
+
+      </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="world.html">World</a>
+        </li>
+
+        <li>
+          <a href="regions.html">Regions</a>
+        </li>
+
+        <li>
+          <a href="races.html" class="active">Peoples</a>
+        </li>
+
+        <li>
+          <a href="factions.html">Factions</a>
+        </li>
+
+        <li>
+          <a href="magic.html">Magic</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <span class="eyebrow">
+          🌊 Peoples of the Verdigris Isles
+        </span>
+
+        <h1>Aelori</h1>
+
+        <p class="hero-description">
+          Sea-born peoples descended from countless aquatic and semi-aquatic
+          ancestral lineages, the Aelori are among the most widespread peoples
+          throughout the waters and waterways of the Verdigris Isles.
+        </p>
+
+      </div>
+
+
+      <div class="hero-art">
+
+        <img
+          src="assets/island-reference.jpg"
+          alt="Turquoise coastal waters surrounding a lush tropical island"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     IDENTITY
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Identity</span>
+
+      <h2>Children of the Water</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        While all Aelori share humanoid intelligence and a common aquatic
+        heritage, their bodies and adaptations vary greatly depending on their
+        ancestral lineage and environment.
+      </p>
+
+      <p>
+        An Aelori may possess fins, scales, gills, tails, shells, webbed limbs,
+        bioluminescent markings, specialized senses, amphibious skin, or other
+        adaptations shaped by the waters in which their ancestors lived.
+      </p>
+
+      <p>
+        No single Aelori appearance is considered typical. Two members of the
+        same branch may look radically different while still sharing the same
+        broader cultural and ancestral identity.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     THREE BRANCHES
+============================== -->
+
+<section style="background:#edf5e8;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Three Branches</span>
+
+      <h2>Three Waters. Countless Lineages.</h2>
+
+      <p>
+        Aelori are divided into three primary branches based largely on the
+        environments their ancestral lineages adapted to.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+      <!-- OCEANIC -->
+
+      <article class="card branch-card">
+
+        <div class="icon">🌊</div>
+
+        <div class="branch-name">
+
+          <h3>Oceanic</h3>
+
+          <span>Open Water</span>
+
+        </div>
+
+        <p>
+          Oceanic Aelori are adapted to the open ocean, deep waters, reefs,
+          and marine environments.
+        </p>
+
+        <p>
+          They often possess pronounced aquatic traits such as fins, tails,
+          gills, scales, bioluminescence, specialized senses, or other
+          adaptations suited to life beneath the waves.
+        </p>
+
+        <p>
+          <strong>Common Lineages:</strong><br>
+          Sharks · Octopi · Squid · Eels · Rays · Jellyfish · Cetaceans ·
+          Crustaceans · Other Marine Creatures
+        </p>
+
+      </article>
+
+
+      <!-- TIDAL -->
+
+      <article class="card branch-card">
+
+        <div class="icon">🏝️</div>
+
+        <div class="branch-name">
+
+          <h3>Tidal</h3>
+
+          <span>Coast & Shore</span>
+
+        </div>
+
+        <p>
+          Tidal Aelori are adapted to coastlines, shallows, reefs, islands,
+          and the boundary between land and sea.
+        </p>
+
+        <p>
+          They tend to retain more humanoid forms than many Oceanic lineages,
+          though aquatic traits remain common.
+        </p>
+
+        <p>
+          Their communities frequently maintain strong relationships with
+          coastal settlements and surface-dwelling peoples.
+        </p>
+
+      </article>
+
+
+      <!-- MIREN -->
+
+      <article class="card branch-card">
+
+        <div class="icon">🐊</div>
+
+        <div class="branch-name">
+
+          <h3>Miren</h3>
+
+          <span>Freshwater</span>
+
+        </div>
+
+        <p>
+          Miren Aelori are adapted to freshwater environments, rivers,
+          marshes, swamps, wetlands, and floodplains.
+        </p>
+
+        <p>
+          Their lineages often possess traits associated with creatures that
+          thrive where land and water overlap.
+        </p>
+
+        <p>
+          <strong>Common Lineages:</strong><br>
+          Crocodilians · Turtles · Frogs · Salamanders · Axolotls · Newts ·
+          Other Freshwater Creatures
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     TIDAL VARIANTS
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Recognized Variants</span>
+
+      <h2>Distinct Traditions Within the Tides</h2>
+
+      <p>
+        Certain Aelori lineages have developed recognizable traits and cultural
+        traditions that cross individual family lines.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+      <!-- MERROW -->
+
+      <article class="variant">
+
+        <div class="icon">🐟</div>
+
+        <h3>Merrow</h3>
+
+        <p>
+          Fishlike Aelori with humanoid upper bodies and aquatic tails.
+          Merrow are among the most recognizable Aelori to surface-dwellers.
+        </p>
+
+      </article>
+
+
+      <!-- SIREN -->
+
+      <article class="variant">
+
+        <div class="icon">🎶</div>
+
+        <h3>Siren</h3>
+
+        <p>
+          Aelori known for powerful voices and vocal abilities. Depending on
+          the individual, Sirens may possess enchanting voices, vocal magic,
+          hypnotic abilities, exceptional hearing, or remarkable musical talent.
+        </p>
+
+      </article>
+
+
+      <!-- RHAEREN -->
+
+      <article class="variant">
+
+        <div class="icon">🦭</div>
+
+        <h3>Rhaeren</h3>
+
+        <p>
+          Aelori capable of assuming an animal form through a bonded animal
+          hide. The hide is an important part of Rhaeren identity and is
+          considered an extension of the individual rather than ordinary clothing.
+        </p>
+
+        <p>
+          <strong>Common Hides:</strong><br>
+          Seal · Sea Lion · Otter · Walrus · Other Aquatic Animals
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     ORIGINS
+============================== -->
+
+<section style="background:#e5f4ed;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Overview & Origins</span>
+
+      <h2>Born of Ancient Waters</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        The origins of the Aelori are as uncertain as the depths of the seas
+        they inhabit.
+      </p>
+
+      <p>
+        Ancient coastal traditions claim the first Aelori emerged from the
+        primordial waters, shaped by the sea itself and given forms suited to
+        its countless environments.
+      </p>
+
+      <p>
+        Scholars offer less poetic explanations, suggesting that the Aelori
+        descended from ancient aquatic peoples whose bodies gradually adapted
+        to different waters and environments over countless generations.
+      </p>
+
+      <p>
+        Today, Aelori communities can be found throughout the seas surrounding
+        the Verdigris Isles, along its coasts, within its rivers, and deep
+        within its marshlands.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     PHYSICAL CHARACTERISTICS
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Physical Characteristics</span>
+
+      <h2>No Two Waters Shape the Same Body</h2>
+
+      <p>
+        Every Aelori lineage is unique, though all possess a fundamentally
+        humanoid body plan.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🦈</div>
+        <h3>Marine Anatomy</h3>
+        <p>
+          Sharklike teeth, fins, tails, specialized senses, scales,
+          and other adaptations are common among Oceanic lineages.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🐙</div>
+        <h3>Cephalopod Traits</h3>
+        <p>
+          Tentacles, chromatophores, unusual skin textures, and other
+          cephalopod characteristics may appear among certain lineages.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">✨</div>
+        <h3>Bioluminescence</h3>
+        <p>
+          Some Aelori possess naturally glowing markings, organs, or
+          patterns adapted to life in darker waters.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🦀</div>
+        <h3>Armor & Shells</h3>
+        <p>
+          Shells, claws, armored plates, and other protective anatomy
+          appear among numerous aquatic lineages.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🐸</div>
+        <h3>Amphibious Traits</h3>
+        <p>
+          Webbed hands and feet, amphibious skin, regenerative traits,
+          and freshwater adaptations are particularly common among Miren.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🫧</div>
+        <h3>Aquatic Respiration</h3>
+        <p>
+          Depending on lineage, Aelori may possess gills or other adaptations
+          allowing them to breathe underwater indefinitely.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CULTURE
+============================== -->
+
+<section class="feature-strip">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Culture & Society</span>
+
+      <h2>Water Is Home. Water Is History.</h2>
+
+      <p>
+        Aelori culture is shaped first and foremost by water. Where an Aelori
+        lives, how they travel, and which waters they consider their own often
+        carries greater significance than their specific lineage.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <strong>Oceanic Communities</strong>
+        <span>
+          Often mobile, following currents, seasonal migrations, marine life,
+          and shifting resources.
+        </span>
+      </div>
+
+      <div class="feature">
+        <strong>Tidal Communities</strong>
+        <span>
+          Often maintain permanent relationships with coastal settlements as
+          traders, navigators, guides, and intermediaries.
+        </span>
+      </div>
+
+      <div class="feature">
+        <strong>Miren Communities</strong>
+        <span>
+          Frequently develop around rivers, marshes, and wetlands, with
+          settlements following waterways rather than roads.
+        </span>
+      </div>
+
+      <div class="feature">
+        <strong>Navigation & Memory</strong>
+        <span>
+          Experienced navigators may memorize entire underwater routes using
+          currents, rocks, ruins, reefs, and wildlife.
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CUSTOMS
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Customs & Traditions</span>
+
+      <h2>The Things the Water Remembers</h2>
+
+    </div>
+
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">💧</div>
+        <h3>Water Names</h3>
+        <p>
+          Some Aelori receive a personal name during childhood and later earn
+          a second name associated with a significant body of water, journey,
+          or accomplishment.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🧭</div>
+        <h3>Currentkeeping</h3>
+        <p>
+          Experienced navigators preserve knowledge of dangerous waters and
+          hidden routes, often teaching them orally rather than recording them
+          on maps.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🌊</div>
+        <h3>First Dive</h3>
+        <p>
+          Many communities mark adulthood with a ceremonial first journey into
+          deeper or more dangerous waters.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🤝</div>
+        <h3>Watersharing</h3>
+        <p>
+          Offering another Aelori access to one's waters is traditionally
+          considered an important gesture of trust and hospitality.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">🌙</div>
+        <h3>Tide Gatherings</h3>
+        <p>
+          Significant tides bring communities together for trade, celebrations,
+          courtship, storytelling, and the exchange of news.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="icon">✨</div>
+        <h3>Driftmarks</h3>
+        <p>
+          Some Aelori leave subtle physical or magical markers along underwater
+          routes to communicate warnings, directions, or territorial boundaries.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     OCCUPATIONS
+============================== -->
+
+<section style="background:#edf5e8;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Common Occupations</span>
+
+      <h2>Those Who Know the Water</h2>
+
+      <p>
+        Aelori often excel in professions that take advantage of environments
+        inaccessible to other peoples.
+      </p>
+
+    </div>
+
+
+    <div class="occupation-list">
+
+      <span class="occupation">Navigators</span>
+      <span class="occupation">Siren Guides</span>
+      <span class="occupation">Divers</span>
+      <span class="occupation">Salvagers</span>
+      <span class="occupation">Pearl Collectors</span>
+      <span class="occupation">Shell Collectors</span>
+      <span class="occupation">Fisherfolk</span>
+      <span class="occupation">River Pilots</span>
+      <span class="occupation">Coastal Traders</span>
+      <span class="occupation">Shipwrights</span>
+      <span class="occupation">Relic Hunters</span>
+      <span class="occupation">Couriers</span>
+      <span class="occupation">Cartographers</span>
+      <span class="occupation">Tidewardens</span>
+      <span class="occupation">Smugglers</span>
+      <span class="occupation">Explorers</span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     LIFESPAN & BIOLOGY
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Lifespan & Biology</span>
+
+      <h2>Adapted to Land and Sea</h2>
+
+    </div>
+
+
+    <div class="prose">
+
+      <p>
+        Most Aelori typically live between
+        <strong>140 and 210 years</strong>,
+        though individual lineages may naturally live somewhat longer or
+        shorter depending on their ancestry.
+      </p>
+
+      <p>
+        Their biology varies considerably between branches. Some Aelori are
+        capable of breathing underwater indefinitely, while others can
+        comfortably transition between aquatic and terrestrial environments.
+      </p>
+
+      <p>
+        Certain lineages are almost entirely aquatic, while others can spend
+        most of their lives on land.
+      </p>
+
+      <p>
+        Despite these differences, all Aelori possess humanoid-level
+        intelligence and are capable of interacting with the wider societies
+        of the Verdigris Isles.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CHARACTER CREATION
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="creation-box">
+
+      <span class="kicker">✦ Character Creation</span>
+
+      <h2>Creating an Aelori</h2>
+
+      <p>
+        Your lineage influences your appearance, natural adaptations, and
+        potential cultural background—but it does not determine your
+        personality, occupation, beliefs, or morality.
+      </p>
+
+
+      <div class="creation-list">
+
+        <div class="creation-item">
+          <strong>Race</strong>
+          Aelori
+        </div>
+
+        <div class="creation-item">
+          <strong>Branch</strong>
+          Oceanic, Tidal, or Miren
+        </div>
+
+        <div class="creation-item">
+          <strong>Lineage</strong>
+          The aquatic or semi-aquatic ancestry your character descends from
+        </div>
+
+        <div class="creation-item">
+          <strong>Distinctive Traits</strong>
+          Fins, tails, scales, gills, tentacles, shells, webbing, or other adaptations
+        </div>
+
+        <div class="creation-item">
+          <strong>Personal Appearance</strong>
+          Skin, scale, fin, hair, eye, and other coloration suited to the ancestry
+        </div>
+
+        <div class="creation-item">
+          <strong>Cultural Background</strong>
+          Where your character was raised and how their branch shaped their upbringing
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CLOSING
+============================== -->
+
+<section class="hero" style="padding:75px 0;">
+
+  <div class="container">
+
+    <div class="heading" style="margin:auto;text-align:center;">
+
+      <span class="kicker">✦ The Aelori</span>
+
+      <h2>
+        Remember the Waters That Raised You.
+      </h2>
+
+      <p>
+        An Aelori may not remember every road they have traveled,
+        but they are expected to remember the waters that raised them.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="brand">
+
+      <span class="brand-mark">🐚</span>
+
+      Verdigris Isles
+
+    </div>
+
+    <p>
+      A sunlit world of islands, adventure, magic, and forgotten history.
+    </p>
+
+    <p style="margin-top:10px;">
+      © 2026 Verdigris Isles
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
