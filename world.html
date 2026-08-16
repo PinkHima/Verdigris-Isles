@@ -223,26 +223,30 @@ h1 {
 }
 
 .hero-art {
-  min-height: 470px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
 
-  border-radius: 45px 45px 30px 30px;
+  border-radius: 35px;
 
   overflow: hidden;
 
   border: 7px solid rgba(255,255,255,.75);
 
-  background: var(--lagoon);
+  background: #0b3442;
 
   box-shadow: 0 28px 55px rgba(18,79,81,.22);
 }
 
 .hero-art img {
   width: 100%;
-  height: 470px;
+  height: 100%;
 
   display: block;
 
   object-fit: cover;
+  object-position: center;
+
+  image-rendering: auto;
 }
 
 /* ------------------------------
@@ -737,11 +741,9 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero-art,
-  .hero-art img {
-    height: 380px;
-    min-height: 380px;
-  }
+  .hero-art {
+  aspect-ratio: 3 / 2;
+}
 
   section {
     padding: 65px 0;
