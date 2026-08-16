@@ -239,6 +239,107 @@ h1 {
   object-fit: contain;
 }
 
+  /* ------------------------------
+   MAP IMAGE VIEWER
+------------------------------ */
+
+.map-viewer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: rgba(7, 45, 53, .92);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity .25s ease,
+    visibility .25s ease;
+}
+
+.map-viewer.active {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+.map-viewer img {
+  display: block;
+
+  max-width: 95vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+
+  transform: scale(.94);
+
+  transition: transform .3s ease;
+}
+
+.map-viewer.active img {
+  transform: scale(1);
+}
+
+.map-close {
+  position: absolute;
+
+  top: 25px;
+  right: 30px;
+
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.15);
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 2rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.map-close:hover {
+  background: rgba(255,255,255,.28);
+
+  transform: rotate(90deg);
+}
 /* ------------------------------
    CONTENT
 ------------------------------ */
@@ -732,13 +833,35 @@ footer p {
   }
 
   .hero-art {
-  aspect-ratio: 3 / 2;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 4 / 3;
+  justify-self: stretch;
 }
 
   section {
     padding: 65px 0;
   }
 
+.map-viewer {
+  padding: 20px;
+}
+
+.map-viewer img {
+  max-width: 96vw;
+  max-height: 85vh;
+
+  border-radius: 12px;
+}
+
+.map-close {
+  top: 15px;
+  right: 15px;
+
+  width: 45px;
+  height: 45px;
+}
+  
 }
 
 </style>
@@ -2360,6 +2483,67 @@ footer p {
   </div>
 
 </footer>
+<!-- ==============================
+     MAP IMAGE VIEWER
+============================== -->
 
+<div id="mapViewer" class="map-viewer" onclick="closeMap(event)">
+
+  <button
+    class="map-close"
+    onclick="closeMap()"
+    aria-label="Close map">
+    &times;
+  </button>
+
+  <img
+    id="mapViewerImage"
+    src="assets/World-Map-VI.PNG"
+    alt="Expanded map of the known world surrounding the Verdigris Isles">
+
+</div>
+
+<script>
+
+function openMap() {
+  const viewer = document.getElementById("mapViewer");
+
+  viewer.classList.add("active");
+
+  document.body.style.overflow = "hidden";
+}
+
+function closeMap(event) {
+
+  if (
+    event &&
+    event.target !== event.currentTarget &&
+    !event.target.classList.contains("map-close")
+  ) {
+    return;
+  }
+
+  const viewer = document.getElementById("mapViewer");
+
+  viewer.classList.remove("active");
+
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+
+    const viewer = document.getElementById("mapViewer");
+
+    viewer.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+  }
+
+});
+
+</script>
 </body>
 </html>
