@@ -224,19 +224,44 @@ h1 {
 
 .hero-art {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+
+  justify-self: end;
+
   border-radius: 35px;
   overflow: hidden;
+
   border: 7px solid rgba(255,255,255,.75);
+
   background: #0b3442;
+
   box-shadow: 0 28px 55px rgba(18,79,81,.22);
+
+  cursor: pointer;
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-art:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 32px 65px rgba(18,79,81,.28);
 }
 
 .hero-art img {
   width: 100%;
   height: 100%;
+
   display: block;
-  object-fit: contain;
+
+  object-fit: cover;
+
+  transition: transform .35s ease;
+}
+
+.hero-art:hover img {
+  transform: scale(1.03);
 }
 
   /* ------------------------------
@@ -953,12 +978,13 @@ footer p {
       </div>
 
 
-      <div class="hero-art">
+      <div class="hero-art" onclick="openMap()">
 
-        <img
-          src="assets/World-Map-VI.PNG"
-          alt="A colorful fantasy landscape representing the diverse regions surrounding the Verdigris Isles">
-      </div>
+  <img
+    src="assets/World-Map-VI.PNG"
+    alt="Map of the known world surrounding the Verdigris Isles">
+
+</div>
 
     </div>
 
