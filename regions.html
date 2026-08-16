@@ -1,29 +1,2077 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="From colorful coastal cities to untouched wetlands and dangerous ruins, every region has its own character."><title>Isles · Verdigris Isles</title>
-<link rel="stylesheet" href="styles.css"></head><body><header><div class="container"><nav>
-<a class="brand" href="index.html"><span class="brand-mark">🐚</span>Verdigris Isles</a>
-<ul class="nav">
-<li><a href="index.html">Home</a></li><li><a href="world.html">World</a></li>
-<li><a href="regions.html">Isles</a></li><li><a href="races.html">Races</a></li>
-<li><a href="magic.html">Magic</a></li><li><a href="history.html">History</a></li>
-</ul></nav></div></header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Regions of the Verdigris Isles</title>
+
+<style>
+
+:root {
+  --lagoon: #39b9bb;
+  --lagoon-dark: #087f91;
+  --deep-sea: #075c6c;
+
+  --coral: #e9836b;
+  --sand: #f2dfb6;
+  --cream: #fff6df;
+  --foam: #fffdf7;
+
+  --leaf: #4f8c4b;
+  --leaf-dark: #27643d;
+
+  --gold: #d5a63d;
+  --gold-dark: #8f6a22;
+
+  --stone: #5c625e;
+  --ink: #193f46;
+  --muted: #617678;
+
+  --line: rgba(25,63,70,.12);
+  --shadow: 0 18px 45px rgba(14,83,91,.14);
+
+  --radius: 28px;
+  --max: 1180px;
+}
+
+/* ------------------------------
+   BASE
+------------------------------ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(92%, var(--max));
+  margin-inline: auto;
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(255,253,247,.94);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--lagoon);
+  color: white;
+
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
+}
+
+.nav-links {
+  list-style: none;
+
+  display: flex;
+  gap: 4px;
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.nav-links a {
+  display: block;
+
+  padding: 9px 11px;
+
+  border-radius: 999px;
+
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #d9f2ec;
+  color: var(--deep-sea);
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  padding: 90px 0 105px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #c6f0e9 0%,
+      #dcefc9 48%,
+      #f5dfb7 100%
+    );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+
+  gap: 50px;
+
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  padding: 8px 15px;
+  margin-bottom: 18px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.72);
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--deep-sea);
+
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+
+  line-height: .88;
+
+  letter-spacing: -.04em;
+
+  margin-bottom: 22px;
+}
+
+.hero-description {
+  max-width: 720px;
+
+  color: #28575c;
+
+  font-size: 1.12rem;
+}
+
+.hero-art {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+
+  justify-self: end;
+
+  border-radius: 35px;
+  overflow: hidden;
+
+  border: 7px solid rgba(255,255,255,.75);
+
+  background: #0b3442;
+
+  box-shadow: 0 28px 55px rgba(18,79,81,.22);
+
+  cursor: pointer;
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hero-art:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 32px 65px rgba(18,79,81,.28);
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform .35s ease;
+}
+
+.hero-art:hover img {
+  transform: scale(1.03);
+}
+
+/* ------------------------------
+   MAP VIEWER
+------------------------------ */
+
+.map-viewer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: rgba(7,45,53,.92);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity .25s ease,
+    visibility .25s ease;
+}
+
+.map-viewer.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.map-viewer img {
+  display: block;
+
+  max-width: 95vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+
+  box-shadow: 0 30px 80px rgba(0,0,0,.45);
+
+  transform: scale(.94);
+
+  transition: transform .3s ease;
+}
+
+.map-viewer.active img {
+  transform: scale(1);
+}
+
+.map-close {
+  position: absolute;
+
+  top: 25px;
+  right: 30px;
+
+  width: 52px;
+  height: 52px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.15);
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 2rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.map-close:hover {
+  background: rgba(255,255,255,.28);
+
+  transform: rotate(90deg);
+}
+
+/* ------------------------------
+   CONTENT
+------------------------------ */
+
+section {
+  padding: 85px 0;
+}
+
+.heading {
+  max-width: 850px;
+
+  margin-bottom: 40px;
+}
+
+.kicker {
+  color: var(--coral);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--deep-sea);
+
+  font-size: clamp(2rem, 5vw, 3.3rem);
+
+  line-height: 1.05;
+
+  margin: 8px 0 15px;
+}
+
+h3 {
+  color: var(--deep-sea);
+
+  font-size: 1.35rem;
+
+  margin-bottom: 8px;
+}
+
+.heading p {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+.prose {
+  max-width: 850px;
+}
+
+.prose p + p {
+  margin-top: 18px;
+}
+
+.prose strong {
+  color: var(--deep-sea);
+}
+
+/* ------------------------------
+   REGION GRID
+------------------------------ */
+
+.region-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.region-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius);
+
+  padding: 30px;
+
+  box-shadow: 0 8px 25px rgba(14,83,91,.06);
+
+  transition: .22s;
+}
+
+.region-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow);
+}
+
+.region-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: -45px;
+  top: -45px;
+
+  border-radius: 50%;
+
+  background: rgba(57,185,187,.07);
+}
+
+.region-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 19px;
+
+  background: #d9f2ec;
+
+  font-size: 1.6rem;
+}
+
+.region-card h3 {
+  font-size: 1.6rem;
+}
+
+.region-type {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  margin-bottom: 15px;
+
+  border-radius: 999px;
+
+  background: #eef1d9;
+
+  color: var(--leaf-dark);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .66rem;
+
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+.region-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.region-card p + p {
+  margin-top: 13px;
+}
+
+/* ------------------------------
+   KEY AREAS
+------------------------------ */
+
+.area-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.area {
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  background: #d9f2ec;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .7rem;
+
+  font-weight: 700;
+}
+
+/* ------------------------------
+   FEATURE CARDS
+------------------------------ */
+
+.feature-section {
+  background: #edf5e8;
+}
+
+.feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.feature-card {
+  padding: 32px;
+
+  background: var(--foam);
+
+  border-radius: var(--radius);
+
+  border: 1px solid var(--line);
+
+  box-shadow: 0 8px 25px rgba(14,83,91,.06);
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+}
+
+.feature-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.feature-card p + p {
+  margin-top: 15px;
+}
+
+/* ------------------------------
+   FEATURE STRIP
+------------------------------ */
+
+.feature-strip {
+  margin-top: 25px;
+
+  padding: 25px;
+
+  border-radius: 23px;
+
+  background: #f4e4c3;
+}
+
+.feature-strip strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .76rem;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+/* ------------------------------
+   REGION CHARACTER
+------------------------------ */
+
+.character-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.character-item {
+  padding: 16px 12px;
+
+  text-align: center;
+
+  border-radius: 18px;
+
+  background: #d9f2ec;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .74rem;
+
+  font-weight: 700;
+}
+
+/* ------------------------------
+   REGIONAL RELATIONSHIPS
+------------------------------ */
+
+.relationship {
+  background: var(--deep-sea);
+
+  color: white;
+
+  padding: 75px 0;
+}
+
+.relationship h2 {
+  color: white;
+}
+
+.relationship .kicker {
+  color: #f4c56a;
+}
+
+.relationship p {
+  color: #d8efea;
+
+  max-width: 850px;
+
+  font-size: 1rem;
+}
+
+.relationship-box {
+  margin-top: 20px;
+
+  padding: 27px;
+
+  border-radius: 25px;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.relationship-box strong {
+  display: block;
+
+  color: white;
+
+  margin-bottom: 7px;
+}
+
+/* ------------------------------
+   REGION COMPARISON
+------------------------------ */
+
+.comparison {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.comparison-card {
+  padding: 27px;
+
+  border-radius: 25px;
+
+  background: #f4e4c3;
+}
+
+.comparison-card h3 {
+  margin-bottom: 10px;
+}
+
+.comparison-card p {
+  color: #64706c;
+
+  font-size: .9rem;
+}
+
+/* ------------------------------
+   CLOSING
+------------------------------ */
+
+.closing {
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e3f4eb,
+      #f4e1b9
+    );
+}
+
+.closing .heading {
+  margin: auto;
+}
+
+.closing p {
+  max-width: 720px;
+
+  margin: auto;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  padding: 45px 0;
+
+  text-align: center;
+
+  color: #d8efea;
+
+  background: var(--deep-sea);
+}
+
+footer .brand {
+  justify-content: center;
+
+  color: white;
+
+  margin-bottom: 9px;
+}
+
+footer p {
+  font-family: Arial, sans-serif;
+
+  font-size: .8rem;
+
+  opacity: .84;
+}
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .region-grid,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .region-grid,
+  .feature-grid,
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-art {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 4 / 3;
+    justify-self: stretch;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .map-viewer {
+    padding: 20px;
+  }
+
+  .map-viewer img {
+    max-width: 96vw;
+    max-height: 85vh;
+
+    border-radius: 12px;
+  }
+
+  .map-close {
+    top: 15px;
+    right: 15px;
+
+    width: 45px;
+    height: 45px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a class="brand" href="index.html">
+
+        <span class="brand-mark">🌿</span>
+
+        Verdigris Isles
+
+      </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="world.html">World</a>
+        </li>
+
+        <li>
+          <a href="regions.html" class="active">Isles</a>
+        </li>
+
+        <li>
+          <a href="races.html">Races</a>
+        </li>
+
+        <li>
+          <a href="magic.html">Magic</a>
+        </li>
+
+        <li>
+          <a href="history.html">History</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
 <main>
-<section class="hero" style="padding:75px 0 95px;min-height:0">
-<div class="container"><div class="heading"><span class="eyebrow">The Archipelago</span>
-<h1 style="font-size:clamp(3rem,7vw,5.7rem);margin-bottom:20px">Islands, Shores &amp; Wild Places</h1>
-<p>From colorful coastal cities to untouched wetlands and dangerous ruins, every region has its own character.</p></div></div></section>
 
-<section><div class="container"><div class="grid">
-<article class="card"><div class="icon">🏝️</div><h3>Verde Haven</h3><p>A lively coastal capital filled with markets, cafés, workshops, guilds, ships, and travelers.</p></article>
-<article class="card"><div class="icon">🏛️</div><h3>Crownscar</h3><p>The dangerous ruins created by the fall of the Citadel, where relics and magical anomalies remain.</p></article>
-<article class="card"><div class="icon">🌿</div><h3>Elara Wilds</h3><p>Lush forests, wetlands, rivers, and wild coastlines watched over by the Elara Wardens.</p></article>
-<article class="card"><div class="icon">⛰️</div><h3>Kharad Highlands</h3><p>Rugged mountain country known for metallurgy, engineering, mining, and skilled craftspeople.</p></article>
-<article class="card"><div class="icon">⚓</div><h3>Azure Coast</h3><p>A maritime region of ports, beaches, fishing communities, trade routes, and the Azure Confederacy.</p></article>
-<article class="card"><div class="icon">🌅</div><h3>Talanor Expanse</h3><p>A broad frontier where settlements and exploration continue toward lands still only partly known.</p></article>
-</div></div></section>
-<section class="banner"><div class="container"><h2>Follow the Coastline.</h2><p>Take the long way home. Stop at the next harbor. Wander into the jungle. The Isles were made for getting a little lost.</p></div></section>
 
-</main><footer><div class="container"><div class="brand"><span class="brand-mark">🐚</span>Verdigris Isles</div>
-<p>A sunlit world of islands, adventure, magic, and forgotten history.</p>
-<p style="margin-top:10px">© 2026 Verdigris Isles</p></div></footer></body></html>
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <span class="eyebrow">
+          🌿 The Verdigris Isles
+        </span>
+
+        <h1>One Archipelago.<br>Many Worlds.</h1>
+
+        <p class="hero-description">
+          From the bustling streets of Verde Haven to flooded jungles,
+          ancient forests, shattered ruins, and winding bayous, the Verdigris
+          Isles are a land of contrasting landscapes shaped by nature,
+          forgotten history, and the remnants of the Age of Ascension.
+        </p>
+
+      </div>
+
+
+      <div class="hero-art" onclick="openMap()">
+
+        <img
+          src="assets/Verdigris-Isles-Map.PNG"
+          alt="Map of the Verdigris Isles">
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     OVERVIEW
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Isles</span>
+
+      <h2>A Land Reclaimed by Nature</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        The Verdigris Isles are an archipelago shaped by the remains of the
+        fallen Ascension age. Ancient foundations, forgotten roads, buried
+        structures, and fractured ruins can be found throughout the islands,
+        often beneath forests, wetlands, and layers of vegetation that have
+        reclaimed what civilization left behind.
+      </p>
+
+      <p>
+        At the center of the Isles stands <strong>Verde Haven</strong>, the
+        modern capital and largest metropolitan hub. The city serves as the
+        primary center of governance, trade, guild activity, and expedition
+        planning.
+      </p>
+
+      <p>
+        Beyond the capital, the landscape changes dramatically. Waterfalls
+        plunge through rainforest canyons, ancient forests stretch across
+        untamed wilderness, ruined cities break apart beneath the Badlands,
+        and entire roads disappear beneath the waters of the Gatorback
+        Marshes.
+      </p>
+
+      <p>
+        Traveling through the Isles means moving between places where the
+        modern world and the ancient past exist side by side.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     REGION OVERVIEW
+============================== -->
+
+<section style="background:#edf5e8;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Major Regions</span>
+
+      <h2>Five Faces of the Isles</h2>
+
+      <p>
+        Each region of the Verdigris Isles offers a different environment,
+        culture, and relationship with the remnants of the past.
+      </p>
+
+    </div>
+
+
+    <div class="region-grid">
+
+
+      <!-- VERDE HAVEN -->
+
+      <article class="region-card">
+
+        <div class="region-icon">🌿</div>
+
+        <span class="region-type">
+          Capital City · Metropolitan Hub
+        </span>
+
+        <h3>Verde Haven</h3>
+
+        <p>
+          Verde Haven is the capital of the Verdigris Isles and the center of
+          modern island life.
+        </p>
+
+        <p>
+          Built atop reclaimed Ascension foundations, the city has grown into
+          a bustling metropolitan hub where government, trade, guilds,
+          artisans, travelers, and expeditions converge.
+        </p>
+
+        <div class="area-list">
+
+          <span class="area">City Square</span>
+          <span class="area">Drifting Kettle</span>
+          <span class="area">Center Street Market</span>
+          <span class="area">Artisan Alley</span>
+          <span class="area">Residential Ward</span>
+          <span class="area">Council Hall</span>
+          <span class="area">Botanical Gardens</span>
+
+        </div>
+
+      </article>
+
+
+      <!-- MOSSFALL -->
+
+      <article class="region-card">
+
+        <div class="region-icon">🌊</div>
+
+        <span class="region-type">
+          Waterfall Basin · Rainforest Canyon
+        </span>
+
+        <h3>Mossfall Basin</h3>
+
+        <p>
+          Mossfall Basin is a mist-drenched region of dense rainforest,
+          towering cliffs, cascading waterfalls, and ancient ruins.
+        </p>
+
+        <p>
+          The basin is known for its unusual spirit resonance and dramatic
+          vertical landscapes, where living ecosystems have grown around
+          structures left behind by earlier civilizations.
+        </p>
+
+        <div class="area-list">
+
+          <span class="area">Waterfall Cliffs</span>
+          <span class="area">Flood Jungle</span>
+          <span class="area">Canopy Walks</span>
+          <span class="area">Vine-Covered Temple</span>
+          <span class="area">Lotus Lake</span>
+          <span class="area">Oldlight Observatory</span>
+
+        </div>
+
+      </article>
+
+
+      <!-- VERDIGRIS WILDS -->
+
+      <article class="region-card">
+
+        <div class="region-icon">🌳</div>
+
+        <span class="region-type">
+          Untamed Wilderness · Frontier
+        </span>
+
+        <h3>Verdigris Wilds</h3>
+
+        <p>
+          The Verdigris Wilds form a vast stretch of untamed wilderness where
+          ancient forests, open plains, meadows, and spirit-rich locations
+          dominate the landscape.
+        </p>
+
+        <p>
+          The region is known for its hunting grounds and drifting landscapes,
+          but travelers often speak of something stranger: the feeling that
+          the land itself is aware of those who pass through it.
+        </p>
+
+        <div class="area-list">
+
+          <span class="area">Ancient Forest</span>
+          <span class="area">Sandtide Plains</span>
+          <span class="area">Sunlit Meadows</span>
+          <span class="area">Spirit Grove</span>
+          <span class="area">Hunter Trails</span>
+          <span class="area">Whispering Hollow</span>
+
+        </div>
+
+      </article>
+
+
+      <!-- BADLANDS -->
+
+      <article class="region-card">
+
+        <div class="region-icon">☠️</div>
+
+        <span class="region-type">
+          Ruin Wasteland · Fractured Frontier
+        </span>
+
+        <h3>The Badlands</h3>
+
+        <p>
+          The Badlands are the most visibly broken region of the Isles, filled
+          with fractured terrain, ruined structures, fallen palaces, and
+          remnants of a civilization that collapsed long ago.
+        </p>
+
+        <p>
+          Expeditions into the region are dangerous not only because of its
+          unstable terrain, but because something beneath the ruins appears to
+          have survived the collapse.
+        </p>
+
+        <div class="area-list">
+
+          <span class="area">Broken Mesas</span>
+          <span class="area">Outer Ruins</span>
+          <span class="area">Fallen Palaces</span>
+          <span class="area">Buried Undercity</span>
+          <span class="area">Expedition Camp</span>
+
+        </div>
+
+      </article>
+
+
+      <!-- GATORBACK -->
+
+      <article class="region-card">
+
+        <div class="region-icon">🐊</div>
+
+        <span class="region-type">
+          Swamp Wetlands · Submerged Ruins
+        </span>
+
+        <h3>Gatorback Marshes</h3>
+
+        <p>
+          The Gatorback Marshes are a sprawling wetland of bayous, cypress
+          swamps, reed villages, and submerged ruins.
+        </p>
+
+        <p>
+          Navigation through the Marshes is difficult even for experienced
+          travelers. Old roads, causeways, and structures frequently disappear
+          beneath the water, leaving the landscape as much a historical mystery
+          as a geographical one.
+        </p>
+
+        <div class="area-list">
+
+          <span class="area">Winding Bayous</span>
+          <span class="area">Reed Villages</span>
+          <span class="area">Cypress Swamps</span>
+          <span class="area">Ranger Outpost</span>
+          <span class="area">Fisher Camps</span>
+          <span class="area">Sunken Causeways</span>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     VERDE HAVEN
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Capital · Metropolitan Hub</span>
+
+      <h2>Verde Haven</h2>
+
+      <p>
+        The beating heart of the Verdigris Isles, where modern civilization
+        has grown directly over the foundations of the past.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+
+        <h3>🏛️ Seat of Governance</h3>
+
+        <p>
+          Verde Haven serves as the political center of the Isles. The city's
+          Council Hall houses the institutions responsible for governing the
+          modern settlements and coordinating the needs of the archipelago.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>⚓ Center of Trade</h3>
+
+        <p>
+          Merchants, travelers, artisans, and foreign visitors pass through
+          Verde Haven constantly. Its markets connect the Isles to the wider
+          world and make the city one of the most important trading centers in
+          the region.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🧭 Expedition Headquarters</h3>
+
+        <p>
+          Expeditions into the Badlands, Mossfall Basin, Verdigris Wilds, and
+          other dangerous territories frequently begin in the capital.
+        </p>
+
+        <p>
+          Guilds and independent explorers use the city as a place to recruit,
+          prepare, purchase supplies, and exchange information.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🎨 A Living City</h3>
+
+        <p>
+          Despite being built upon reclaimed Ascension foundations, Verde Haven
+          is not a museum of the past. New buildings, businesses, gardens,
+          workshops, and neighborhoods have grown around the remnants.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="feature-strip">
+
+      <strong>Defining Feature</strong>
+
+      Verde Haven represents the Isles' ability to rebuild. Ancient
+      foundations remain beneath the city, but the people living above them
+      are creating something distinctly their own.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     MOSSFALL
+============================== -->
+
+<section class="feature-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Waterfall Basin · Rainforest Canyon</span>
+
+      <h2>Mossfall Basin</h2>
+
+      <p>
+        A mist-filled landscape where waterfalls, rainforest, ancient ruins,
+        and spirit resonance exist together.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+
+        <h3>💧 Endless Water</h3>
+
+        <p>
+          Water dominates Mossfall Basin. Rivers, pools, waterfalls, and
+          flooded jungle create a constantly changing network of paths through
+          the region.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🌿 Vertical Wilderness</h3>
+
+        <p>
+          The Basin is shaped by enormous cliffs and elevated terrain.
+          Canopy paths and natural formations allow travelers to move through
+          the region above the jungle floor.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>👻 Spirit Resonance</h3>
+
+        <p>
+          Mossfall is particularly known for its connection to spirits.
+          Travelers may encounter unusual phenomena around ancient sites,
+          waterways, and heavily overgrown ruins.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🔭 Oldlight Observatory</h3>
+
+        <p>
+          The Oldlight Observatory stands among the Basin's ancient locations,
+          offering a reminder that the region was once home to people who
+          studied the world from these heights.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="feature-strip">
+
+      <strong>Defining Feature</strong>
+
+      Ancient structures do not stand apart from Mossfall's ecosystem. They
+      have become part of it, covered in vines, surrounded by water, and
+      slowly reclaimed by the rainforest.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     VERDIGRIS WILDS
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Wilderness · Spirit-Rich Frontier</span>
+
+      <h2>The Verdigris Wilds</h2>
+
+      <p>
+        A vast wilderness where ancient nature stretches beyond the boundaries
+        of civilization.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+
+        <h3>🌳 Ancient Forests</h3>
+
+        <p>
+          Enormous forests dominate portions of the Wilds, creating landscapes
+          where travelers can walk for hours without encountering a settlement.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🏹 Hunting Grounds</h3>
+
+        <p>
+          Hunters and trackers use established trails throughout the region,
+          while experienced guides help newcomers navigate areas where the
+          wilderness can become unpredictable.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🌾 Open Landscapes</h3>
+
+        <p>
+          The Wilds are not entirely forested. Sunlit meadows and broad plains
+          break up the wilderness and create important spaces for travel,
+          hunting, and settlement.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🌙 Whispering Places</h3>
+
+        <p>
+          Locations such as Spirit Grove and Whispering Hollow have become
+          associated with stories of strange sounds, unusual encounters, and
+          landscapes that seem to retain memories.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="feature-strip">
+
+      <strong>Defining Feature</strong>
+
+      The Wilds are not simply empty wilderness. There is a persistent sense
+      that the land remembers what came before, even when no obvious ruins
+      remain.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     BADLANDS
+============================== -->
+
+<section class="feature-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Ruin Wasteland · Fractured Frontier</span>
+
+      <h2>The Badlands</h2>
+
+      <p>
+        The shattered remains of civilization, where exploration means
+        confronting both the ruins of the past and the dangers beneath them.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+
+        <h3>🏜️ Broken Terrain</h3>
+
+        <p>
+          Broken mesas and fractured landscapes make travel through the
+          Badlands difficult. Paths that appear stable may lead into unstable
+          ground or collapsed structures.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🏛️ Fallen Civilization</h3>
+
+        <p>
+          Fallen palaces and outer ruins reveal the scale of the civilization
+          that once occupied the region.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>⬇️ The Buried Undercity</h3>
+
+        <p>
+          Beneath the surface lies an extensive buried environment whose
+          secrets remain largely unexplored.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>⛺ Expedition Camp</h3>
+
+        <p>
+          The Expedition Camp serves as a base for those brave enough to enter
+          the Badlands, providing a temporary foothold for exploration and
+          research.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="feature-strip">
+
+      <strong>Defining Feature</strong>
+
+      The Badlands are a place where civilization failed first—and where the
+      ruins suggest that whatever caused that failure may not be entirely
+      gone.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     GATORBACK
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Wetlands · Submerged Ruins</span>
+
+      <h2>Gatorback Marshes</h2>
+
+      <p>
+        A slow-moving labyrinth of water, reeds, cypress trees, and history
+        hidden beneath the surface.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+
+        <h3>🐊 Swamp Life</h3>
+
+        <p>
+          The Marshes support communities adapted to life around water.
+          Fisher camps and reed villages are scattered throughout the wetlands.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🛶 Bayou Navigation</h3>
+
+        <p>
+          Travel through Gatorback depends heavily on knowledge of the bayous.
+          Experienced guides know which waterways remain navigable and which
+          paths have become blocked or submerged.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🌳 Cypress Country</h3>
+
+        <p>
+          Cypress swamps create some of the most distinctive landscapes in the
+          Isles, with waterways winding between enormous trees and dense
+          vegetation.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <h3>🏚️ Sunken History</h3>
+
+        <p>
+          Ancient roads, causeways, and structures lie beneath portions of the
+          Marshes. Some can only be discovered when water levels change.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="feature-strip">
+
+      <strong>Defining Feature</strong>
+
+      In Gatorback, the map is never entirely reliable. Roads become
+      waterways, waterways shift, and entire pieces of the past may remain
+      hidden beneath the surface.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     REGIONAL IDENTITY
+============================== -->
+
+<section style="background:#edf5e8;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Character Backgrounds</span>
+
+      <h2>Where Are You From?</h2>
+
+      <p>
+        A character's home region can shape their skills, upbringing,
+        worldview, relationship with nature, and familiarity with the wider
+        Isles.
+      </p>
+
+    </div>
+
+
+    <div class="character-grid">
+
+      <div class="character-item">
+        🌿 Verde Haven
+      </div>
+
+      <div class="character-item">
+        🌊 Mossfall Basin
+      </div>
+
+      <div class="character-item">
+        🌳 Verdigris Wilds
+      </div>
+
+      <div class="character-item">
+        ☠️ The Badlands
+      </div>
+
+      <div class="character-item">
+        🐊 Gatorback Marshes
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CONNECTION
+============================== -->
+
+<section class="relationship">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Isles Connected</span>
+
+      <h2>No Region Exists Alone</h2>
+
+      <p>
+        The regions of the Verdigris Isles are connected through trade,
+        travel, exploration, resources, and the remnants of the civilization
+        that came before.
+      </p>
+
+    </div>
+
+
+    <div class="relationship-box">
+
+      <strong>🌿 Verde Haven</strong>
+
+      Serves as the central hub of the Isles, connecting the surrounding
+      regions through trade, governance, guild activity, and expedition
+      planning.
+
+    </div>
+
+
+    <div class="relationship-box">
+
+      <strong>🌊 Mossfall Basin</strong>
+
+      Provides access to rainforest resources, ancient sites, waterways, and
+      locations associated with strong spirit resonance.
+
+    </div>
+
+
+    <div class="relationship-box">
+
+      <strong>🌳 Verdigris Wilds</strong>
+
+      Provide vast hunting grounds, wilderness routes, natural resources, and
+      some of the least-developed territory in the Isles.
+
+    </div>
+
+
+    <div class="relationship-box">
+
+      <strong>☠️ The Badlands</strong>
+
+      Remain one of the greatest destinations for relic hunters, researchers,
+      and adventurers seeking answers about the ancient past.
+
+    </div>
+
+
+    <div class="relationship-box">
+
+      <strong>🐊 Gatorback Marshes</strong>
+
+      Connect isolated communities through waterways while hiding remnants of
+      ancient roads, ruins, and forgotten routes beneath the swamp.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     COMPARISON
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Across the Isles</span>
+
+      <h2>Five Regions. Five Experiences.</h2>
+
+      <p>
+        The Verdigris Isles are small enough to share a history, but diverse
+        enough that every region feels like its own world.
+      </p>
+
+    </div>
+
+
+    <div class="comparison">
+
+      <article class="comparison-card">
+
+        <h3>🌿 Verde Haven</h3>
+
+        <p>
+          Civilization, commerce, politics, guilds, artistry, and the
+          opportunity to build a future from the ruins of the past.
+        </p>
+
+      </article>
+
+
+      <article class="comparison-card">
+
+        <h3>🌊 Mossfall Basin</h3>
+
+        <p>
+          Rainforest exploration, waterfalls, ancient ruins, vertical
+          landscapes, and strong spiritual resonance.
+        </p>
+
+      </article>
+
+
+      <article class="comparison-card">
+
+        <h3>🌳 Verdigris Wilds</h3>
+
+        <p>
+          Wilderness, hunting, exploration, ancient nature, and places where
+          the land itself seems to remember.
+        </p>
+
+      </article>
+
+
+      <article class="comparison-card">
+
+        <h3>☠️ The Badlands</h3>
+
+        <p>
+          Ruins, dangerous terrain, buried cities, relic hunting, and the
+          unanswered mysteries beneath the fractured land.
+        </p>
+
+      </article>
+
+
+      <article class="comparison-card">
+
+        <h3>🐊 Gatorback Marshes</h3>
+
+        <p>
+          Bayous, swamp communities, dangerous waterways, hidden ruins, and
+          history submerged beneath the water.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CLOSING
+============================== -->
+
+<section class="closing">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Verdigris Isles</span>
+
+      <h2>
+        There Is Always Somewhere Else to Explore.
+      </h2>
+
+      <p>
+        From the lights of Verde Haven to the deepest corners of the Marshes,
+        the Verdigris Isles are a land where civilization and wilderness meet,
+        where ancient ruins continue to shape the present, and where every
+        road may lead somewhere no one has seen before.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="brand">
+
+      <span class="brand-mark">🌿</span>
+
+      Verdigris Isles
+
+    </div>
+
+    <p>
+      A sunlit world of islands, adventure, magic, and forgotten history.
+    </p>
+
+    <p style="margin-top:10px;">
+      © 2026 Verdigris Isles
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- ==============================
+     MAP IMAGE VIEWER
+============================== -->
+
+<div id="mapViewer" class="map-viewer" onclick="closeMap(event)">
+
+  <button
+    class="map-close"
+    onclick="closeMap()"
+    aria-label="Close map">
+    &times;
+  </button>
+
+  <img
+    id="mapViewerImage"
+    src="assets/Verdigris-Isles-Map.PNG"
+    alt="Expanded map of the Verdigris Isles">
+
+</div>
+
+
+<script>
+
+function openMap() {
+
+  const viewer =
+    document.getElementById("mapViewer");
+
+  viewer.classList.add("active");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+function closeMap(event) {
+
+  if (
+    event &&
+    event.target !== event.currentTarget &&
+    !event.target.classList.contains("map-close")
+  ) {
+
+    return;
+
+  }
+
+  const viewer =
+    document.getElementById("mapViewer");
+
+  viewer.classList.remove("active");
+
+  document.body.style.overflow = "";
+
+}
+
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+
+    const viewer =
+      document.getElementById("mapViewer");
+
+    viewer.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
