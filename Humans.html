@@ -1,98 +1,1871 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Humans | Verdigris Isles</title>
-<style>
-:root{--lagoon:#123f46;--deep:#092d33;--seafoam:#dcefe9;--sand:#f6edda;--cream:#fffaf0;--coral:#d87561;--ink:#203538;--muted:#64777a;--line:rgba(18,63,70,.12);--radius:24px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--cream);font-family:Georgia,"Times New Roman",serif;line-height:1.7}
-a{text-decoration:none;color:inherit}.container{width:min(1160px,calc(100% - 36px));margin:auto}
-.topbar{position:sticky;top:0;z-index:10;background:rgba(255,250,240,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;color:var(--lagoon);font-weight:bold;letter-spacing:.06em}.mark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--lagoon);color:var(--sand)}
-.navlinks{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:var(--coral)}
-.hero{padding:90px 0 70px;background:linear-gradient(180deg,var(--seafoam),rgba(246,237,218,.3));border-bottom:1px solid var(--line)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}.eyebrow,.kicker{text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;font-weight:bold;color:#b95c4a}
-h1,h2,h3{color:var(--deep);line-height:1.15}h1{font-size:clamp(3.2rem,8vw,6rem);letter-spacing:-.05em;margin:10px 0 16px}h2{font-size:clamp(2rem,4vw,3rem);margin:0}h3{font-size:1.35rem;margin:0 0 7px}
-.hero p{font-size:1.12rem;color:var(--muted);max-width:700px}.hero-card{min-height:300px;border-radius:38px 38px 75px 38px;padding:32px;background:linear-gradient(145deg,var(--lagoon),#185b5e);color:white;box-shadow:0 18px 45px rgba(18,63,70,.15);display:flex;flex-direction:column;justify-content:space-between}.hero-card .symbol{font-size:4rem}.hero-card strong{font-size:1.4rem}.hero-card p{font-size:.98rem;color:rgba(255,255,255,.75)}
-section{padding:78px 0}.section-heading{max-width:780px;margin-bottom:34px}.section-heading p,.prose p,.region-card p,.info-card p{color:var(--muted)}
-.highlight{margin:28px 0;padding:24px 28px;border-left:5px solid var(--coral);border-radius:var(--radius);background:rgba(220,239,233,.7)}
-.traits{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:0;list-style:none}.traits li{padding:13px 16px;background:white;border:1px solid var(--line);border-radius:14px}.traits li:before{content:"✦";color:var(--coral);margin-right:8px}
-.culture{background:var(--seafoam)}.region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.region-card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 10px 28px rgba(18,63,70,.06)}.region-title{display:flex;align-items:center;gap:12px}.region-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:var(--sand);font-size:1.45rem}.type{font-size:.82rem;font-weight:bold;color:#b95c4a;margin:4px 0 15px}.mini{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;font-weight:bold;color:var(--lagoon);margin:16px 0 7px}.pills{display:flex;flex-wrap:wrap;gap:7px;padding:0;list-style:none}.pills li{padding:6px 10px;border-radius:999px;background:var(--sand);font-size:.8rem;line-height:1.25}
-.occupation{margin-top:30px;padding:30px;border-radius:var(--radius);background:var(--lagoon);color:white}.occupation h2{color:white}.occupation p{color:rgba(255,255,255,.75)}.occupation .pills li{background:rgba(255,255,255,.12);color:white}
-.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.info-card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:26px}.number{font-size:2rem;font-weight:bold;color:var(--coral)}
-.creation{background:linear-gradient(135deg,var(--deep),var(--lagoon));color:white}.creation h2{color:white}.creation p{color:rgba(255,255,255,.76)}.creation-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px}.creation-list{display:grid;gap:10px;list-style:none;padding:0;counter-reset:item}.creation-list li{counter-increment:item;padding:15px 18px 15px 52px;background:rgba(255,255,255,.08);border-radius:14px;position:relative}.creation-list li:before{content:counter(item);position:absolute;left:15px;top:12px;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--coral);font-size:.75rem}.important{margin-top:25px;padding:22px;border-radius:18px;background:rgba(216,117,97,.14);border:1px solid rgba(216,117,97,.3)}.important strong{display:block;color:#ffc2b6;margin-bottom:6px}
-footer{padding:32px 0;background:#071f24;color:rgba(255,255,255,.6);font-size:.85rem}
-@media(max-width:850px){.hero-grid,.creation-grid,.region-grid{grid-template-columns:1fr}.life-grid{grid-template-columns:1fr}.traits{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column;padding:12px 0}.navlinks{gap:10px 14px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Humans — a culturally diverse people shaped by homeland, nation, and community in the Verdigris Isles."
+  >
+
+  <title>Humans | Verdigris Isles</title>
+
+  <style>
+    :root {
+      --forest: #52745b;
+      --deep-forest: #304d3a;
+      --sage: #b8cdb8;
+      --mist: #e8eee4;
+      --cream: #f5ead5;
+      --cream-dark: #d9c39c;
+      --gold: #c99645;
+      --clay: #b96f59;
+      --ink: #33453a;
+      --muted: #66736a;
+      --white: #fffdf7;
+      --border: rgba(51, 69, 58, 0.13);
+      --shadow: 0 12px 35px rgba(48, 77, 58, 0.12);
+      --radius: 24px;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--mist);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 253, 247, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--deep-forest);
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--sage);
+      color: var(--deep-forest);
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      list-style: none;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 9px 14px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--sage);
+      color: var(--deep-forest);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 95px 0 85px;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(201, 150, 69, 0.25),
+          transparent 18%
+        ),
+        linear-gradient(
+          135deg,
+          var(--mist),
+          var(--sage)
+        );
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -5%;
+      right: -5%;
+      bottom: -70px;
+      height: 140px;
+      background: var(--white);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      background: rgba(255, 253, 247, 0.75);
+      color: var(--deep-forest);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      color: var(--deep-forest);
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 750px;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .hero-quote {
+      margin-top: 30px;
+      padding: 22px 28px;
+      max-width: 700px;
+      background: rgba(255, 253, 247, 0.72);
+      border-left: 5px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    /* ================= GENERAL ================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--white);
+    }
+
+    .heading {
+      max-width: 800px;
+      margin-bottom: 45px;
+    }
+
+    .kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--clay);
+      font-family: Arial, sans-serif;
+      font-size: 0.76rem;
+      font-weight: bold;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: var(--deep-forest);
+      font-size: clamp(2.1rem, 4vw, 3.3rem);
+      line-height: 1.1;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      color: var(--deep-forest);
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    /* ================= STORY ================= */
+
+    .story {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .story-copy {
+      font-size: 1.05rem;
+    }
+
+    .homeland-note {
+      padding: 35px;
+      background: var(--cream);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transform: rotate(1deg);
+    }
+
+    .homeland-note .symbol {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .homeland-note blockquote {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--deep-forest);
+    }
+
+    /* ================= CARDS ================= */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    section:nth-of-type(even) .card {
+      background: var(--mist);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(48, 77, 58, 0.16);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--sage);
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    /* ================= HOMELANDS ================= */
+
+    .homeland-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .homeland-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--forest);
+    }
+
+    .homeland-card.kharad::before {
+      background: #76634b;
+    }
+
+    .homeland-card.azure::before {
+      background: #4e91a0;
+    }
+
+    .homeland-card.thalassan::before {
+      background: #536e9a;
+    }
+
+    .homeland-card.ardynwood::before {
+      background: #668052;
+    }
+
+    .homeland-card.caelmont::before {
+      background: #a67b45;
+    }
+
+    .homeland-card.talanor::before {
+      background: #8a5545;
+    }
+
+    .region-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--deep-forest);
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .occupation-list {
+      margin-top: 18px;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .occupation-list li {
+      margin-bottom: 5px;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .feature-box {
+      padding: 30px;
+      background: var(--mist);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .feature-box h3 {
+      margin-bottom: 15px;
+    }
+
+    .feature-box ul {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .feature-box li {
+      margin-bottom: 7px;
+    }
+
+    /* ================= CULTURAL IDENTITY BANNER ================= */
+
+    .culture-banner {
+      padding: 85px 0;
+      background:
+        linear-gradient(
+          135deg,
+          var(--deep-forest),
+          var(--forest)
+        );
+      color: var(--white);
+      text-align: center;
+    }
+
+    .culture-banner h2 {
+      color: var(--white);
+    }
+
+    .culture-banner p {
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+    }
+
+    /* ================= CREATION ================= */
+
+    .creation-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .creation-item {
+      padding: 18px 20px;
+      background: var(--cream);
+      border-radius: 16px;
+    }
+
+    .creation-item strong {
+      display: block;
+      color: var(--deep-forest);
+      margin-bottom: 4px;
+    }
+
+    /* ================= IMPORTANT NOTE ================= */
+
+    .important {
+      padding: 30px;
+      margin-top: 30px;
+      background: var(--cream);
+      border-left: 5px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .important h3 {
+      margin-bottom: 10px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 50px 0;
+      background: var(--deep-forest);
+      color: var(--sage);
+      text-align: center;
+    }
+
+    footer .brand {
+      justify-content: center;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+      .grid,
+      .feature-grid,
+      .creation-list,
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .hero-description {
+        font-size: 1.05rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="topbar"><div class="container nav">
-<a class="brand" href="index.html"><span class="mark">✦</span><span>VERDIGRIS ISLES</span></a>
-<nav class="navlinks"><li><a href="index.html">Home</a></li><li><a href="world.html">World</a></li>
-<li><a href="regions.html">Isles</a></li><li><a href="races.html">Races</a></li>
-<li><a href="magic.html">Magic</a></li><li><a href="history.html">History</a></li></nav>
-</div></header>
 
-<main>
-<section class="hero" id="identity"><div class="container hero-grid"><div>
-<span class="eyebrow">Race of the Verdigris Isles</span><h1>Humans</h1>
-<p>One people. Countless cultures. Across the Verdigris Isles, Human identity is shaped less by bloodline and more by the place they call home.</p>
-</div><aside class="hero-card"><div class="symbol">🌍</div><div><strong>Culture is home.</strong><p>A Human raised in the mountains may have an entirely different worldview from one raised beside the sea, in the capital, or among Talanor's monsters.</p></div></aside></div></section>
+  <!-- ================= NAVIGATION ================= -->
 
-<section id="origins"><div class="container"><div class="section-heading"><span class="kicker">Overview & Origins</span><h2>A People Shaped by Place</h2></div><div class="prose">
-<p>Humans are among the most widespread peoples of the Verdigris Isles, found in nearly every nation, settlement, and environment across the archipelago.</p>
-<p>Unlike peoples whose identities are strongly tied to a particular ancestry, transformation, or environment, Humans possess relatively few inherent physical traits that distinguish them from one another. Their greatest diversity comes from culture, homeland, occupation, and upbringing.</p>
-<p>A Human raised among the mountain foundries of Kharad may have an entirely different worldview from one raised along the beaches of the Azure Coast. A Human born in Verde Haven may grow up surrounded by trade, politics, guilds, and relic hunters, while someone raised in the Ardynwood may be far more familiar with forests, spirits, hunting, and wilderness travel.</p>
-<div class="highlight"><strong>Human identity is often defined less by bloodline and more by place.</strong><br>A homeland may influence accent, language, clothing, cuisine, religious practices, family traditions, social expectations, occupation, architecture and lifestyle, relationship with Aether and technology, attitudes toward other peoples, and ideas of family, community, and authority.</div>
-<p>These are cultural influences rather than universal rules. A Human from one nation may move elsewhere, adopt another culture, or grow up between multiple communities. Humans are among the most culturally adaptable peoples of the Isles.</p>
-<p>Humans have existed throughout the Verdigris Isles for longer than most surviving records can reliably document. Their earliest origins are debated. Some traditions claim Humans were among the first peoples to settle the Isles, while others suggest they arrived through ancient migrations that occurred long before the Sundering.</p>
-<p>Humans have demonstrated an extraordinary ability to establish themselves almost anywhere. They have built settlements along coastlines, established cities around ancient ruins, developed communities in wetlands, carved homes into mountain valleys, and reclaimed abandoned structures from the Ascension Era.</p>
-<p>Today, Humans can be found throughout nearly every major nation and region. Their cultures are therefore extremely diverse. There is no single Human culture. Instead, there are many Human cultures shaped by the history and environment of the communities in which they developed.</p>
-</div></div></section>
+  <header>
+    <div class="container">
 
-<section><div class="container"><div class="section-heading"><span class="kicker">Physical Characteristics</span><h2>The Human Baseline</h2><p>Humans possess the most consistent physical baseline among the major peoples of the Verdigris Isles.</p></div>
-<ul class="traits"><li>Two arms and two legs</li><li>Humanoid anatomy</li><li>Five-fingered hands</li><li>A wide range of skin tones</li><li>A wide range of hair colors and textures</li><li>A wide range of eye colors</li><li>Highly variable heights and builds</li></ul>
-<div class="prose" style="margin-top:28px"><p>Human physical appearance is influenced primarily by ancestry and family genetics rather than magical lineage.</p><p>Unlike Beastials, Humans do not naturally possess animal traits. Unlike Aelori, they do not possess inherent aquatic adaptations. Unlike Duvara, they do not naturally transform between forms.</p><p>Individual Humans may develop unusual characteristics through magical exposure, Aether influence, ancestry, injury, or other circumstances. These exceptions are not considered representative of Humans as a whole.</p></div>
-</div></section>
+      <nav>
 
-<section class="culture" id="culture"><div class="container"><div class="section-heading"><span class="kicker">Culture & Society</span><h2>Many Cultures, One Race</h2><p>Human societies are extremely diverse. There is no universal Human religion, government, tradition, or social structure shared by every Human community.</p></div>
-<div class="highlight" style="background:rgba(255,255,255,.72)"><strong>Family → Homeland → Nation → Profession → Personal Identity</strong><br>A Human may consider themselves a citizen of Caelmont, a member of a particular town, part of a specific family, and a member of a guild simultaneously.</div>
-<div class="prose"><p>Migration is also common. Humans frequently move between nations for work, trade, marriage, education, exploration, military service, political reasons, or personal opportunity.</p><p>Because of this, Human cultural identity can become complicated.</p></div></div></section>
+        <a class="brand" href="index.html">
+          <span class="brand-icon">✦</span>
+          Verdigris Isles
+        </a>
 
-<section id="regions"><div class="container"><div class="section-heading"><span class="kicker">Customs & Traditions</span><h2>Humans by Homeland</h2><p>Choose the region that shaped your character's upbringing. These profiles describe common influences rather than rigid rules.</p></div>
-<div class="region-grid">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#identity">Identity</a></li>
+          <li><a href="#origins">Origins</a></li>
+          <li><a href="#culture">Culture</a></li>
+          <li><a href="#homelands">Homelands</a></li>
+          <li><a href="#biology">Biology</a></li>
+          <li><a href="#creation">Character Creation</a></li>
+        </ul>
 
-<article class="region-card"><div class="region-title"><div class="region-icon">🌿</div><h3>Verde Haven</h3></div><div class="type">Capital culture / Metropolitan Human population</div><p>Humans raised in Verde Haven are surrounded by one of the most diverse populations in the Isles. The capital brings together merchants, guild workers, politicians, artisans, travelers, scholars, and adventurers from across the archipelago.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Trade & commerce</li><li>Guild culture</li><li>Politics & governance</li><li>Relic hunting</li><li>Artisanship</li><li>Urban life</li><li>Cosmopolitan communities</li><li>Expedition culture</li></ul><div class="mini">Common Traits</div><p>Often adaptable, socially aware, and accustomed to navigating different cultures. Many grow up speaking multiple languages or dialects.</p><div class="mini">Common Occupations</div><ul class="pills"><li>Merchants</li><li>Guild workers</li><li>Artisans</li><li>Scholars</li><li>Politicians</li><li>Relic hunters</li><li>Expedition planners</li><li>Couriers</li><li>Dockworkers</li><li>Innkeepers</li><li>Craftspeople</li></ul></article>
+      </nav>
 
-<article class="region-card"><div class="region-title"><div class="region-icon">⛰️</div><h3>Kharad Highlands</h3></div><div class="type">Highland culture / Industrial Human population</div><p>Humans raised in the Kharad Highlands are shaped by mountains, mines, industry, and craftsmanship. Practical skill and the ability to create, repair, and improve things are highly valued.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Metallurgy</li><li>Engineering</li><li>Mining</li><li>Craftsmanship</li><li>Industry</li><li>Mountain communities</li><li>Apprenticeship traditions</li></ul><div class="mini">Common Traits</div><p>Kharad Humans often value reliability, competence, self-sufficiency, and practical knowledge.</p><div class="mini">Common Occupations</div><ul class="pills"><li>Smiths</li><li>Engineers</li><li>Miners</li><li>Machinists</li><li>Artificers</li><li>Builders</li><li>Metalworkers</li><li>Inventors</li><li>Mechanics</li><li>Railway workers</li></ul></article>
+    </div>
+  </header>
 
-<article class="region-card"><div class="region-title"><div class="region-icon">⚓</div><h3>Azure Confederacy</h3></div><div class="type">Maritime culture / Coastal Human population</div><p>Humans of the Azure Confederacy are shaped by the sea. Fishing, shipping, trade, navigation, and coastal travel are central parts of life. The ocean is part of the cultural identity of these communities.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Maritime trade</li><li>Fishing</li><li>Sailing</li><li>Navigation</li><li>Coastal communities</li><li>Shipbuilding</li><li>Port culture</li></ul><div class="mini">Common Traits</div><p>Azure Humans tend to be familiar with ships, tides, coastal weather, and maritime customs. Hospitality is particularly important in many coastal communities.</p><div class="mini">Common Occupations</div><ul class="pills"><li>Sailors</li><li>Fisherfolk</li><li>Shipwrights</li><li>Navigators</li><li>Traders</li><li>Dockworkers</li><li>Harbor masters</li><li>Divers</li><li>Cartographers</li><li>Coastal guides</li></ul></article>
 
-<article class="region-card"><div class="region-title"><div class="region-icon">🌊</div><h3>Thalassan Legion</h3></div><div class="type">Maritime military culture / Free-city Human population</div><p>Humans associated with the Thalassan Legion are shaped by the independent maritime cities of the southern waters. Their communities emphasize independence, commerce, exploration, and maritime defense.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Maritime independence</li><li>Exploration</li><li>Mercantile culture</li><li>Naval traditions</li><li>Free-city politics</li><li>Crownscar expeditions</li></ul><div class="mini">Common Occupations</div><ul class="pills"><li>Sailors</li><li>Explorers</li><li>Mercenaries</li><li>Expedition members</li><li>Merchants</li><li>Shipwrights</li><li>Navigators</li><li>Salvagers</li><li>Relic hunters</li></ul></article>
+  <main>
 
-<article class="region-card"><div class="region-title"><div class="region-icon">🌲</div><h3>Ardynwood</h3></div><div class="type">Woodland culture / Forest Human population</div><p>Humans raised within Ardynwood are shaped by deep forests, ancient woodland traditions, and close relationships with the natural environment. Communities tend to be smaller and more closely connected.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Forestry</li><li>Hunting</li><li>Herbalism</li><li>Woodland traditions</li><li>Small communities</li><li>Conservation</li><li>Ancient forest lore</li></ul><div class="mini">Common Traits</div><p>Ardynwood Humans often develop strong practical knowledge of the wilderness. Many learn to navigate forests before they ever learn to navigate roads.</p><div class="mini">Common Occupations</div><ul class="pills"><li>Hunters</li><li>Rangers</li><li>Foresters</li><li>Herbalists</li><li>Guides</li><li>Wardens</li><li>Trappers</li><li>Woodworkers</li><li>Apothecaries</li><li>Scouts</li></ul></article>
+    <!-- ================= HERO ================= -->
 
-<article class="region-card"><div class="region-title"><div class="region-icon">🏛️</div><h3>Caelmont</h3></div><div class="type">Court culture / Aristocratic Human population</div><p>Human culture in Caelmont is heavily influenced by its courtly and noble traditions. Social position, etiquette, family reputation, education, and political relationships can play an important role in daily life.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Court etiquette</li><li>Nobility</li><li>Politics</li><li>Education</li><li>Family reputation</li><li>Diplomacy</li><li>Fine arts</li><li>Social hierarchy</li></ul><div class="mini">Common Traits</div><p>Caelmont Humans may be particularly familiar with formal etiquette and social expectations. Those outside the upper classes may still be influenced by court culture.</p><div class="mini">Common Occupations</div><ul class="pills"><li>Diplomats</li><li>Scholars</li><li>Artists</li><li>Merchants</li><li>Courtiers</li><li>Servants</li><li>Guards</li><li>Lawyers</li><li>Politicians</li><li>Tutors</li></ul></article>
+    <section class="hero">
 
-<article class="region-card"><div class="region-title"><div class="region-icon">🐉</div><h3>Talanor Dominion</h3></div><div class="type">Monster territory / Dangerous frontier</div><p>Talanor is known throughout the Verdigris Isles as <strong>the Land of Monsters</strong>. Ancient forests, enormous wetlands, ruined settlements, strange caverns, and unexplored territories make Talanor one of the most dangerous regions in the Isles.</p><div class="mini">Cultural Influences</div><ul class="pills"><li>Monster ecology</li><li>Survival</li><li>Wilderness travel</li><li>Monster tracking</li><li>Defensive settlements</li><li>Expedition culture</li><li>Relic exploration</li><li>Beast lore</li><li>Frontier communities</li></ul><div class="mini">Common Traits</div><p>Humans raised in Talanor often develop a practical understanding of monsters from an early age. Preparedness is valued; bravery is respected, but recklessness is not. Many settlements use watchtowers, reinforced walls, warning systems, and evacuation routes.</p><div class="mini">Relationship With Monsters</div><p>Some monsters are dangerous pests or predators. Others are respected as part of the natural world. Certain intelligent creatures maintain trade or diplomatic relationships with Human settlements, while others remain hostile.</p><div class="mini">Common Occupations</div><ul class="pills"><li>Monster hunters</li><li>Trackers</li><li>Rangers</li><li>Guides</li><li>Scouts</li><li>Beast researchers</li><li>Naturalists</li><li>Expedition members</li><li>Relic hunters</li><li>Mercenaries</li><li>Wardens</li><li>Trappers</li><li>Caravan guards</li><li>Monster tamers</li><li>Cartographers</li><li>Aether researchers</li></ul></article>
+      <div class="container">
 
-</div></div></section>
+        <div class="hero-content">
 
-<section><div class="container"><div class="occupation"><span class="kicker" style="color:#ffb6a7">Life Across the Isles</span><h2>Common Human Occupations</h2><p>Humans can be found in virtually every profession throughout the Verdigris Isles. A homeland may influence which professions are common within a community, but no occupation is restricted by culture or location.</p>
-<ul class="pills"><li>Farmers</li><li>Merchants</li><li>Sailors</li><li>Soldiers</li><li>Engineers</li><li>Artisans</li><li>Scholars</li><li>Politicians</li><li>Explorers</li><li>Hunters</li><li>Rangers</li><li>Guild workers</li><li>Dockworkers</li><li>Shipwrights</li><li>Relic hunters</li><li>Couriers</li><li>Cartographers</li><li>Teachers</li><li>Doctors</li><li>Apothecaries</li><li>Craftspeople</li><li>Performers</li><li>Innkeepers</li><li>Fisherfolk</li><li>Miners</li></ul></div></div></section>
+          <div class="eyebrow">
+            ✦ People of the Verdigris Isles
+          </div>
 
-<section id="biology"><div class="container"><div class="section-heading"><span class="kicker">Lifespan & Biology</span><h2>Adaptable by Nature</h2></div><div class="life-grid">
-<article class="info-card"><div class="number">80–100</div><h3>Typical Lifespan</h3><p>Humans generally live between 80 and 100 years, though some individuals may live longer due to exceptional health, magical influence, Aether exposure, or other circumstances.</p></article>
-<article class="info-card"><div class="number">01</div><h3>No Required Adaptation</h3><p>Humans possess no inherent supernatural transformation ability or environmental adaptation.</p></article>
-<article class="info-card"><div class="number">∞</div><h3>Versatility</h3><p>Humans can generally survive in a wide range of environments with appropriate shelter, food, water, and resources.</p></article>
-</div></div></section>
+          <h1>Humans</h1>
 
-<section class="creation" id="creation"><div class="container creation-grid"><div><span class="kicker" style="color:#ffb6a7">Character Creation</span><h2>Build a Human</h2><p style="margin-top:18px">Your character's homeland should give you a foundation for their history and upbringing, not dictate their personality or future.</p><div class="important"><strong>Culture provides a foundation, not a destiny.</strong><p>Where a Human comes from may shape who they become—but it does not decide who they are.</p></div></div>
-<ol class="creation-list">
-<li><strong>Race:</strong> Human</li><li><strong>Homeland:</strong> Where your character was raised</li><li><strong>Nation:</strong> The nation or political region they identify with</li><li><strong>Cultural Background:</strong> The traditions and communities that influenced their upbringing</li><li><strong>Family Heritage:</strong> Consider whether their family has lived in the region for generations or migrated from elsewhere</li><li><strong>Occupation:</strong> What they do within society</li><li><strong>Personal Appearance:</strong> Skin, hair, eyes, height, build, and other physical characteristics</li><li><strong>Languages/Dialects:</strong> Consider how their homeland influences their speech</li><li><strong>Relationship With Aether:</strong> Decide whether they have ordinary familiarity with Aether, formal training, or little exposure</li>
-</ol></div></section>
-</main>
-<footer><div class="container">Verdigris Isles · Human Race Guide<br>Culture shapes the character. It does not define them.</div></footer>
+          <p class="hero-description">
+            A widespread and adaptable people whose identities are shaped not
+            by a single ancestry, but by homeland, culture, family, occupation,
+            and the communities in which they live.
+          </p>
+
+          <div class="hero-quote">
+            “Where a Human comes from may shape who they become — but it does
+            not decide who they are.”
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= IDENTITY ================= -->
+
+    <section id="identity">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Identity</span>
+
+          <h2>A People Defined by Place</h2>
+
+          <p>
+            Humans are among the most widespread peoples of the Verdigris Isles,
+            found in nearly every nation, settlement, and environment across
+            the archipelago.
+          </p>
+
+          <p>
+            Unlike peoples whose identities are strongly tied to a particular
+            ancestry, transformation, or environment, Humans possess relatively
+            few inherent physical traits that distinguish them from one another.
+            Their greatest diversity comes from culture, homeland, occupation,
+            and upbringing.
+          </p>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              A Human raised among the mountain foundries of Kharad may have an
+              entirely different worldview from one raised along the beaches of
+              the Azure Coast.
+            </p>
+
+            <p>
+              A Human born in Verde Haven may grow up surrounded by trade,
+              politics, guilds, and relic hunters, while someone raised in
+              Ardynwood may be far more familiar with forests, spirits,
+              hunting, and wilderness travel.
+            </p>
+
+            <p>
+              Because of this, Human identity is often defined less by bloodline
+              and more by place.
+            </p>
+
+          </div>
+
+
+          <aside class="homeland-note">
+
+            <div class="symbol">🧭</div>
+
+            <blockquote>
+              A Human's homeland may influence who they become without
+              determining who they are.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+
+        <div class="feature-box" style="margin-top:30px;">
+
+          <h3>Homeland May Influence</h3>
+
+          <div class="creation-list">
+
+            <div class="creation-item">
+              <strong>Language</strong>
+              Accent, dialect, vocabulary, and speech patterns
+            </div>
+
+            <div class="creation-item">
+              <strong>Clothing</strong>
+              Local fashion, materials, and traditional dress
+            </div>
+
+            <div class="creation-item">
+              <strong>Cuisine</strong>
+              Regional foods, ingredients, and cooking traditions
+            </div>
+
+            <div class="creation-item">
+              <strong>Family Traditions</strong>
+              Customs passed between generations
+            </div>
+
+            <div class="creation-item">
+              <strong>Occupation</strong>
+              Professions common within the local community
+            </div>
+
+            <div class="creation-item">
+              <strong>Social Expectations</strong>
+              Local ideas surrounding family, community, and authority
+            </div>
+
+            <div class="creation-item">
+              <strong>Aether & Technology</strong>
+              Familiarity with local technology and Aether practices
+            </div>
+
+            <div class="creation-item">
+              <strong>Attitudes</strong>
+              Local perspectives toward other peoples and cultures
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ORIGINS ================= -->
+
+    <section id="origins">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Overview & Origins</span>
+
+          <h2>Adaptable Across the Isles</h2>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              Humans have existed throughout the Verdigris Isles for longer
+              than most surviving records can reliably document.
+            </p>
+
+            <p>
+              Their earliest origins are debated. Some traditions claim Humans
+              were among the first peoples to settle the Isles, while others
+              suggest they arrived through ancient migrations that occurred
+              long before the Sundering.
+            </p>
+
+            <p>
+              Unlike some peoples whose origins are closely associated with
+              particular environments, Humans have demonstrated an
+              extraordinary ability to establish themselves almost anywhere.
+            </p>
+
+            <p>
+              They have built settlements along coastlines, established cities
+              around ancient ruins, developed communities in wetlands, carved
+              homes into mountain valleys, and reclaimed abandoned structures
+              from the Ascension Era.
+            </p>
+
+            <p>
+              This adaptability has allowed Humans to become one of the most
+              widespread peoples in the Isles.
+            </p>
+
+            <p>
+              Today, Humans can be found throughout nearly every major nation
+              and region. Their cultures are therefore extremely diverse.
+              There is no single Human culture.
+            </p>
+
+          </div>
+
+
+          <aside class="homeland-note">
+
+            <div class="symbol">🌎</div>
+
+            <blockquote>
+              There is no single Human culture — only countless cultures shaped
+              by the places Humans call home.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PHYSICAL CHARACTERISTICS ================= -->
+
+    <section id="biology">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Physical Characteristics</span>
+
+          <h2>The Most Familiar Form</h2>
+
+          <p>
+            Humans possess the most consistent physical baseline among the
+            major peoples of the Verdigris Isles.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-box">
+
+            <h3>Common Characteristics</h3>
+
+            <ul>
+              <li>Two arms and two legs</li>
+              <li>Humanoid anatomy</li>
+              <li>Five-fingered hands</li>
+              <li>A wide range of skin tones</li>
+              <li>A wide range of hair colors and textures</li>
+              <li>A wide range of eye colors</li>
+              <li>Highly variable heights and builds</li>
+            </ul>
+
+          </div>
+
+
+          <div class="feature-box">
+
+            <h3>What Humans Lack</h3>
+
+            <p>
+              Unlike Beastials, Humans do not naturally possess animal traits.
+            </p>
+
+            <p>
+              Unlike Aelori, they do not possess inherent aquatic adaptations.
+            </p>
+
+            <p>
+              Unlike Duvara, they do not naturally transform between forms.
+            </p>
+
+            <p>
+              Their physical appearance is influenced primarily by ancestry
+              and family genetics rather than magical lineage.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="important">
+
+          <h3>Exceptions</h3>
+
+          <p style="margin-bottom:0;">
+            Individual Humans may develop unusual characteristics through
+            magical exposure, Aether influence, ancestry, injury, or other
+            circumstances. These exceptions are not considered representative
+            of Humans as a whole.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CULTURE ================= -->
+
+    <section id="culture">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Culture & Society</span>
+
+          <h2>Identity Is Layered</h2>
+
+          <p>
+            Human societies are extremely diverse. There is no universal Human
+            religion, government, tradition, or social structure shared by
+            every Human community.
+          </p>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              Humans generally identify with several overlapping communities:
+            </p>
+
+            <p>
+              <strong>Family → Homeland → Nation → Profession → Personal Identity</strong>
+            </p>
+
+            <p>
+              A Human may consider themselves a citizen of Caelmont, a member
+              of a particular town, part of a specific family, and a member of
+              a guild simultaneously.
+            </p>
+
+            <p>
+              Migration is also common. Humans frequently move between nations
+              for work, trade, marriage, education, exploration, military
+              service, political reasons, or personal opportunity.
+            </p>
+
+            <p>
+              Because of this, Human cultural identity can become complicated.
+            </p>
+
+          </div>
+
+
+          <aside class="homeland-note">
+
+            <div class="symbol">🏠</div>
+
+            <blockquote>
+              A person can belong to more than one place.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= HOMELANDS ================= -->
+
+    <section id="homelands">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Homelands & Cultures</span>
+
+          <h2>Humanity Across the Isles</h2>
+
+          <p>
+            Human culture changes dramatically depending upon where a person
+            is raised. These regional identities provide cultural foundations,
+            not rigid character archetypes.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+          <!-- VERDE HAVEN -->
+
+          <article class="card homeland-card">
+
+            <span class="region-label">
+              Capital Culture
+            </span>
+
+            <h3>🌿 Verde Haven</h3>
+
+            <p>
+              Humans raised in Verde Haven are surrounded by one of the most
+              diverse populations in the Isles.
+            </p>
+
+            <p>
+              As the capital and largest metropolitan hub, Verde Haven brings
+              together merchants, guild workers, politicians, artisans,
+              travelers, scholars, and adventurers from across the archipelago.
+            </p>
+
+            <p>
+              Growing up in Verde Haven often means becoming comfortable around
+              people from vastly different cultures and backgrounds.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Trade and commerce</li>
+              <li>Guild culture</li>
+              <li>Politics and governance</li>
+              <li>Relic hunting</li>
+              <li>Artisanship</li>
+              <li>Urban life</li>
+              <li>Cosmopolitan communities</li>
+              <li>Expedition culture</li>
+            </ul>
+
+            <h3>Common Occupations</h3>
+
+            <ul class="occupation-list">
+              <li>Merchants</li>
+              <li>Guild workers</li>
+              <li>Artisans</li>
+              <li>Scholars</li>
+              <li>Politicians</li>
+              <li>Relic hunters</li>
+              <li>Expedition planners</li>
+              <li>Couriers</li>
+              <li>Dockworkers</li>
+              <li>Innkeepers</li>
+              <li>Craftspeople</li>
+            </ul>
+
+          </article>
+
+
+          <!-- KHARAD -->
+
+          <article class="card homeland-card kharad">
+
+            <span class="region-label">
+              Highland Culture
+            </span>
+
+            <h3>⛰️ Kharad Highlands</h3>
+
+            <p>
+              Humans raised in the Kharad Highlands are shaped by mountains,
+              mines, industry, and craftsmanship.
+            </p>
+
+            <p>
+              Kharad culture places significant value on practical skill and
+              the ability to create, repair, and improve things.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Metallurgy</li>
+              <li>Engineering</li>
+              <li>Mining</li>
+              <li>Craftsmanship</li>
+              <li>Industry</li>
+              <li>Mountain communities</li>
+              <li>Apprenticeship traditions</li>
+            </ul>
+
+            <h3>Common Occupations</h3>
+
+            <ul class="occupation-list">
+              <li>Smiths</li>
+              <li>Engineers</li>
+              <li>Miners</li>
+              <li>Machinists</li>
+              <li>Artificers</li>
+              <li>Builders</li>
+              <li>Metalworkers</li>
+              <li>Inventors</li>
+              <li>Mechanics</li>
+              <li>Railway workers</li>
+            </ul>
+
+          </article>
+
+
+          <!-- AZURE -->
+
+          <article class="card homeland-card azure">
+
+            <span class="region-label">
+              Maritime Culture
+            </span>
+
+            <h3>⚓ Azure Confederacy</h3>
+
+            <p>
+              Humans of the Azure Confederacy are shaped by the sea.
+            </p>
+
+            <p>
+              Fishing, shipping, trade, navigation, and coastal travel are
+              central parts of life throughout the Confederacy.
+            </p>
+
+            <p>
+              The ocean is not simply a source of food and commerce. It is part
+              of the cultural identity of these communities.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Maritime trade</li>
+              <li>Fishing</li>
+              <li>Sailing</li>
+              <li>Navigation</li>
+              <li>Coastal communities</li>
+              <li>Shipbuilding</li>
+              <li>Port culture</li>
+            </ul>
+
+            <h3>Common Occupations</h3>
+
+            <ul class="occupation-list">
+              <li>Sailors</li>
+              <li>Fisherfolk</li>
+              <li>Shipwrights</li>
+              <li>Navigators</li>
+              <li>Traders</li>
+              <li>Dockworkers</li>
+              <li>Harbor masters</li>
+              <li>Divers</li>
+              <li>Cartographers</li>
+              <li>Coastal guides</li>
+            </ul>
+
+          </article>
+
+
+          <!-- THALASSAN -->
+
+          <article class="card homeland-card thalassan">
+
+            <span class="region-label">
+              Free-City Maritime Culture
+            </span>
+
+            <h3>🌊 Thalassan Legion</h3>
+
+            <p>
+              Humans associated with the Thalassan Legion are shaped by the
+              independent maritime cities of the southern waters.
+            </p>
+
+            <p>
+              Their communities tend to emphasize independence, commerce,
+              exploration, and maritime defense.
+            </p>
+
+            <p>
+              The Thalassan tradition also places considerable value on
+              exploration, particularly expeditions into dangerous or
+              unexplored areas such as Crownscar.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Maritime independence</li>
+              <li>Exploration</li>
+              <li>Mercantile culture</li>
+              <li>Naval traditions</li>
+              <li>Free-city politics</li>
+              <li>Crownscar expeditions</li>
+            </ul>
+
+            <h3>Common Occupations</h3>
+
+            <ul class="occupation-list">
+              <li>Sailors</li>
+              <li>Explorers</li>
+              <li>Mercenaries</li>
+              <li>Expedition members</li>
+              <li>Merchants</li>
+              <li>Shipwrights</li>
+              <li>Navigators</li>
+              <li>Salvagers</li>
+              <li>Relic hunters</li>
+            </ul>
+
+          </article>
+
+
+          <!-- ARDYNWOOD -->
+
+          <article class="card homeland-card ardynwood">
+
+            <span class="region-label">
+              Woodland Culture
+            </span>
+
+            <h3>🌲 Ardynwood</h3>
+
+            <p>
+              Humans raised within Ardynwood are shaped by deep forests,
+              ancient woodland traditions, and close relationships with the
+              natural environment.
+            </p>
+
+            <p>
+              Communities tend to be smaller and more closely connected than
+              those found in major cities.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Forestry</li>
+              <li>Hunting</li>
+              <li>Herbalism</li>
+              <li>Woodland traditions</li>
+              <li>Small communities</li>
+              <li>Conservation</li>
+              <li>Ancient forest lore</li>
+            </ul>
+
+            <h3>Common Occupations</h3>
+
+            <ul class="occupation-list">
+              <li>Hunters</li>
+              <li>Rangers</li>
+              <li>Foresters</li>
+              <li>Herbalists</li>
+              <li>Guides</li>
+              <li>Wardens</li>
+              <li>Trappers</li>
+              <li>Woodworkers</li>
+              <li>Apothecaries</li>
+              <li>Scouts</li>
+            </ul>
+
+          </article>
+
+
+          <!-- CAELMONT -->
+
+          <article class="card homeland-card caelmont">
+
+            <span class="region-label">
+              Court Culture
+            </span>
+
+            <h3>🏛️ Caelmont</h3>
+
+            <p>
+              Human culture in Caelmont is heavily influenced by its courtly
+              and noble traditions.
+            </p>
+
+            <p>
+              Social position, etiquette, family reputation, education, and
+              political relationships can play an important role in daily life.
+            </p>
+
+            <p>
+              However, not every Human from Caelmont is noble. Servants,
+              merchants, craftspeople, scholars, guards, laborers, and ordinary
+              citizens all contribute to Caelmont society.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Court etiquette</li>
+              <li>Nobility</li>
+              <li>Politics</li>
+              <li>Education</li>
+              <li>Family reputation</li>
+              <li>Diplomacy</li>
+              <li>Fine arts</li>
+              <li>Social hierarchy</li>
+            </ul>
+
+            <h3>Common Occupations</h3>
+
+            <ul class="occupation-list">
+              <li>Diplomats</li>
+              <li>Scholars</li>
+              <li>Artists</li>
+              <li>Merchants</li>
+              <li>Courtiers</li>
+              <li>Servants</li>
+              <li>Guards</li>
+              <li>Lawyers</li>
+              <li>Politicians</li>
+              <li>Tutors</li>
+            </ul>
+
+          </article>
+
+
+          <!-- TALANOR -->
+
+          <article class="card homeland-card talanor">
+
+            <span class="region-label">
+              Monster Territory
+            </span>
+
+            <h3>🐉 Talanor Dominion</h3>
+
+            <p>
+              Talanor is known throughout the Verdigris Isles as the
+              <strong>Land of Monsters.</strong>
+            </p>
+
+            <p>
+              Unlike most regions, where settlements were built around the
+              assumption that Humans and other civilized peoples were the
+              dominant inhabitants, Talanor developed in a land where
+              monstrous creatures have always been part of the natural
+              environment.
+            </p>
+
+            <p>
+              Ancient forests, enormous wetlands, ruined settlements, strange
+              caverns, and unexplored territories make Talanor one of the most
+              dangerous regions in the Isles.
+            </p>
+
+            <h3>Cultural Influences</h3>
+
+            <ul class="occupation-list">
+              <li>Monster ecology</li>
+              <li>Survival</li>
+              <li>Wilderness travel</li>
+              <li>Monster tracking</li>
+              <li>Defensive settlements</li>
+              <li>Expedition culture</li>
+              <li>Relic exploration</li>
+              <li>Beast lore</li>
+              <li>Frontier communities</li>
+            </ul>
+
+            <h3>Common Traits</h3>
+
+            <p>
+              Humans raised in Talanor often develop a practical understanding
+              of monsters from an early age.
+            </p>
+
+            <p>
+              Children may learn to recognize tracks, identify dangerous calls,
+              understand territorial markings, and recognize which creatures
+              should be avoided rather than fought.
+            </p>
+
+            <p>
+              Talanor culture tends to place considerable value on
+              preparedness. Being brave is respected, but being reckless is not.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= TALANOR BANNER ================= -->
+
+    <section class="culture-banner">
+
+      <div class="container">
+
+        <h2>Land of Monsters</h2>
+
+        <p>
+          In Talanor, monsters are not simply rare threats encountered by
+          adventurers. They are part of the ecosystem — predators, territorial
+          creatures, intelligent peoples, and ancient beings whose origins
+          remain unknown.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= TALANOR DETAILS ================= -->
+
+    <section id="talanor">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Talanor Dominion</span>
+
+          <h2>Survival Through Understanding</h2>
+
+          <p>
+            Talanorian Humans have complicated relationships with the creatures
+            around them.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-box">
+
+            <h3>Relationship With Monsters</h3>
+
+            <p>
+              Some monsters are considered dangerous pests or predators.
+              Others are respected as part of the natural world.
+            </p>
+
+            <p>
+              Certain intelligent creatures maintain trade or diplomatic
+              relationships with Human settlements, while others remain
+              hostile.
+            </p>
+
+            <p>
+              Monster hunters and researchers often travel deep into Talanor
+              to study creatures that cannot be found anywhere else in the
+              Isles.
+            </p>
+
+          </div>
+
+
+          <div class="feature-box">
+
+            <h3>Preparedness</h3>
+
+            <p>
+              Many settlements are heavily fortified, with watchtowers,
+              reinforced walls, warning systems, and designated evacuation
+              routes.
+            </p>
+
+            <p>
+              A successful Talanorian knows when to fight, when to hide, and
+              when to leave an area entirely.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="feature-box" style="margin-top:25px;">
+
+          <h3>Common Talanorian Occupations</h3>
+
+          <div class="creation-list">
+
+            <div class="creation-item">
+              <strong>Monster Hunters</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Trackers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Rangers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Guides</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Scouts</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Beast Researchers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Naturalists</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Expedition Members</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Relic Hunters</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Mercenaries</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Wardens</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Trappers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Caravan Guards</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Monster Tamers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Cartographers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Aether Researchers</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= COMMON OCCUPATIONS ================= -->
+
+    <section id="occupations">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Common Occupations</span>
+
+          <h2>A Place in Every Profession</h2>
+
+          <p>
+            Humans can be found in virtually every profession throughout the
+            Verdigris Isles.
+          </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+          <div class="creation-list">
+
+            <div class="creation-item">
+              <strong>Farmers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Merchants</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Sailors</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Soldiers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Engineers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Artisans</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Scholars</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Politicians</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Explorers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Hunters</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Rangers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Guild Workers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Dockworkers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Shipwrights</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Relic Hunters</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Couriers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Cartographers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Teachers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Doctors</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Apothecaries</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Craftspeople</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Performers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Innkeepers</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Fisherfolk</strong>
+            </div>
+
+            <div class="creation-item">
+              <strong>Miners</strong>
+            </div>
+
+          </div>
+
+
+          <div class="important">
+
+            <h3>Culture Is Not a Restriction</h3>
+
+            <p style="margin-bottom:0;">
+              A Human's homeland may influence which professions are common
+              within their community, but no occupation is restricted by culture
+              or location.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= BIOLOGY ================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Lifespan & Biology</span>
+
+          <h2>Adaptable by Nature</h2>
+
+        </div>
+
+
+        <div class="story">
+
+          <div class="story-copy">
+
+            <p>
+              Humans typically mature at roughly the same rate as modern humans
+              and generally live between <strong>80 and 100 years</strong>.
+            </p>
+
+            <p>
+              Some individuals may live longer due to exceptional health,
+              magical influence, Aether exposure, or other circumstances.
+            </p>
+
+            <p>
+              Humans possess no inherent supernatural transformation ability or
+              environmental adaptation.
+            </p>
+
+            <p>
+              Their greatest biological advantage is their versatility.
+            </p>
+
+            <p>
+              Humans can generally survive in a wide range of environments
+              provided they have access to appropriate shelter, food, water,
+              and resources.
+            </p>
+
+          </div>
+
+
+          <aside class="homeland-note">
+
+            <div class="symbol">🌱</div>
+
+            <blockquote>
+              Humans do not belong to one environment. They make homes wherever
+              they can.
+            </blockquote>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CHARACTER CREATION ================= -->
+
+    <section id="creation">
+
+      <div class="container">
+
+        <div class="heading">
+
+          <span class="kicker">Character Creation</span>
+
+          <h2>Creating a Human</h2>
+
+          <p>
+            When creating a Human character, consider where they were raised,
+            which communities shaped them, and how their experiences influenced
+            the person they became.
+          </p>
+
+        </div>
+
+
+        <div class="creation-list">
+
+          <div class="creation-item">
+            <strong>Race</strong>
+            Human
+          </div>
+
+          <div class="creation-item">
+            <strong>Homeland</strong>
+            Where your character was raised
+          </div>
+
+          <div class="creation-item">
+            <strong>Nation</strong>
+            The nation or political region they identify with
+          </div>
+
+          <div class="creation-item">
+            <strong>Cultural Background</strong>
+            The traditions and communities that influenced their upbringing
+          </div>
+
+          <div class="creation-item">
+            <strong>Family Heritage</strong>
+            Consider whether their family has lived in the region for
+            generations or migrated from elsewhere
+          </div>
+
+          <div class="creation-item">
+            <strong>Occupation</strong>
+            What they do within society
+          </div>
+
+          <div class="creation-item">
+            <strong>Personal Appearance</strong>
+            Skin, hair, eyes, height, build, and other physical characteristics
+          </div>
+
+          <div class="creation-item">
+            <strong>Languages & Dialects</strong>
+            Consider how their homeland influences their speech
+          </div>
+
+          <div class="creation-item">
+            <strong>Relationship With Aether</strong>
+            Decide whether they have ordinary familiarity with Aether, formal
+            training, or little exposure
+          </div>
+
+        </div>
+
+
+        <div class="important">
+
+          <h3>Culture Provides a Foundation, Not a Destiny</h3>
+
+          <p>
+            A Human from Kharad does not have to be an engineer.
+          </p>
+
+          <p>
+            A Human from the Azure Confederacy does not have to be a sailor.
+          </p>
+
+          <p>
+            A Human from Caelmont does not have to be noble.
+          </p>
+
+          <p>
+            A Human from Ardynwood does not have to be a healer.
+          </p>
+
+          <p>
+            A Human from Talanor does not have to be a monster hunter.
+          </p>
+
+          <p style="margin-bottom:0;">
+            <strong>
+              Where a Human comes from may shape who they become — but it does
+              not decide who they are.
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="brand">
+        <span class="brand-icon">✦</span>
+        Verdigris Isles
+      </div>
+
+      <p>
+        Many homelands. Many cultures. One people.
+      </p>
+
+      <p style="margin-top:10px;">
+        © 2026 Verdigris Isles
+      </p>
+
+    </div>
+
+  </footer>
+
 </body>
 </html>
