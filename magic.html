@@ -1,29 +1,2308 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Magic is part of the world itself, appearing in relics, ruins, materials, and places touched by the old civilization."><title>Magic · Verdigris Isles</title>
-<link rel="stylesheet" href="styles.css"></head><body><header><div class="container"><nav>
-<a class="brand" href="index.html"><span class="brand-mark">🐚</span>Verdigris Isles</a>
-<ul class="nav">
-<li><a href="index.html">Home</a></li><li><a href="world.html">World</a></li>
-<li><a href="regions.html">Isles</a></li><li><a href="races.html">Races</a></li>
-<li><a href="magic.html">Magic</a></li><li><a href="history.html">History</a></li>
-</ul></nav></div></header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Magic & Aether | Verdigris Isles</title>
+
+<style>
+
+:root {
+  --lagoon: #39b9bb;
+  --lagoon-dark: #087f91;
+  --deep-sea: #075c6c;
+
+  --violet: #8067b8;
+  --violet-dark: #59448c;
+  --lavender: #e8e0f5;
+
+  --coral: #e9836b;
+  --sand: #f2dfb6;
+  --cream: #fff6df;
+  --foam: #fffdf7;
+
+  --leaf: #4f8c4b;
+  --leaf-dark: #27643d;
+
+  --gold: #d5a63d;
+  --gold-dark: #8f6a22;
+
+  --stone: #5c625e;
+  --ink: #193f46;
+  --muted: #617678;
+
+  --line: rgba(25,63,70,.12);
+  --shadow: 0 18px 45px rgba(14,83,91,.14);
+
+  --radius: 28px;
+  --max: 1180px;
+}
+
+/* ------------------------------
+   BASE
+------------------------------ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(92%, var(--max));
+  margin-inline: auto;
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(255,253,247,.94);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: var(--lagoon);
+  color: white;
+
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
+}
+
+.nav-links {
+  list-style: none;
+
+  display: flex;
+  gap: 4px;
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.nav-links a {
+  display: block;
+
+  padding: 9px 11px;
+
+  border-radius: 999px;
+
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #e8e0f5;
+  color: var(--violet-dark);
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  padding: 95px 0 105px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(128,103,184,.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #d9e9f0 0%,
+      #e8e0f5 52%,
+      #f5dfb7 100%
+    );
+}
+
+.hero::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 45px;
+  right: 13%;
+
+  color: rgba(89,68,140,.22);
+
+  font-size: 5rem;
+}
+
+.hero::after {
+  content: "✧";
+
+  position: absolute;
+
+  bottom: 25px;
+  left: 8%;
+
+  color: rgba(57,185,187,.25);
+
+  font-size: 4rem;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+
+  gap: 55px;
+
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  padding: 8px 15px;
+  margin-bottom: 18px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.75);
+
+  color: var(--violet-dark);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--deep-sea);
+
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+
+  line-height: .88;
+
+  letter-spacing: -.04em;
+
+  margin-bottom: 22px;
+}
+
+.hero-description {
+  max-width: 720px;
+
+  color: #28575c;
+
+  font-size: 1.12rem;
+}
+
+/* ------------------------------
+   HERO MAGIC ART
+------------------------------ */
+
+.hero-art {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 3;
+
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 35px;
+
+  border: 7px solid rgba(255,255,255,.75);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(232,224,245,.9),
+      rgba(89,68,140,.65) 35%,
+      #163f4b 75%
+    );
+
+  box-shadow:
+    0 28px 55px rgba(18,79,81,.22);
+}
+
+.magic-orb {
+  position: relative;
+
+  width: 170px;
+  height: 170px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #fffdf7 0%,
+      #d9f2ec 20%,
+      #a98ed3 45%,
+      #59448c 72%,
+      transparent 73%
+    );
+
+  box-shadow:
+    0 0 35px rgba(232,224,245,.9),
+    0 0 75px rgba(128,103,184,.65);
+
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.magic-orb span {
+  color: white;
+
+  font-size: 4rem;
+
+  text-shadow:
+    0 0 15px rgba(255,255,255,.9);
+}
+
+.orbit {
+  position: absolute;
+
+  width: 260px;
+  height: 100px;
+
+  border: 2px solid rgba(255,255,255,.35);
+
+  border-radius: 50%;
+
+  transform: rotate(-25deg);
+
+  animation: orbit 9s linear infinite;
+}
+
+.orbit.two {
+  transform: rotate(55deg);
+
+  animation-duration: 12s;
+}
+
+.spark {
+  position: absolute;
+
+  color: rgba(255,255,255,.75);
+
+  font-size: 1.4rem;
+
+  animation: float 4s ease-in-out infinite;
+}
+
+.spark.one {
+  top: 18%;
+  left: 20%;
+}
+
+.spark.two {
+  top: 24%;
+  right: 20%;
+
+  animation-delay: 1s;
+}
+
+.spark.three {
+  bottom: 18%;
+  left: 25%;
+
+  animation-delay: 2s;
+}
+
+.spark.four {
+  bottom: 20%;
+  right: 25%;
+
+  animation-delay: .5s;
+}
+
+@keyframes pulse {
+
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+}
+
+@keyframes orbit {
+
+  from {
+    transform: rotate(-25deg) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-25deg) rotate(360deg);
+  }
+
+}
+
+@keyframes float {
+
+  0%, 100% {
+    transform: translateY(0);
+    opacity: .5;
+  }
+
+  50% {
+    transform: translateY(-12px);
+    opacity: 1;
+  }
+
+}
+
+/* ------------------------------
+   CONTENT
+------------------------------ */
+
+section {
+  padding: 85px 0;
+}
+
+.heading {
+  max-width: 850px;
+
+  margin-bottom: 40px;
+}
+
+.kicker {
+  color: var(--violet-dark);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--deep-sea);
+
+  font-size: clamp(2rem, 5vw, 3.3rem);
+
+  line-height: 1.05;
+
+  margin: 8px 0 15px;
+}
+
+h3 {
+  color: var(--deep-sea);
+
+  font-size: 1.35rem;
+
+  margin-bottom: 8px;
+}
+
+.heading p {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+.prose {
+  max-width: 850px;
+}
+
+.prose p + p {
+  margin-top: 18px;
+}
+
+.prose strong {
+  color: var(--deep-sea);
+}
+
+/* ------------------------------
+   PRINCIPLE GRID
+------------------------------ */
+
+.principle-section {
+  background: #edf5e8;
+}
+
+.principle-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.principle-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 30px;
+
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius);
+
+  box-shadow: 0 8px 25px rgba(14,83,91,.06);
+
+  transition: .22s;
+}
+
+.principle-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow);
+}
+
+.principle-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: -50px;
+  top: -50px;
+
+  border-radius: 50%;
+
+  background: rgba(128,103,184,.08);
+}
+
+.principle-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 19px;
+
+  background: var(--lavender);
+
+  font-size: 1.6rem;
+}
+
+.principle-card h3 {
+  font-size: 1.45rem;
+}
+
+.principle-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+/* ------------------------------
+   MANIFESTATION INTRO
+------------------------------ */
+
+.manifestation-intro {
+  background:
+    linear-gradient(
+      135deg,
+      #f5dfb7,
+      #e8e0f5
+    );
+}
+
+.manifestation-box {
+  max-width: 900px;
+
+  padding: 35px;
+
+  background: rgba(255,253,247,.78);
+
+  border: 1px solid rgba(25,63,70,.1);
+
+  border-radius: 30px;
+
+  box-shadow: var(--shadow);
+}
+
+.manifestation-box p {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+.manifestation-box p + p {
+  margin-top: 17px;
+}
+
+.manifestation-box strong {
+  color: var(--deep-sea);
+}
+
+/* ------------------------------
+   COMPONENTS
+------------------------------ */
+
+.component-section {
+  background: #f7f2e4;
+}
+
+.component-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.component-card {
+  padding: 32px;
+
+  background: var(--foam);
+
+  border-radius: var(--radius);
+
+  border: 1px solid var(--line);
+
+  box-shadow: 0 8px 25px rgba(14,83,91,.06);
+}
+
+.component-number {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  margin-bottom: 12px;
+
+  border-radius: 999px;
+
+  background: var(--lavender);
+
+  color: var(--violet-dark);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .66rem;
+
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+.component-card h3 {
+  font-size: 1.7rem;
+
+  margin-bottom: 10px;
+}
+
+.component-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.example-box {
+  margin-top: 20px;
+
+  padding: 18px;
+
+  border-radius: 18px;
+
+  background: #edf5e8;
+}
+
+.example-box strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--deep-sea);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .72rem;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+.example-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.example {
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  background: var(--lavender);
+
+  color: var(--violet-dark);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .72rem;
+
+  font-weight: 700;
+}
+
+/* ------------------------------
+   GROWTH SECTION
+------------------------------ */
+
+.growth-section {
+  background: #edf5e8;
+}
+
+.growth-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.growth-card {
+  padding: 28px;
+
+  border-radius: 25px;
+
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+}
+
+.growth-card h3 {
+  margin-bottom: 10px;
+}
+
+.growth-card p {
+  color: var(--muted);
+
+  font-size: .9rem;
+}
+
+/* ------------------------------
+   LIMITS
+------------------------------ */
+
+.limits {
+  background: var(--deep-sea);
+
+  color: white;
+
+  padding: 80px 0;
+}
+
+.limits h2 {
+  color: white;
+}
+
+.limits .kicker {
+  color: #d7c7ef;
+}
+
+.limits .heading p {
+  color: #d8efea;
+}
+
+.limit-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-top: 30px;
+}
+
+.limit-card {
+  padding: 27px;
+
+  border-radius: 25px;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.limit-card h3 {
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+.limit-card p {
+  color: #d8efea;
+
+  font-size: .9rem;
+}
+
+/* ------------------------------
+   MAGITECH
+------------------------------ */
+
+.magitech {
+  background:
+    linear-gradient(
+      135deg,
+      #e3f4eb,
+      #f4e1b9
+    );
+}
+
+.magitech-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.magitech-card {
+  padding: 32px;
+
+  background: rgba(255,253,247,.8);
+
+  border-radius: var(--radius);
+
+  border: 1px solid var(--line);
+}
+
+.magitech-card h3 {
+  margin-bottom: 12px;
+}
+
+.magitech-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+/* ------------------------------
+   AETHERITE / DRIFT
+------------------------------ */
+
+.resource-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.resource-card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 35px;
+
+  border-radius: 30px;
+
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+
+  box-shadow: var(--shadow);
+}
+
+.resource-card.skyglass {
+  background:
+    linear-gradient(
+      135deg,
+      #e7edf8,
+      #e8e0f5
+    );
+}
+
+.resource-card.drift {
+  background:
+    linear-gradient(
+      135deg,
+      #e3f4eb,
+      #edf5e8
+    );
+}
+
+.resource-symbol {
+  font-size: 2.5rem;
+
+  margin-bottom: 12px;
+}
+
+.resource-card h3 {
+  font-size: 1.8rem;
+}
+
+.resource-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.resource-card p + p {
+  margin-top: 14px;
+}
+
+.resource-tag {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  padding: 7px 12px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.7);
+
+  color: var(--violet-dark);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .68rem;
+
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+/* ------------------------------
+   MAGIC PHILOSOPHY
+------------------------------ */
+
+.philosophy {
+  background: #f7f2e4;
+}
+
+.philosophy-box {
+  padding: 35px;
+
+  border-radius: 30px;
+
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+
+  box-shadow: 0 8px 25px rgba(14,83,91,.06);
+}
+
+.philosophy-box blockquote {
+  color: var(--violet-dark);
+
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+
+  line-height: 1.25;
+
+  margin-bottom: 20px;
+}
+
+.philosophy-box p {
+  color: var(--muted);
+
+  max-width: 850px;
+}
+
+/* ------------------------------
+   CHARACTER MAGIC
+------------------------------ */
+
+.character-section {
+  background: #edf5e8;
+}
+
+.character-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.character-card {
+  padding: 22px;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  background: var(--foam);
+
+  border: 1px solid var(--line);
+}
+
+.character-card strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--deep-sea);
+}
+
+.character-card p {
+  color: var(--muted);
+
+  font-size: .82rem;
+}
+
+/* ------------------------------
+   CLOSING
+------------------------------ */
+
+.closing {
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(128,103,184,.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #e3f4eb,
+      #e8e0f5,
+      #f4e1b9
+    );
+}
+
+.closing .heading {
+  margin: auto;
+}
+
+.closing p {
+  max-width: 720px;
+
+  margin: auto;
+
+  color: var(--muted);
+
+  font-size: 1.05rem;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  padding: 45px 0;
+
+  text-align: center;
+
+  color: #d8efea;
+
+  background: var(--deep-sea);
+}
+
+footer .brand {
+  justify-content: center;
+
+  color: white;
+
+  margin-bottom: 9px;
+}
+
+footer p {
+  font-family: Arial, sans-serif;
+
+  font-size: .8rem;
+
+  opacity: .84;
+}
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    justify-self: stretch;
+
+    max-width: none;
+  }
+
+  .principle-grid,
+  .component-grid,
+  .magitech-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .growth-grid,
+  .limit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .character-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .growth-grid,
+  .limit-grid,
+  .character-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .hero-art {
+    aspect-ratio: 4 / 3;
+  }
+
+  .magic-orb {
+    width: 130px;
+    height: 130px;
+  }
+
+  .orbit {
+    width: 210px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a class="brand" href="index.html">
+
+        <span class="brand-mark">🌿</span>
+
+        Verdigris Isles
+
+      </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="world.html">World</a>
+        </li>
+
+        <li>
+          <a href="regions.html">Isles</a>
+        </li>
+
+        <li>
+          <a href="races.html">Races</a>
+        </li>
+
+        <li>
+          <a href="magic.html" class="active">Magic</a>
+        </li>
+
+        <li>
+          <a href="history.html">History</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
 <main>
-<section class="hero" style="padding:75px 0 95px;min-height:0">
-<div class="container"><div class="heading"><span class="eyebrow">Magic &amp; Magitech</span>
-<h1 style="font-size:clamp(3rem,7vw,5.7rem);margin-bottom:20px">The Aether Beneath the Waves</h1>
-<p>Magic is part of the world itself, appearing in relics, ruins, materials, and places touched by the old civilization.</p></div></div></section>
 
-<section><div class="container"><div class="grid">
-<article class="card"><div class="icon">✨</div><h3>Aether</h3><p>Aether exists throughout the world and forms the foundation of magical phenomena.</p></article>
-<article class="card"><div class="icon">💎</div><h3>Drift</h3><p>A crystalline residue created by magical activity that can stabilize flows and slowly release Aether.</p></article>
-<article class="card"><div class="icon">🔮</div><h3>Aetherite</h3><p>A rare, irreplaceable crystal once used to power the Ascension Engines.</p></article>
-</div></div></section>
-<section><div class="container story"><div><span class="kicker">Magitech</span><h2>The Old Power Still Echoes.</h2>
-<p>Magic is part of the world itself, appearing in relics, ruins, materials, and places touched by the old civilization.</p>
-<p>Aetherite once powered the Ascension Engines. Its decline threatened the systems built around it, leaving behind a world where old technology can still be discovered—but not always understood.</p></div>
-<div class="postcard"><div class="note"><h3>Handle relics carefully.</h3><p>What looks like a beautiful fragment of the old world may still be carrying a charge.</p></div></div></div></section>
 
-</main><footer><div class="container"><div class="brand"><span class="brand-mark">🐚</span>Verdigris Isles</div>
-<p>A sunlit world of islands, adventure, magic, and forgotten history.</p>
-<p style="margin-top:10px">© 2026 Verdigris Isles</p></div></footer></body></html>
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <span class="eyebrow">
+          ✨ The Aether
+        </span>
+
+        <h1>Magic<br>Made Personal.</h1>
+
+        <p class="hero-description">
+          Magic in the Verdigris Isles is not divided into fixed schools or
+          inherited elements. Every living being carries Aether, and every
+          practitioner may awaken a unique expression of that invisible force.
+        </p>
+
+      </div>
+
+
+      <div class="hero-art">
+
+        <div class="orbit"></div>
+
+        <div class="orbit two"></div>
+
+        <div class="magic-orb">
+          <span>✦</span>
+        </div>
+
+        <span class="spark one">✧</span>
+        <span class="spark two">✦</span>
+        <span class="spark three">✧</span>
+        <span class="spark four">✦</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     OVERVIEW
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Magic System</span>
+
+      <h2>The Aether Within All Things</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        Magic in the Verdigris Isles is the expression of <strong>Aether</strong>,
+        the invisible force that flows through all living things and lingers
+        throughout the world itself.
+      </p>
+
+      <p>
+        Rather than learning identical spells or inheriting elemental
+        affinities, each individual awakens a unique
+        <strong>Aether Manifestation</strong> — a personal expression of their
+        connection to Aether shaped by their body, soul, personality, and
+        experiences.
+      </p>
+
+      <p>
+        No two manifestations are exactly alike. Magic may flow through hair,
+        blood, voice, shadows, emotions, objects, companions, or countless
+        other mediums. Each manifestation follows its own internal logic,
+        possessing distinct strengths, conditions, limitations, and methods
+        of growth.
+      </p>
+
+      <p>
+        True mastery does not come from collecting abilities. It comes from
+        understanding one's own manifestation and learning how to refine,
+        control, and creatively apply it.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CORE PRINCIPLES
+============================== -->
+
+<section class="principle-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Foundation</span>
+
+      <h2>Six Principles of Aether</h2>
+
+      <p>
+        These principles define how magic functions throughout the Verdigris
+        Isles.
+      </p>
+
+    </div>
+
+
+    <div class="principle-grid">
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">🌌</div>
+
+        <h3>Aether Is Everywhere</h3>
+
+        <p>
+          Aether flows through all living things and the world itself. It
+          lingers in the air, stone, water, plants, ruins, and places where
+          powerful magic has occurred.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">🪄</div>
+
+        <h3>Skill Over Strength</h3>
+
+        <p>
+          Magical mastery is determined by knowledge, discipline, creativity,
+          and precision rather than raw magical power. A clever practitioner
+          can accomplish more with less.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">⚖️</div>
+
+        <h3>Every Spell Has a Cost</h3>
+
+        <p>
+          Magic consumes stamina and concentration. Excessive use can cause
+          physical exhaustion, loss of focus, and temporary disruption of
+          Aether control.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">⚙️</div>
+
+        <h3>Magic & Technology Coexist</h3>
+
+        <p>
+          Enchantments and engineering work together throughout modern
+          civilization. The Reclaimed Magitech Renaissance blends craft,
+          science, machinery, and sorcery.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">💎</div>
+
+        <h3>Skyglass Is Irreplaceable</h3>
+
+        <p>
+          Aetherite, commonly known as Skyglass, powered the Age of Ascension.
+          It is now nearly extinct, dangerously unstable, and fiercely sought
+          after by scholars, nobles, artificers, and relic hunters.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">🌫️</div>
+
+        <h3>Drift Sustains the Modern World</h3>
+
+        <p>
+          Drift is a renewable but weak residual form of Aether. It cannot
+          reproduce the power of Skyglass, but it stabilizes enchantments and
+          powers everyday magitech.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">🏛️</div>
+
+        <h3>The Past Shapes the Present</h3>
+
+        <p>
+          Modern magical innovation comes from reclaiming, adapting, and
+          reinterpreting Ascension-era relics rather than recreating the lost
+          miracles of the past.
+        </p>
+
+      </article>
+
+
+      <article class="principle-card">
+
+        <div class="principle-icon">🌱</div>
+
+        <h3>Mastery Requires Growth</h3>
+
+        <p>
+          A manifestation becomes stronger through practice, experience,
+          experimentation, and self-discovery rather than simply accumulating
+          greater magical force.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     MANIFESTATIONS
+============================== -->
+
+<section class="manifestation-intro">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Aether Manifestations</span>
+
+      <h2>Every Mage Is Different</h2>
+
+    </div>
+
+
+    <div class="manifestation-box">
+
+      <p>
+        Every living being possesses Aether, but not everyone expresses it in
+        the same way. An <strong>Aether Manifestation</strong> is the unique
+        method through which an individual shapes Aether into a usable magical
+        ability.
+      </p>
+
+      <p>
+        A manifestation is not simply a spell. It is a person's personal
+        relationship with magic made tangible.
+      </p>
+
+      <p>
+        Two people may possess abilities that appear similar, but the way those
+        abilities manifest, their appearance, strengths, conditions, and
+        limitations can be completely different.
+      </p>
+
+      <p>
+        <strong>Manifestations define how someone uses magic — not what they
+        are allowed to do.</strong>
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     FOUR COMPONENTS
+============================== -->
+
+<section class="component-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Building a Manifestation</span>
+
+      <h2>Four Parts of Every Ability</h2>
+
+      <p>
+        Every Aether Manifestation is built around four fundamental components.
+      </p>
+
+    </div>
+
+
+    <div class="component-grid">
+
+
+      <!-- ORIGIN -->
+
+      <article class="component-card">
+
+        <span class="component-number">
+          01 · Origin
+        </span>
+
+        <h3>🌟 Where Magic Begins</h3>
+
+        <p>
+          The origin is the source through which a manifestation is channeled.
+          It may be a physical trait, object, companion, or ritual unique to
+          the user.
+        </p>
+
+        <div class="example-box">
+
+          <strong>Examples</strong>
+
+          <div class="example-list">
+
+            <span class="example">Hair</span>
+            <span class="example">Eyes</span>
+            <span class="example">Voice</span>
+            <span class="example">Blood</span>
+            <span class="example">Tattoos</span>
+            <span class="example">Weapons</span>
+            <span class="example">Jewelry</span>
+            <span class="example">Shadows</span>
+            <span class="example">Plants</span>
+            <span class="example">Spirit Companions</span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- EXPRESSION -->
+
+      <article class="component-card">
+
+        <span class="component-number">
+          02 · Expression
+        </span>
+
+        <h3>✨ What the Magic Does</h3>
+
+        <p>
+          The expression is the primary function of the manifestation. It
+          determines what the ability actually accomplishes when Aether is
+          channeled through its origin.
+        </p>
+
+        <div class="example-box">
+
+          <strong>Examples</strong>
+
+          <div class="example-list">
+
+            <span class="example">Clairvoyance</span>
+            <span class="example">Illusions</span>
+            <span class="example">Telekinesis</span>
+            <span class="example">Crystal Manipulation</span>
+            <span class="example">Healing</span>
+            <span class="example">Sound Manipulation</span>
+            <span class="example">Beast Communication</span>
+            <span class="example">Gravity Manipulation</span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- CONDITIONS -->
+
+      <article class="component-card">
+
+        <span class="component-number">
+          03 · Conditions
+        </span>
+
+        <h3>⚖️ When It Works Best</h3>
+
+        <p>
+          Every manifestation performs best under specific circumstances.
+          Conditions create opportunities for strategic thinking and encourage
+          practitioners to solve problems creatively.
+        </p>
+
+        <div class="example-box">
+
+          <strong>Examples</strong>
+
+          <div class="example-list">
+
+            <span class="example">Physical Contact</span>
+            <span class="example">Rainfall</span>
+            <span class="example">Eye Contact</span>
+            <span class="example">Song</span>
+            <span class="example">Natural Ground</span>
+            <span class="example">Moonlight</span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIMITATIONS -->
+
+      <article class="component-card">
+
+        <span class="component-number">
+          04 · Limitations
+        </span>
+
+        <h3>⚠️ Where It Ends</h3>
+
+        <p>
+          Every manifestation has weaknesses that define its boundaries.
+          Powerful abilities require meaningful drawbacks so that no single
+          manifestation becomes limitless.
+        </p>
+
+        <div class="example-box">
+
+          <strong>Examples</strong>
+
+          <div class="example-list">
+
+            <span class="example">Physical Exhaustion</span>
+            <span class="example">Limited Range</span>
+            <span class="example">Restraint</span>
+            <span class="example">Sensory Overload</span>
+            <span class="example">Preparation</span>
+            <span class="example">Loss of Control</span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     GROWTH & MASTERY
+============================== -->
+
+<section class="growth-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Growth & Mastery</span>
+
+      <h2>Magic Grows With Its User</h2>
+
+      <p>
+        A manifestation does not simply become stronger. It becomes more
+        refined.
+      </p>
+
+    </div>
+
+
+    <div class="growth-grid">
+
+
+      <article class="growth-card">
+
+        <h3>🌱 Experience</h3>
+
+        <p>
+          Using a manifestation in real situations teaches its practitioner
+          what the ability can actually accomplish and where its weaknesses
+          lie.
+        </p>
+
+      </article>
+
+
+      <article class="growth-card">
+
+        <h3>🎯 Precision</h3>
+
+        <p>
+          Training allows practitioners to use less Aether for the same result,
+          improve accuracy, and perform techniques with greater consistency.
+        </p>
+
+      </article>
+
+
+      <article class="growth-card">
+
+        <h3>💡 Creativity</h3>
+
+        <p>
+          Mastery often comes from discovering unexpected applications of an
+          existing ability rather than gaining an entirely new power.
+        </p>
+
+      </article>
+
+
+      <article class="growth-card">
+
+        <h3>🧠 Understanding</h3>
+
+        <p>
+          Learning how a manifestation behaves allows its user to recognize
+          patterns, exploit conditions, and work around limitations.
+        </p>
+
+      </article>
+
+
+      <article class="growth-card">
+
+        <h3>⚙️ Efficiency</h3>
+
+        <p>
+          Experienced practitioners learn to conserve stamina and concentration
+          instead of relying on overwhelming amounts of magical force.
+        </p>
+
+      </article>
+
+
+      <article class="growth-card">
+
+        <h3>✨ Evolution</h3>
+
+        <p>
+          A manifestation may develop new techniques and expressions as its
+          user changes, while remaining connected to the identity that created
+          it.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     LIMITS
+============================== -->
+
+<section class="limits">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Magical Boundaries</span>
+
+      <h2>Power Always Has a Price</h2>
+
+      <p>
+        Aether is powerful, but it is not limitless. The strongest practitioners
+        are not necessarily those with the greatest reserves, but those who
+        understand how to use what they have.
+      </p>
+
+    </div>
+
+
+    <div class="limit-grid">
+
+
+      <article class="limit-card">
+
+        <h3>⚡ Stamina</h3>
+
+        <p>
+          Repeated magical use consumes physical energy. Long periods of
+          casting can leave even experienced practitioners exhausted.
+        </p>
+
+      </article>
+
+
+      <article class="limit-card">
+
+        <h3>🧠 Concentration</h3>
+
+        <p>
+          Complex manifestations require focus. Distraction, injury, emotional
+          instability, or sensory overload can interfere with control.
+        </p>
+
+      </article>
+
+
+      <article class="limit-card">
+
+        <h3>🌫️ Aether Control</h3>
+
+        <p>
+          Overuse can temporarily disrupt a practitioner's ability to channel
+          Aether properly, forcing them to rest before their manifestation
+          becomes reliable again.
+        </p>
+
+      </article>
+
+
+      <article class="limit-card">
+
+        <h3>📏 Range</h3>
+
+        <p>
+          Many manifestations have natural limits on distance. Increasing
+          range generally requires greater concentration and magical expenditure.
+        </p>
+
+      </article>
+
+
+      <article class="limit-card">
+
+        <h3>⚖️ Conditions</h3>
+
+        <p>
+          A manifestation may depend upon specific circumstances. Removing
+          those conditions can weaken or completely prevent certain techniques.
+        </p>
+
+      </article>
+
+
+      <article class="limit-card">
+
+        <h3>💥 Consequences</h3>
+
+        <p>
+          Pushing beyond personal limits can cause temporary loss of control,
+          physical exhaustion, or disruption of the manifestation itself.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     MAGITECH
+============================== -->
+
+<section class="magitech">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Reclaimed Magitech Renaissance</span>
+
+      <h2>Where Magic Meets Machinery</h2>
+
+      <p>
+        The modern world does not possess the miracles of the Age of Ascension,
+        but it has learned how to combine magic with engineering.
+      </p>
+
+    </div>
+
+
+    <div class="magitech-grid">
+
+
+      <article class="magitech-card">
+
+        <h3>⚙️ Enchanted Engineering</h3>
+
+        <p>
+          Artificers use Aether to enhance mechanical systems, tools,
+          transportation, communication devices, medical equipment, and
+          industrial machinery.
+        </p>
+
+      </article>
+
+
+      <article class="magitech-card">
+
+        <h3>🌫️ Drift-Powered Devices</h3>
+
+        <p>
+          Drift provides a weak but renewable magical energy source capable of
+          stabilizing enchantments and powering practical devices without
+          requiring the nearly extinct Skyglass.
+        </p>
+
+      </article>
+
+
+      <article class="magitech-card">
+
+        <h3>🏛️ Reclaimed Relics</h3>
+
+        <p>
+          Much of modern magical technology comes from studying recovered
+          Ascension-era artifacts and adapting their principles to modern
+          materials.
+        </p>
+
+      </article>
+
+
+      <article class="magitech-card">
+
+        <h3>🔧 Modern Innovation</h3>
+
+        <p>
+          Engineers and mages increasingly work together to create technology
+          that is practical rather than miraculous, reflecting the realities
+          of the modern world.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     SKYGLASS & DRIFT
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Magical Resources</span>
+
+      <h2>Skyglass & Drift</h2>
+
+      <p>
+        Two very different remnants of Aether define the relationship between
+        the magical past and the modern world.
+      </p>
+
+    </div>
+
+
+    <div class="resource-grid">
+
+
+      <article class="resource-card skyglass">
+
+        <div class="resource-symbol">💎</div>
+
+        <h3>Aetherite · Skyglass</h3>
+
+        <p>
+          Aetherite is the crystalline substance that powered the Age of
+          Ascension and made the impossible possible.
+        </p>
+
+        <p>
+          It possesses immense magical potential but is now nearly extinct.
+          Remaining deposits are unstable, dangerous, and politically valuable.
+        </p>
+
+        <p>
+          Skyglass cannot simply be reproduced with modern methods. Its loss is
+          one of the defining limitations of the present age.
+        </p>
+
+        <span class="resource-tag">
+          Rare · Unstable · Irreplaceable
+        </span>
+
+      </article>
+
+
+      <article class="resource-card drift">
+
+        <div class="resource-symbol">🌫️</div>
+
+        <h3>Drift · Aethersilt</h3>
+
+        <p>
+          Drift is the common name for the residual Aether left behind by
+          magical activity. It accumulates in places where Aether has flowed
+          heavily over time.
+        </p>
+
+        <p>
+          Unlike Skyglass, Drift cannot generate or amplify enormous quantities
+          of magical power. Instead, it absorbs ambient Aether, stabilizes
+          magical systems, and releases energy slowly.
+        </p>
+
+        <p>
+          Its renewable nature makes it one of the foundations of the Reclaimed
+          Magitech Renaissance.
+        </p>
+
+        <span class="resource-tag">
+          Renewable · Weak · Practical
+        </span>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     PHILOSOPHY
+============================== -->
+
+<section class="philosophy">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Understanding Magic</span>
+
+      <h2>Magic Is Not a List of Spells</h2>
+
+    </div>
+
+
+    <div class="philosophy-box">
+
+      <blockquote>
+        “Mastery is not having more power. It is knowing exactly what to do
+        with the power you already possess.”
+      </blockquote>
+
+      <p>
+        A practitioner may spend years mastering a single manifestation without
+        ever developing another. In the Verdigris Isles, depth is valued over
+        quantity. Understanding a manifestation's behavior, conditions,
+        limitations, and potential applications is what separates an
+        inexperienced user from a master.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CHARACTER MAGIC
+============================== -->
+
+<section class="character-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Character Creation</span>
+
+      <h2>What Makes Your Magic Yours?</h2>
+
+      <p>
+        When creating an Aether Manifestation, consider the relationship between
+        the character and their magic.
+      </p>
+
+    </div>
+
+
+    <div class="character-grid">
+
+
+      <article class="character-card">
+
+        <strong>🌟 Origin</strong>
+
+        <p>
+          Where does your character channel their Aether?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>✨ Expression</strong>
+
+        <p>
+          What does their manifestation actually do?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>⚖️ Conditions</strong>
+
+        <p>
+          When is their manifestation strongest?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>⚠️ Limitations</strong>
+
+        <p>
+          What prevents their magic from becoming limitless?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>🌱 Growth</strong>
+
+        <p>
+          How has experience changed the way they use it?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>🧠 Personality</strong>
+
+        <p>
+          How does their identity influence their magic?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>🩸 Cost</strong>
+
+        <p>
+          What does using their magic demand from them?
+        </p>
+
+      </article>
+
+
+      <article class="character-card">
+
+        <strong>💡 Creativity</strong>
+
+        <p>
+          What unexpected uses have they discovered?
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CLOSING
+============================== -->
+
+<section class="closing">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Aether</span>
+
+      <h2>
+        No Two Magics Are the Same.
+      </h2>
+
+      <p>
+        Aether flows through everyone, but it never tells the same story twice.
+        In the Verdigris Isles, magic is not defined by what a person inherits.
+        It is defined by who they are, how they grow, and what they choose to
+        make of the power within them.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="brand">
+
+      <span class="brand-mark">🌿</span>
+
+      Verdigris Isles
+
+    </div>
+
+    <p>
+      A sunlit world of islands, adventure, magic, and forgotten history.
+    </p>
+
+    <p style="margin-top:10px;">
+      © 2026 Verdigris Isles
+    </p>
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
