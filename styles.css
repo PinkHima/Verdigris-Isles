@@ -28,6 +28,7 @@ nav{min-height:76px;display:flex;align-items:center;justify-content:space-betwee
 .nav{display:flex;gap:5px;list-style:none;font:700 .75rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em}
 .nav a{padding:10px 14px;border-radius:999px}
 .nav a:hover{background:#d9f1e7;color:var(--deep)}
+.nav a:hover,.nav a.active {background: var(--seafoam); color: var(--deep-ocean);}
 .hero{position:relative;overflow:hidden;padding:55px 0 90px;background:linear-gradient(180deg,#bdeee8 0%,#d9f0d5 58%,#f4dfb3 100%)}
 .hero:after{content:"";position:absolute;left:-5%;right:-5%;bottom:-55px;height:120px;background:var(--sand2);border-radius:50% 50% 0 0/80% 80% 0 0}
 .hero-grid{position:relative;z-index:2;min-height:650px;display:grid;grid-template-columns:1fr .9fr;align-items:center;gap:48px}
