@@ -1,1 +1,2648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Elyri | Elements Given Form | Verdigris Isles</title>
+
+<style>
+
+:root {
+  --ember: #d95f45;
+  --ember-dark: #9f3f32;
+  --flame: #f2a34f;
+
+  --water: #429fb1;
+  --water-dark: #276d7b;
+
+  --storm: #716da8;
+  --storm-dark: #494879;
+
+  --earth: #81705b;
+  --earth-dark: #51483d;
+
+  --mineral: #9a88b8;
+
+  --cream: #f8f0df;
+  --paper: #fffaf0;
+  --white: #fffdf8;
+
+  --ink: #302e2a;
+  --muted: #716c63;
+
+  --line: rgba(48,46,42,.12);
+  --shadow: 0 18px 45px rgba(55,45,34,.14);
+
+  --radius: 28px;
+  --max: 1180px;
+}
+
+/* ------------------------------
+   BASE
+------------------------------ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(92%, var(--max));
+  margin-inline: auto;
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(255,253,248,.94);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 76px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--earth-dark);
+
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--ember),
+      var(--storm)
+    );
+
+  color: white;
+
+  box-shadow:
+    inset 0 -4px 0 rgba(0,0,0,.08);
+}
+
+.nav-links {
+  list-style: none;
+
+  display: flex;
+  gap: 4px;
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.nav-links a {
+  display: block;
+
+  padding: 9px 11px;
+
+  border-radius: 999px;
+
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #f0e2ce;
+  color: var(--ember-dark);
+}
+
+/* ------------------------------
+   HERO
+------------------------------ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  padding: 90px 0 105px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f6d7b9 0%,
+      #eee0c8 35%,
+      #d9d8df 68%,
+      #d0d8d4 100%
+    );
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 430px;
+  height: 430px;
+
+  right: -130px;
+  top: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(113,109,168,.14);
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  left: -100px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(217,95,69,.12);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+
+  gap: 50px;
+
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  padding: 8px 15px;
+  margin-bottom: 18px;
+
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.75);
+
+  color: var(--earth-dark);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--earth-dark);
+
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+
+  line-height: .88;
+
+  letter-spacing: -.04em;
+
+  margin-bottom: 22px;
+}
+
+.hero-description {
+  max-width: 720px;
+
+  color: #544d47;
+
+  font-size: 1.12rem;
+}
+
+.hero-art {
+  min-height: 470px;
+
+  border-radius: 45px 45px 30px 30px;
+
+  overflow: hidden;
+
+  border: 7px solid rgba(255,255,255,.75);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--ember),
+      var(--water),
+      var(--storm),
+      var(--earth)
+    );
+
+  box-shadow:
+    0 28px 55px rgba(55,45,34,.22);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-art img {
+  width: 100%;
+  height: 470px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* ------------------------------
+   CONTENT
+------------------------------ */
+
+section {
+  padding: 85px 0;
+}
+
+.heading {
+  max-width: 850px;
+
+  margin-bottom: 40px;
+}
+
+.kicker {
+  color: var(--ember-dark);
+
+  font-family: Arial, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--earth-dark);
+
+  font-size: clamp(2rem, 5vw, 3.3rem);
+
+  line-height: 1.05;
+
+  margin: 8px 0 15px;
+}
+
+h3 {
+  color: var(--earth-dark);
+
+  font-size: 1.35rem;
+
+  margin-bottom: 8px;
+}
+
+.heading p {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+.prose {
+  max-width: 850px;
+}
+
+.prose p + p {
+  margin-top: 18px;
+}
+
+.prose strong {
+  color: var(--earth-dark);
+}
+
+/* ------------------------------
+   CARDS
+------------------------------ */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.card {
+  background: var(--white);
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius);
+
+  padding: 28px;
+
+  box-shadow:
+    0 8px 25px rgba(55,45,34,.06);
+
+  transition: .22s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow);
+}
+
+.card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.card p + p {
+  margin-top: 14px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 17px;
+
+  background: #f0e4d3;
+
+  font-size: 1.3rem;
+}
+
+/* ------------------------------
+   ELEMENTAL BRANCHES
+------------------------------ */
+
+.branch-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.branch-card {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 360px;
+
+  border-radius: 32px;
+
+  padding: 32px;
+
+  background: var(--white);
+
+  border: 1px solid var(--line);
+
+  box-shadow:
+    0 8px 25px rgba(55,45,34,.07);
+}
+
+.branch-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -55px;
+  top: -55px;
+
+  border-radius: 50%;
+
+  opacity: .13;
+}
+
+.branch-card.ignari::after {
+  background: var(--ember);
+}
+
+.branch-card.aquari::after {
+  background: var(--water);
+}
+
+.branch-card.tempesti::after {
+  background: var(--storm);
+}
+
+.branch-card.terrani::after {
+  background: var(--earth);
+}
+
+.branch-label {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  margin-bottom: 12px;
+
+  border-radius: 999px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: .65rem;
+
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+.ignari .branch-label {
+  background: #f8ddd1;
+  color: var(--ember-dark);
+}
+
+.aquari .branch-label {
+  background: #dceef0;
+  color: var(--water-dark);
+}
+
+.tempesti .branch-label {
+  background: #e3e1f0;
+  color: var(--storm-dark);
+}
+
+.terrani .branch-label {
+  background: #e8dfd2;
+  color: var(--earth-dark);
+}
+
+.branch-card h3 {
+  font-size: 1.8rem;
+
+  margin-bottom: 13px;
+}
+
+.branch-element {
+  font-family: Arial, sans-serif;
+
+  font-size: .72rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: .1em;
+
+  margin-bottom: 15px;
+}
+
+.ignari .branch-element {
+  color: var(--ember);
+}
+
+.aquari .branch-element {
+  color: var(--water-dark);
+}
+
+.tempesti .branch-element {
+  color: var(--storm-dark);
+}
+
+.terrani .branch-element {
+  color: var(--earth-dark);
+}
+
+.branch-card p {
+  color: var(--muted);
+
+  font-size: .94rem;
+}
+
+.branch-card p + p {
+  margin-top: 14px;
+}
+
+/* ------------------------------
+   ELEMENTAL FEATURE STRIP
+------------------------------ */
+
+.element-strip {
+  background:
+    linear-gradient(
+      135deg,
+      #8f3d32,
+      #315f6c 38%,
+      #55517d 68%,
+      #51483d
+    );
+
+  color: white;
+
+  padding: 75px 0;
+}
+
+.element-strip h2 {
+  color: white;
+}
+
+.element-strip .kicker {
+  color: #f7d3a7;
+}
+
+.element-strip p {
+  color: #eee5da;
+}
+
+.element-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-top: 35px;
+}
+
+.element {
+  padding: 25px;
+
+  border-radius: 23px;
+
+  background: rgba(255,255,255,.09);
+
+  border: 1px solid rgba(255,255,255,.13);
+}
+
+.element strong {
+  display: block;
+
+  color: white;
+
+  margin-bottom: 7px;
+
+  font-size: 1.05rem;
+}
+
+.element span {
+  color: #e8ded5;
+
+  font-size: .86rem;
+}
+
+/* ------------------------------
+   CULTURE CARDS
+------------------------------ */
+
+.culture-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.culture-card {
+  background: #f3e8d5;
+
+  border: 1px solid rgba(48,46,42,.08);
+
+  border-radius: var(--radius);
+
+  padding: 28px;
+}
+
+.culture-card h3 {
+  margin-bottom: 9px;
+}
+
+.culture-card p {
+  color: #6d6961;
+
+  font-size: .92rem;
+}
+
+/* ------------------------------
+   FIRST BREATH
+------------------------------ */
+
+.breath-box {
+  padding: 45px;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7dfcb,
+      #e5e0ec 48%,
+      #e1e0ce
+    );
+
+  box-shadow: var(--shadow);
+}
+
+.breath-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+
+  margin-top: 30px;
+}
+
+.breath-card {
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.72);
+}
+
+.breath-card h3 {
+  font-size: 1.05rem;
+
+  margin-bottom: 8px;
+}
+
+.breath-card p {
+  color: var(--muted);
+
+  font-size: .85rem;
+}
+
+/* ------------------------------
+   NAMING
+------------------------------ */
+
+.name-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.name-card {
+  background: var(--white);
+
+  border-radius: var(--radius);
+
+  padding: 28px;
+
+  border: 1px solid var(--line);
+}
+
+.name-number {
+  font-family: Arial, sans-serif;
+
+  font-size: .65rem;
+
+  font-weight: 700;
+
+  letter-spacing: .12em;
+
+  color: var(--ember-dark);
+
+  text-transform: uppercase;
+
+  margin-bottom: 8px;
+}
+
+.name-card h3 {
+  margin-bottom: 10px;
+}
+
+.name-card p {
+  color: var(--muted);
+
+  font-size: .9rem;
+}
+
+.name-example {
+  margin-top: 17px;
+
+  padding: 13px 15px;
+
+  border-left: 3px solid var(--ember);
+
+  background: #f7eee1;
+
+  font-style: italic;
+
+  font-size: .85rem;
+}
+
+/* ------------------------------
+   OCCUPATIONS
+------------------------------ */
+
+.occupation-section {
+  background: #eee9df;
+}
+
+.occupation-group {
+  margin-bottom: 28px;
+}
+
+.occupation-group h3 {
+  margin-bottom: 12px;
+}
+
+.occupation-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.occupation {
+  padding: 9px 14px;
+
+  border-radius: 999px;
+
+  background: #fffaf0;
+
+  color: var(--earth-dark);
+
+  font-family: Arial, sans-serif;
+
+  font-size: .76rem;
+
+  font-weight: 700;
+
+  border: 1px solid var(--line);
+}
+
+/* ------------------------------
+   BIOLOGY
+------------------------------ */
+
+.bio-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.bio-card {
+  padding: 28px;
+
+  border-radius: var(--radius);
+
+  background: var(--white);
+
+  border: 1px solid var(--line);
+}
+
+.bio-card strong {
+  display: block;
+
+  color: var(--earth-dark);
+
+  font-size: 1.1rem;
+
+  margin-bottom: 7px;
+}
+
+.bio-card p {
+  color: var(--muted);
+
+  font-size: .91rem;
+}
+
+/* ------------------------------
+   CREATION BOX
+------------------------------ */
+
+.creation-box {
+  padding: 40px;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3ded0,
+      #e5e2ee,
+      #e7e0d0
+    );
+
+  box-shadow: var(--shadow);
+}
+
+.creation-list {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.creation-item {
+  padding: 18px 20px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.72);
+}
+
+.creation-item strong {
+  display: block;
+
+  color: var(--earth-dark);
+
+  margin-bottom: 4px;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer {
+  padding: 45px 0;
+
+  text-align: center;
+
+  color: #e8ded5;
+
+  background: #403a35;
+}
+
+footer .brand {
+  justify-content: center;
+
+  color: white;
+
+  margin-bottom: 9px;
+}
+
+footer p {
+  font-family: Arial, sans-serif;
+
+  font-size: .8rem;
+
+  opacity: .84;
+}
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .grid,
+  .culture-grid,
+  .bio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .branch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .element-grid,
+  .breath-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .grid,
+  .culture-grid,
+  .bio-grid,
+  .creation-list,
+  .element-grid,
+  .breath-grid,
+  .name-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art,
+  .hero-art img {
+    height: 380px;
+    min-height: 380px;
+  }
+
+  .breath-box,
+  .creation-box {
+    padding: 28px;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a class="brand" href="index.html">
+
+        <span class="brand-mark">✦</span>
+
+        Verdigris Isles
+
+      </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="world.html">World</a>
+        </li>
+
+        <li>
+          <a href="regions.html">Isles</a>
+        </li>
+
+        <li>
+          <a href="races.html" class="active">Races</a>
+        </li>
+
+        <li>
+          <a href="magic.html">Magic</a>
+        </li>
+
+        <li>
+          <a href="technology.html">Technology</a>
+        </li>
+
+        <li>
+          <a href="history.html">History</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-inner">
+
+      <div>
+
+        <span class="eyebrow">
+          ✦ Peoples of the Verdigris Isles
+        </span>
+
+        <h1>Elyri</h1>
+
+        <p class="hero-description">
+          Often called the <strong>Elements Given Form</strong>, the Elyri are
+          a people whose bodies embody the fundamental elements of fire, water,
+          air, and earth. Once born from a dark experiment, they are now a
+          naturally reproducing people with their own culture, biology, and
+          magical heritage.
+        </p>
+
+      </div>
+
+
+      <div class="hero-art">
+
+        <img
+          src="assets/island-reference.jpg"
+          alt="Elemental Elyri surrounded by fire, water, wind, stone, and crystals"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     IDENTITY
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Identity</span>
+
+      <h2>Elements Given Form</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        The Elyri are a people whose bodies embody the fundamental elements of
+        <strong>fire, water, air, and earth</strong>. Though their origins are
+        tied to one of the darkest experiments of the Heliora Compact, the Elyri
+        are no longer considered an artificial creation.
+      </p>
+
+      <p>
+        Generations have passed since the people of Velera first emerged from
+        their elemental cocoons. Today, the Elyri are a naturally reproducing
+        people with a distinct culture, biology, and magical heritage.
+      </p>
+
+      <p>
+        Elyri children are born without obvious elemental traits. Around
+        childhood, their bodies undergo a transformation known as
+        <strong>the Slumbering</strong>, awakening them as one of four elemental
+        branches: Ignari, Aquari, Tempesti, or Terrani.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     BRANCHES
+============================== -->
+
+<section style="background:#eee9df;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Four Branches</span>
+
+      <h2>Four Elements. Countless Manifestations.</h2>
+
+      <p>
+        An Elyri's branch determines the elemental nature of their physical
+        manifestation, but never determines their personality, morality,
+        occupation, gender, or beliefs.
+      </p>
+
+    </div>
+
+
+    <div class="branch-grid">
+
+
+      <!-- IGNARI -->
+
+      <article class="branch-card ignari">
+
+        <span class="branch-label">
+          Fire
+        </span>
+
+        <h3>Ignari</h3>
+
+        <div class="branch-element">
+          Fire · Lava · Light
+        </div>
+
+        <p>
+          The Ignari embody fire, most often manifesting as flame, lava, heat,
+          or light. Their skin may be red, orange, white, yellow, or black as
+          coal.
+        </p>
+
+        <p>
+          Bioluminescence is particularly common among Ignari. Their hair may
+          be red or black, resemble living flame, glow like light, or appear as
+          a shifting mass of crust sinking into lava.
+        </p>
+
+        <p>
+          Ignari universally run feverishly hot and may display small flames
+          within their eyes or breath when experiencing intense emotion. They
+          are highly resistant to heat and can work around forges and ovens
+          without protection.
+        </p>
+
+      </article>
+
+
+      <!-- AQUARI -->
+
+      <article class="branch-card aquari">
+
+        <span class="branch-label">
+          Water
+        </span>
+
+        <h3>Aquari</h3>
+
+        <div class="branch-element">
+          Water · Ice · Mist · Steam
+        </div>
+
+        <p>
+          Aquari embody water and may manifest as water, ice, acid, steam, or
+          mist. Rare manifestations have included blood and poison.
+        </p>
+
+        <p>
+          Aquari often appear perpetually damp, with beads of moisture
+          collecting on their skin and hair. They may smell of fresh rain and
+          clean water. Blue and green skin is common, while their eyes are often
+          somewhat oversized and blue-black.
+        </p>
+
+        <p>
+          All Aquari can breathe underwater, though not all are naturally
+          skilled swimmers. Their hair may float as though underwater or form
+          into rigid structures of ice.
+        </p>
+
+      </article>
+
+
+      <!-- TEMPESTI -->
+
+      <article class="branch-card tempesti">
+
+        <span class="branch-label">
+          Air
+        </span>
+
+        <h3>Tempesti</h3>
+
+        <div class="branch-element">
+          Wind · Storms · Lightning · Clouds
+        </div>
+
+        <p>
+          Tempesti embody air and commonly manifest as wind, storms, lightning,
+          or clouds. Blue and purple are common colors, though some possess skin
+          as dark as storm clouds.
+        </p>
+
+        <p>
+          Their skin may appear to shift or move, while their bodies can feel
+          cold or constantly carry static electricity. Tempesti generally have
+          wispy, lithe builds.
+        </p>
+
+        <p>
+          All Tempesti possess the ability to hover slightly above the ground.
+          It is rarely more than a step's height, but represents the remaining
+          magic carried within their bloodline.
+        </p>
+
+      </article>
+
+
+      <!-- TERRANI -->
+
+      <article class="branch-card terrani">
+
+        <span class="branch-label">
+          Earth
+        </span>
+
+        <h3>Terrani</h3>
+
+        <div class="branch-element">
+          Stone · Sand · Metal · Crystal
+        </div>
+
+        <p>
+          The titanic Terrani embody earth, manifesting as stone, sand, mud,
+          dirt, metals, or crystals.
+        </p>
+
+        <p>
+          Their skin is often brown or metallic, while crystalline Terrani can
+          appear in nearly any color. Some develop patches of crystal or metal
+          across their bodies.
+        </p>
+
+        <p>
+          Terrani are universally large and broad. Their skin is hard, almost
+          armor-like, and their eyes often resemble pools of gold, black, or
+          polished gemstone.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     ELEMENTAL FEATURES
+============================== -->
+
+<section class="element-strip">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Elemental Nature</span>
+
+      <h2>One People, Four Expressions</h2>
+
+      <p>
+        The four branches are different expressions of the same Elyri heritage.
+        Families may contain several branches, and no branch is considered
+        superior to another.
+      </p>
+
+    </div>
+
+
+    <div class="element-grid">
+
+      <div class="element">
+
+        <strong>🔥 Ignari</strong>
+
+        <span>
+          Heat resistance, fiery manifestations, bioluminescence, and
+          exceptional compatibility with forges and kilns.
+        </span>
+
+      </div>
+
+
+      <div class="element">
+
+        <strong>💧 Aquari</strong>
+
+        <span>
+          Underwater respiration, moisture-rich bodies, and manifestations
+          ranging from ice to mist, acid, and steam.
+        </span>
+
+      </div>
+
+
+      <div class="element">
+
+        <strong>⚡ Tempesti</strong>
+
+        <span>
+          Airborne manifestations, static electricity, storm traits, and the
+          natural ability to hover above the ground.
+        </span>
+
+      </div>
+
+
+      <div class="element">
+
+        <strong>💎 Terrani</strong>
+
+        <span>
+          Dense, hardened bodies with manifestations involving stone, metal,
+          sand, mud, or crystal.
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     ORIGINS
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Overview & Origins</span>
+
+      <h2>The Experiment at Velera</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        Some scholars argue that the Elyri are simply a mutation. Their history,
+        however, began with an experiment conducted by scientists of the
+        <strong>Heliora Compact</strong>.
+      </p>
+
+      <p>
+        The scientists traveled to the Verdigris Isles without informing the
+        people of the town of Velera of the true purpose of their work. They
+        purchased land and worked alongside the town, improving infrastructure
+        while financially supporting several magitech devices.
+      </p>
+
+      <p>
+        The true purpose was to determine whether prolonged exposure to
+        <strong>Aetherite</strong> produced harmful effects.
+      </p>
+
+      <p>
+        Among the devices were misters that activated at night under the guise
+        of watering plants, filling the air with Aetherite exposure, as well as
+        a shielding system designed to keep enemies outside while trapping the
+        contaminated air within.
+      </p>
+
+      <p>
+        The results remained inconclusive until the Sundering.
+      </p>
+
+      <p>
+        Mutations began subtly. Yet these changes seemed insignificant compared
+        to the sudden storms beneath the dome and random heat waves that caused
+        fires throughout the settlement.
+      </p>
+
+      <p>
+        Then the Citadel fell.
+      </p>
+
+      <p>
+        In retrospect, scholars believe the original citizens of Velera had
+        begun developing an adaptive form of magic that caused minor epigenetic
+        shifts. The trauma of the Citadel's fall appears to have used the Aether
+        within their bodies to trigger massive epigenetic changes.
+      </p>
+
+      <p>
+        The fall destroyed the shield and left the citizens injured or near
+        death.
+      </p>
+
+      <p>
+        Yet not a single citizen died that day.
+      </p>
+
+      <p>
+        When rescuers arrived, they found crystalline cocoons, pyres of flame
+        that never spread or extinguished, pools of crystal-blue water, and
+        windstorms contained within individual homes.
+      </p>
+
+      <p>
+        These phenomena were initially dismissed as chaotic magical activity.
+        Then, on the fourth day, the first Elyri emerged.
+      </p>
+
+      <p>
+        He possessed stone-colored skin, crystalline hair, and eyes of solid
+        gold. Over the following week and a half, the entire population of
+        Velera returned, crawling from mud and water, appearing from wind,
+        accumulating during rainfall, and bubbling from pools of lava.
+      </p>
+
+      <p>
+        Velera is now little more than a smear in the Badlands, but the people
+        born from that catastrophe survived.
+      </p>
+
+      <p>
+        The Elyri are now born, not made. The epigenetic changes within their
+        bloodline, however, remain.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     PHYSICAL CHARACTERISTICS
+============================== -->
+
+<section style="background:#f0eadf;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Physical Characteristics</span>
+
+      <h2>Born Human. Awakened Elemental.</h2>
+
+      <p>
+        Elyri children begin life without obvious elemental characteristics.
+      </p>
+
+    </div>
+
+
+    <div class="bio-grid">
+
+      <article class="bio-card">
+
+        <strong>Before the Slumbering</strong>
+
+        <p>
+          Elyri children generally possess solid-colored skin and similarly
+          uniform eyes. Their appearance often resembles that of their Elyri
+          parents, but they otherwise appear largely human.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>The Epigenetic Shift</strong>
+
+        <p>
+          Between approximately seven and twelve years of age, an Elyri
+          undergoes their epigenetic shift and enters the Slumbering.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>The Awakening</strong>
+
+        <p>
+          When the transformation is complete, the child awakens as one of the
+          four elemental branches and their body permanently reflects their
+          manifestation.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Mixed Families</strong>
+
+        <p>
+          Elyri families frequently contain multiple branches. An Ignari,
+          Aquari, Tempesti, and Terrani may all belong to the same family.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Elemental Lineage</strong>
+
+        <p>
+          A branch can manifest in countless ways. Fire, lava, ice, storms,
+          crystal, metal, mist, acid, and other expressions are possible.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Humanoid Biology</strong>
+
+        <p>
+          Despite their elemental differences, Elyri retain fundamentally
+          humanoid biology and reproduce naturally.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CULTURE
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Culture & Society</span>
+
+      <h2>A People Built Around Community</h2>
+
+      <p>
+        Born from shared trauma, Elyri society places extraordinary importance
+        on community, emotional honesty, hospitality, and mutual protection.
+      </p>
+
+    </div>
+
+
+    <div class="culture-grid">
+
+      <article class="culture-card">
+
+        <div class="icon">🏠</div>
+
+        <h3>Home Is Everyone's Home</h3>
+
+        <p>
+          Elyri communities often contain generations living within the same
+          household. Neighbors frequently help raise children, and asking for
+          help is considered ordinary rather than shameful.
+        </p>
+
+      </article>
+
+
+      <article class="culture-card">
+
+        <div class="icon">🤝</div>
+
+        <h3>Chosen Family</h3>
+
+        <p>
+          Elyri children commonly grow up surrounded by aunties and uncles.
+          Adoption is common, including adoption by families outside the Elyri
+          themselves.
+        </p>
+
+      </article>
+
+
+      <article class="culture-card">
+
+        <div class="icon">💬</div>
+
+        <h3>Emotional Honesty</h3>
+
+        <p>
+          Elyri do not typically shy away from their feelings. Love is confessed
+          quickly, pain is discussed openly, and vulnerability is considered a
+          natural part of community life.
+        </p>
+
+      </article>
+
+
+      <article class="culture-card">
+
+        <div class="icon">🛡️</div>
+
+        <h3>Defenders of Others</h3>
+
+        <p>
+          Elyri communities are quick to intervene when someone is being
+          harmed. Their natural affinity for dangerous magic has made them
+          especially deliberate about resolving conflict whenever possible.
+        </p>
+
+      </article>
+
+
+      <article class="culture-card">
+
+        <div class="icon">🏡</div>
+
+        <h3>Never Truly Gone</h3>
+
+        <p>
+          Leaving an Elyri community is an enormous emotional event. Those who
+          leave are expected to maintain strong ties through messages,
+          holidays, visits, and support sent back home.
+        </p>
+
+      </article>
+
+
+      <article class="culture-card">
+
+        <div class="icon">⚖️</div>
+
+        <h3>Abandonment</h3>
+
+        <p>
+          The highest crime in an Elyri town is not murder or betrayal, but
+          abandonment. Children, elders, soldiers, homeless people, and anyone
+          left without support are protected by the community.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     DEATH & AETHERITE
+============================== -->
+
+<section class="element-strip">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Belief & Memory</span>
+
+      <h2>Released Back Into the Elements</h2>
+
+      <p>
+        Elyri do not generally view death as simple disappearance. They believe
+        the elements have released the individual into freedom and returned them
+        to the world from which their people came.
+      </p>
+
+    </div>
+
+
+    <div class="element-grid">
+
+      <div class="element">
+
+        <strong>🔥 Ignari</strong>
+
+        <span>
+          Cremated. Some families forge the ashes into meaningful objects.
+        </span>
+
+      </div>
+
+
+      <div class="element">
+
+        <strong>💧 Aquari</strong>
+
+        <span>
+          Buried at sea, returning the body to the water.
+        </span>
+
+      </div>
+
+
+      <div class="element">
+
+        <strong>🌬️ Tempesti</strong>
+
+        <span>
+          Cremated and scattered to the winds. Older traditions involved
+          leaving the body in a high place.
+        </span>
+
+      </div>
+
+
+      <div class="element">
+
+        <strong>🪨 Terrani</strong>
+
+        <span>
+          Buried within the earth, returning the body to stone, soil, and land.
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="prose" style="margin-top:35px;">
+
+      <p>
+        Elyri also refer to Aetherite as
+        <strong style="color:#f7d3a7;">"The Poisonous Gift."</strong>
+        Their relationship with the material is complicated, shaped by the
+        knowledge that it both changed their ancestors and helped create the
+        people they are today.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     ARCHITECTURE
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Elyri Architecture</span>
+
+      <h2>Built for the Elements</h2>
+
+      <p>
+        Elyri communities are known throughout the Verdigris Isles for
+        architecture designed around elemental living.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      <article class="card">
+
+        <div class="icon">♨️</div>
+
+        <h3>Heated Bathing Pools</h3>
+
+        <p>
+          Warm bathing pools are often incorporated directly into communal
+          buildings and gathering spaces.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">🍲</div>
+
+        <h3>Community Kitchens</h3>
+
+        <p>
+          Large kitchens provide food for entire neighborhoods and reinforce
+          the Elyri belief that no member of the community should go without.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">❄️</div>
+
+        <h3>Temperature Control</h3>
+
+        <p>
+          Elyri magitech includes advanced systems for cooling, heating, and
+          maintaining comfortable environments.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">🌉</div>
+
+        <h3>Hanging Walkways</h3>
+
+        <p>
+          Elevated walkways and interconnected structures allow movement between
+          buildings while adapting to different elemental needs.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">💎</div>
+
+        <h3>Crystal Windows</h3>
+
+        <p>
+          Crystal is frequently incorporated into Elyri architecture, serving
+          both practical and decorative purposes.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">⚙️</div>
+
+        <h3>Elemental Engineering</h3>
+
+        <p>
+          Elyri have developed cutting-edge magitech for fireproofing, acid
+          resistance, shock resistance, temperature control, and more.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     FIRST BREATH
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="breath-box">
+
+      <span class="kicker">✦ The First Breath</span>
+
+      <h2>When the Elements Awaken</h2>
+
+      <p>
+        Elyri are naturally filled with excess Aether from birth. This makes
+        them unusually quick studies at magic, possessing both natural control
+        and greater reserves than most people. That excess begins burning away
+        during the First Breath, but by then the child has usually developed a
+        strong foundation in magical knowledge.
+      </p>
+
+      <p style="margin-top:15px;">
+        Around the age of five, the community begins constructing a
+        <strong>Waking House</strong>. The child receives it on their sixth
+        birthday and decorates it with their family.
+      </p>
+
+      <div class="breath-grid">
+
+        <article class="breath-card">
+
+          <h3>🔥 Ignari</h3>
+
+          <p>
+            A festival of food, fireworks, entertainment, and bonfires.
+            New Ignari may walk across hot coals or leap through flaming hoops.
+          </p>
+
+        </article>
+
+
+        <article class="breath-card">
+
+          <h3>💧 Aquari</h3>
+
+          <p>
+            The new Aquari is taken secretly to the nearest large body of water
+            to swim and play with their community.
+          </p>
+
+        </article>
+
+
+        <article class="breath-card">
+
+          <h3>🪨 Terrani</h3>
+
+          <p>
+            Feats of strength, athletic competitions, food, and celebrations.
+            Tournaments may include races or scavenger hunts.
+          </p>
+
+        </article>
+
+
+        <article class="breath-card">
+
+          <h3>⚡ Tempesti</h3>
+
+          <p>
+            Loud music, dancing, acrobatics, and the new Tempesti's first flight.
+            Celebrations often become friendly competitions for the best trick.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     THE SLUMBERING
+============================== -->
+
+<section style="background:#eee9df;">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ The Slumbering</span>
+
+      <h2>The Cocoon Before the Awakening</h2>
+
+    </div>
+
+    <div class="prose">
+
+      <p>
+        The Slumbering usually begins between the ages of seven and twelve.
+        It initially presents with flu-like symptoms including sweating, high
+        fever, aches, vomiting, and difficulty remaining awake.
+      </p>
+
+      <p>
+        The symptoms generally last between <strong>three and ten days</strong>
+        before the child enters the cocoon phase.
+      </p>
+
+      <p>
+        Children showing signs of the Slumbering are brought to their Waking
+        Houses, where family members sleep beside them until the transformation
+        begins.
+      </p>
+
+      <p>
+        Every Elyri cocoon is different, but it is also the first indication of
+        the child's eventual branch.
+      </p>
+
+    </div>
+
+
+    <div class="branch-grid" style="margin-top:35px;">
+
+      <article class="card">
+
+        <div class="icon">🔥</div>
+
+        <h3>Ignari Cocoon</h3>
+
+        <p>
+          Wrapped in shifting light or completely wreathed in flame.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">💧</div>
+
+        <h3>Aquari Cocoon</h3>
+
+        <p>
+          Becomes a boiling pool of water or an ice sculpture that never melts.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">⚡</div>
+
+        <h3>Tempesti Cocoon</h3>
+
+        <p>
+          Hidden within a storm cloud that forms around the child's Waking House.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="icon">🪨</div>
+
+        <h3>Terrani Cocoon</h3>
+
+        <p>
+          The child becomes a statue of stone, crystal, metal, or another
+          manifestation of earth.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     NAMING
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Naming Conventions</span>
+
+      <h2>Three Names, Three Relationships</h2>
+
+      <p>
+        Elyri traditionally possess a birth name, a societal name, and a
+        manifestation name.
+      </p>
+
+    </div>
+
+
+    <div class="name-grid">
+
+
+      <article class="name-card">
+
+        <div class="name-number">
+          First Name
+        </div>
+
+        <h3>Birth Name</h3>
+
+        <p>
+          A poetic name describing the scenery, weather, or atmosphere present
+          when the child was born.
+        </p>
+
+        <div class="name-example">
+          "Song of the Creek Babbling on the Rocks"
+        </div>
+
+      </article>
+
+
+      <article class="name-card">
+
+        <div class="name-number">
+          Everyday Name
+        </div>
+
+        <h3>Societal Name</h3>
+
+        <p>
+          A shortened form of the birth name used in everyday conversation.
+        </p>
+
+        <div class="name-example">
+          Song · Creek · Babble · Rocks · Brock
+        </div>
+
+      </article>
+
+
+      <article class="name-card">
+
+        <div class="name-number">
+          After Awakening
+        </div>
+
+        <h3>Manifestation Name</h3>
+
+        <p>
+          A name based on the first thing the Elyri notices about their new
+          elemental form, usually no more than two or three words.
+        </p>
+
+        <div class="name-example">
+          Green Hand · Blue Flame · Ashen Skin · Brilliant Sheen
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <div class="prose" style="margin-top:30px;">
+
+      <p>
+        Family members are most likely to use an Elyri's
+        <strong>birth name</strong>. Close friends often use their
+        <strong>manifestation name</strong>, while acquaintances and the wider
+        community generally use the <strong>societal name</strong>.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     OCCUPATIONS
+============================== -->
+
+<section class="occupation-section">
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Common Occupations</span>
+
+      <h2>Elemental Skills in Everyday Life</h2>
+
+      <p>
+        Elyri can pursue virtually any profession, though their elemental
+        adaptations naturally make certain occupations particularly common.
+      </p>
+
+    </div>
+
+
+    <div class="occupation-group">
+
+      <h3>Any Elyri</h3>
+
+      <div class="occupation-list">
+
+        <span class="occupation">Caretaker</span>
+        <span class="occupation">Aetherwright</span>
+        <span class="occupation">Architect</span>
+        <span class="occupation">Builder</span>
+        <span class="occupation">Artisan</span>
+        <span class="occupation">Magitech Specialist</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="occupation-group">
+
+      <h3>Ignari</h3>
+
+      <div class="occupation-list">
+
+        <span class="occupation">Blacksmith</span>
+        <span class="occupation">Glassworker</span>
+        <span class="occupation">Kilnmaster</span>
+        <span class="occupation">Chef</span>
+        <span class="occupation">Metalworker</span>
+        <span class="occupation">Forge Operator</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="occupation-group">
+
+      <h3>Aquari</h3>
+
+      <div class="occupation-list">
+
+        <span class="occupation">Diver</span>
+        <span class="occupation">Sailor</span>
+        <span class="occupation">Brewer</span>
+        <span class="occupation">Healer</span>
+        <span class="occupation">River Pilot</span>
+        <span class="occupation">Salvager</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="occupation-group">
+
+      <h3>Tempesti</h3>
+
+      <div class="occupation-list">
+
+        <span class="occupation">Courier</span>
+        <span class="occupation">Scout</span>
+        <span class="occupation">Innkeeper</span>
+        <span class="occupation">Mechanic</span>
+        <span class="occupation">Messenger</span>
+        <span class="occupation">Surveyor</span>
+
+      </div>
+
+    </div>
+
+
+    <div class="occupation-group">
+
+      <h3>Terrani</h3>
+
+      <div class="occupation-list">
+
+        <span class="occupation">Mason</span>
+        <span class="occupation">Soldier</span>
+        <span class="occupation">Miner</span>
+        <span class="occupation">Gemcutter</span>
+        <span class="occupation">Builder</span>
+        <span class="occupation">Stoneworker</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     LIFESPAN & BIOLOGY
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="heading">
+
+      <span class="kicker">✦ Lifespan & Biology</span>
+
+      <h2>A Shorter Life, Intensely Lived</h2>
+
+    </div>
+
+
+    <div class="bio-grid">
+
+      <article class="bio-card">
+
+        <strong>Average Lifespan</strong>
+
+        <p>
+          Elyri generally live approximately <strong>70 years</strong>.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Terrani Longevity</strong>
+
+        <p>
+          Terrani tend to live somewhat longer than other Elyri, often
+          approaching the average human lifespan.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Branch Biology</strong>
+
+        <p>
+          Elemental manifestations can influence body temperature, skin density,
+          physical size, environmental resistance, and other biological traits.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Natural Reproduction</strong>
+
+        <p>
+          Modern Elyri reproduce naturally despite their origins as the result
+          of an experimental epigenetic transformation.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Childhood Appearance</strong>
+
+        <p>
+          Elyri children are born without elemental characteristics and remain
+          relatively human in appearance until the Slumbering.
+        </p>
+
+      </article>
+
+
+      <article class="bio-card">
+
+        <strong>Elemental Awakening</strong>
+
+        <p>
+          Children develop into Ignari, Aquari, Tempesti, or Terrani during
+          childhood rather than being born as fully manifested adults.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CHARACTER CREATION
+============================== -->
+
+<section>
+
+  <div class="container">
+
+    <div class="creation-box">
+
+      <span class="kicker">✦ Character Creation</span>
+
+      <h2>Creating an Elyri</h2>
+
+      <p>
+        An Elyri's branch influences their body, natural adaptations, and
+        relationship with elemental magic. It does not determine who they are.
+      </p>
+
+
+      <div class="creation-list">
+
+        <div class="creation-item">
+
+          <strong>Race</strong>
+
+          Elyri
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Branch</strong>
+
+          Ignari, Aquari, Tempesti, or Terrani
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Lineage</strong>
+
+          What elemental manifestation do they embody? Fire, lava, water, ice,
+          storms, stone, crystals, metal, mist, or another expression?
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Distinctive Traits</strong>
+
+          Elemental hair, crystalline or metallic growths, unusual eyes,
+          coloration, temperature, scent, moisture, static, or other adaptations.
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Personal Appearance</strong>
+
+          How does your character style themselves around their unusual
+          elemental features?
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Cultural Background</strong>
+
+          Where were they raised? What was their community like? Are they still
+          closely connected to their hometown?
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>First Breath</strong>
+
+          What did their Waking House look like, and how did their community
+          celebrate their transformation?
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Names</strong>
+
+          What are their poetic birth name, societal name, and manifestation
+          name?
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Magic</strong>
+
+          What simple forms of Aether manipulation did they learn as a child?
+
+        </div>
+
+
+        <div class="creation-item">
+
+          <strong>Community Ties</strong>
+
+          Who helped raise them, and who would they consider family?
+
+        </div>
+
+      </div>
+
+
+      <p style="margin-top:28px;color:#625c55;">
+
+        <strong>
+          Remember:
+        </strong>
+
+        An Elyri's branch does not determine their personality, morality,
+        occupation, gender, or beliefs.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==============================
+     CLOSING
+============================== -->
+
+<section class="hero" style="padding:75px 0;">
+
+  <div class="container">
+
+    <div class="heading" style="margin:auto;text-align:center;">
+
+      <span class="kicker">✦ The Elyri</span>
+
+      <h2>
+        Four Elements. One People.
+      </h2>
+
+      <p>
+        Born from catastrophe, shaped by the elements, and carried forward
+        through generations, the Elyri are no longer an experiment. They are
+        simply a people who survived.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="brand">
+
+      <span class="brand-mark">✦</span>
+
+      Verdigris Isles
+
+    </div>
+
+    <p>
+      A sunlit world of islands, elemental magic, reclaimed technology,
+      and forgotten history.
+    </p>
+
+    <p style="margin-top:10px;">
+      Lore Created by @remmyrice
+    </p>
+
+    <p style="margin-top:10px;">
+      © 2026 Verdigris Isles
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
