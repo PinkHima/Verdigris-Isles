@@ -1,52 +1,116 @@
-:root{--lagoon:#31c3c0;
-      --deep:#086c78;
-      --navy:#124a55;
-      --foam:#f7fff5;
-      --sand:#f4dfb3;
-      --sand2:#fff4d7;
-      --leaf:#5e9b45;
-      --leaf2:#2f713f;
-      --coral:#e98568;
-      --stone:#5b625d;
-      --ink:#20464d;
-      --muted:#637b7c;
-      --white:#fffdf8;
-      --line:rgba(32,70,77,.13);
-      --shadow:0 20px 50px rgba(16,75,82,.16);
-      --radius:30px}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:var(--sand2);line-height:1.7}
-a{text-decoration:none;color:inherit}
-.container{width:min(92%,1180px);margin:auto}
-
-header{position:sticky;top:0;z-index:50;background:rgba(255,253,248,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav{min-height:76px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px;color:var(--deep);font-weight:bold;letter-spacing:.08em;text-transform:uppercase}
-.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--lagoon);color:#fff}
-.nav{display:flex;gap:5px;list-style:none;font:700 .75rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em}
-.nav a{padding:10px 14px;border-radius:999px}
-.nav a:hover{background:#d9f1e7;color:var(--deep)}
-.nav a.active{
-    background:#d9f1e7;
-    color:var(--deep);
-    border-radius:999px;
+/* =========================================================
+   VERDIGRIS ISLES
+   Master Stylesheet
+   ========================================================= */
+/* =========================================================
+   01. VARIABLES
+   ========================================================= */
+:root {
+    --lagoon: #31c3c0;
+    --deep: #086c78;
+    --navy: #124a55;
+    --foam: #f7fff5;
+    --sand: #f4dfb3;
+    --sand2: #fff4d7;
+    --leaf: #5e9b45;
+    --leaf2: #2f713f;
+    --coral: #e98568;
+    --stone: #5b625d;
+    --ink: #20464d;
+    --muted: #637b7c;
+    --white: #fffdf8;
+    --line: rgba(32, 70, 77, 0.13);
+    --shadow: 0 20px 50px rgba(16, 75, 82, 0.16);
+    --shadow-small: 0 8px 25px rgba(16, 75, 82, 0.06);
+    --radius: 30px;
 }
-
-
-/* =========================================
-   SITE NAVIGATION
-   ========================================= */
-
+/* =========================================================
+   02. RESET
+   ========================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    color: var(--ink);
+    background: var(--sand2);
+    line-height: 1.7;
+}
+img {
+    max-width: 100%;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+/* =========================================================
+   03. GLOBAL LAYOUT
+   ========================================================= */
+.container {
+    width: min(92%, 1180px);
+    margin-inline: auto;
+}
+section {
+    padding: 95px 0;
+}
+/* =========================================================
+   04. TYPOGRAPHY
+   ========================================================= */
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+}
+h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.87;
+    letter-spacing: -0.04em;
+    color: var(--deep);
+    margin-bottom: 24px;
+}
+h2 {
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.05;
+    color: var(--deep);
+    margin-bottom: 14px;
+}
+h3 {
+    color: var(--deep);
+}
+p {
+    margin-bottom: 1rem;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+/* =========================================================
+   05. SITE NAVIGATION
+   ========================================================= */
 .site-header {
     width: 100%;
-    background: var(--navy);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 100;
+    background: rgba(255, 253, 248, 0.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
 }
-
 .site-nav {
     min-height: 76px;
     display: flex;
@@ -54,22 +118,30 @@ nav{min-height:76px;display:flex;align-items:center;justify-content:space-betwee
     justify-content: space-between;
     gap: 2rem;
 }
-
-.site-nav .brand {
+/* Brand */
+.site-nav .brand,
+footer .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    color: var(--foam);
-    text-decoration: none;
+    gap: 10px;
+    color: var(--deep);
     font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     white-space: nowrap;
 }
-
-.site-nav .brand-mark {
-    font-size: 1.4rem;
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--lagoon);
+    color: white;
+    font-size: 1.2rem;
 }
-
-.site-nav .nav-links {
+/* Navigation links */
+.nav-links {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -77,255 +149,654 @@ nav{min-height:76px;display:flex;align-items:center;justify-content:space-betwee
     margin: 0;
     padding: 0;
     list-style: none;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
 }
-
-.site-nav .nav-links a {
+.nav-links a {
     display: block;
     padding: 0.65rem 0.85rem;
-    color: var(--foam);
-    text-decoration: none;
-    border-radius: 8px;
+    color: var(--deep);
+    border-radius: 999px;
     transition:
         background 0.2s ease,
-        color 0.2s ease;
+        color 0.2s ease,
+        transform 0.2s ease;
 }
-
-.site-nav .nav-links a:hover {
-    background: rgba(255,255,255,0.10);
+.nav-links a:hover {
+    background: #d9f1e7;
+    color: var(--deep);
 }
-
-.site-nav .nav-links a.active {
+.nav-links a.active {
     background: var(--lagoon);
     color: white;
 }
-
-
-/* =========================================
-   HUMAN PAGE HERO
-   ========================================= */
-
+/* =========================================================
+   06. HERO
+   ========================================================= */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 55px 0 90px;
+    background:
+        linear-gradient(
+            180deg,
+            #bdeee8 0%,
+            #d9f0d5 58%,
+            #f4dfb3 100%
+        );
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    left: -5%;
+    right: -5%;
+    bottom: -55px;
+    height: 120px;
+    background: var(--sand2);
+    border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+}
 .hero-inner {
+    position: relative;
+    z-index: 2;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(300px, 0.9fr);
     align-items: center;
     gap: 3rem;
+    min-height: 560px;
 }
-
 .hero-content {
     min-width: 0;
 }
-
+.hero-description {
+    max-width: 640px;
+    font-size: 1.15rem;
+    color: #28585d;
+    margin-bottom: 30px;
+}
+/* Eyebrow */
+.eyebrow {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.76);
+    color: var(--deep);
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+/* Hero image */
 .hero-art {
     width: 100%;
     min-width: 0;
+    position: relative;
+    overflow: hidden;
+    height: 420px;
+    border: 7px solid rgba(255, 255, 255, 0.82);
+    border-radius:
+        46% 46% 34px 34px /
+        24% 24% 34px 34px;
+    background: var(--lagoon);
+    box-shadow: var(--shadow);
 }
-
 .hero-art img {
     display: block;
     width: 100%;
-    height: 420px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 18px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    object-position: center;
 }
-
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 900px) {
-
-    .site-nav {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 1rem 0;
-    }
-
-    .site-nav .brand {
-        justify-content: center;
-    }
-
-    .site-nav .nav-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-art img {
-        height: 320px;
-    }
-
+.hero-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(5, 70, 75, 0.1)
+        );
+    pointer-events: none;
 }
-
-@media (max-width: 600px) {
-
-    .site-nav .nav-links {
-        gap: 0.15rem;
-    }
-
-    .site-nav .nav-links a {
-        padding: 0.5rem 0.6rem;
-        font-size: 0.9rem;
-    }
-
-    .hero-art img {
-        height: 250px;
-    }
-
+/* Optional image caption */
+.art-caption {
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    bottom: 20px;
+    padding: 13px 16px;
+    border-radius: 20px;
+    background: rgba(255, 253, 248, 0.88);
+    color: var(--deep);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    font-size: 0.86rem;
 }
-
-/* ------------------------------
-   SECTION VARIANTS
------------------------------- */
-
-.section-green {
-    background: #edf5e8;
+.art-caption strong {
+    display: block;
 }
-
-.section-mint {
-    background: #e5f4ed;
-}
-
+/* =========================================================
+   07. HERO CLOSING
+   ========================================================= */
 .hero-closing {
     padding: 75px 0;
 }
-
 .heading-centered {
     margin-inline: auto;
     text-align: center;
 }
-
-/* ------------------------------
-   BRANCH / HOMELAND LABELS
------------------------------- */
-
+/* =========================================================
+   08. SECTION HEADINGS
+   ========================================================= */
+.heading {
+    max-width: 760px;
+    margin-bottom: 42px;
+}
+.heading p {
+    color: var(--muted);
+}
+.kicker {
+    display: inline-block;
+    color: var(--coral);
+    font-family: Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+/* =========================================================
+   09. SECTION VARIANTS
+   ========================================================= */
+.section-green {
+    background: #edf5e8;
+}
+.section-mint {
+    background: #e5f4ed;
+}
+/* =========================================================
+   10. PROSE / LONG-FORM TEXT
+   ========================================================= */
+.prose {
+    max-width: 850px;
+}
+.prose p {
+    color: var(--ink);
+}
+.prose p + p {
+    margin-top: 17px;
+}
+/* =========================================================
+   11. GRIDS
+   ========================================================= */
+.grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+/* =========================================================
+   12. CARDS
+   ========================================================= */
+.card {
+    min-width: 0;
+    min-height: 210px;
+    padding: 28px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-small);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-bottom: 7px;
+    font-size: 1.28rem;
+}
+.card p {
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+/* =========================================================
+   13. CARD ICONS
+   ========================================================= */
+.icon {
+    width: 49px;
+    height: 49px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 17px;
+    border-radius: 17px;
+    background: #d8f0e6;
+    font-size: 1.25rem;
+}
+/* =========================================================
+   14. HOMELAND / BRANCH LABELS
+   ========================================================= */
+.homeland-name,
 .branch-name {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
 }
-
+.homeland-name span,
 .branch-name span {
     padding: 5px 9px;
     border-radius: 999px;
     background: #e4f3ed;
     color: var(--leaf2);
     font-family: Arial, sans-serif;
-    font-size: .68rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: .07em;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
 }
-
+/* =========================================================
+   15. FEATURE STRIPS
+   ========================================================= */
+.feature-strip {
+    background:
+        linear-gradient(
+            135deg,
+            #dff3e9,
+            #eaf5df
+        );
+}
+.feature-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+.feature {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    background: rgba(255, 253, 248, 0.75);
+}
+.feature strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--deep);
+    font-size: 1rem;
+}
+.feature span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+/* =========================================================
+   16. OCCUPATIONS
+   ========================================================= */
+.occupation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.occupation {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--deep);
+    font-family: Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-small);
+}
+/* =========================================================
+   17. CHARACTER CREATION
+   ========================================================= */
+.creation-box {
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 45px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+.creation-box h2 {
+    margin-bottom: 14px;
+}
+.creation-box > p {
+    max-width: 720px;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+.creation-list {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+.creation-item {
+    padding: 18px;
+    border-radius: 18px;
+    background: #edf5e8;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+.creation-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--deep);
+    font-size: 0.82rem;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+/* =========================================================
+   18. STORY / TWO-COLUMN CONTENT
+   ========================================================= */
+.story {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 48px;
+    align-items: center;
+}
+.story p + p {
+    margin-top: 17px;
+}
+/* =========================================================
+   19. POSTCARD / DECORATIVE PANEL
+   ========================================================= */
+.postcard {
+    position: relative;
+    min-height: 360px;
+    padding: 34px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background:
+        linear-gradient(
+            135deg,
+            #42c7c1 0 43%,
+            #d7efcc 43% 67%,
+            #f1d9a8 67%
+        );
+    box-shadow: var(--shadow);
+}
+.postcard::before,
+.postcard::after {
+    content: "";
+    position: absolute;
+    border: 2px dashed rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+}
+.postcard::before {
+    width: 300px;
+    height: 150px;
+    left: -90px;
+    bottom: 35px;
+    transform: rotate(-18deg);
+}
+.postcard::after {
+    width: 260px;
+    height: 130px;
+    right: -75px;
+    top: 30px;
+    transform: rotate(20deg);
+}
+.note {
+    position: relative;
+    z-index: 2;
+    max-width: 350px;
+    padding: 23px;
+    border-radius: 23px;
+    background: rgba(255, 253, 248, 0.88);
+}
+.note h3 {
+    margin-bottom: 7px;
+}
+/* =========================================================
+   20. BUTTONS
+   ========================================================= */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 23px;
+    border: 2px solid var(--deep);
+    border-radius: 999px;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+.button.primary {
+    background: var(--lagoon);
+    border-color: var(--lagoon);
+    color: white;
+    box-shadow:
+        0 9px 22px rgba(49, 195, 192, 0.25);
+}
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+/* =========================================================
+   21. BANNER
+   ========================================================= */
+.banner {
+    padding: 110px 20px;
+    text-align: center;
+    color: white;
+    background:
+        linear-gradient(
+            rgba(5, 91, 105, 0.55),
+            rgba(5, 91, 105, 0.55)
+        ),
+        url("../assets/island-reference.jpg")
+        center 48% / cover;
+}
+.banner h2 {
+    color: white;
+}
+.banner p {
+    max-width: 700px;
+    margin-inline: auto;
+    color: #f2fffc;
+}
+/* =========================================================
+   22. TIMELINE
+   ========================================================= */
+.timeline {
+    max-width: 820px;
+    margin-inline: auto;
+}
+.item {
+    position: relative;
+    margin-left: 15px;
+    padding:
+        0 0 35px 36px;
+    border-left: 2px solid #b8ddd2;
+}
+.item:last-child {
+    border-left-color: transparent;
+}
+.item::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 2px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--coral);
+    border: 3px solid var(--sand2);
+    box-shadow:
+        0 0 0 2px var(--coral);
+}
+.item strong {
+    display: block;
+    color: var(--coral);
+    margin-bottom: 4px;
+}
+.item p {
+    color: var(--muted);
+}
+/* =========================================================
+   23. FOOTER
+   ========================================================= */
+footer {
+    padding: 45px 0;
+    text-align: center;
+    background: var(--navy);
+    color: #d9eeea;
+}
+footer .brand {
+    justify-content: center;
+    color: white;
+    margin-bottom: 8px;
+}
+footer p {
+    font-family: Arial, sans-serif;
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
 .footer-copy {
     margin-top: 10px;
 }
-.hero{position:relative;overflow:hidden;padding:55px 0 90px;background:linear-gradient(180deg,#bdeee8 0%,#d9f0d5 58%,#f4dfb3 100%)}
-.hero:after{content:"";position:absolute;left:-5%;right:-5%;bottom:-55px;height:120px;background:var(--sand2);border-radius:50% 50% 0 0/80% 80% 0 0}
-.hero-grid{position:relative;z-index:2;min-height:650px;display:grid;grid-template-columns:1fr .9fr;align-items:center;gap:48px}
-.eyebrow{display:inline-block;padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.76);color:var(--deep);font:700 .7rem Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px}h1{font-size:clamp(3.5rem,8vw,7rem);line-height:.87;letter-spacing:-.04em;color:var(--deep);margin-bottom:24px}.hero p{max-width:640px;font-size:1.15rem;color:#28585d;margin-bottom:30px}
-.buttons{display:flex;flex-wrap:wrap;gap:12px}
-.button{padding:13px 23px;border-radius:999px;border:2px solid var(--deep);font:700 .75rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em;transition:.2s}
-.button.primary{background:var(--lagoon);border-color:var(--lagoon);color:white;box-shadow:0 9px 22px rgba(49,195,192,.25)}
-.button:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-
-.art{height:620px;border:7px solid rgba(255,255,255,.82);border-radius:46% 46% 34px 34px/24% 24% 34px 34px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:var(--lagoon)}
-.art img{width:100%;height:100%;object-fit:cover;object-position:center}
-.art:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(5,70,75,.1));pointer-events:none}
-
-.art-caption{position:absolute;z-index:2;left:20px;bottom:20px;padding:13px 16px;border-radius:20px;background:rgba(255,253,248,.88);color:var(--deep);box-shadow:0 8px 22px rgba(0,0,0,.12);font-size:.86rem}
-.art-caption strong{display:block}
-section{padding:95px 0}
-section:nth-of-type(even){background:#e7f4ec}
-.kicker{display:inline-block;color:var(--coral);font:700 .72rem Arial,sans-serif;text-transform:uppercase;letter-spacing:.16em;margin-bottom:8px}
-h2{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.05;color:var(--deep);margin-bottom:14px}
-.heading{max-width:760px;margin-bottom:42px}
-.heading p{color:var(--muted)}
-.story{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.story p+p{margin-top:17px}
-.postcard{min-height:360px;border-radius:var(--radius);padding:34px;position:relative;overflow:hidden;background:linear-gradient(135deg,#42c7c1 0 43%,#d7efcc 43% 67%,#f1d9a8 67%);box-shadow:var(--shadow)}
-.postcard:before,.postcard:after{content:"";position:absolute;border-radius:50%;border:2px dashed rgba(255,255,255,.65)}
-.postcard:before{width:300px;height:150px;left:-90px;bottom:35px;transform:rotate(-18deg)}
-.postcard:after{width:260px;height:130px;right:-75px;top:30px;transform:rotate(20deg)}
-.note{position:relative;z-index:2;max-width:350px;padding:23px;border-radius:23px;background:rgba(255,253,248,.88)}
-.note h3{color:var(--deep);margin-bottom:7px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;min-height:210px;box-shadow:0 8px 25px rgba(16,75,82,.06);transition:.22s}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-.icon{width:49px;height:49px;border-radius:17px;display:grid;place-items:center;background:#d8f0e6;margin-bottom:17px;font-size:1.25rem}
-.card h3{color:var(--deep);font-size:1.28rem;margin-bottom:7px}
-.card p{color:var(--muted);font-size:.94rem}
-.banner{padding:110px 20px;text-align:center;color:white;background:linear-gradient(rgba(5,91,105,.55),rgba(5,91,105,.55)),url('../assets/island-reference.jpg') center 48%/cover}
-.banner h2{color:white}
-.banner p{max-width:700px;margin:auto;color:#f2fffc}
-.timeline{max-width:820px;margin:auto}
-.item{position:relative;margin-left:15px;padding:0 0 35px 36px;border-left:2px solid #b8ddd2}
-.item:last-child{border-left-color:transparent}
-
-.item:before{content:"";position:absolute;left:-9px;top:2px;width:13px;height:13px;border-radius:50%;background:var(--coral);border:3px solid var(--sand2);box-shadow:0 0 0 2px var(--coral)}
-.item strong{display:block;color:var(--coral);margin-bottom:4px}.item p{color:var(--muted)}
-footer{padding:45px 0;text-align:center;background:var(--navy);color:#d9eeea}
-footer .brand{justify-content:center;color:#fff;margin-bottom:8px}
-footer p{font: .8rem Arial,sans-serif;opacity:.85;}
-/* =========================================
-   MOBILE
-   ========================================= */
-
+/* =========================================================
+   24. RESPONSIVE — TABLET
+   ========================================================= */
 @media (max-width: 900px) {
-
     .site-nav {
         flex-direction: column;
         align-items: stretch;
-
         padding: 1rem 0;
     }
-
     .site-nav .brand {
         justify-content: center;
     }
-
-    .site-nav .nav-links {
+    .nav-links {
         justify-content: center;
         flex-wrap: wrap;
     }
-
     .hero-inner {
         grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 20px;
     }
-
     .hero-art {
-        height: 380px;
+        height: 360px;
+        border-radius: 38px;
+    }
+    .grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+    .story {
+        grid-template-columns: 1fr;
+    }
+    .creation-list {
+        grid-template-columns: 1fr;
     }
 }
-
-
+/* =========================================================
+   25. RESPONSIVE — MOBILE
+   ========================================================= */
 @media (max-width: 600px) {
-
-    .site-nav .nav-links {
-        gap: .15rem;
+    section {
+        padding: 70px 0;
     }
-
-    .site-nav .nav-links a {
-        padding: .5rem .6rem;
-        font-size: .7rem;
+    .site-nav {
+        gap: 1rem;
     }
-
+    .nav-links {
+        gap: 0.15rem;
+    }
+    .nav-links a {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.7rem;
+    }
+    h1 {
+        font-size: 3.2rem;
+    }
     .hero {
-        padding-top: 45px;
+        padding-top: 35px;
     }
-
     .hero-art {
-        height: 300px;
+        height: 280px;
         border-width: 5px;
         border-radius: 30px;
     }
-
+    .hero-description {
+        font-size: 1rem;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 24px;
+    }
+    .creation-box {
+        padding: 30px 22px;
+    }
+    .buttons {
+        flex-direction: column;
+    }
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+    .occupation-list {
+        gap: 8px;
+    }
+    .occupation {
+        padding: 9px 13px;
+    }
+}
+/* =========================================================
+   26. SMALL PHONES
+   ========================================================= */
+@media (max-width: 400px) {
+    .container {
+        width: min(94%, 1180px);
+    }
+    .nav-links a {
+        padding: 0.45rem 0.5rem;
+        font-size: 0.65rem;
+    }
     h1 {
-        font-size: 3.2rem;
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .hero-art {
+        height: 240px;
     }
 }
