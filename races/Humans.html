@@ -1,2127 +1,1013 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Humans | People of the Verdigris Isles</title>
-
-<style>
-
-:root {
-  --lagoon: #39b9bb;
-  --lagoon-dark: #087f91;
-  --deep-sea: #075c6c;
-  --coral: #e9836b;
-  --sand: #f2dfb6;
-  --cream: #fff6df;
-  --foam: #fffdf7;
-  --leaf: #4f8c4b;
-  --leaf-dark: #27643d;
-  --stone: #5c625e;
-  --ink: #193f46;
-  --muted: #617678;
-
-  --line: rgba(25,63,70,.12);
-  --shadow: 0 18px 45px rgba(14,83,91,.14);
-
-  --radius: 28px;
-  --max: 1180px;
-}
-
-/* ------------------------------
-   BASE
------------------------------- */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  color: var(--ink);
-  background: var(--cream);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(92%, var(--max));
-  margin-inline: auto;
-}
-
-/* ------------------------------
-   NAVIGATION
------------------------------- */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,253,247,.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-
-nav {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.brand-mark {
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  background: var(--lagoon);
-  color: white;
-
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
-}
-
-.nav-links {
-  list-style: none;
-
-  display: flex;
-  gap: 4px;
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-
-.nav-links a {
-  display: block;
-
-  padding: 9px 11px;
-
-  border-radius: 999px;
-
-  transition: .2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: #d9f2ec;
-  color: var(--deep-sea);
-}
-
-/* ------------------------------
-   HERO
------------------------------- */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-
-  padding: 90px 0 105px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #c6f0e9 0%,
-      #eff0ce 55%,
-      #f5dfb7 100%
-    );
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-
-  gap: 50px;
-
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-block;
-
-  padding: 8px 15px;
-  margin-bottom: 18px;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.72);
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-h1 {
-  color: var(--deep-sea);
-
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
-
-  line-height: .88;
-
-  letter-spacing: -.04em;
-
-  margin-bottom: 22px;
-}
-
-.hero-description {
-  max-width: 720px;
-
-  color: #28575c;
-
-  font-size: 1.12rem;
-}
-
-.hero-art {
-  min-height: 470px;
-
-  border-radius: 45px 45px 30px 30px;
-
-  overflow: hidden;
-
-  border: 7px solid rgba(255,255,255,.75);
-
-  background: var(--lagoon);
-
-  box-shadow: 0 28px 55px rgba(18,79,81,.22);
-}
-
-.hero-art img {
-  width: 100%;
-  height: 470px;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-/* ------------------------------
-   CONTENT
------------------------------- */
-
-section {
-  padding: 85px 0;
-}
-
-.heading {
-  max-width: 850px;
-
-  margin-bottom: 40px;
-}
-
-.kicker {
-  color: var(--coral);
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  letter-spacing: .16em;
-
-  text-transform: uppercase;
-}
-
-h2 {
-  color: var(--deep-sea);
-
-  font-size: clamp(2rem, 5vw, 3.3rem);
-
-  line-height: 1.05;
-
-  margin: 8px 0 15px;
-}
-
-h3 {
-  color: var(--deep-sea);
-
-  font-size: 1.35rem;
-
-  margin-bottom: 8px;
-}
-
-.heading p {
-  color: var(--muted);
-
-  font-size: 1rem;
-}
-
-.prose {
-  max-width: 850px;
-}
-
-.prose p + p {
-  margin-top: 18px;
-}
-
-.prose strong {
-  color: var(--deep-sea);
-}
-
-/* ------------------------------
-   CARDS
------------------------------- */
-
-.grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 22px;
-}
-
-.card {
-  background: var(--foam);
-
-  border: 1px solid var(--line);
-
-  border-radius: var(--radius);
-
-  padding: 28px;
-
-  box-shadow: 0 8px 25px rgba(14,83,91,.06);
-
-  transition: .22s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: var(--shadow);
-}
-
-.card p {
-  color: var(--muted);
-
-  font-size: .94rem;
-}
-
-.card p + p {
-  margin-top: 14px;
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-
-  display: grid;
-  place-items: center;
-
-  margin-bottom: 15px;
-
-  border-radius: 17px;
-
-  background: #d8f1e9;
-
-  font-size: 1.3rem;
-}
-
-/* ------------------------------
-   HOMELAND CARDS
------------------------------- */
-
-.homeland-card {
-  position: relative;
-
-  overflow: hidden;
-}
-
-.homeland-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 100px;
-  height: 100px;
-
-  right: -30px;
-  top: -30px;
-
-  border-radius: 50%;
-
-  background: rgba(57,185,187,.08);
-}
-
-.homeland-name {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-bottom: 10px;
-}
-
-.homeland-name span {
-  font-family: Arial, sans-serif;
-
-  font-size: .68rem;
-  font-weight: 700;
-
-  padding: 5px 9px;
-
-  border-radius: 999px;
-
-  background: #e4f3ed;
-
-  color: var(--leaf-dark);
-
-  text-transform: uppercase;
-
-  letter-spacing: .07em;
-}
-
-/* ------------------------------
-   FEATURE STRIP
------------------------------- */
-
-.feature-strip {
-  background: var(--deep-sea);
-
-  color: white;
-
-  padding: 70px 0;
-}
-
-.feature-strip h2 {
-  color: white;
-}
-
-.feature-strip p {
-  color: #d8efea;
-}
-
-.feature-grid {
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 18px;
-
-  margin-top: 35px;
-}
-
-.feature {
-  padding: 22px;
-
-  border-radius: 22px;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.1);
-}
-
-.feature strong {
-  display: block;
-
-  color: white;
-
-  margin-bottom: 5px;
-}
-
-.feature span {
-  color: #c9e5df;
-
-  font-size: .88rem;
-}
-
-/* ------------------------------
-   OCCUPATIONS
------------------------------- */
-
-.occupation-list {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-top: 25px;
-}
-
-.occupation {
-  padding: 9px 14px;
-
-  border-radius: 999px;
-
-  background: #d9f2ec;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .78rem;
-
-  font-weight: 700;
-}
-
-/* ------------------------------
-   CREATION BOX
------------------------------- */
-
-.creation-box {
-  padding: 38px;
-
-  border-radius: 35px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e3f4eb,
-      #f4e1b9
-    );
-
-  box-shadow: var(--shadow);
-}
-
-.creation-list {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 15px;
-
-  margin-top: 25px;
-}
-
-.creation-item {
-  padding: 18px 20px;
-
-  border-radius: 20px;
-
-  background: rgba(255,255,255,.72);
-}
-
-.creation-item strong {
-  display: block;
-
-  color: var(--deep-sea);
-
-  margin-bottom: 4px;
-}
-
-/* ------------------------------
-   FOOTER
------------------------------- */
-
-footer {
-  padding: 45px 0;
-
-  text-align: center;
-
-  color: #d8efea;
-
-  background: var(--deep-sea);
-}
-
-footer .brand {
-  justify-content: center;
-
-  color: white;
-
-  margin-bottom: 9px;
-}
-
-footer p {
-  font-family: Arial, sans-serif;
-
-  font-size: .8rem;
-
-  opacity: .84;
-}
-
-/* ------------------------------
-   MOBILE
------------------------------- */
-
-@media (max-width: 900px) {
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .feature-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  .grid,
-  .creation-list,
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-art,
-  .hero-art img {
-    height: 380px;
-    min-height: 380px;
-  }
-
-  section {
-    padding: 65px 0;
-  }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Humans are one of the most widespread peoples of the Verdigris Isles, shaped by homeland, culture, community, and adaptability.">
+    <title>Humans | People of the Verdigris Isles</title>
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
 
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a class="brand" href="../index.html">
+                    <span class="brand-mark">🌿</span>
+                    Verdigris Isles
+                </a>
 
-<!-- ==============================
-     NAVIGATION
-============================== -->
-
-<header>
-
-  <div class="container">
-
-    <nav>
-
-      <a class="brand" href="../index.html">
-
-        <span class="brand-mark">🌿</span>Verdigris Isles</a>
-
-      <ul class="nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a href="../world/world.html">World</a></li>
-<li><a href="../regions/regions.html">Isles</a></li>
-<li><a href="../races/races.html" class="active">Races</a></li>
-<li><a href="../world/magic.html">Magic</a></li>
-<li><a href="../world/technology.html">Technology</a></li>
-<li><a href="../world/history.html">History</a></li>
-      </ul>
-    </nav>
- </div>
-</header>
-<main>
-
-
-<!-- ==============================
-     HERO
-============================== -->
-
-<section class="hero">
-
-  <div class="container">
-
-    <div class="hero-inner">
-
-      <div>
-
-        <span class="eyebrow">
-          🌿 Peoples of the Verdigris Isles
-        </span>
-
-        <h1>Humans</h1>
-
-        <p class="hero-description">
-          Adaptable and widespread, humans can be found throughout nearly
-          every settlement and region of the Verdigris Isles. Rather than
-          being defined by a single ancestry or homeland, humanity is shaped
-          by the cultures, communities, and environments in which its people
-          live.
-        </p>
-
-      </div>
-
-
-      <div class="hero-art">
-
-        <img
-          src="../assets/island-reference.jpg"
-          alt="A human settlement in the Verdigris Isles"
-        >
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     IDENTITY
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Identity</span>
-
-      <h2>A People Defined by Where They Belong</h2>
-
-    </div>
-
-    <div class="prose">
-
-      <p>
-        Humans are among the most widespread peoples of the Verdigris Isles.
-        They can be found in nearly every major settlement, region, and
-        community throughout the archipelago.
-      </p>
-
-      <p>
-        Unlike peoples whose identities are closely tied to a particular
-        ancestral lineage, humans are largely defined by their homeland,
-        culture, community, and upbringing.
-      </p>
-
-      <p>
-        A human raised along the Azure Coast may have a dramatically different
-        worldview, appearance, traditions, and way of life from a human raised
-        in the Kharad Highlands or among the streets of Verde Haven.
-      </p>
-
-      <p>
-        There is no single human culture. Humanity's greatest defining trait
-        is its ability to adapt to the world around it.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     HOMELANDS
-============================== -->
-
-<section style="background:#edf5e8;">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Human Homelands</span>
-
-      <h2>Many Homes. One People.</h2>
-
-      <p>
-        Human identity is often closely connected to the place where a person
-        was raised. Geography, local history, and community traditions can
-        shape human culture as strongly as ancestry shapes other peoples.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <!-- VERDE HAVEN -->
-
-      <article class="card homeland-card">
-
-        <div class="icon">🏙️</div>
-
-        <div class="homeland-name">
-
-          <h3>Verde Haven</h3>
-
-          <span>Capital</span>
-
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../world/world.html">World</a></li>
+                    <li><a href="../regions/regions.html">Isles</a></li>
+                    <li><a href="../races/races.html" class="active">Races</a></li>
+                    <li><a href="../world/magic.html">Magic</a></li>
+                    <li><a href="../world/technology.html">Technology</a></li>
+                    <li><a href="../world/history.html">History</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <p>
-          Humans living within Verde Haven are surrounded by trade, politics,
-          industry, scholarship, and people from across the Verdigris Isles.
-        </p>
+    <main>
 
-        <p>
-          The city's diverse population has created a distinctly cosmopolitan
-          human culture shaped by constant interaction with other peoples.
-        </p>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div>
+                        <span class="eyebrow">🌿 Peoples of the Verdigris Isles</span>
 
-      </article>
+                        <h1>Humans</h1>
 
+                        <p class="hero-description">
+                            Adaptable and widespread, humans can be found throughout nearly
+                            every settlement and region of the Verdigris Isles. Rather than
+                            being defined by a single ancestry or homeland, humanity is shaped
+                            by the cultures, communities, and environments in which its people
+                            live.
+                        </p>
+                    </div>
 
-      <!-- COASTAL -->
+                    <div class="hero-art">
+                        <img
+                            src="../assets/island-reference.jpg"
+                            alt="A human settlement in the Verdigris Isles"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <article class="card homeland-card">
+        <!-- Identity -->
+        <section>
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Identity</span>
+                    <h2>A People Defined by Where They Belong</h2>
+                </div>
 
-        <div class="icon">🌊</div>
+                <div class="prose">
+                    <p>
+                        Humans are among the most widespread peoples of the Verdigris Isles.
+                        They can be found in nearly every major settlement, region, and
+                        community throughout the archipelago.
+                    </p>
 
-        <div class="homeland-name">
+                    <p>
+                        Unlike peoples whose identities are closely tied to a particular
+                        ancestral lineage, humans are largely defined by their homeland,
+                        culture, community, and upbringing.
+                    </p>
 
-          <h3>Coastal Communities</h3>
+                    <p>
+                        A human raised along the Azure Coast may have a dramatically different
+                        worldview, appearance, traditions, and way of life from a human raised
+                        in the Kharad Highlands or among the streets of Verde Haven.
+                    </p>
 
-          <span>Coast</span>
+                    <p>
+                        There is no single human culture. Humanity's greatest defining trait
+                        is its ability to adapt to the world around it.
+                    </p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Human Homelands -->
+        <section class="section-green">
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Human Homelands</span>
+
+                    <h2>Many Homes. One People.</h2>
+
+                    <p>
+                        Human identity is often closely connected to the place where a person
+                        was raised. Geography, local history, and community traditions can
+                        shape human culture as strongly as ancestry shapes other peoples.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card homeland-card">
+                        <div class="icon">🏙️</div>
+
+                        <div class="homeland-name">
+                            <h3>Verde Haven</h3>
+                            <span>Capital</span>
+                        </div>
+
+                        <p>
+                            Humans living within Verde Haven are surrounded by trade, politics,
+                            industry, scholarship, and people from across the Verdigris Isles.
+                        </p>
+
+                        <p>
+                            The city's diverse population has created a distinctly cosmopolitan
+                            human culture shaped by constant interaction with other peoples.
+                        </p>
+                    </article>
+
+                    <article class="card homeland-card">
+                        <div class="icon">🌊</div>
+
+                        <div class="homeland-name">
+                            <h3>Coastal Communities</h3>
+                            <span>Coast</span>
+                        </div>
+
+                        <p>
+                            Human communities along the coast are closely connected to fishing,
+                            shipping, maritime trade, and the waters surrounding the Isles.
+                        </p>
+
+                        <p>
+                            Coastal traditions often emphasize navigation, commerce, and
+                            relationships with neighboring aquatic communities.
+                        </p>
+                    </article>
+
+                    <article class="card homeland-card">
+                        <div class="icon">🌾</div>
+
+                        <div class="homeland-name">
+                            <h3>Frontier Communities</h3>
+                            <span>Frontier</span>
+                        </div>
+
+                        <p>
+                            Humans living farther from major population centers often develop
+                            strong traditions of self-reliance and practical survival.
+                        </p>
+
+                        <p>
+                            Frontier communities may be shaped heavily by the surrounding
+                            landscape and the challenges of living beyond established centers.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Adaptability -->
+        <section>
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Adaptability</span>
+
+                    <h2>Humanity's Greatest Strength</h2>
+
+                    <p>
+                        Humans have survived and flourished across remarkably different
+                        environments throughout the Verdigris Isles.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="icon">🧭</div>
+                        <h3>Exploration</h3>
+                        <p>
+                            Humans are often willing to venture into unfamiliar territory,
+                            establishing settlements and routes in places that were previously
+                            difficult to reach.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🏗️</div>
+                        <h3>Ingenuity</h3>
+                        <p>
+                            Human communities are known for developing practical solutions to
+                            the problems presented by their surroundings.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🤝</div>
+                        <h3>Cooperation</h3>
+                        <p>
+                            Humans frequently build communities alongside other peoples,
+                            adapting their traditions through trade, migration, and cultural
+                            exchange.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">⚙️</div>
+                        <h3>Technology</h3>
+                        <p>
+                            Human societies have played an important role in the continued use,
+                            reconstruction, and development of the Isles' technology.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">✨</div>
+                        <h3>Magic</h3>
+                        <p>
+                            Humans are capable of learning and practicing magic, with magical
+                            ability varying between individuals rather than being determined
+                            by human ancestry.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌎</div>
+                        <h3>Migration</h3>
+                        <p>
+                            Human populations frequently move between regions, carrying
+                            languages, traditions, skills, and customs with them.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Origins -->
+        <section class="section-mint">
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Overview & Origins</span>
+                    <h2>Humanity Across the Isles</h2>
+                </div>
+
+                <div class="prose">
+                    <p>
+                        Humans have existed throughout the Verdigris Isles for generations,
+                        becoming one of the most geographically widespread peoples in the
+                        known world.
+                    </p>
+
+                    <p>
+                        Their history is deeply intertwined with the development of the
+                        settlements, kingdoms, trade routes, and communities that now make up
+                        the modern Isles.
+                    </p>
+
+                    <p>
+                        The fall of the Citadel and the changes that followed did not erase
+                        humanity's ability to adapt. Instead, human communities continued to
+                        rebuild, migrate, trade, and establish new lives throughout the
+                        fractured world that remained.
+                    </p>
+
+                    <p>
+                        As a result, there is no single human homeland that defines the
+                        entire population. Human identity is instead shaped by countless
+                        local histories.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultures -->
+        <section class="section-green">
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Cultures of the Known World</span>
+
+                    <h2>Humanity Shaped by Where You Call Home</h2>
+
+                    <p>
+                        Humans are not defined by a single culture. Across the known world,
+                        human societies have developed distinct traditions, values,
+                        industries, and ways of life shaped by their environments and
+                        histories.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="icon">🌊</div>
+
+                        <div class="branch-name">
+                            <h3>Thalassan</h3>
+                            <span>Southwest</span>
+                        </div>
+
+                        <p>
+                            Thalassan culture developed around prosperous port cities and the
+                            sea. Commerce, navigation, exploration, and maritime trade are
+                            deeply woven into everyday life.
+                        </p>
+
+                        <p>
+                            Thalassans tend to place great value on independence, commercial
+                            opportunity, practical knowledge, and the ability to navigate both
+                            the seas and the complicated world of trade.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Merchant guilds · Naval exploration · Shipbuilding · Banking ·
+                            Cartography
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">⛰️</div>
+
+                        <div class="branch-name">
+                            <h3>Kharad</h3>
+                            <span>Northwest</span>
+                        </div>
+
+                        <p>
+                            Kharad culture comes from the rugged mountain kingdoms of the
+                            Highlands, where survival, craftsmanship, and engineering have
+                            shaped society for generations.
+                        </p>
+
+                        <p>
+                            Kharad people often take pride in practical skill and mastery of
+                            their chosen craft. Builders, smiths, engineers, and artisans are
+                            widely respected.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Steelworking · Engineering · Heavy armor · Fortress cities ·
+                            Mechanical craftsmanship
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌿</div>
+
+                        <div class="branch-name">
+                            <h3>Ardynwood</h3>
+                            <span>Northeast</span>
+                        </div>
+
+                        <p>
+                            Ardynwood culture grew alongside enormous forests rather than
+                            replacing them. Communities are deeply connected to the natural
+                            world, with settlements built into and around living ecosystems.
+                        </p>
+
+                        <p>
+                            Local councils, wardens, herbalists, and naturalists play important
+                            roles within society, while traditions surrounding spirits and the
+                            preservation of nature remain influential.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Herbal medicine · Botanical research · Spirit traditions ·
+                            Living architecture · Wildlife conservation
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">☀️</div>
+
+                        <div class="branch-name">
+                            <h3>Heliora</h3>
+                            <span>North</span>
+                        </div>
+
+                        <p>
+                            Heliora culture developed within prosperous desert city-states
+                            where scholarship, mathematics, astronomy, and magical research
+                            became central to society.
+                        </p>
+
+                        <p>
+                            Education and intellectual achievement are highly valued, with
+                            universities, observatories, libraries, and centers of research
+                            preserving knowledge from across the known world.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Universities · Astronomy · Jewelcraft · Libraries · Glassmaking
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌺</div>
+
+                        <div class="branch-name">
+                            <h3>Azure</h3>
+                            <span>East</span>
+                        </div>
+
+                        <p>
+                            Azure culture is rooted in tropical island life and generations
+                            of maritime tradition. Communities maintain close relationships
+                            with the ocean and the resources it provides.
+                        </p>
+
+                        <p>
+                            Cooperation is an important part of Azurea society. Sailing,
+                            fishing, pearl diving, and ocean stewardship are traditions passed
+                            between generations.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Sailing · Pearl diving · Coral architecture · Fishing ·
+                            Ocean traditions
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🐾</div>
+
+                        <div class="branch-name">
+                            <h3>Talanor</h3>
+                            <span>Southeast</span>
+                        </div>
+
+                        <p>
+                            Talanor culture developed along a rugged frontier where survival
+                            and exploration are necessities rather than luxuries.
+                        </p>
+
+                        <p>
+                            Rangers, scouts, hunters, and explorers are highly respected, and
+                            knowledge of the wilderness is considered one of the most valuable
+                            skills a person can possess.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Frontier exploration · Monster hunting · Survival training ·
+                            Falconry · Uncharted cartography
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🏛️</div>
+
+                        <div class="branch-name">
+                            <h3>Caelmont</h3>
+                            <span>West</span>
+                        </div>
+
+                        <p>
+                            Caelmont culture is centered around noble courts, influential
+                            families, diplomacy, and carefully maintained social reputation.
+                        </p>
+
+                        <p>
+                            Courtly life places considerable importance on etiquette, patronage,
+                            family connections, political alliances, and social standing.
+                            Art, fashion, and luxury craftsmanship are equally important
+                            expressions of prestige.
+                        </p>
+
+                        <p>
+                            <strong>Known For:</strong><br>
+                            Noble houses · Court diplomacy · Fine arts · Luxury craftsmanship ·
+                            Political influence
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Exchange -->
+        <section class="feature-strip">
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ A World of Cultures</span>
+
+                    <h2>Culture Is Not Blood.</h2>
+
+                    <p>
+                        Human culture is shaped by homeland, upbringing, family, community,
+                        profession, and personal experience. A person's birthplace may
+                        influence them, but it does not dictate who they become.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature">
+                        <strong>Thalassan League</strong>
+                        <span>Commerce, maritime tradition, exploration, and navigation.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Kharad Highlands</strong>
+                        <span>Engineering, craftsmanship, metallurgy, and mountain resilience.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Ardynwood</strong>
+                        <span>Nature, community councils, herbalism, and living architecture.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Heliora</strong>
+                        <span>Scholarship, astronomy, mathematics, and magical research.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Azure Confederacy</strong>
+                        <span>Maritime tradition, island life, cooperation, and ocean stewardship.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Talanor Dominion</strong>
+                        <span>Frontier survival, exploration, hunting, and wilderness knowledge.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Caelmont Court</strong>
+                        <span>Nobility, diplomacy, etiquette, art, and political maneuvering.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Verdigris Isles</strong>
+                        <span>A crossroads where cultures, peoples, and traditions meet.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regional Relationships -->
+        <section>
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Cultural Connections</span>
+
+                    <h2>Every Culture Has a Reason to Reach the Isles</h2>
+
+                    <p>
+                        The Verdigris Isles sit at the intersection of trade, exploration,
+                        scholarship, and opportunity. Humans from every major region may find
+                        themselves drawn to Verde Haven and the surrounding islands.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="icon">⚓</div>
+                        <h3>Thalassan Traders</h3>
+                        <p>
+                            Thalassan merchants maintain lucrative trade routes with Verde Haven
+                            while sponsoring expeditions into the Crownscar in search of lost
+                            Ascension navigation technology.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">⚙️</div>
+                        <h3>Kharadi Engineers</h3>
+                        <p>
+                            Kharadi engineers travel to the Isles to study ancient Ascension
+                            technology and determine how forgotten designs might be recreated
+                            using modern materials.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌱</div>
+                        <h3>Ardynwood Naturalists</h3>
+                        <p>
+                            Herbalists, druids, and naturalists investigate the unusual ecosystems
+                            surrounding the Crownscar and the effects of ancient relics upon them.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">📚</div>
+                        <h3>Helioran Scholars</h3>
+                        <p>
+                            Scholars journey to the Isles searching for knowledge beneath the
+                            Citadel's ruins, hoping to better understand the Age of Ascension.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🐚</div>
+                        <h3>Azurean Travelers</h3>
+                        <p>
+                            Azure traders and travelers are frequent visitors to Verde Haven,
+                            bringing goods, stories, customs, and traditions from across the
+                            ocean.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🧭</div>
+                        <h3>Talanorian Rangers</h3>
+                        <p>
+                            Talanorian rangers and explorers are frequently recruited by the
+                            Adventurer's Guild to guide expeditions through the Crownscar and
+                            other dangerous wilderness.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🎭</div>
+                        <h3>Caelmontian Nobility</h3>
+                        <p>
+                            Caelmontian nobles often arrive seeking relics, prestige, adventure,
+                            and opportunities to distinguish themselves beyond the politics
+                            of the Grand Court.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🏝️</div>
+                        <h3>Verde Haven</h3>
+                        <p>
+                            As a major crossroads of the Verdigris Isles, Verde Haven brings
+                            these cultures together through trade, travel, diplomacy, and
+                            adventuring.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Physical Characteristics -->
+        <section>
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Physical Characteristics</span>
+
+                    <h2>No Single Human Appearance</h2>
+
+                    <p>
+                        Humans possess a broadly humanoid physical form, but their appearance
+                        varies considerably between individuals and populations.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="icon">👤</div>
+                        <h3>Humanoid Form</h3>
+                        <p>
+                            Humans possess the familiar humanoid body plan shared by many of the
+                            peoples of the Verdigris Isles.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🌎</div>
+                        <h3>Regional Diversity</h3>
+                        <p>
+                            Human appearances vary naturally between families and populations,
+                            with no single appearance representing all humans.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🧬</div>
+                        <h3>Individual Variation</h3>
+                        <p>
+                            Hair, eyes, skin, height, build, and other physical characteristics
+                            vary from person to person.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🧥</div>
+                        <h3>Regional Dress</h3>
+                        <p>
+                            Clothing and personal presentation often reflect the environment,
+                            occupation, and culture in which a human was raised.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">⚒️</div>
+                        <h3>Adapted Lifestyles</h3>
+                        <p>
+                            Human communities develop practical physical skills suited to their
+                            environments, from maritime work to frontier survival.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">✨</div>
+                        <h3>Magical Potential</h3>
+                        <p>
+                            Humans can possess magical ability and may pursue magical study
+                            regardless of their particular homeland or cultural background.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Culture & Society -->
+        <section class="feature-strip">
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Culture & Society</span>
+
+                    <h2>Culture Is Home</h2>
+
+                    <p>
+                        Human culture is not governed by a single tradition. Instead, human
+                        societies are shaped by geography, history, occupation, community,
+                        and interaction with the wider peoples of the Verdigris Isles.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature">
+                        <strong>Local Traditions</strong>
+                        <span>
+                            Human communities often develop traditions unique to their
+                            particular settlements and regions.
+                        </span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Cultural Exchange</strong>
+                        <span>
+                            Trade and migration allow human communities to constantly exchange
+                            ideas, customs, languages, and practices.
+                        </span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Community</strong>
+                        <span>
+                            Family, neighborhood, town, and regional identity can all play
+                            important roles in how a human understands themselves.
+                        </span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>Adaptation</strong>
+                        <span>
+                            Human cultures are constantly changing as communities encounter
+                            new environments, technologies, peoples, and ideas.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customs -->
+        <section>
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Customs & Traditions</span>
+
+                    <h2>A Thousand Ways to Be Human</h2>
+
+                    <p>
+                        Because humans do not share one universal culture, traditions often
+                        depend heavily on where an individual was raised.
+                    </p>
+                </div>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <div class="icon">🏠</div>
+                        <h3>Homeland</h3>
+                        <p>
+                            Many humans maintain a strong connection to the settlement, region,
+                            or community they consider home.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">👨‍👩‍👧</div>
+                        <h3>Family</h3>
+                        <p>
+                            Family traditions vary widely between human communities and may
+                            influence names, occupations, beliefs, and social expectations.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🎉</div>
+                        <h3>Festivals</h3>
+                        <p>
+                            Local festivals and celebrations often reflect the history,
+                            environment, and traditions of individual human communities.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🛶</div>
+                        <h3>Travel</h3>
+                        <p>
+                            Migration, trade, exploration, and travel have allowed human
+                            traditions to spread far beyond their places of origin.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">📖</div>
+                        <h3>Storytelling</h3>
+                        <p>
+                            Stories, histories, family accounts, and local legends help
+                            preserve the identities of human communities.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="icon">🤝</div>
+                        <h3>Exchange</h3>
+                        <p>
+                            Humans frequently adopt and exchange customs with neighboring
+                            peoples, making human culture particularly diverse.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Occupations -->
+        <section class="section-green">
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Common Occupations</span>
+
+                    <h2>Humanity's Many Trades</h2>
+
+                    <p>
+                        Humans participate in virtually every profession found throughout
+                        the Verdigris Isles.
+                    </p>
+                </div>
+
+                <div class="occupation-list">
+                    <span class="occupation">Farmers</span>
+                    <span class="occupation">Merchants</span>
+                    <span class="occupation">Navigators</span>
+                    <span class="occupation">Sailors</span>
+                    <span class="occupation">Artisans</span>
+                    <span class="occupation">Engineers</span>
+                    <span class="occupation">Scholars</span>
+                    <span class="occupation">Teachers</span>
+                    <span class="occupation">Explorers</span>
+                    <span class="occupation">Cartographers</span>
+                    <span class="occupation">Craftspeople</span>
+                    <span class="occupation">Guards</span>
+                    <span class="occupation">Traders</span>
+                    <span class="occupation">Magicians</span>
+                    <span class="occupation">Inventors</span>
+                    <span class="occupation">Relic Hunters</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifespan & Biology -->
+        <section>
+            <div class="container">
+                <div class="heading">
+                    <span class="kicker">✦ Lifespan & Biology</span>
+                    <h2>A Familiar People in a Changing World</h2>
+                </div>
+
+                <div class="prose">
+                    <p>
+                        Humans possess a broadly familiar humanoid biology and do not possess
+                        the specialized physical adaptations associated with many other
+                        peoples of the Verdigris Isles.
+                    </p>
+
+                    <p>
+                        Their greatest biological advantage is their general adaptability.
+                        Humans can live in a wide variety of environments, from major cities
+                        and coastal settlements to rural communities and frontier regions.
+                    </p>
+
+                    <p>
+                        Human lifespans and physical characteristics vary naturally between
+                        individuals and populations. However, a typical human lifespan is
+                        <strong>80–100 years.</strong>
+                    </p>
+
+                    <p>
+                        Unlike certain other peoples, human identity is not defined by a
+                        particular magical, aquatic, animal, or elemental ancestry.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Creation -->
+        <section>
+            <div class="container">
+                <div class="creation-box">
+                    <span class="kicker">✦ Character Creation</span>
+
+                    <h2>Creating a Human</h2>
+
+                    <p>
+                        Human characters are defined primarily by their upbringing, homeland,
+                        culture, experiences, and personal choices rather than by a specialized
+                        ancestry.
+                    </p>
+
+                    <div class="creation-list">
+                        <div class="creation-item">
+                            <strong>Race</strong>
+                            Human
+                        </div>
+
+                        <div class="creation-item">
+                            <strong>Homeland</strong>
+                            The region, settlement, or community where your character was raised
+                        </div>
+
+                        <div class="creation-item">
+                            <strong>Cultural Background</strong>
+                            The traditions, values, customs, and influences that shaped your character
+                        </div>
+
+                        <div class="creation-item">
+                            <strong>Appearance</strong>
+                            Individual physical characteristics, clothing, hairstyle, and personal presentation
+                        </div>
+
+                        <div class="creation-item">
+                            <strong>Occupation</strong>
+                            Any lore-compatible profession or trade available within the Verdigris Isles
+                        </div>
+
+                        <div class="creation-item">
+                            <strong>Personal Identity</strong>
+                            Your character's beliefs, personality, relationships, ambitions, and experiences
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing -->
+        <section class="hero hero-closing">
+            <div class="container">
+                <div class="heading heading-centered">
+                    <span class="kicker">✦ Humanity</span>
+
+                    <h2>Wherever There Is a Home, There May Be a Human.</h2>
+
+                    <p>
+                        Humans are not defined by a single homeland, appearance, or tradition.
+                        They are defined by the communities they build, the places they call
+                        home, and the lives they choose to create.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="brand">
+                <span class="brand-mark">🌿</span>
+                Verdigris Isles
+            </div>
+
+            <p>
+                A sunlit world of islands, adventure, magic, and forgotten history.
+            </p>
+
+            <p class="footer-copy">© 2026 Verdigris Isles</p>
         </div>
-
-        <p>
-          Human communities along the coast are closely connected to fishing,
-          shipping, maritime trade, and the waters surrounding the Isles.
-        </p>
-
-        <p>
-          Coastal traditions often emphasize navigation, commerce, and
-          relationships with neighboring aquatic communities.
-        </p>
-
-      </article>
-
-
-      <!-- FRONTIER -->
-
-      <article class="card homeland-card">
-
-        <div class="icon">🌾</div>
-
-        <div class="homeland-name">
-
-          <h3>Frontier Communities</h3>
-
-          <span>Frontier</span>
-
-        </div>
-
-        <p>
-          Humans living farther from major population centers often develop
-          strong traditions of self-reliance and practical survival.
-        </p>
-
-        <p>
-          Frontier communities may be shaped heavily by the surrounding
-          landscape and the challenges of living beyond established centers.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     ADAPTABILITY
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Adaptability</span>
-
-      <h2>Humanity's Greatest Strength</h2>
-
-      <p>
-        Humans have survived and flourished across remarkably different
-        environments throughout the Verdigris Isles.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <article class="card">
-
-        <div class="icon">🧭</div>
-
-        <h3>Exploration</h3>
-
-        <p>
-          Humans are often willing to venture into unfamiliar territory,
-          establishing settlements and routes in places that were previously
-          difficult to reach.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🏗️</div>
-
-        <h3>Ingenuity</h3>
-
-        <p>
-          Human communities are known for developing practical solutions to
-          the problems presented by their surroundings.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🤝</div>
-
-        <h3>Cooperation</h3>
-
-        <p>
-          Humans frequently build communities alongside other peoples,
-          adapting their traditions through trade, migration, and cultural
-          exchange.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">⚙️</div>
-
-        <h3>Technology</h3>
-
-        <p>
-          Human societies have played an important role in the continued use,
-          reconstruction, and development of the Isles' technology.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">✨</div>
-
-        <h3>Magic</h3>
-
-        <p>
-          Humans are capable of learning and practicing magic, with magical
-          ability varying between individuals rather than being determined
-          by human ancestry.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🌎</div>
-
-        <h3>Migration</h3>
-
-        <p>
-          Human populations frequently move between regions, carrying
-          languages, traditions, skills, and customs with them.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     ORIGINS
-============================== -->
-
-<section style="background:#e5f4ed;">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Overview & Origins</span>
-
-      <h2>Humanity Across the Isles</h2>
-
-    </div>
-
-    <div class="prose">
-
-      <p>
-        Humans have existed throughout the Verdigris Isles for generations,
-        becoming one of the most geographically widespread peoples in the
-        known world.
-      </p>
-
-      <p>
-        Their history is deeply intertwined with the development of the
-        settlements, kingdoms, trade routes, and communities that now make up
-        the modern Isles.
-      </p>
-
-      <p>
-        The fall of the Citadel and the changes that followed did not erase
-        humanity's ability to adapt. Instead, human communities continued to
-        rebuild, migrate, trade, and establish new lives throughout the
-        fractured world that remained.
-      </p>
-
-      <p>
-        As a result, there is no single human homeland that defines the
-        entire population. Human identity is instead shaped by countless
-        local histories.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-  <!-- ==============================
-     CULTURES OF THE KNOWN WORLD
-============================== -->
-
-<section style="background:#edf5e8;">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Cultures of the Known World</span>
-
-      <h2>Humanity Shaped by Where You Call Home</h2>
-
-      <p>
-        Humans are not defined by a single culture. Across the known world,
-        human societies have developed distinct traditions, values,
-        industries, and ways of life shaped by their environments and
-        histories.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <!-- THALASSAN -->
-
-      <article class="card branch-card">
-
-        <div class="icon">🌊</div>
-
-        <div class="branch-name">
-
-          <h3>Thalassan</h3>
-
-          <span>Southwest</span>
-
-        </div>
-
-        <p>
-          Thalassan culture developed around prosperous port cities and the
-          sea. Commerce, navigation, exploration, and maritime trade are deeply
-          woven into everyday life.
-        </p>
-
-        <p>
-          Thalassans tend to place great value on independence, commercial
-          opportunity, practical knowledge, and the ability to navigate both
-          the seas and the complicated world of trade.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Merchant guilds · Naval exploration · Shipbuilding · Banking ·
-          Cartography
-        </p>
-
-      </article>
-
-
-      <!-- KHARAD -->
-
-      <article class="card branch-card">
-
-        <div class="icon">⛰️</div>
-
-        <div class="branch-name">
-
-          <h3>Kharad</h3>
-
-          <span>Northwest</span>
-
-        </div>
-
-        <p>
-          Kharad culture comes from the rugged mountain kingdoms of the
-          Highlands, where survival, craftsmanship, and engineering have shaped
-          society for generations.
-        </p>
-
-        <p>
-          Kharad people often take pride in practical skill and mastery of
-          their chosen craft. Builders, smiths, engineers, and artisans are
-          widely respected.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Steelworking · Engineering · Heavy armor · Fortress cities ·
-          Mechanical craftsmanship
-        </p>
-
-      </article>
-
-
-      <!-- ARDYNWOOD -->
-
-      <article class="card branch-card">
-
-        <div class="icon">🌿</div>
-
-        <div class="branch-name">
-
-          <h3>Ardynwood</h3>
-
-          <span>Northeast</span>
-
-        </div>
-
-        <p>
-          Ardynwood culture grew alongside enormous forests rather than
-          replacing them. Communities are deeply connected to the natural world,
-          with settlements built into and around living ecosystems.
-        </p>
-
-        <p>
-          Local councils, wardens, herbalists, and naturalists play important
-          roles within society, while traditions surrounding spirits and the
-          preservation of nature remain influential.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Herbal medicine · Botanical research · Spirit traditions ·
-          Living architecture · Wildlife conservation
-        </p>
-
-      </article>
-
-
-      <!-- HELIORA -->
-
-      <article class="card branch-card">
-
-        <div class="icon">☀️</div>
-
-        <div class="branch-name">
-
-          <h3>Heliora</h3>
-
-          <span>North</span>
-
-        </div>
-
-        <p>
-          Heliora culture developed within prosperous desert city-states
-          where scholarship, mathematics, astronomy, and magical research
-          became central to society.
-        </p>
-
-        <p>
-          Education and intellectual achievement are highly valued, with
-          universities, observatories, libraries, and centers of research
-          preserving knowledge from across the known world.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Universities · Astronomy · Jewelcraft · Libraries · Glassmaking
-        </p>
-
-      </article>
-
-
-      <!-- AZURE -->
-
-      <article class="card branch-card">
-
-        <div class="icon">🌺</div>
-
-        <div class="branch-name">
-
-          <h3>Azurea</h3>
-
-          <span>East</span>
-
-        </div>
-
-        <p>
-          Azurea culture is rooted in tropical island life and generations
-          of maritime tradition. Communities maintain close relationships with
-          the ocean and the resources it provides.
-        </p>
-
-        <p>
-          Cooperation is an important part of Azurea society. Sailing,
-          fishing, pearl diving, and ocean stewardship are traditions passed
-          between generations.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Sailing · Pearl diving · Coral architecture · Fishing ·
-          Ocean traditions
-        </p>
-
-      </article>
-
-
-      <!-- TALANOR -->
-
-      <article class="card branch-card">
-
-        <div class="icon">🐾</div>
-
-        <div class="branch-name">
-
-          <h3>Talanor</h3>
-
-          <span>Southeast</span>
-
-        </div>
-
-        <p>
-          Talanor culture developed along a rugged frontier where survival
-          and exploration are necessities rather than luxuries.
-        </p>
-
-        <p>
-          Rangers, scouts, hunters, and explorers are highly respected, and
-          knowledge of the wilderness is considered one of the most valuable
-          skills a person can possess.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Frontier exploration · Monster hunting · Survival training ·
-          Falconry · Uncharted cartography
-        </p>
-
-      </article>
-
-
-      <!-- CAELMONT -->
-
-      <article class="card branch-card">
-
-        <div class="icon">🏛️</div>
-
-        <div class="branch-name">
-
-          <h3>Caelmont</h3>
-
-          <span>West</span>
-
-        </div>
-
-        <p>
-          Caelmont culture is centered around noble courts, influential
-          families, diplomacy, and carefully maintained social reputation.
-        </p>
-
-        <p>
-          Courtly life places considerable importance on etiquette, patronage,
-          family connections, political alliances, and social standing.
-          Art, fashion, and luxury craftsmanship are equally important
-          expressions of prestige.
-        </p>
-
-        <p>
-          <strong>Known For:</strong><br>
-          Noble houses · Court diplomacy · Fine arts · Luxury craftsmanship ·
-          Political influence
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     CULTURAL EXCHANGE
-============================== -->
-
-<section class="feature-strip">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ A World of Cultures</span>
-
-      <h2>Culture Is Not Blood.</h2>
-
-      <p>
-        Human culture is shaped by homeland, upbringing, family, community,
-        profession, and personal experience. A person's birthplace may
-        influence them, but it does not dictate who they become.
-      </p>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-      <div class="feature">
-
-        <strong>Thalassan League</strong>
-
-        <span>
-          Commerce, maritime tradition, exploration, and navigation.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Kharad Highlands</strong>
-
-        <span>
-          Engineering, craftsmanship, metallurgy, and mountain resilience.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Ardynwood</strong>
-
-        <span>
-          Nature, community councils, herbalism, and living architecture.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Heliora</strong>
-
-        <span>
-          Scholarship, astronomy, mathematics, and magical research.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Azure Confederacy</strong>
-
-        <span>
-          Maritime tradition, island life, cooperation, and ocean stewardship.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Talanor Dominion</strong>
-
-        <span>
-          Frontier survival, exploration, hunting, and wilderness knowledge.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Caelmont Court</strong>
-
-        <span>
-          Nobility, diplomacy, etiquette, art, and political maneuvering.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Verdigris Isles</strong>
-
-        <span>
-          A crossroads where cultures, peoples, and traditions meet.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     REGIONAL RELATIONSHIPS
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Cultural Connections</span>
-
-      <h2>Every Culture Has a Reason to Reach the Isles</h2>
-
-      <p>
-        The Verdigris Isles sit at the intersection of trade, exploration,
-        scholarship, and opportunity. Humans from every major region may find
-        themselves drawn to Verde Haven and the surrounding islands.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <article class="card">
-
-        <div class="icon">⚓</div>
-
-        <h3>Thalassan Traders</h3>
-
-        <p>
-          Thalassan merchants maintain lucrative trade routes with Verde Haven
-          while sponsoring expeditions into the Crownscar in search of lost
-          Ascension navigation technology.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">⚙️</div>
-
-        <h3>Kharadi Engineers</h3>
-
-        <p>
-          Kharadi engineers travel to the Isles to study ancient Ascension
-          technology and determine how forgotten designs might be recreated
-          using modern materials.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🌱</div>
-
-        <h3>Ardynwood Naturalists</h3>
-
-        <p>
-          Herbalists, druids, and naturalists investigate the unusual ecosystems
-          surrounding the Crownscar and the effects of ancient relics upon them.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">📚</div>
-
-        <h3>Helioran Scholars</h3>
-
-        <p>
-          Scholars journey to the Isles searching for knowledge beneath the
-          Citadel's ruins, hoping to better understand the Age of Ascension.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🐚</div>
-
-        <h3>Azurean Travelers</h3>
-
-        <p>
-          Azure traders and travelers are frequent visitors to Verde Haven,
-          bringing goods, stories, customs, and traditions from across the
-          ocean.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🧭</div>
-
-        <h3>Talanorian Rangers</h3>
-
-        <p>
-          Talanorian rangers and explorers are frequently recruited by the
-          Adventurer's Guild to guide expeditions through the Crownscar and
-          other dangerous wilderness.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🎭</div>
-
-        <h3>Caelmontian Nobility</h3>
-
-        <p>
-          Caelmontian nobles often arrive seeking relics, prestige, adventure,
-          and opportunities to distinguish themselves beyond the politics of
-          the Grand Court.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🏝️</div>
-
-        <h3>Verde Haven</h3>
-
-        <p>
-          As a major crossroads of the Verdigris Isles, Verde Haven brings
-          these cultures together through trade, travel, diplomacy, and
-          adventuring.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     PHYSICAL CHARACTERISTICS
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Physical Characteristics</span>
-
-      <h2>No Single Human Appearance</h2>
-
-      <p>
-        Humans possess a broadly humanoid physical form, but their appearance
-        varies considerably between individuals and populations.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <article class="card">
-
-        <div class="icon">👤</div>
-
-        <h3>Humanoid Form</h3>
-
-        <p>
-          Humans possess the familiar humanoid body plan shared by many of the
-          peoples of the Verdigris Isles.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🌎</div>
-
-        <h3>Regional Diversity</h3>
-
-        <p>
-          Human appearances vary naturally between families and populations,
-          with no single appearance representing all humans.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🧬</div>
-
-        <h3>Individual Variation</h3>
-
-        <p>
-          Hair, eyes, skin, height, build, and other physical characteristics
-          vary from person to person.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🧥</div>
-
-        <h3>Regional Dress</h3>
-
-        <p>
-          Clothing and personal presentation often reflect the environment,
-          occupation, and culture in which a human was raised.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">⚒️</div>
-
-        <h3>Adapted Lifestyles</h3>
-
-        <p>
-          Human communities develop practical physical skills suited to their
-          environments, from maritime work to frontier survival.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">✨</div>
-
-        <h3>Magical Potential</h3>
-
-        <p>
-          Humans can possess magical ability and may pursue magical study
-          regardless of their particular homeland or cultural background.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     CULTURE
-============================== -->
-
-<section class="feature-strip">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Culture & Society</span>
-
-      <h2>Culture Is Home</h2>
-
-      <p>
-        Human culture is not governed by a single tradition. Instead, human
-        societies are shaped by geography, history, occupation, community,
-        and interaction with the wider peoples of the Verdigris Isles.
-      </p>
-
-    </div>
-
-
-    <div class="feature-grid">
-
-
-      <div class="feature">
-
-        <strong>Local Traditions</strong>
-
-        <span>
-          Human communities often develop traditions unique to their
-          particular settlements and regions.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Cultural Exchange</strong>
-
-        <span>
-          Trade and migration allow human communities to constantly exchange
-          ideas, customs, languages, and practices.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Community</strong>
-
-        <span>
-          Family, neighborhood, town, and regional identity can all play
-          important roles in how a human understands themselves.
-        </span>
-
-      </div>
-
-
-      <div class="feature">
-
-        <strong>Adaptation</strong>
-
-        <span>
-          Human cultures are constantly changing as communities encounter
-          new environments, technologies, peoples, and ideas.
-        </span>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     CUSTOMS
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Customs & Traditions</span>
-
-      <h2>A Thousand Ways to Be Human</h2>
-
-      <p>
-        Because humans do not share one universal culture, traditions often
-        depend heavily on where an individual was raised.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <article class="card">
-
-        <div class="icon">🏠</div>
-
-        <h3>Homeland</h3>
-
-        <p>
-          Many humans maintain a strong connection to the settlement, region,
-          or community they consider home.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">👨‍👩‍👧</div>
-
-        <h3>Family</h3>
-
-        <p>
-          Family traditions vary widely between human communities and may
-          influence names, occupations, beliefs, and social expectations.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🎉</div>
-
-        <h3>Festivals</h3>
-
-        <p>
-          Local festivals and celebrations often reflect the history,
-          environment, and traditions of individual human communities.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🛶</div>
-
-        <h3>Travel</h3>
-
-        <p>
-          Migration, trade, exploration, and travel have allowed human
-          traditions to spread far beyond their places of origin.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">📖</div>
-
-        <h3>Storytelling</h3>
-
-        <p>
-          Stories, histories, family accounts, and local legends help
-          preserve the identities of human communities.
-        </p>
-
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🤝</div>
-
-        <h3>Exchange</h3>
-
-        <p>
-          Humans frequently adopt and exchange customs with neighboring
-          peoples, making human culture particularly diverse.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     OCCUPATIONS
-============================== -->
-
-<section style="background:#edf5e8;">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Common Occupations</span>
-
-      <h2>Humanity's Many Trades</h2>
-
-      <p>
-        Humans participate in virtually every profession found throughout
-        the Verdigris Isles.
-      </p>
-
-    </div>
-
-
-    <div class="occupation-list">
-
-      <span class="occupation">Farmers</span>
-      <span class="occupation">Merchants</span>
-      <span class="occupation">Navigators</span>
-      <span class="occupation">Sailors</span>
-      <span class="occupation">Artisans</span>
-      <span class="occupation">Engineers</span>
-      <span class="occupation">Scholars</span>
-      <span class="occupation">Teachers</span>
-      <span class="occupation">Explorers</span>
-      <span class="occupation">Cartographers</span>
-      <span class="occupation">Craftspeople</span>
-      <span class="occupation">Guards</span>
-      <span class="occupation">Traders</span>
-      <span class="occupation">Magicians</span>
-      <span class="occupation">Inventors</span>
-      <span class="occupation">Relic Hunters</span>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     LIFESPAN & BIOLOGY
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Lifespan & Biology</span>
-
-      <h2>A Familiar People in a Changing World</h2>
-
-    </div>
-
-
-    <div class="prose">
-
-      <p>
-        Humans possess a broadly familiar humanoid biology and do not possess
-        the specialized physical adaptations associated with many other
-        peoples of the Verdigris Isles.
-      </p>
-
-      <p>
-        Their greatest biological advantage is their general adaptability.
-        Humans can live in a wide variety of environments, from major cities
-        and coastal settlements to rural communities and frontier regions.
-      </p>
-
-      <p>
-        Human lifespans and physical characteristics vary naturally between
-        individuals and populations. However it usually is <strong>80 - 100 years.</strong>
-      </p>
-
-      <p>
-        Unlike certain other peoples, human identity is not defined by a
-        particular magical, aquatic, animal, or elemental ancestry.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     CHARACTER CREATION
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="creation-box">
-
-      <span class="kicker">✦ Character Creation</span>
-
-      <h2>Creating a Human</h2>
-
-      <p>
-        Human characters are defined primarily by their upbringing, homeland,
-        culture, experiences, and personal choices rather than by a specialized
-        ancestry.
-      </p>
-
-
-      <div class="creation-list">
-
-
-        <div class="creation-item">
-
-          <strong>Race</strong>
-
-          Human
-
-        </div>
-
-
-        <div class="creation-item">
-
-          <strong>Homeland</strong>
-
-          The region, settlement, or community where your character was raised
-
-        </div>
-
-
-        <div class="creation-item">
-
-          <strong>Cultural Background</strong>
-
-          The traditions, values, customs, and influences that shaped your character
-
-        </div>
-
-
-        <div class="creation-item">
-
-          <strong>Appearance</strong>
-
-          Individual physical characteristics, clothing, hairstyle, and personal presentation
-
-        </div>
-
-
-        <div class="creation-item">
-
-          <strong>Occupation</strong>
-
-          Any lore-compatible profession or trade available within the Verdigris Isles
-
-        </div>
-
-
-        <div class="creation-item">
-
-          <strong>Personal Identity</strong>
-
-          Your character's beliefs, personality, relationships, ambitions, and experiences
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     CLOSING
-============================== -->
-
-<section class="hero" style="padding:75px 0;">
-
-  <div class="container">
-
-    <div class="heading" style="margin:auto;text-align:center;">
-
-      <span class="kicker">✦ Humanity</span>
-
-      <h2>
-        Wherever There Is a Home, There May Be a Human.
-      </h2>
-
-      <p>
-        Humans are not defined by a single homeland, appearance, or tradition.
-        They are defined by the communities they build, the places they call
-        home, and the lives they choose to create.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-<!-- ==============================
-     FOOTER
-============================== -->
-
-<footer>
-
-  <div class="container">
-
-    <div class="brand">
-
-      <span class="brand-mark">🌿</span>
-
-      Verdigris Isles
-
-    </div>
-
-    <p>
-      A sunlit world of islands, adventure, magic, and forgotten history.
-    </p>
-
-    <p style="margin-top:10px;">
-      © 2026 Verdigris Isles
-    </p>
-
-  </div>
-
-</footer>
+    </footer>
 
 </body>
 </html>
