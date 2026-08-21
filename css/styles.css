@@ -800,3 +800,273 @@ footer p {
         height: 240px;
     }
 }
+/* =========================================================
+   27. AELORI — AQUATIC PEOPLE
+   ========================================================= */
+
+/* ------------------------------
+   AELORI HERO
+------------------------------ */
+
+.aelori-hero {
+    background:
+        linear-gradient(
+            180deg,
+            #c6f0e9 0%,
+            #d9f0d5 58%,
+            #f4dfb3 100%
+        );
+}
+
+.aelori-hero .hero-description {
+    color: #28575d;
+}
+
+
+/* ------------------------------
+   AELORI BRANCH SECTION
+------------------------------ */
+
+.aelori-branches {
+    background: #edf5e8;
+}
+
+
+/* ------------------------------
+   BRANCH CARDS
+------------------------------ */
+
+.branch-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.branch-card::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    right: -35px;
+    top: -35px;
+    border-radius: 50%;
+    background: rgba(49, 195, 192, 0.08);
+    pointer-events: none;
+}
+
+.branch-card .branch-name {
+    position: relative;
+    z-index: 2;
+}
+
+.branch-card .branch-name h3 {
+    margin-bottom: 0;
+}
+
+.branch-card strong {
+    color: var(--deep);
+}
+
+
+/* ------------------------------
+   BRANCH LABELS
+------------------------------ */
+
+.branch-name span {
+    flex-shrink: 0;
+}
+
+
+/* ------------------------------
+   AELORI VARIANT CARDS
+------------------------------ */
+
+.variant-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.variant {
+    min-width: 0;
+    padding: 25px;
+    background: #f4e4c3;
+    border: 1px solid rgba(32, 70, 77, 0.08);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-small);
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.variant:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.variant h3 {
+    margin-bottom: 7px;
+    color: var(--deep);
+}
+
+.variant p {
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.variant p + p {
+    margin-top: 14px;
+}
+
+.variant strong {
+    color: var(--deep);
+}
+
+
+/* ------------------------------
+   AELORI MINT SECTION
+------------------------------ */
+
+.aelori-mint {
+    background: #e5f4ed;
+}
+
+
+/* ------------------------------
+   AELORI OCEAN FEATURE STRIP
+------------------------------ */
+
+.aelori-feature-strip {
+    background:
+        linear-gradient(
+            135deg,
+            #075c6c,
+            #086c78
+        );
+    color: white;
+}
+
+.aelori-feature-strip h2 {
+    color: white;
+}
+
+.aelori-feature-strip .kicker {
+    color: #f0a080;
+}
+
+.aelori-feature-strip .heading p {
+    color: #d8efea;
+}
+
+.aelori-feature-strip .feature-grid {
+    margin-top: 35px;
+}
+
+.aelori-feature-strip .feature {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.aelori-feature-strip .feature strong {
+    color: white;
+}
+
+.aelori-feature-strip .feature span {
+    color: #c9e5df;
+}
+
+
+/* ------------------------------
+   AELORI OCCUPATIONS
+------------------------------ */
+
+.aelori-occupations {
+    background: #edf5e8;
+}
+
+.aelori-occupations .occupation {
+    background: #d9f2ec;
+    border-color: transparent;
+}
+
+
+/* ------------------------------
+   AELORI CHARACTER CREATION
+------------------------------ */
+
+.aelori-creation {
+    background:
+        linear-gradient(
+            135deg,
+            #e3f4eb,
+            #f4e1b9
+        );
+}
+
+.aelori-creation .creation-box {
+    background: rgba(255, 253, 248, 0.82);
+}
+
+
+/* ------------------------------
+   AELORI CLOSING HERO
+------------------------------ */
+
+.aelori-closing {
+    padding: 75px 0;
+}
+
+.aelori-closing .heading {
+    max-width: 850px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.aelori-closing .heading p {
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+
+/* ------------------------------
+   AELORI AQUATIC ACCENTS
+------------------------------ */
+
+.aelori-water-text {
+    color: var(--deep);
+}
+
+.aelori-water-accent {
+    color: var(--lagoon);
+}
+
+.aelori-coral-accent {
+    color: var(--coral);
+}
+
+
+/* =========================================================
+   28. AELORI RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .variant-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .variant-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aelori-closing {
+        padding: 65px 0;
+    }
+
+}
