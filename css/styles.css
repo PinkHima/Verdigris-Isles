@@ -260,7 +260,7 @@ h2{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.05;color:var(--deep);margin-
 .icon{width:49px;height:49px;border-radius:17px;display:grid;place-items:center;background:#d8f0e6;margin-bottom:17px;font-size:1.25rem}
 .card h3{color:var(--deep);font-size:1.28rem;margin-bottom:7px}
 .card p{color:var(--muted);font-size:.94rem}
-.banner{padding:110px 20px;text-align:center;color:white;background:linear-gradient(rgba(5,91,105,.55),rgba(5,91,105,.55)),url('assets/island-reference.jpg') center 48%/cover}
+.banner{padding:110px 20px;text-align:center;color:white;background:linear-gradient(rgba(5,91,105,.55),rgba(5,91,105,.55)),url('../assets/island-reference.jpg') center 48%/cover}
 .banner h2{color:white}
 .banner p{max-width:700px;margin:auto;color:#f2fffc}
 .timeline{max-width:820px;margin:auto}
