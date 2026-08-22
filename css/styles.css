@@ -23,6 +23,25 @@
     --shadow: 0 20px 50px rgba(16, 75, 82, 0.16);
     --shadow-small: 0 8px 25px rgba(16, 75, 82, 0.06);
     --radius: 30px;
+   --ember: #d95f45;
+  --ember-dark: #9f3f32;
+  --flame: #f2a34f;
+
+  --water: #429fb1;
+  --water-dark: #276d7b;
+
+  --storm: #716da8;
+  --storm-dark: #494879;
+
+  --earth: #81705b;
+  --earth-dark: #51483d;
+
+  --mineral: #9a88b8;
+
+  --cream: #f8f0df;
+  --paper: #fffaf0;
+  --white: #fffdf8;
+
 }
 /* =========================================================
    02. RESET
