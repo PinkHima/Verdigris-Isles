@@ -1,1505 +1,1018 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+ <meta name="description"
+ content="Beastials are animal-born peoples descended from countless ancestral lineages throughout the Verdigris Isles, divided into the Feran and Kemori races.>
+
 <title>Beastials | Peoples of the Verdigris Isles</title>
 
-<style>
-
-:root {
-  --lagoon: #39a9a0;
-  --lagoon-dark: #16756f;
-  --deep-sea: #244f4a;
-
-  --coral: #d77b61;
-
-  --sand: #e8d4a8;
-  --cream: #f6efd9;
-  --foam: #fffdf5;
-
-  --leaf: #5c914d;
-  --leaf-dark: #356b3e;
-  --forest: #28573e;
-
-  --earth: #9a7655;
-
-  --ink: #28443f;
-  --muted: #687773;
-
-  --line: rgba(40,68,63,.12);
-
-  --shadow: 0 18px 45px rgba(38,77,63,.14);
-
-  --radius: 28px;
-  --max: 1180px;
-}
-
-
-/* ==============================
-   BASE
-============================== */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  color: var(--ink);
-
-  background: var(--cream);
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(92%, var(--max));
-  margin-inline: auto;
-}
-
-
-/* ==============================
-   NAVIGATION
-============================== */
-
-header {
-  position: sticky;
-  top: 0;
-
-  z-index: 50;
-
-  background: rgba(255,253,247,.94);
-
-  backdrop-filter: blur(14px);
-
-  border-bottom: 1px solid var(--line);
-}
-
-nav {
-  min-height: 76px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 20px;
-}
-
-.brand {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  color: var(--forest);
-
-  font-family: Arial, sans-serif;
-
-  font-weight: 700;
-
-  letter-spacing: .08em;
-
-  text-transform: uppercase;
-}
-
-.brand-mark {
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-
-  place-items: center;
-
-  border-radius: 50%;
-
-  background: var(--leaf);
-
-  color: white;
-
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
-}
-
-.nav-links {
-  list-style: none;
-
-  display: flex;
-
-  gap: 4px;
-
-  font-family: Arial, sans-serif;
-
-  font-size: .72rem;
-
-  font-weight: 700;
-
-  text-transform: uppercase;
-
-  letter-spacing: .06em;
-}
-
-.nav-links a {
-  display: block;
-
-  padding: 9px 11px;
-
-  border-radius: 999px;
-
-  transition: .2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: #dfeeda;
-
-  color: var(--forest);
-}
-
-
-/* ==============================
-   HERO
-============================== */
-
-.hero {
-  position: relative;
-
-  overflow: hidden;
-
-  padding: 90px 0 105px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #d9edda 0%,
-      #edf0ca 55%,
-      #e8d4ad 100%
-    );
-}
-
-.hero-inner {
-  position: relative;
-
-  z-index: 2;
-
-  display: grid;
-
-  grid-template-columns: 1fr .8fr;
-
-  gap: 50px;
-
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-block;
-
-  padding: 8px 15px;
-
-  margin-bottom: 18px;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.72);
-
-  color: var(--forest);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .72rem;
-
-  font-weight: 700;
-
-  letter-spacing: .14em;
-
-  text-transform: uppercase;
-}
-
-h1 {
-  color: var(--forest);
-
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
-
-  line-height: .88;
-
-  letter-spacing: -.04em;
-
-  margin-bottom: 22px;
-}
-
-.hero-description {
-  max-width: 720px;
-
-  color: #42645b;
-
-  font-size: 1.12rem;
-}
-
-.hero-art {
-  min-height: 470px;
-
-  border-radius: 45px 45px 30px 30px;
-
-  overflow: hidden;
-
-  border: 7px solid rgba(255,255,255,.75);
-
-  background: var(--leaf);
-
-  box-shadow: 0 28px 55px rgba(40,82,56,.22);
-}
-
-.hero-art img {
-  width: 100%;
-
-  height: 470px;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-
-/* ==============================
-   SECTIONS
-============================== */
-
-section {
-  padding: 85px 0;
-}
-
-.heading {
-  max-width: 850px;
-
-  margin-bottom: 40px;
-}
-
-.kicker {
-  color: var(--coral);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .72rem;
-
-  font-weight: 700;
-
-  letter-spacing: .16em;
-
-  text-transform: uppercase;
-}
-
-h2 {
-  color: var(--forest);
-
-  font-size: clamp(2rem, 5vw, 3.3rem);
-
-  line-height: 1.05;
-
-  margin: 8px 0 15px;
-}
-
-h3 {
-  color: var(--forest);
-
-  font-size: 1.35rem;
-
-  margin-bottom: 8px;
-}
-
-.heading p {
-  color: var(--muted);
-
-  font-size: 1rem;
-}
-
-.prose {
-  max-width: 850px;
-}
-
-.prose p + p {
-  margin-top: 18px;
-}
-
-.prose strong {
-  color: var(--forest);
-}
-
-
-/* ==============================
-   CARDS
-============================== */
-
-.grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 22px;
-}
-
-.card {
-  background: var(--foam);
-
-  border: 1px solid var(--line);
-
-  border-radius: var(--radius);
-
-  padding: 28px;
-
-  box-shadow: 0 8px 25px rgba(38,77,63,.06);
-
-  transition: .22s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: var(--shadow);
-}
-
-.card p {
-  color: var(--muted);
-
-  font-size: .94rem;
-}
-
-.card p + p {
-  margin-top: 14px;
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-
-  display: grid;
-
-  place-items: center;
-
-  margin-bottom: 15px;
-
-  border-radius: 17px;
-
-  background: #e0efd9;
-
-  font-size: 1.3rem;
-}
-
-
-/* ==============================
-   RACE CARDS
-============================== */
-
-.race-card {
-  position: relative;
-
-  overflow: hidden;
-}
-
-.race-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 120px;
-  height: 120px;
-
-  right: -35px;
-  top: -35px;
-
-  border-radius: 50%;
-
-  background: rgba(92,145,77,.08);
-}
-
-.race-name {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  margin-bottom: 10px;
-}
-
-.race-name span {
-  font-family: Arial, sans-serif;
-
-  font-size: .68rem;
-
-  font-weight: 700;
-
-  padding: 5px 9px;
-
-  border-radius: 999px;
-
-  background: #e1efda;
-
-  color: var(--leaf-dark);
-
-  text-transform: uppercase;
-
-  letter-spacing: .07em;
-}
-
-
-/* ==============================
-   FEATURE STRIP
-============================== */
-
-.feature-strip {
-  background: var(--forest);
-
-  color: white;
-
-  padding: 70px 0;
-}
-
-.feature-strip h2 {
-  color: white;
-}
-
-.feature-strip p {
-  color: #d9e9da;
-}
-
-.feature-grid {
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 18px;
-
-  margin-top: 35px;
-}
-
-.feature {
-  padding: 22px;
-
-  border-radius: 22px;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.1);
-}
-
-.feature strong {
-  display: block;
-
-  color: white;
-
-  margin-bottom: 5px;
-}
-
-.feature span {
-  color: #d3e4d3;
-
-  font-size: .88rem;
-}
-
-
-/* ==============================
-   OCCUPATIONS
-============================== */
-
-.occupation-list {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-top: 25px;
-}
-
-.occupation {
-  padding: 9px 14px;
-
-  border-radius: 999px;
-
-  background: #dfedd9;
-
-  color: var(--forest);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .78rem;
-
-  font-weight: 700;
-}
-
-
-/* ==============================
-   CHARACTER CREATION
-============================== */
-
-.creation-box {
-  padding: 38px;
-
-  border-radius: 35px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e2efd9,
-      #ead7ae
-    );
-
-  box-shadow: var(--shadow);
-}
-
-.creation-list {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 15px;
-
-  margin-top: 25px;
-}
-
-.creation-item {
-  padding: 18px 20px;
-
-  border-radius: 20px;
-
-  background: rgba(255,255,255,.72);
-}
-
-.creation-item strong {
-  display: block;
-
-  color: var(--forest);
-
-  margin-bottom: 4px;
-}
-
-
-/* ==============================
-   FOOTER
-============================== */
-
-footer {
-  padding: 45px 0;
-
-  text-align: center;
-
-  color: #d9e9da;
-
-  background: var(--forest);
-}
-
-footer .brand {
-  justify-content: center;
-
-  color: white;
-
-  margin-bottom: 9px;
-}
-
-footer p {
-  font-family: Arial, sans-serif;
-
-  font-size: .8rem;
-
-  opacity: .84;
-}
-
-
-/* ==============================
-   MOBILE
-============================== */
-
-@media (max-width: 900px) {
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .feature-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  .grid,
-  .creation-list,
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-art,
-  .hero-art img {
-    height: 380px;
-
-    min-height: 380px;
-  }
-
-  section {
-    padding: 65px 0;
-  }
-
-}
-
-</style>
+<link rel="stylesheet" href="../css/styles.css">
 </head>
-
 
 <body>
 
+<!-- =========================================================
+ NAVIGATION
+ ========================================================= -->
 
-<!-- ==============================
-     NAVIGATION
-============================== -->
+<header class="site-header">
 
-<header>
+ <div class="container">
 
-  <div class="container">
+ <nav class="site-nav">
 
-    <nav>
+ <a class="brand" href="../index.html">
+ <span class="brand-mark">🌿</span>
+ Verdigris Isles
+ </a>
 
-      <a class="brand" href="../index.html">
+ <ul class="nav-links">
 
-        <span class="brand-mark">🦌</span>Verdigris Isles</a>
+ <li>
+ <a href="../index.html">
+ Home
+ </a>
+ </li>
 
+ <li>
+ <a href="../world/world.html">
+ World
+ </a>
+ </li>
 
-      <ul class="nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a href="../world/world.html">World</a></li>
-<li><a href="../regions/regions.html">Isles</a></li>
-<li><a href="../races/races.html" class="active">Races</a></li>
-<li><a href="../world/magic.html">Magic</a></li>
-<li><a href="../world/technology.html">Technology</a></li>
-<li><a href="../world/history.html">History</a></li>
-      </ul>
-    </nav>
-  </div>
+ <li>
+ <a href="../regions/regions.html">
+ Isles
+ </a>
+ </li>
+
+ <li>
+ <a href="../races/races.html" class="active">
+ Races
+ </a>
+ </li>
+
+ <li>
+ <a href="../world/magic.html">
+ Magic
+ </a>
+ </li>
+
+ <li>
+ <a href="../world/technology.html">
+ Technology
+ </a>
+ </li>
+
+ <li>
+ <a href="../world/history.html">
+ History
+ </a>
+ </li>
+
+ </ul>
+
+ </nav>
+
+ </div>
+
 </header>
+
+
 <main>
 
 
-<!-- ==============================
-     HERO
-============================== -->
+<!-- =========================================================
+ HERO
+ ========================================================= -->
 
 <section class="hero">
 
-  <div class="container">
+ <div class="container">
 
-    <div class="hero-inner">
+ <div class="hero-inner">
 
-      <div>
+ <div class="hero-content">
 
-        <span class="eyebrow">
-          🌿 Peoples of the Verdigris Isles
-        </span>
+ <span class="eyebrow">
+ 🌿 Peoples of the Verdigris Isles
+ </span>
 
-        <h1>Beastials</h1>
+ <h1>
+ Beastials
+ </h1>
 
-        <p class="hero-description">
-          Animal-born peoples descended from countless ancestral lineages,
-          Beastials are among the most widespread peoples of the Verdigris Isles.
-          Their forms reflect the creatures from which their ancestors descended,
-          creating an extraordinary diversity of appearances and adaptations.
-        </p>
+ <p class="hero-description">
+ Animal-born peoples descended from countless ancestral
+ lineages, Beastials are among the most widespread peoples
+ of the Verdigris Isles. Their forms reflect the creatures
+ from which their ancestors descended, creating an
+ extraordinary diversity of appearances and adaptations.
+ </p>
 
-      </div>
+ </div>
 
 
-      <div class="hero-art">
+ <div class="hero-art">
 
-        <img
-          src="../assets/island-reference.jpg"
-          alt="Lush tropical landscape of the Verdigris Isles"
-        >
+ <img
+ src="../assets/island-reference.jpg"
+ alt="Lush tropical landscape of the Verdigris Isles"
+ >
 
-      </div>
+ </div>
 
-    </div>
+ </div>
 
-  </div>
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     IDENTITY
-============================== -->
+<!-- =========================================================
+ IDENTITY
+ ========================================================= -->
 
 <section>
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Identity</span>
+ <span class="kicker">
+ ✦ Identity
+ </span>
 
-      <h2>Many Beasts. One People.</h2>
+ <h2>
+ Many Beasts. One People.
+ </h2>
 
-    </div>
-
-
-    <div class="prose">
-
-      <p>
-        While all Beastials share humanoid intelligence and physiology, each
-        lineage carries the distinct features of the animals from which their
-        ancestors descended.
-      </p>
-
-      <p>
-        Some Beastials possess distinctly animalistic bodies, while others
-        retain an overwhelmingly humanoid appearance with only a few defining
-        traits. Fur, feathers, scales, tails, ears, horns, claws, wings, and
-        other features can all be part of a Beastial's natural appearance.
-      </p>
-
-      <p>
-        Beastials are divided into two primary races:
-        <strong>Ferans</strong> and <strong>Kemori</strong>.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
+ </div>
 
 
-<!-- ==============================
-     TWO RACES
-============================== -->
+ <div class="prose">
 
-<section style="background:#e9f0df;">
+ <p>
+ While all Beastials share humanoid intelligence and physiology,
+ each lineage carries the distinct features of the animals from
+ which their ancestors descended.
+ </p>
 
-  <div class="container">
+ <p>
+ Some Beastials possess distinctly animalistic bodies, while
+ others retain an overwhelmingly humanoid appearance with only
+ a few defining traits. Fur, feathers, scales, tails, ears,
+ horns, claws, wings, and other features can all be part of a
+ Beastial's natural appearance.
+ </p>
 
-    <div class="heading">
+ <p>
+ Beastials are divided into two primary races:
+ <strong>Ferans</strong> and <strong>Kemori</strong>.
+ </p>
 
-      <span class="kicker">✦ The Two Races</span>
+ </div>
 
-      <h2>Two Expressions of Ancestral Blood</h2>
-
-      <p>
-        Feran and Kemori describe broad physical expressions of Beastial
-        ancestry rather than limiting the enormous variety of lineages found
-        throughout the Isles.
-      </p>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <!-- FERAN -->
-
-      <article class="card race-card">
-
-        <div class="icon">🐺</div>
-
-        <div class="race-name">
-
-          <h3>Feran</h3>
-
-          <span>Animalistic</span>
-
-        </div>
-
-        <p>
-          Ferans possess a more animalistic appearance, often retaining
-          digitigrade legs, muzzles, tails, extensive fur or scales, and other
-          pronounced animal features.
-        </p>
-
-        <p>
-          They retain more of their ancestral bloodline, accounting for their
-          more pronounced physical characteristics.
-        </p>
-
-        <p>
-          Some Ferans may also display unique
-          <strong>Aether manifestations</strong> associated with their lineage.
-        </p>
-
-      </article>
-
-
-      <!-- KEMORI -->
-
-      <article class="card race-card">
-
-        <div class="icon">🦅</div>
-
-        <div class="race-name">
-
-          <h3>Kemori</h3>
-
-          <span>Humanoid</span>
-
-        </div>
-
-        <p>
-          Kemori retain a predominantly humanoid form while displaying the
-          defining traits of their lineage through ears, tails, wings, horns,
-          plumage, scales, or other characteristics.
-        </p>
-
-        <p>
-          Their animal heritage may be immediately recognizable or expressed
-          through subtler physical traits.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     LINEAGES
-============================== -->
+<!-- =========================================================
+ TWO RACES
+ ========================================================= -->
+
+<section class="section-green">
+
+ <div class="container">
+
+ <div class="heading">
+
+ <span class="kicker">
+ ✦ The Two Races
+ </span>
+
+ <h2>
+ Two Expressions of Ancestral Blood
+ </h2>
+
+ <p>
+ Feran and Kemori describe broad physical expressions of
+ Beastial ancestry rather than limiting the enormous variety
+ of lineages found throughout the Isles.
+ </p>
+
+ </div>
+
+
+ <div class="grid">
+
+
+ <!-- FERAN -->
+
+ <article class="card">
+
+ <div class="icon">
+ 🐺
+ </div>
+
+ <div class="race-name">
+
+ <h3>
+ Feran
+ </h3>
+
+ <span>
+ Animalistic
+ </span>
+
+ </div>
+
+ <p>
+ Ferans possess a more animalistic appearance, often
+ retaining digitigrade legs, muzzles, tails, extensive
+ fur or scales, and other pronounced animal features.
+ </p>
+
+ <p>
+ They retain more of their ancestral bloodline, accounting
+ for their more pronounced physical characteristics.
+ </p>
+
+ <p>
+ Some Ferans may also display unique
+ <strong>Aether manifestations</strong>
+ associated with their lineage.
+ </p>
+
+ </article>
+
+
+ <!-- KEMORI -->
+
+ <article class="card">
+
+ <div class="icon">
+ 🦅
+ </div>
+
+ <div class="race-name">
+
+ <h3>
+ Kemori
+ </h3>
+
+ <span>
+ Humanoid
+ </span>
+
+ </div>
+
+ <p>
+ Kemori retain a predominantly humanoid form while
+ displaying the defining traits of their lineage through
+ ears, tails, wings, horns, plumage, scales, or other
+ characteristics.
+ </p>
+
+ <p>
+ Their animal heritage may be immediately recognizable
+ or expressed through subtler physical traits.
+ </p>
+
+ </article>
+
+ </div>
+
+ </div>
+
+</section>
+
+
+<!-- =========================================================
+ LINEAGES
+ ========================================================= -->
 
 <section>
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Lineages</span>
+ <span class="kicker">
+ ✦ Lineages
+ </span>
 
-      <h2>Countless Creatures. Countless Forms.</h2>
+ <h2>
+ Countless Creatures. Countless Forms.
+ </h2>
 
-      <p>
-        Beastial ancestry can come from an enormous range of animal life found
-        throughout the Verdigris Isles.
-      </p>
+ <p>
+ Beastial ancestry can come from an enormous range of animal
+ life found throughout the Verdigris Isles.
+ </p>
 
-    </div>
-
-
-    <div class="grid">
-
-
-      <article class="card">
-
-        <div class="icon">🐺</div>
-
-        <h3>Canines</h3>
-
-        <p>
-          Wolves, foxes, dogs, coyotes, and other canine lineages may display
-          heightened senses, ears, tails, fur, claws, or other canine traits.
-        </p>
-
-      </article>
+ </div>
 
 
-      <article class="card">
-
-        <div class="icon">🐆</div>
-
-        <h3>Great Cats</h3>
-
-        <p>
-          Felines may possess expressive ears, tails, patterned coats,
-          retractable claws, keen eyesight, and other predatory adaptations.
-        </p>
-
-      </article>
+ <div class="grid">
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🦌</div>
+ <div class="icon">
+ 🐺
+ </div>
 
-        <h3>Cervines</h3>
+ <h3>
+ Canines
+ </h3>
 
-        <p>
-          Deer and related lineages are often associated with antlers,
-          sensitive hearing, keen senses, and strong relationships with
-          forests and wild places.
-        </p>
+ <p>
+ Wolves, foxes, dogs, coyotes, and other canine lineages
+ may display heightened senses, ears, tails, fur, claws,
+ or other canine traits.
+ </p>
 
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🐍</div>
-
-        <h3>Reptiles</h3>
-
-        <p>
-          Reptilian Beastials may display scales, tails, claws, slit pupils,
-          horns, fins, or other traits associated with their ancestry.
-        </p>
-
-      </article>
+ </article>
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🐸</div>
+ <div class="icon">
+ 🐆
+ </div>
 
-        <h3>Amphibians</h3>
+ <h3>
+ Great Cats
+ </h3>
 
-        <p>
-          Amphibian lineages may possess webbing, specialized skin, unusual
-          coloration, powerful jumping ability, or other adaptations.
-        </p>
+ <p>
+ Felines may possess expressive ears, tails, patterned
+ coats, retractable claws, keen eyesight, and other
+ predatory adaptations.
+ </p>
 
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🦋</div>
-
-        <h3>Insects</h3>
-
-        <p>
-          Insect lineages may display chitin, antennae, compound-like eyes,
-          wings, additional limbs, or other distinctive traits.
-        </p>
-
-      </article>
+ </article>
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🐟</div>
+ <div class="icon">
+ 🦌
+ </div>
 
-        <h3>Marine Lineages</h3>
+ <h3>
+ Cervines
+ </h3>
 
-        <p>
-          Aquatic Beastial lineages may possess fins, scales, gills, aquatic
-          coloration, webbing, or other traits suited to life in or around water.
-        </p>
+ <p>
+ Deer and related lineages are often associated with
+ antlers, sensitive hearing, keen senses, and strong
+ relationships with forests and wild places.
+ </p>
 
-      </article>
+ </article>
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🪶</div>
+ <div class="icon">
+ 🐍
+ </div>
 
-        <h3>Harpies</h3>
+ <h3>
+ Reptiles
+ </h3>
 
-        <p>
-          Feathered Kemori whose most recognizable feature is a pair of
-          hip-mounted wings. Harpies are among the most distinctive Beastial
-          lineages found throughout the Isles.
-        </p>
+ <p>
+ Reptilian Beastials may display scales, tails, claws,
+ slit pupils, horns, fins, or other traits associated
+ with their ancestry.
+ </p>
 
-      </article>
+ </article>
 
-    </div>
 
-  </div>
+ <article class="card">
+
+ <div class="icon">
+ 🐸
+ </div>
+
+ <h3>
+ Amphibians
+ </h3>
+
+ <p>
+ Amphibian lineages may possess webbing, specialized skin,
+ unusual coloration, powerful jumping ability, or other
+ adaptations.
+ </p>
+
+ </article>
+
+
+ <article class="card">
+
+ <div class="icon">
+ 🦋
+ </div>
+
+ <h3>
+ Insects
+ </h3>
+
+ <p>
+ Insect lineages may display chitin, antennae,
+ compound-like eyes, wings, additional limbs, or other
+ distinctive traits.
+ </p>
+
+ </article>
+
+
+ <article class="card">
+
+ <div class="icon">
+ 🐟
+ </div>
+
+ <h3>
+ Marine Lineages
+ </h3>
+
+ <p>
+ Aquatic Beastial lineages may possess fins, scales,
+ gills, aquatic coloration, webbing, or other traits
+ suited to life in or around water.
+ </p>
+
+ </article>
+
+
+ <article class="card">
+
+ <div class="icon">
+ 🪶
+ </div>
+
+ <h3>
+ Harpies
+ </h3>
+
+ <p>
+ Feathered Kemori whose most recognizable feature is a
+ pair of hip-mounted wings. Harpies are among the most
+ distinctive Beastial lineages found throughout the Isles.
+ </p>
+
+ </article>
+
+ </div>
+
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     ORIGINS
-============================== -->
+<!-- =========================================================
+ ORIGINS
+ ========================================================= -->
 
-<section style="background:#e3efdf;">
+<section class="section-mint">
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Overview & Origins</span>
+ <span class="kicker">
+ ✦ Overview & Origins
+ </span>
 
-      <h2>Ancestors Written in Fur and Feather</h2>
+ <h2>
+ Ancestors Written in Fur and Feather
+ </h2>
 
-    </div>
+ </div>
 
 
-    <div class="prose">
+ <div class="prose">
 
-      <p>
-        The true origins of the Beastials remain uncertain.
-      </p>
+ <p>
+ The true origins of the Beastials remain uncertain.
+ </p>
 
-      <p>
-        Ancient myths claim they were shaped by the world's primordial spirits,
-        each lineage blessed with the traits of a different creature.
-      </p>
+ <p>
+ Ancient myths claim they were shaped by the world's
+ primordial spirits, each lineage blessed with the traits
+ of a different creature.
+ </p>
 
-      <p>
-        Scholars instead believe Beastials descended from ancient peoples whose
-        forms gradually adapted to the environments they inhabited over
-        countless generations.
-      </p>
+ <p>
+ Scholars instead believe Beastials descended from ancient
+ peoples whose forms gradually adapted to the environments
+ they inhabited over countless generations.
+ </p>
 
-      <p>
-        Whatever their beginning, Beastials have existed since before recorded
-        history and can be found in nearly every nation of the Verdigris Isles.
-      </p>
+ <p>
+ Whatever their beginning, Beastials have existed since
+ before recorded history and can be found in nearly every
+ nation of the Verdigris Isles.
+ </p>
 
-    </div>
+ </div>
 
-  </div>
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     PHYSICAL CHARACTERISTICS
-============================== -->
+<!-- =========================================================
+ PHYSICAL CHARACTERISTICS
+ ========================================================= -->
 
 <section>
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Physical Characteristics</span>
+ <span class="kicker">
+ ✦ Physical Characteristics
+ </span>
 
-      <h2>No Single Beastial Appearance</h2>
+ <h2>
+ No Single Beastial Appearance
+ </h2>
 
-      <p>
-        Every Beastial lineage is unique, though all possess a fundamentally
-        humanoid body plan.
-      </p>
+ <p>
+ Every Beastial lineage is unique, though all possess a
+ fundamentally humanoid body plan.
+ </p>
 
-    </div>
-
-
-    <div class="grid">
-
-
-      <article class="card">
-
-        <div class="icon">🐕</div>
-
-        <h3>Canine Traits</h3>
-
-        <p>
-          Ears, tails, muzzles, claws, fur, and heightened senses are common
-          among canine lineages.
-        </p>
-
-      </article>
+ </div>
 
 
-      <article class="card">
-
-        <div class="icon">🐈</div>
-
-        <h3>Feline Traits</h3>
-
-        <p>
-          Feline Beastials may possess distinctive eyes, tails, ears,
-          fur patterns, and retractable claws.
-        </p>
-
-      </article>
+ <div class="grid">
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🦌</div>
+ <div class="icon">
+ 🐕
+ </div>
 
-        <h3>Antlers & Horns</h3>
+ <h3>
+ Canine Traits
+ </h3>
 
-        <p>
-          Antlers and horns are common among cervine, bovine, caprine,
-          and numerous other Beastial lineages.
-        </p>
+ <p>
+ Ears, tails, muzzles, claws, fur, and heightened senses
+ are common among canine lineages.
+ </p>
 
-      </article>
-
-
-      <article class="card">
-
-        <div class="icon">🐊</div>
-
-        <h3>Scales & Fins</h3>
-
-        <p>
-          Reptilian and aquatic lineages may display scales, fins, tails,
-          claws, or other specialized anatomy.
-        </p>
-
-      </article>
+ </article>
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🦋</div>
+ <div class="icon">
+ 🐈
+ </div>
 
-        <h3>Chitin & Antennae</h3>
+ <h3>
+ Feline Traits
+ </h3>
 
-        <p>
-          Insect lineages may develop chitinous plating, antennae, wings,
-          unusual eyes, and other arthropod features.
-        </p>
+ <p>
+ Feline Beastials may possess distinctive eyes, tails,
+ ears, fur patterns, and retractable claws.
+ </p>
 
-      </article>
+ </article>
 
 
-      <article class="card">
+ <article class="card">
 
-        <div class="icon">🪶</div>
+ <div class="icon">
+ 🦌
+ </div>
 
-        <h3>Wings & Plumage</h3>
+ <h3>
+ Antlers & Horns
+ </h3>
 
-        <p>
-          Feathered lineages such as Harpies may possess wings, plumage,
-          talons, beaks, and other avian characteristics.
-        </p>
+ <p>
+ Antlers and horns are common among cervine, bovine,
+ caprine, and numerous other Beastial lineages.
+ </p>
 
-      </article>
+ </article>
 
-    </div>
 
-  </div>
+ <article class="card">
+
+ <div class="icon">
+ 🐊
+ </div>
+
+ <h3>
+ Scales & Fins
+ </h3>
+
+ <p>
+ Reptilian and aquatic lineages may display scales,
+ fins, tails, claws, or other specialized anatomy.
+ </p>
+
+ </article>
+
+
+ <article class="card">
+
+ <div class="icon">
+ 🦋
+ </div>
+
+ <h3>
+ Chitin & Antennae
+ </h3>
+
+ <p>
+ Insect lineages may develop chitinous plating,
+ antennae, wings, unusual eyes, and other arthropod
+ features.
+ </p>
+
+ </article>
+
+
+ <article class="card">
+
+ <div class="icon">
+ 🪶
+ </div>
+
+ <h3>
+ Wings & Plumage
+ </h3>
+
+ <p>
+ Feathered lineages such as Harpies may possess wings,
+ plumage, talons, beaks, and other avian characteristics.
+ </p>
+
+ </article>
+
+ </div>
+
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     CULTURE
-============================== -->
+<!-- =========================================================
+ CULTURE
+ ========================================================= -->
 
 <section class="feature-strip">
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Culture & Society</span>
+ <span class="kicker">
+ ✦ Culture & Society
+ </span>
 
-      <h2>More Than the Beast Within</h2>
+ <h2>
+ More Than the Beast Within
+ </h2>
 
-      <p>
-        Beastials are deeply diverse and rarely organize themselves by race
-        alone. Most identify more strongly with their homeland, family, or
-        lineage than with simply being Beastial.
-      </p>
+ <p>
+ Beastials are deeply diverse and rarely organize themselves
+ by race alone. Most identify more strongly with their homeland,
+ family, or lineage than with simply being Beastial.
+ </p>
 
-    </div>
-
-
-    <div class="feature-grid">
-
-
-      <div class="feature">
-
-        <strong>Lineage</strong>
-
-        <span>
-          Family ancestry and inherited traditions may influence culture
-          without defining an individual's identity.
-        </span>
-
-      </div>
+ </div>
 
 
-      <div class="feature">
-
-        <strong>Homeland</strong>
-
-        <span>
-          Beastial cultures are often shaped more strongly by the region
-          and communities where they were raised.
-        </span>
-
-      </div>
+ <div class="feature-grid">
 
 
-      <div class="feature">
+ <div class="feature">
 
-        <strong>Tradition</strong>
+ <strong>
+ Lineage
+ </strong>
 
-        <span>
-          Festivals, rites of passage, and family customs may reflect
-          ancestral instincts or natural behaviors.
-        </span>
+ <span>
+ Family ancestry and inherited traditions may influence
+ culture without defining an individual's identity.
+ </span>
 
-      </div>
+ </div>
 
 
-      <div class="feature">
+ <div class="feature">
 
-        <strong>Individuality</strong>
+ <strong>
+ Homeland
+ </strong>
 
-        <span>
-          Ancestry influences appearance and culture, but never determines
-          personality, beliefs, or morality.
-        </span>
+ <span>
+ Beastial cultures are often shaped more strongly by
+ the region and communities where they were raised.
+ </span>
 
-      </div>
+ </div>
 
-    </div>
 
-  </div>
+ <div class="feature">
+
+ <strong>
+ Tradition
+ </strong>
+
+ <span>
+ Festivals, rites of passage, and family customs may
+ reflect ancestral instincts or natural behaviors.
+ </span>
+
+ </div>
+
+
+ <div class="feature">
+
+ <strong>
+ Individuality
+ </strong>
+
+ <span>
+ Ancestry influences appearance and culture, but never
+ determines personality, beliefs, or morality.
+ </span>
+
+ </div>
+
+ </div>
+
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     COMMON OCCUPATIONS
-============================== -->
+<!-- =========================================================
+ COMMON OCCUPATIONS
+ ========================================================= -->
 
 <section>
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Common Occupations</span>
+ <span class="kicker">
+ ✦ Common Occupations
+ </span>
 
-      <h2>Every Calling Is Open</h2>
+ <h2>
+ Every Calling Is Open
+ </h2>
 
-      <p>
-        Beastials thrive in virtually every profession throughout the
-        Verdigris Isles. Certain lineages may develop cultural associations
-        with particular fields, but these are tendencies rather than limitations.
-      </p>
+ <p>
+ Beastials thrive in virtually every profession throughout
+ the Verdigris Isles. Certain lineages may develop cultural
+ associations with particular fields, but these are tendencies
+ rather than limitations.
+ </p>
 
-    </div>
-
-
-    <div class="occupation-list">
-
-      <span class="occupation">Wardens</span>
-
-      <span class="occupation">Guards</span>
-
-      <span class="occupation">Couriers</span>
-
-      <span class="occupation">Scouts</span>
-
-      <span class="occupation">Navigators</span>
-
-      <span class="occupation">Aerial Hunters</span>
-
-      <span class="occupation">Foresters</span>
-
-      <span class="occupation">Herbalists</span>
-
-      <span class="occupation">Explorers</span>
-
-      <span class="occupation">Scholars</span>
-
-      <span class="occupation">Relic Hunters</span>
-
-      <span class="occupation">Traders</span>
-
-      <span class="occupation">Craftspeople</span>
-
-      <span class="occupation">Artists</span>
-
-      <span class="occupation">Adventurers</span>
-
-    </div>
+ </div>
 
 
-    <div class="prose" style="margin-top:30px;">
+ <div class="occupation-list">
 
-      <p>
-        Harpies, for example, often become couriers, scouts, navigators, or
-        aerial hunters. Canines frequently serve as Wardens or guards,
-        cervines as foresters and herbalists, while corvid Harpies are renowned
-        explorers, scholars, and relic hunters.
-      </p>
+ <span class="occupation">Wardens</span>
+ <span class="occupation">Guards</span>
+ <span class="occupation">Couriers</span>
+ <span class="occupation">Scouts</span>
+ <span class="occupation">Navigators</span>
+ <span class="occupation">Aerial Hunters</span>
+ <span class="occupation">Foresters</span>
+ <span class="occupation">Herbalists</span>
+ <span class="occupation">Explorers</span>
+ <span class="occupation">Scholars</span>
+ <span class="occupation">Relic Hunters</span>
+ <span class="occupation">Traders</span>
+ <span class="occupation">Craftspeople</span>
+ <span class="occupation">Artists</span>
+ <span class="occupation">Adventurers</span>
 
-      <p>
-        These are cultural tendencies rather than limitations. Any Beastial
-        may pursue any calling.
-      </p>
+ </div>
 
-    </div>
 
-  </div>
+ <div class="prose" style="margin-top:30px;">
+
+ <p>
+ Harpies, for example, often become couriers, scouts,
+ navigators, or aerial hunters. Canines frequently serve
+ as Wardens or guards, cervines as foresters and herbalists,
+ while corvid Harpies are renowned explorers, scholars,
+ and relic hunters.
+ </p>
+
+ <p>
+ These are cultural tendencies rather than limitations.
+ Any Beastial may pursue any calling.
+ </p>
+
+ </div>
+
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     LIFESPAN & BIOLOGY
-============================== -->
+<!-- =========================================================
+ LIFESPAN & BIOLOGY
+ ========================================================= -->
 
-<section style="background:#e8f0df;">
+<section class="section-green">
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading">
+ <div class="heading">
 
-      <span class="kicker">✦ Lifespan & Biology</span>
+ <span class="kicker">
+ ✦ Lifespan & Biology
+ </span>
 
-      <h2>Born of Many Ancestries</h2>
+ <h2>
+ Born of Many Ancestries
+ </h2>
 
-    </div>
+ </div>
 
 
-    <div class="prose">
+ <div class="prose">
 
-      <p>
-        Most Beastials mature at roughly the same rate as humans and typically
-        live between <strong>110 and 130 years</strong>, though some lineages
-        may naturally live slightly longer or shorter depending on their ancestry.
-      </p>
+ <p>
+ Most Beastials mature at roughly the same rate as humans
+ and typically live between
+ <strong>110 and 130 years</strong>,
+ though some lineages may naturally live slightly longer
+ or shorter depending on their ancestry.
+ </p>
 
-      <p>
-        Despite their physical diversity, all Beastials are warm-blooded
-        humanoids capable of living comfortably alongside the other peoples
-        of the Verdigris Isles.
-      </p>
+ <p>
+ Despite their physical diversity, all Beastials are
+ warm-blooded humanoids capable of living comfortably
+ alongside the other peoples of the Verdigris Isles.
+ </p>
 
-    </div>
+ </div>
 
-  </div>
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     CHARACTER CREATION
-============================== -->
+<!-- =========================================================
+ CHARACTER CREATION
+ ========================================================= -->
 
 <section>
 
-  <div class="container">
+ <div class="container">
 
-    <div class="creation-box">
+ <div class="creation-box">
 
-      <span class="kicker">✦ Character Creation</span>
+ <span class="kicker">
+ ✦ Character Creation
+ </span>
 
-      <h2>Creating a Beastial</h2>
+ <h2>
+ Creating a Beastial
+ </h2>
 
-      <p>
-        Your lineage influences your appearance and cultural background,
-        but does not determine your personality, occupation, beliefs, or
-        morality.
-      </p>
-
-
-      <div class="creation-list">
-
-
-        <div class="creation-item">
-
-          <strong>Race</strong>
-
-          Feran or Kemori
-
-        </div>
+ <p>
+ Your lineage influences your appearance and cultural
+ background, but does not determine your personality,
+ occupation, beliefs, or morality.
+ </p>
 
 
-        <div class="creation-item">
-
-          <strong>Lineage</strong>
-
-          The animal your character descends from
-
-        </div>
+ <div class="creation-list">
 
 
-        <div class="creation-item">
+ <div class="creation-item">
 
-          <strong>Distinctive Traits</strong>
+ <strong>
+ Race
+ </strong>
 
-          Ears, tails, horns, wings, scales, plumage, claws, fur, or other
-          features reflecting your lineage
+ Feran or Kemori
 
-        </div>
-
-
-        <div class="creation-item">
-
-          <strong>Personal Appearance</strong>
-
-          Fur, feather, scale, eye, and skin coloration suited to your
-          character's heritage
-
-        </div>
+ </div>
 
 
-        <div class="creation-item">
+ <div class="creation-item">
 
-          <strong>Cultural Background</strong>
+ <strong>
+ Lineage
+ </strong>
 
-          Consider where your character was raised and how their lineage
-          shaped their upbringing
+ The animal your character descends from
 
-        </div>
+ </div>
 
 
-        <div class="creation-item">
+ <div class="creation-item">
 
-          <strong>Individual Identity</strong>
+ <strong>
+ Distinctive Traits
+ </strong>
 
-          Your ancestry does not dictate who your character becomes
+ Ears, tails, horns, wings, scales, plumage, claws,
+ fur, or other features reflecting your lineage
 
-        </div>
+ </div>
 
-      </div>
 
-    </div>
+ <div class="creation-item">
 
-  </div>
+ <strong>
+ Personal Appearance
+ </strong>
+
+ Fur, feather, scale, eye, and skin coloration suited
+ to your character's heritage
+
+ </div>
+
+
+ <div class="creation-item">
+
+ <strong>
+ Cultural Background
+ </strong>
+
+ Consider where your character was raised and how
+ their lineage shaped their upbringing
+
+ </div>
+
+
+ <div class="creation-item">
+
+ <strong>
+ Individual Identity
+ </strong>
+
+ Your ancestry does not dictate who your character becomes
+
+ </div>
+
+ </div>
+
+ </div>
+
+ </div>
 
 </section>
 
 
-<!-- ==============================
-     CLOSING
-============================== -->
+<!-- =========================================================
+ CLOSING
+ ========================================================= -->
 
-<section class="hero" style="padding:75px 0;">
+<section class="hero hero-closing">
 
-  <div class="container">
+ <div class="container">
 
-    <div class="heading"
-         style="margin:auto;text-align:center;">
+ <div class="heading heading-centered">
 
-      <span class="kicker">✦ The Beastials</span>
+ <span class="kicker">
+ ✦ The Beastials
+ </span>
 
-      <h2>
-        Born of the Wild. Shaped by the Isles.
-      </h2>
+ <h2>
+ Born of the Wild. Shaped by the Isles.
+ </h2>
 
-      <p>
-        An ancestry may tell you where you came from,
-        but it does not decide where you will go.
-      </p>
+ <p>
+ An ancestry may tell you where you came from,
+ but it does not decide where you will go.
+ </p>
 
-    </div>
+ </div>
 
-  </div>
+ </div>
 
 </section>
 
@@ -1507,31 +1020,30 @@ footer p {
 </main>
 
 
-<!-- ==============================
-     FOOTER
-============================== -->
+<!-- =========================================================
+ FOOTER
+ ========================================================= -->
 
 <footer>
 
-  <div class="container">
+ <div class="container">
 
-    <div class="brand">
+ <div class="brand">
 
-      <span class="brand-mark">🦌</span>
+ <span class="brand-mark">🌿</span>
+ Verdigris Isles
 
-      Verdigris Isles
+ </div>
 
-    </div>
+ <p>
+ A sunlit world of islands, adventure, magic, and forgotten history.
+ </p>
 
-    <p>
-      A sunlit world of islands, adventure, magic, and forgotten history.
-    </p>
+ <p class="footer-copy">
+ © 2026 Verdigris Isles
+ </p>
 
-    <p style="margin-top:10px;">
-      © 2026 Verdigris Isles
-    </p>
-
-  </div>
+ </div>
 
 </footer>
 
