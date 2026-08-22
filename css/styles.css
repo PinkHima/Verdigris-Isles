@@ -437,6 +437,31 @@ footer .brand {
     color: var(--muted);
     font-size: 0.88rem;
 }
+
+/* =========================================================
+ 15. RACE LABELS
+ ========================================================= */
+
+.race-name {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ margin-bottom: 10px;
+}
+
+.race-name span {
+ padding: 5px 9px;
+ border-radius: 999px;
+ background: #e4f3ed;
+ color: var(--leaf2);
+ font-family: Arial, sans-serif;
+ font-size: 0.68rem;
+ font-weight: 700;
+ letter-spacing: 0.07em;
+ text-transform: uppercase;
+}
+
+
 /* =========================================================
    16. OCCUPATIONS
    ========================================================= */
