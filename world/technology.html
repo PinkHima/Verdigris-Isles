@@ -6,2093 +6,988 @@
 
 <title>Technology | Verdigris Isles</title>
 
-<style>
-
-:root {
-  --lagoon: #39b9bb;
-  --lagoon-dark: #087f91;
-  --deep-sea: #075c6c;
-
-  --coral: #e9836b;
-  --sand: #f2dfb6;
-  --cream: #fff6df;
-  --foam: #fffdf7;
-
-  --leaf: #4f8c4b;
-  --leaf-dark: #27643d;
-
-  --gold: #d5a63d;
-  --gold-dark: #8f6a22;
-
-  --copper: #b96d4c;
-  --copper-dark: #7f4937;
-
-  --stone: #5c625e;
-  --ink: #193f46;
-  --muted: #617678;
-
-  --line: rgba(25,63,70,.12);
-  --shadow: 0 18px 45px rgba(14,83,91,.14);
-
-  --radius: 28px;
-  --max: 1180px;
-}
-
-/* ------------------------------
-   BASE
------------------------------- */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  color: var(--ink);
-  background: var(--cream);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(92%, var(--max));
-  margin-inline: auto;
-}
-
-/* ------------------------------
-   NAVIGATION
------------------------------- */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-
-  background: rgba(255,253,247,.94);
-
-  backdrop-filter: blur(14px);
-
-  border-bottom: 1px solid var(--line);
-}
-
-nav {
-  min-height: 76px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.brand-mark {
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  background: var(--lagoon);
-  color: white;
-
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
-}
-
-.nav-links {
-  list-style: none;
-
-  display: flex;
-  gap: 4px;
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-
-.nav-links a {
-  display: block;
-
-  padding: 9px 11px;
-
-  border-radius: 999px;
-
-  transition: .2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: #d9f2ec;
-  color: var(--deep-sea);
-}
-
-/* ------------------------------
-   HERO
------------------------------- */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-
-  padding: 95px 0 105px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #d8eee9 0%,
-      #eef0d5 55%,
-      #f4dfb9 100%
-    );
-}
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  width: 450px;
-  height: 450px;
-
-  right: -150px;
-  top: -170px;
-
-  border-radius: 50%;
-
-  background: rgba(57,185,187,.12);
-}
-
-.hero::after {
-  content: "";
-
-  position: absolute;
-
-  width: 280px;
-  height: 280px;
-
-  left: -100px;
-  bottom: -150px;
-
-  border-radius: 50%;
-
-  background: rgba(213,166,61,.13);
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-
-  gap: 50px;
-
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-block;
-
-  padding: 8px 15px;
-  margin-bottom: 18px;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.72);
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-h1 {
-  color: var(--deep-sea);
-
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
-
-  line-height: .88;
-
-  letter-spacing: -.04em;
-
-  margin-bottom: 22px;
-}
-
-.hero-description {
-  max-width: 720px;
-
-  color: #28575c;
-
-  font-size: 1.12rem;
-}
-
-/* ------------------------------
-   HERO TECHNOLOGY PANEL
------------------------------- */
-
-.tech-hero-panel {
-  position: relative;
-
-  width: 100%;
-  max-width: 520px;
-
-  justify-self: end;
-
-  padding: 35px;
-
-  border-radius: 35px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(7,92,108,.96),
-      rgba(25,63,70,.98)
-    );
-
-  border: 7px solid rgba(255,255,255,.7);
-
-  box-shadow: 0 28px 55px rgba(18,79,81,.22);
-
-  overflow: hidden;
-}
-
-.tech-hero-panel::before {
-  content: "⚙";
-
-  position: absolute;
-
-  right: -20px;
-  top: -45px;
-
-  font-size: 12rem;
-
-  color: rgba(255,255,255,.055);
-
-  transform: rotate(18deg);
-}
-
-.tech-hero-panel::after {
-  content: "";
-
-  position: absolute;
-
-  width: 180px;
-  height: 180px;
-
-  right: -80px;
-  bottom: -90px;
-
-  border-radius: 50%;
-
-  border: 35px solid rgba(57,185,187,.12);
-}
-
-.hero-panel-label {
-  position: relative;
-  z-index: 2;
-
-  color: #8fe0dc;
-
-  font-family: Arial, sans-serif;
-  font-size: .68rem;
-  font-weight: 700;
-
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.hero-panel-title {
-  position: relative;
-  z-index: 2;
-
-  margin: 10px 0 20px;
-
-  color: white;
-
-  font-size: 2.2rem;
-  line-height: 1.05;
-}
-
-.hero-panel-text {
-  position: relative;
-  z-index: 2;
-
-  color: #d8efea;
-
-  font-size: .94rem;
-}
-
-.hero-stats {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 10px;
-
-  margin-top: 25px;
-}
-
-.hero-stat {
-  padding: 13px;
-
-  border-radius: 15px;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.09);
-}
-
-.hero-stat strong {
-  display: block;
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-  font-size: .78rem;
-}
-
-.hero-stat span {
-  color: #b8d8d3;
-
-  font-family: Arial, sans-serif;
-  font-size: .68rem;
-}
-
-/* ------------------------------
-   CONTENT
------------------------------- */
-
-section {
-  padding: 85px 0;
-}
-
-.heading {
-  max-width: 850px;
-
-  margin-bottom: 40px;
-}
-
-.kicker {
-  color: var(--coral);
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  letter-spacing: .16em;
-
-  text-transform: uppercase;
-}
-
-h2 {
-  color: var(--deep-sea);
-
-  font-size: clamp(2rem, 5vw, 3.3rem);
-
-  line-height: 1.05;
-
-  margin: 8px 0 15px;
-}
-
-h3 {
-  color: var(--deep-sea);
-
-  font-size: 1.35rem;
-
-  margin-bottom: 8px;
-}
-
-.heading p {
-  color: var(--muted);
-
-  font-size: 1rem;
-}
-
-.prose {
-  max-width: 850px;
-}
-
-.prose p + p {
-  margin-top: 18px;
-}
-
-.prose strong {
-  color: var(--deep-sea);
-}
-
-/* ------------------------------
-   TECHNOLOGY CARDS
------------------------------- */
-
-.tech-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 24px;
-}
-
-.tech-card {
-  position: relative;
-
-  overflow: hidden;
-
-  padding: 32px;
-
-  background: var(--foam);
-
-  border: 1px solid var(--line);
-
-  border-radius: var(--radius);
-
-  box-shadow: 0 8px 25px rgba(14,83,91,.06);
-
-  transition: .22s;
-}
-
-.tech-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: var(--shadow);
-}
-
-.tech-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 130px;
-  height: 130px;
-
-  right: -50px;
-  top: -50px;
-
-  border-radius: 50%;
-
-  background: rgba(57,185,187,.07);
-}
-
-.tech-icon {
-  width: 58px;
-  height: 58px;
-
-  display: grid;
-  place-items: center;
-
-  margin-bottom: 18px;
-
-  border-radius: 19px;
-
-  background: #d9f2ec;
-
-  font-size: 1.6rem;
-}
-
-.tech-card h3 {
-  font-size: 1.55rem;
-}
-
-.tech-card p {
-  color: var(--muted);
-
-  font-size: .94rem;
-}
-
-.tech-card p + p {
-  margin-top: 13px;
-}
-
-/* ------------------------------
-   TECHNOLOGY LIST
------------------------------- */
-
-.tech-list {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-top: 20px;
-}
-
-.tech-pill {
-  padding: 9px 14px;
-
-  border-radius: 999px;
-
-  background: #f4e4c3;
-
-  color: var(--gold-dark);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .76rem;
-
-  font-weight: 700;
-}
-
-/* ------------------------------
-   FEATURE
------------------------------- */
-
-.feature {
-  margin-top: 25px;
-
-  padding: 27px;
-
-  border-radius: 24px;
-
-  background: #f4e4c3;
-}
-
-.feature strong {
-  display: block;
-
-  margin-bottom: 6px;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .76rem;
-
-  letter-spacing: .08em;
-
-  text-transform: uppercase;
-}
-
-/* ------------------------------
-   DRIFT SECTION
------------------------------- */
-
-.drift-section {
-  background: #edf5e8;
-}
-
-.drift-box {
-  display: grid;
-
-  grid-template-columns: .8fr 1.2fr;
-
-  gap: 35px;
-
-  align-items: stretch;
-}
-
-.drift-core {
-  position: relative;
-
-  min-height: 360px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  border-radius: 32px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(57,185,187,.25),
-      transparent 55%
-    ),
-    #075c6c;
-
-  box-shadow: var(--shadow);
-}
-
-.drift-core::before {
-  content: "";
-
-  width: 175px;
-  height: 175px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff,
-      #8de3df 18%,
-      #39b9bb 45%,
-      #087f91 70%
-    );
-
-  box-shadow:
-    0 0 35px rgba(57,185,187,.55),
-    0 0 90px rgba(57,185,187,.25);
-
-  animation: driftPulse 4s ease-in-out infinite;
-}
-
-.drift-core-label {
-  position: absolute;
-
-  bottom: 28px;
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
-  font-size: .7rem;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-
-  text-transform: uppercase;
-}
-
-@keyframes driftPulse {
-
-  0%, 100% {
-    transform: scale(.96);
-  }
-
-  50% {
-    transform: scale(1.04);
-  }
-
-}
-
-.drift-content {
-  padding: 10px 0;
-}
-
-.drift-content p {
-  color: var(--muted);
-
-  font-size: .96rem;
-}
-
-.drift-content p + p {
-  margin-top: 16px;
-}
-
-/* ------------------------------
-   AIRBOAT
------------------------------- */
-
-.airboat-section {
-  background:
-    linear-gradient(
-      135deg,
-      #e2f2ec,
-      #f4dfb9
-    );
-}
-
-.airboat-diagram {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 20px;
-
-  margin-top: 35px;
-}
-
-.airboat-part {
-  padding: 27px;
-
-  border-radius: 25px;
-
-  background: rgba(255,253,247,.88);
-
-  border: 1px solid var(--line);
-}
-
-.airboat-part-icon {
-  font-size: 1.8rem;
-
-  margin-bottom: 10px;
-}
-
-.airboat-part h3 {
-  margin-bottom: 8px;
-}
-
-.airboat-part p {
-  color: var(--muted);
-
-  font-size: .9rem;
-}
-
-.limitations {
-  margin-top: 25px;
-
-  padding: 25px;
-
-  border-radius: 24px;
-
-  background: rgba(255,255,255,.65);
-
-  border: 1px solid var(--line);
-}
-
-.limitations strong {
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .78rem;
-
-  letter-spacing: .08em;
-
-  text-transform: uppercase;
-}
-
-.limitations ul {
-  margin: 15px 0 0 20px;
-
-  color: var(--muted);
-
-  font-size: .92rem;
-}
-
-/* ------------------------------
-   INNOVATION CENTERS
------------------------------- */
-
-.innovation-grid {
-  display: grid;
-
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 14px;
-}
-
-.innovation-card {
-  padding: 23px 18px;
-
-  border-radius: 22px;
-
-  background: #d9f2ec;
-
-  text-align: center;
-}
-
-.innovation-card .icon {
-  font-size: 1.7rem;
-
-  margin-bottom: 9px;
-}
-
-.innovation-card h3 {
-  font-size: 1rem;
-
-  margin-bottom: 7px;
-}
-
-.innovation-card p {
-  color: var(--muted);
-
-  font-size: .76rem;
-}
-
-/* ------------------------------
-   MILITARY
------------------------------- */
-
-.military-section {
-  background: #edf5e8;
-}
-
-.military-grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 20px;
-}
-
-.military-card {
-  padding: 27px;
-
-  border-radius: 25px;
-
-  background: var(--foam);
-
-  border: 1px solid var(--line);
-}
-
-.military-card h3 {
-  margin-bottom: 10px;
-}
-
-.military-card p {
-  color: var(--muted);
-
-  font-size: .9rem;
-}
-
-/* ------------------------------
-   TRANSPORTATION
------------------------------- */
-
-.transport-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 24px;
-}
-
-.transport-card {
-  padding: 30px;
-
-  border-radius: var(--radius);
-
-  background: var(--foam);
-
-  border: 1px solid var(--line);
-
-  box-shadow: 0 8px 25px rgba(14,83,91,.06);
-}
-
-.transport-card h3 {
-  margin-bottom: 12px;
-}
-
-.transport-card p {
-  color: var(--muted);
-
-  font-size: .93rem;
-}
-
-/* ------------------------------
-   TECHNOLOGY GAP
------------------------------- */
-
-.gap-section {
-  background: var(--deep-sea);
-
-  color: white;
-}
-
-.gap-section h2 {
-  color: white;
-}
-
-.gap-section .kicker {
-  color: #f4c56a;
-}
-
-.gap-section p {
-  color: #d8efea;
-
-  max-width: 850px;
-
-  font-size: 1rem;
-}
-
-.gap-grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 20px;
-
-  margin-top: 35px;
-}
-
-.gap-card {
-  padding: 27px;
-
-  border-radius: 25px;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.1);
-}
-
-.gap-card h3 {
-  color: white;
-
-  margin-bottom: 10px;
-}
-
-.gap-card p {
-  color: #c7e3de;
-
-  font-size: .88rem;
-}
-
-/* ------------------------------
-   COMPARISON
------------------------------- */
-
-.comparison {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 20px;
-}
-
-.comparison-card {
-  padding: 27px;
-
-  border-radius: 25px;
-
-  background: #f4e4c3;
-}
-
-.comparison-card h3 {
-  margin-bottom: 10px;
-}
-
-.comparison-card p {
-  color: #64706c;
-
-  font-size: .9rem;
-}
-
-/* ------------------------------
-   CLOSING
------------------------------- */
-
-.closing {
-  text-align: center;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e3f4eb,
-      #f4e1b9
-    );
-}
-
-.closing .heading {
-  margin: auto;
-}
-
-.closing p {
-  max-width: 720px;
-
-  margin: auto;
-
-  color: var(--muted);
-
-  font-size: 1.05rem;
-}
-
-/* ------------------------------
-   FOOTER
------------------------------- */
-
-footer {
-  padding: 45px 0;
-
-  text-align: center;
-
-  color: #d8efea;
-
-  background: var(--deep-sea);
-}
-
-footer .brand {
-  justify-content: center;
-
-  color: white;
-
-  margin-bottom: 9px;
-}
-
-footer p {
-  font-family: Arial, sans-serif;
-
-  font-size: .8rem;
-
-  opacity: .84;
-}
-
-/* ------------------------------
-   MOBILE
------------------------------- */
-
-@media (max-width: 1000px) {
-
-  .innovation-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .airboat-diagram {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-@media (max-width: 900px) {
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .tech-hero-panel {
-    max-width: none;
-    justify-self: stretch;
-  }
-
-  .tech-grid,
-  .transport-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .drift-box {
-    grid-template-columns: 1fr;
-  }
-
-  .military-grid,
-  .gap-grid {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  section {
-    padding: 65px 0;
-  }
-
-  .innovation-grid,
-  .comparison {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .drift-core {
-    min-height: 280px;
-  }
-
-}
-
-</style>
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
 
-
 <!-- ==============================
-     NAVIGATION
+NAVIGATION
 ============================== -->
 
 <header>
+<div class="container">
 
-  <div class="container">
+<nav>
 
-    <nav>
+<a class="brand" href="../index.html">
+<span class="brand-mark">🌿</span>
+Verdigris Isles
+</a>
 
-      <a class="brand" href="../index.html">
-        <span class="brand-mark">🌿</span>Verdigris Isles</a>
-
-      <ul class="nav-links">
+<ul class="nav-links">
 <li><a href="../index.html">Home</a></li>
-<li><a href="../world/world.html">World</a></li>
+<li><a href="world.html">World</a></li>
 <li><a href="../regions/regions.html">Isles</a></li>
 <li><a href="../races/races.html">Races</a></li>
-<li><a href="../world/magic.html">Magic</a></li>
-<li><a href="../world/technology.html" class="active">Technology</a></li>
-<li><a href="../world/history.html" >History</a></li>
+<li><a href="magic.html">Magic</a></li>
+<li><a href="technology.html" class="active">Technology</a></li>
+<li><a href="history.html">History</a></li>
+</ul>
 
-      </ul>
-    </nav>
-  </div>
+</nav>
+
+</div>
 </header>
+
+
 <main>
 
-
 <!-- ==============================
-     HERO
+HERO
 ============================== -->
 
 <section class="hero">
 
-  <div class="container">
+<div class="container">
 
-    <div class="hero-inner">
+<div class="hero-inner">
 
-      <div>
+<div>
 
-        <span class="eyebrow">
-          ⚙️ The Reclaimed Magitech Renaissance
-        </span>
+<span class="eyebrow">
+⚙️ The Reclaimed Magitech Renaissance
+</span>
 
-        <h1>Building Beneath<br>a Broken Sky.</h1>
+<h1>
+Building Beneath<br>
+a Broken Sky.
+</h1>
 
-        <p class="hero-description">
-          The modern world of the Verdigris Isles is an age of steam,
-          engineering, Drift-powered invention, and rediscovery. The old world
-          reached for the heavens. The new world learned to rebuild beneath
-          them.
-        </p>
+<p class="hero-description">
+The modern world of the Verdigris Isles is an age of steam,
+engineering, Drift-powered invention, and rediscovery. The old world
+reached for the heavens. The new world learned to rebuild beneath
+them.
+</p>
 
-      </div>
+</div>
 
 
-      <div class="tech-hero-panel">
+<div class="tech-hero-panel">
 
-        <div class="hero-panel-label">
-          ⚙ Technological Era
-        </div>
+<div class="hero-panel-label">
+⚙ Technological Era
+</div>
 
-        <div class="hero-panel-title">
-          Reclaimed Magitech Renaissance
-        </div>
+<div class="hero-panel-title">
+Reclaimed Magitech Renaissance
+</div>
 
-        <p class="hero-panel-text">
-          A civilization rebuilding through practical engineering, salvaged
-          knowledge, magical innovation, and the discovery of Drift.
-        </p>
+<p class="hero-panel-text">
+A civilization rebuilding through practical engineering, salvaged
+knowledge, magical innovation, and the discovery of Drift.
+</p>
 
-        <div class="hero-stats">
+<div class="hero-stats">
 
-          <div class="hero-stat">
-            <strong>1880s Equivalent</strong>
-            <span>Late Victorian Technology</span>
-          </div>
+<div class="hero-stat">
+<strong>1880s Equivalent</strong>
+<span>Late Victorian Technology</span>
+</div>
 
-          <div class="hero-stat">
-            <strong>Drift</strong>
-            <span>Modern Magical Resource</span>
-          </div>
+<div class="hero-stat">
+<strong>Drift</strong>
+<span>Modern Magical Resource</span>
+</div>
 
-          <div class="hero-stat">
-            <strong>Steam</strong>
-            <span>Industrial Power</span>
-          </div>
+<div class="hero-stat">
+<strong>Steam</strong>
+<span>Industrial Power</span>
+</div>
 
-          <div class="hero-stat">
-            <strong>No True Flight</strong>
-            <span>Ascension Remains Lost</span>
-          </div>
+<div class="hero-stat">
+<strong>No True Flight</strong>
+<span>Ascension Remains Lost</span>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
 <!-- ==============================
-     OVERVIEW
+OVERVIEW
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ The Modern Age</span>
+<span class="kicker">✦ The Modern Age</span>
 
-      <h2>The World After Ascension</h2>
+<h2>The World After Ascension</h2>
 
-    </div>
+</div>
 
-    <div class="prose">
+<div class="prose">
 
-      <p>
-        The modern nations of the Verdigris Isles exist within an era known as
-        the <strong>Reclaimed Magitech Renaissance</strong> — a period of
-        industrial growth, magical innovation, and rediscovery following the
-        fall of the Citadel.
-      </p>
+<p>
+The modern nations of the Verdigris Isles exist within an era known as
+the <strong>Reclaimed Magitech Renaissance</strong> — a period of
+industrial growth, magical innovation, and rediscovery following the
+fall of the Citadel.
+</p>
 
-      <p>
-        When the Ascension Era ended, civilization was forced to rebuild from
-        scattered knowledge, salvaged relics, and practical ingenuity.
-        Engineers, artificers, and scholars chose not to recreate the
-        impossible wonders of the past. Instead, they forged a new path.
-      </p>
+<p>
+When the Ascension Era ended, civilization was forced to rebuild from
+scattered knowledge, salvaged relics, and practical ingenuity.
+Engineers, artificers, and scholars chose not to recreate the
+impossible wonders of the past. Instead, they forged a new path.
+</p>
 
-      <p>
-        Steam power, precision engineering, metallurgy, railways, workshops,
-        research guilds, and Drift-powered technology now define everyday life
-        across much of the Isles.
-      </p>
+<p>
+Steam power, precision engineering, metallurgy, railways, workshops,
+research guilds, and Drift-powered technology now define everyday life
+across much of the Isles.
+</p>
 
-      <p>
-        It is an age of factories and foundries, locomotives and steamships,
-        telegraph systems and mechanical workshops — a civilization steadily
-        transforming itself without forgetting the ruins beneath its feet.
-      </p>
+<p>
+It is an age of factories and foundries, locomotives and steamships,
+telegraph systems and mechanical workshops — a civilization steadily
+transforming itself without forgetting the ruins beneath its feet.
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
 <!-- ==============================
-     TECHNOLOGICAL ERA
+TECHNOLOGICAL ERA
 ============================== -->
 
 <section class="drift-section">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Technology at a Glance</span>
+<span class="kicker">✦ Technology at a Glance</span>
 
-      <h2>An Industrial World Reborn</h2>
+<h2>An Industrial World Reborn</h2>
 
-      <p>
-        Modern technology is broadly comparable to the late Victorian era,
-        roughly equivalent to the 1880s of real-world history.
-      </p>
+<p>
+Modern technology is broadly comparable to the late Victorian era,
+roughly equivalent to the 1880s of real-world history.
+</p>
 
-    </div>
-
-
-    <div class="tech-grid">
+</div>
 
 
-      <article class="tech-card">
+<div class="tech-grid">
 
-        <div class="tech-icon">🚂</div>
+<article class="tech-card">
 
-        <h3>Industrial Machinery</h3>
+<div class="tech-icon">⚙️</div>
 
-        <p>
-          Steam engines, mechanical workshops, factories, advanced metallurgy,
-          precision tools, and mass-produced goods form the foundation of
-          modern industry.
-        </p>
+<h3>Industrial Machinery</h3>
 
-        <div class="tech-list">
+<p>
+Steam engines, mechanical workshops, factories, advanced metallurgy,
+precision tools, and mass-produced goods form the foundation of
+modern industry.
+</p>
 
-          <span class="tech-pill">Steam Engines</span>
-          <span class="tech-pill">Foundries</span>
-          <span class="tech-pill">Factories</span>
-          <span class="tech-pill">Precision Tools</span>
+<div class="tech-list">
+<span class="tech-pill">Steam Engines</span>
+<span class="tech-pill">Foundries</span>
+<span class="tech-pill">Factories</span>
+<span class="tech-pill">Precision Tools</span>
+</div>
 
-        </div>
-
-      </article>
-
-
-      <article class="tech-card">
-
-        <div class="tech-icon">🚂</div>
-
-        <h3>Rail & Land Travel</h3>
-
-        <p>
-          Railways connect major population centers and industrial regions,
-          while horse-drawn wagons remain common throughout rural communities.
-        </p>
-
-        <div class="tech-list">
-
-          <span class="tech-pill">Railways</span>
-          <span class="tech-pill">Steam Vehicles</span>
-          <span class="tech-pill">Wagons</span>
-          <span class="tech-pill">Mechanical Carts</span>
-
-        </div>
-
-      </article>
+</article>
 
 
-      <article class="tech-card">
+<article class="tech-card">
 
-        <div class="tech-icon">⚓</div>
+<div class="tech-icon">🚂</div>
 
-        <h3>Steam & Water Travel</h3>
+<h3>Rail & Land Travel</h3>
 
-        <p>
-          Water remains the foundation of commerce throughout the Isles.
-          Merchant vessels, riverboats, sailing ships, and steamships connect
-          settlements across rivers, marshes, lakes, and coastal waters.
-        </p>
+<p>
+Railways connect major population centers and industrial regions,
+while horse-drawn wagons remain common throughout rural communities.
+</p>
 
-      </article>
+<div class="tech-list">
+<span class="tech-pill">Railways</span>
+<span class="tech-pill">Steam Vehicles</span>
+<span class="tech-pill">Wagons</span>
+<span class="tech-pill">Mechanical Carts</span>
+</div>
+
+</article>
 
 
-      <article class="tech-card">
+<article class="tech-card">
 
-        <div class="tech-icon">📡</div>
+<div class="tech-icon">⚓</div>
 
-        <h3>Communication</h3>
+<h3>Steam & Water Travel</h3>
 
-        <p>
-          Telegraph-style communication systems allow information to travel
-          rapidly between connected cities, guilds, businesses, and government
-          institutions.
-        </p>
+<p>
+Water remains the foundation of commerce throughout the Isles.
+Merchant vessels, riverboats, sailing ships, and steamships connect
+settlements across rivers, marshes, lakes, and coastal waters.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="tech-card">
+
+<div class="tech-icon">📡</div>
+
+<h3>Communication</h3>
+
+<p>
+Telegraph-style communication systems allow information to travel
+rapidly between connected cities, guilds, businesses, and government
+institutions.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     DRIFT
+DRIFT
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Modern Power</span>
+<span class="kicker">✦ Modern Power</span>
 
-      <h2>Drift Changed Everything</h2>
+<h2>Drift Changed Everything</h2>
 
-      <p>
-        The discovery of Aethersilt, commonly known as Drift, became the
-        foundation of modern magitech.
-      </p>
+<p>
+The discovery of Aethersilt, commonly known as Drift, became the
+foundation of modern magitech.
+</p>
 
-    </div>
-
-
-    <div class="drift-box">
-
-      <div class="drift-core">
-
-        <div class="drift-core-label">
-          Refined Drift Core
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="drift-content">
+<div class="drift-box">
 
-        <p>
-          Unlike the legendary <strong>Skyglass</strong> crystals of the
-          Ascension Era, Drift cannot produce immense magical feats or sustain
-          colossal machines.
-        </p>
+<div class="drift-core">
 
-        <p>
-          Instead, Drift excels at <strong>regulating and stabilizing magical
-          energy</strong>. This makes it ideal for practical, everyday
-          applications.
-        </p>
+<div class="drift-core-label">
+Refined Drift Core
+</div>
 
-        <p>
-          Drift functions as the foundation of modern magitech, serving a role
-          similar to electricity within an industrial society.
-        </p>
+</div>
 
-        <div class="tech-list">
 
-          <span class="tech-pill">Public Lighting</span>
-          <span class="tech-pill">Communication Relays</span>
-          <span class="tech-pill">Medical Equipment</span>
-          <span class="tech-pill">Water Purification</span>
-          <span class="tech-pill">Heating</span>
-          <span class="tech-pill">Agriculture</span>
-          <span class="tech-pill">Industrial Equipment</span>
+<div class="drift-content">
 
-        </div>
+<p>
+Unlike the legendary <strong>Skyglass</strong> crystals of the
+Ascension Era, Drift cannot produce immense magical feats or sustain
+colossal machines.
+</p>
 
-        <div class="feature">
+<p>
+Instead, Drift excels at
+<strong>regulating and stabilizing magical energy</strong>.
+This makes it ideal for practical, everyday applications.
+</p>
 
-          <strong>Magic Does Not Replace Engineering</strong>
+<p>
+Drift functions as the foundation of modern magitech, serving a role
+similar to electricity within an industrial society.
+</p>
 
-          Every Drift-powered machine still requires skilled craftsmanship,
-          mechanical components, maintenance, and trained operators. Magic
-          enhances technology rather than replacing it.
+<div class="tech-list">
 
-        </div>
+<span class="tech-pill">Public Lighting</span>
+<span class="tech-pill">Communication Relays</span>
+<span class="tech-pill">Medical Equipment</span>
+<span class="tech-pill">Water Purification</span>
+<span class="tech-pill">Heating</span>
+<span class="tech-pill">Agriculture</span>
+<span class="tech-pill">Industrial Equipment</span>
 
-      </div>
+</div>
 
-    </div>
+<div class="feature">
 
-  </div>
+<strong>Magic Does Not Replace Engineering</strong>
+
+Every Drift-powered machine still requires skilled craftsmanship,
+mechanical components, maintenance, and trained operators. Magic
+enhances technology rather than replacing it.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     DRIFT AIRBOATS
+DRIFT AIRBOATS
 ============================== -->
 
 <section class="airboat-section">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Icon of the Isles</span>
+<span class="kicker">✦ Icon of the Isles</span>
 
-      <h2>Drift Airboats</h2>
+<h2>Drift Airboats</h2>
 
-      <p>
-        Few inventions better represent the ingenuity of the modern age than
-        the Drift airboat.
-      </p>
+<p>
+Few inventions better represent the ingenuity of the modern age than
+the Drift airboat.
+</p>
 
-    </div>
-
-
-    <div class="prose">
-
-      <p>
-        Designed specifically for the flooded landscapes of the Verdigris
-        Isles, Drift airboats combine practical engineering with Drift
-        stabilization technology.
-      </p>
-
-      <p>
-        Despite their name, they do <strong>not fly</strong>. A Drift Core
-        reduces resistance against water, mud, reeds, flooded forests, and
-        other difficult terrain while a powerful rear-mounted propeller
-        provides forward thrust.
-      </p>
-
-      <p>
-        Their flat-bottomed construction allows them to navigate environments
-        where conventional boats, wagons, and vehicles would quickly become
-        stranded.
-      </p>
-
-    </div>
+</div>
 
 
-    <div class="airboat-diagram">
+<div class="prose">
 
-      <article class="airboat-part">
+<p>
+Designed specifically for the flooded landscapes of the Verdigris
+Isles, Drift airboats combine practical engineering with Drift
+stabilization technology.
+</p>
 
-        <div class="airboat-part-icon">🌫️</div>
+<p>
+Despite their name, they do <strong>not fly</strong>. A Drift Core
+reduces resistance against water, mud, reeds, flooded forests, and
+other difficult terrain while a powerful rear-mounted propeller
+provides forward thrust.
+</p>
 
-        <h3>Drift Core</h3>
+<p>
+Their flat-bottomed construction allows them to navigate environments
+where conventional boats, wagons, and vehicles would quickly become
+stranded.
+</p>
 
-        <p>
-          A compact chamber filled with refined Drift creates a localized
-          buoyancy field beneath the hull, reducing friction and making the
-          vessel dramatically lighter without producing true flight.
-        </p>
-
-      </article>
-
-
-      <article class="airboat-part">
-
-        <div class="airboat-part-icon">🌀</div>
-
-        <h3>Propulsion Fan</h3>
-
-        <p>
-          A large rear-mounted propeller pushes the vessel forward, allowing
-          it to skim across wetlands, rivers, marshes, and other difficult
-          terrain.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="airboat-part">
+<div class="airboat-diagram">
 
-        <div class="airboat-part-icon">🛶</div>
+<article class="airboat-part">
 
-        <h3>Flat Hull</h3>
+<div class="airboat-part-icon">🌫️</div>
 
-        <p>
-          The wide reinforced hull distributes weight evenly, allowing the
-          vessel to travel across unstable terrain where conventional vehicles
-          would sink.
-        </p>
+<h3>Drift Core</h3>
 
-      </article>
+<p>
+A compact chamber filled with refined Drift creates a localized
+buoyancy field beneath the hull, reducing friction and making the
+vessel dramatically lighter without producing true flight.
+</p>
 
-    </div>
-
-
-    <div class="feature">
-
-      <strong>Common Uses</strong>
-
-      Drift airboats are used throughout the Isles for crossing the Gatorback
-      Marshes, navigating Mossfall Basin, reaching isolated villages,
-      transporting supplies, conducting rescue operations, and supporting
-      Crownscar expeditions.
-
-    </div>
+</article>
 
 
-    <div class="limitations">
+<article class="airboat-part">
 
-      <strong>⚠️ Limitations</strong>
+<div class="airboat-part-icon">🌀</div>
 
-      <ul>
+<h3>Propulsion Fan</h3>
 
-        <li>They cannot achieve true flight.</li>
+<p>
+A large rear-mounted propeller pushes the vessel forward, allowing
+it to skim across wetlands, rivers, marshes, and other difficult
+terrain.
+</p>
 
-        <li>Rocky terrain can damage the hull.</li>
+</article>
 
-        <li>Dense forests require careful navigation because of the exposed
-        propeller.</li>
 
-        <li>Strong Relic Hazards may disrupt the Drift Core.</li>
+<article class="airboat-part">
 
-        <li>The Drift Core gradually loses its charge and must be replenished
-        through Aether infusion or a recharge station.</li>
+<div class="airboat-part-icon">🛶</div>
 
-      </ul>
+<h3>Flat Hull</h3>
 
-    </div>
+<p>
+The wide reinforced hull distributes weight evenly, allowing the
+vessel to travel across unstable terrain where conventional vehicles
+would sink.
+</p>
 
-  </div>
+</article>
+
+</div>
+
+
+<div class="feature">
+
+<strong>Common Uses</strong>
+
+Drift airboats are used throughout the Isles for crossing the Gatorback
+Marshes, navigating Mossfall Basin, reaching isolated villages,
+transporting supplies, conducting rescue operations, and supporting
+Crownscar expeditions.
+
+</div>
+
+
+<div class="limitations">
+
+<strong>⚠️ Limitations</strong>
+
+<ul>
+<li>They cannot achieve true flight.</li>
+
+<li>Rocky terrain can damage the hull.</li>
+
+<li>
+Dense forests require careful navigation because of the exposed
+propeller.
+</li>
+
+<li>Strong Relic Hazards may disrupt the Drift Core.</li>
+
+<li>
+The Drift Core gradually loses its charge and must be replenished
+through Aether infusion or a recharge station.
+</li>
+</ul>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     TRANSPORTATION
+TRANSPORTATION
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Movement & Commerce</span>
+<span class="kicker">✦ Movement & Commerce</span>
 
-      <h2>Transportation Across the Isles</h2>
+<h2>Transportation Across the Isles</h2>
 
-      <p>
-        Geography determines how people move. Water remains the foundation of
-        travel, while rail and steam technology steadily reshape the land.
-      </p>
+<p>
+Geography determines how people move. Water remains the foundation of
+travel, while rail and steam technology steadily reshape the land.
+</p>
 
-    </div>
-
-
-    <div class="transport-grid">
-
-      <article class="transport-card">
-
-        <h3>🌊 Waterways</h3>
-
-        <p>
-          Merchant vessels, sailing ships, steamships, riverboats, and Drift
-          airboats connect distant communities through the extensive network of
-          rivers, marshes, lakes, and coastal waters.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="transport-card">
+<div class="transport-grid">
 
-        <h3>🚂 Railways</h3>
+<article class="transport-card">
 
-        <p>
-          Rail transportation is becoming increasingly important near major
-          cities and industrial centers, providing reliable connections for
-          passengers, resources, and manufactured goods.
-        </p>
+<h3>🌊 Waterways</h3>
 
-      </article>
+<p>
+Merchant vessels, sailing ships, steamships, riverboats, and Drift
+airboats connect distant communities through the extensive network of
+rivers, marshes, lakes, and coastal waters.
+</p>
 
-
-      <article class="transport-card">
-
-        <h3>🐎 Rural Travel</h3>
-
-        <p>
-          Horse-drawn wagons remain common throughout rural settlements where
-          railways have not yet reached.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="transport-card">
+<article class="transport-card">
 
-        <h3>☁️ The Lost Skies</h3>
+<h3>🚂 Railways</h3>
 
-        <p>
-          True aerial travel remains beyond modern capabilities. Fragments of
-          Ascension-era flight technology survive as dangerous relics, but no
-          nation has successfully recreated the floating cities of the past.
-        </p>
+<p>
+Rail transportation is becoming increasingly important near major
+cities and industrial centers, providing reliable connections for
+passengers, resources, and manufactured goods.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="transport-card">
+
+<h3>🐎 Rural Travel</h3>
+
+<p>
+Horse-drawn wagons remain common throughout rural settlements where
+railways have not yet reached.
+</p>
+
+</article>
+
+
+<article class="transport-card">
+
+<h3>☁️ The Lost Skies</h3>
+
+<p>
+True aerial travel remains beyond modern capabilities. Fragments of
+Ascension-era flight technology survive as dangerous relics, but no
+nation has successfully recreated the floating cities of the past.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     MILITARY TECHNOLOGY
+MILITARY TECHNOLOGY
 ============================== -->
 
 <section class="military-section">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ War in the Industrial Age</span>
+<span class="kicker">✦ War in the Industrial Age</span>
 
-      <h2>Military Technology</h2>
+<h2>Military Technology</h2>
 
-      <p>
-        Modern warfare reflects industrial engineering as much as it reflects
-        magic.
-      </p>
+<p>
+Modern warfare reflects industrial engineering as much as it reflects
+magic.
+</p>
 
-    </div>
-
-
-    <div class="military-grid">
-
-      <article class="military-card">
-
-        <h3>🔫 Firearms</h3>
-
-        <p>
-          Standing armies commonly field rifles, revolvers, breech-loading
-          firearms, artillery, and specialized engineering equipment.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="military-card">
+<div class="military-grid">
 
-        <h3>🛡️ Steel & Armor</h3>
+<article class="military-card">
 
-        <p>
-          Industrial metallurgy allows militaries to produce increasingly
-          reliable steel armor, fortifications, weapons, and battlefield
-          equipment.
-        </p>
+<h3>🔫 Firearms</h3>
 
-      </article>
+<p>
+Standing armies commonly field rifles, revolvers, breech-loading
+firearms, artillery, and specialized engineering equipment.
+</p>
 
-
-      <article class="military-card">
-
-        <h3>✨ Magic on the Battlefield</h3>
-
-        <p>
-          Trained spellcasters and artificers serve alongside conventional
-          soldiers, engineers, and support personnel, each contributing
-          different capabilities.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="military-card">
+<article class="military-card">
 
-        <h3>🌫️ Drift Support</h3>
+<h3>🛡️ Steel & Armor</h3>
 
-        <p>
-          Drift is commonly used for logistics, communications, fortifications,
-          and support equipment rather than functioning as a weapon itself.
-        </p>
+<p>
+Industrial metallurgy allows militaries to produce increasingly
+reliable steel armor, fortifications, weapons, and battlefield
+equipment.
+</p>
 
-      </article>
-
-
-      <article class="military-card">
-
-        <h3>⚙️ Engineering Corps</h3>
-
-        <p>
-          Engineers play a vital role in constructing defenses, maintaining
-          machinery, managing transportation, and keeping military equipment
-          operational.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="military-card">
+<article class="military-card">
 
-        <h3>🪄 Combined Doctrine</h3>
+<h3>✨ Magic on the Battlefield</h3>
 
-        <p>
-          Modern armies increasingly combine firearms, magic, engineering, and
-          industrial logistics into unified military strategies.
-        </p>
+<p>
+Trained spellcasters and artificers serve alongside conventional
+soldiers, engineers, and support personnel, each contributing
+different capabilities.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="military-card">
+
+<h3>🌫️ Drift Support</h3>
+
+<p>
+Drift is commonly used for logistics, communications, fortifications,
+and support equipment rather than functioning as a weapon itself.
+</p>
+
+</article>
+
+
+<article class="military-card">
+
+<h3>⚙️ Engineering Corps</h3>
+
+<p>
+Engineers play a vital role in constructing defenses, maintaining
+machinery, managing transportation, and keeping military equipment
+operational.
+</p>
+
+</article>
+
+
+<article class="military-card">
+
+<h3>🪄 Combined Doctrine</h3>
+
+<p>
+Modern armies increasingly combine firearms, magic, engineering, and
+industrial logistics into unified military strategies.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     CENTERS OF INNOVATION
+CENTERS OF INNOVATION
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Centers of Innovation</span>
+<span class="kicker">✦ Centers of Innovation</span>
 
-      <h2>Where Progress Happens</h2>
+<h2>Where Progress Happens</h2>
 
-      <p>
-        Technological development is not evenly distributed. Different regions
-        have become specialists in different branches of modern innovation.
-      </p>
+<p>
+Technological development is not evenly distributed. Different regions
+have become specialists in different branches of modern innovation.
+</p>
 
-    </div>
-
-
-    <div class="innovation-grid">
-
-      <article class="innovation-card">
-
-        <div class="icon">🌿</div>
-
-        <h3>Verde Haven</h3>
-
-        <p>
-          Commercial and industrial heart of the Isles, known for workshops,
-          guilds, rail connections, and Drift-powered infrastructure.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="innovation-card">
+<div class="innovation-grid">
 
-        <div class="icon">🐊</div>
+<article class="innovation-card">
 
-        <h3>Gatorback Marshes</h3>
+<div class="icon">🌿</div>
 
-        <p>
-          Known for Drift airboats, flood-resistant architecture, and wetland
-          engineering.
-        </p>
+<h3>Verde Haven</h3>
 
-      </article>
+<p>
+Commercial and industrial heart of the Isles, known for workshops,
+guilds, rail connections, and Drift-powered infrastructure.
+</p>
 
-
-      <article class="innovation-card">
-
-        <div class="icon">⛰️</div>
-
-        <h3>Kharad Highlands</h3>
-
-        <p>
-          A center of heavy industry producing steel, machinery, locomotives,
-          and advanced engineering.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="innovation-card">
+<article class="innovation-card">
 
-        <div class="icon">☀️</div>
+<div class="icon">🐊</div>
 
-        <h3>Heliora Compact</h3>
+<h3>Gatorback Marshes</h3>
 
-        <p>
-          Leads in magical research, arcane experimentation, communication
-          systems, and Drift theory.
-        </p>
+<p>
+Known for Drift airboats, flood-resistant architecture, and wetland
+engineering.
+</p>
 
-      </article>
+</article>
 
 
-      <article class="innovation-card">
+<article class="innovation-card">
 
-        <div class="icon">🏛️</div>
+<div class="icon">⛰️</div>
 
-        <h3>Caelmont</h3>
+<h3>Kharad Highlands</h3>
 
-        <p>
-          Noble patronage supports luxury magitech, relic restoration,
-          scholarship, and ambitious private inventions.
-        </p>
+<p>
+A center of heavy industry producing steel, machinery, locomotives,
+and advanced engineering.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="innovation-card">
+
+<div class="icon">☀️</div>
+
+<h3>Heliora Compact</h3>
+
+<p>
+Leads in magical research, arcane experimentation, communication
+systems, and Drift theory.
+</p>
+
+</article>
+
+
+<article class="innovation-card">
+
+<div class="icon">🏛️</div>
+
+<h3>Caelmont</h3>
+
+<p>
+Noble patronage supports luxury magitech, relic restoration,
+scholarship, and ambitious private inventions.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     TECHNOLOGY GAP
+TECHNOLOGY GAP
 ============================== -->
 
 <section class="gap-section">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Then & Now</span>
+<span class="kicker">✦ Then & Now</span>
 
-      <h2>The Technology Gap</h2>
+<h2>The Technology Gap</h2>
 
-      <p>
-        The greatest difference between the modern age and the Ascension Era
-        is not intelligence or ambition. It is scale.
-      </p>
+<p>
+The greatest difference between the modern age and the Ascension Era
+is not intelligence or ambition. It is scale.
+</p>
 
-    </div>
-
-
-    <div class="gap-grid">
-
-      <article class="gap-card">
-
-        <h3>☁️ Ascension Era</h3>
-
-        <p>
-          Floating cities, Skyglass-powered engines, world-spanning magical
-          networks, and machines whose principles remain largely impossible to
-          understand.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="gap-card">
+<div class="gap-grid">
 
-        <h3>⚙️ Modern Era</h3>
+<article class="gap-card">
 
-        <p>
-          Railways, factories, steam engines, Drift-powered workshops,
-          telegraph systems, industrial manufacturing, and practical magitech.
-        </p>
+<h3>☁️ Ascension Era</h3>
 
-      </article>
+<p>
+Floating cities, Skyglass-powered engines, world-spanning magical
+networks, and machines whose principles remain largely impossible to
+understand.
+</p>
+
+</article>
 
 
-      <article class="gap-card">
+<article class="gap-card">
 
-        <h3>🌱 A Different Future</h3>
+<h3>⚙️ Modern Era</h3>
 
-        <p>
-          Modern civilization is no longer trying to restore the lost golden
-          age. It is adapting old knowledge into something new, practical, and
-          sustainable.
-        </p>
+<p>
+Railways, factories, steam engines, Drift-powered workshops,
+telegraph systems, industrial manufacturing, and practical magitech.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="gap-card">
+
+<h3>🌱 A Different Future</h3>
+
+<p>
+Modern civilization is no longer trying to restore the lost golden
+age. It is adapting old knowledge into something new, practical, and
+sustainable.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     TECHNOLOGY COMPARISON
+TECHNOLOGY COMPARISON
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Technology at a Glance</span>
+<span class="kicker">✦ Technology at a Glance</span>
 
-      <h2>What Exists in the Modern World?</h2>
+<h2>What Exists in the Modern World?</h2>
 
-    </div>
-
-
-    <div class="comparison">
-
-      <article class="comparison-card">
-
-        <h3>⚙️ Everyday Technology</h3>
-
-        <p>
-          Steam engines, railways, steamships, printing presses, mechanical
-          workshops, advanced metallurgy, telegraph-style communication,
-          precision engineering, mass-produced goods, firearms, and industrial
-          manufacturing.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="comparison-card">
+<div class="comparison">
 
-        <h3>🌫️ Drift-Powered Technology</h3>
+<article class="comparison-card">
 
-        <p>
-          Public lighting, communication relays, medical equipment, water
-          purification systems, heating systems, agricultural machinery,
-          industrial equipment, and Drift airboats.
-        </p>
+<h3>⚙️ Everyday Technology</h3>
 
-      </article>
+<p>
+Steam engines, railways, steamships, printing presses, mechanical
+workshops, advanced metallurgy, telegraph-style communication,
+precision engineering, mass-produced goods, firearms, and industrial
+manufacturing.
+</p>
 
-
-      <article class="comparison-card">
-
-        <h3>☁️ Lost Ascension Technology</h3>
-
-        <p>
-          Floating cities, Ascension Engines, Skyglass infrastructure,
-          planet-spanning magical networks, and reality-defying relics remain
-          beyond modern reconstruction.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="comparison-card">
+<article class="comparison-card">
 
-        <h3>🔧 The Modern Philosophy</h3>
+<h3>🌫️ Drift-Powered Technology</h3>
 
-        <p>
-          Modern invention favors practical solutions, adaptation, repair,
-          experimentation, and combining recovered knowledge with new
-          engineering.
-        </p>
+<p>
+Public lighting, communication relays, medical equipment, water
+purification systems, heating systems, agricultural machinery,
+industrial equipment, and Drift airboats.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="comparison-card">
+
+<h3>☁️ Lost Ascension Technology</h3>
+
+<p>
+Floating cities, Ascension Engines, Skyglass infrastructure,
+planet-spanning magical networks, and reality-defying relics remain
+beyond modern reconstruction.
+</p>
+
+</article>
+
+
+<article class="comparison-card">
+
+<h3>🔧 The Modern Philosophy</h3>
+
+<p>
+Modern invention favors practical solutions, adaptation, repair,
+experimentation, and combining recovered knowledge with new
+engineering.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     CLOSING
+CLOSING
 ============================== -->
 
 <section class="closing">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ The Reclaimed Magitech Renaissance</span>
+<span class="kicker">✦ The Reclaimed Magitech Renaissance</span>
 
-      <h2>
-        The Old World Reached for the Heavens.
-      </h2>
+<h2>
+The Old World Reached for the Heavens.
+</h2>
 
-      <p>
-        The people of the Verdigris Isles cannot recreate the miracles of the
-        Ascension Era. But they have learned something the old world never had
-        to: how to rebuild from nothing.
-      </p>
+<p>
+The people of the Verdigris Isles cannot recreate the miracles of the
+Ascension Era. But they have learned something the old world never had
+to: how to rebuild from nothing.
+</p>
 
-      <p style="margin-top:18px;">
-        The Age of Ascension reached beyond imagination. The Reclaimed Magitech
-        Renaissance is defined by something far more enduring —
-        <strong>a civilization that refuses to stop rebuilding.</strong>
-      </p>
+<p class="closing-secondary">
+The Age of Ascension reached beyond imagination. The Reclaimed Magitech
+Renaissance is defined by something far more enduring —
+<strong>a civilization that refuses to stop rebuilding.</strong>
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
-
 
 </main>
 
 
 <!-- ==============================
-     FOOTER
+FOOTER
 ============================== -->
 
 <footer>
 
-  <div class="container">
+<div class="container">
 
-    <div class="brand">
+<div class="brand">
 
-      <span class="brand-mark">🌿</span>
+<span class="brand-mark">🌿</span>
+Verdigris Isles
 
-      Verdigris Isles
+</div>
 
-    </div>
+<p>
+A sunlit world of islands, adventure, magic, and forgotten history.
+</p>
 
-    <p>
-      A sunlit world of islands, adventure, magic, and forgotten history.
-    </p>
+<p class="footer-copy">
+© 2026 Verdigris Isles
+</p>
 
-    <p style="margin-top:10px;">
-      © 2026 Verdigris Isles
-    </p>
-
-  </div>
+</div>
 
 </footer>
 
