@@ -6,8 +6,997 @@
 
 <title>Elyri | Elements Given Form | Verdigris Isles</title>
 
-<link rel="stylesheet" href="../css/styles.css">
+<style>
 
+:root {
+--ember: #d95f45;
+--ember-dark: #9f3f32;
+--flame: #f2a34f;
+
+--water: #429fb1;
+--water-dark: #276d7b;
+
+--storm: #716da8;
+--storm-dark: #494879;
+
+--earth: #81705b;
+--earth-dark: #51483d;
+
+--mineral: #9a88b8;
+
+--cream: #f8f0df;
+--paper: #fffaf0;
+--white: #fffdf8;
+
+--ink: #302e2a;
+--muted: #716c63;
+
+--line: rgba(48,46,42,.12);
+--shadow: 0 18px 45px rgba(55,45,34,.14);
+
+--radius: 28px;
+--max: 1180px;
+}
+
+/* ------------------------------
+BASE
+------------------------------ */
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+color: var(--ink);
+background: var(--cream);
+font-family: Georgia, "Times New Roman", serif;
+line-height: 1.7;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+.container {
+width: min(92%, var(--max));
+margin-inline: auto;
+}
+
+/* ------------------------------
+NAVIGATION
+------------------------------ */
+
+header {
+position: sticky;
+top: 0;
+z-index: 50;
+
+background: rgba(255,253,248,.94);
+backdrop-filter: blur(14px);
+
+border-bottom: 1px solid var(--line);
+}
+
+nav {
+min-height: 76px;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+gap: 20px;
+}
+
+.brand {
+display: flex;
+align-items: center;
+gap: 10px;
+
+color: var(--earth-dark);
+
+font-family: Arial, sans-serif;
+font-weight: 700;
+
+letter-spacing: .08em;
+text-transform: uppercase;
+}
+
+.brand-mark {
+width: 40px;
+height: 40px;
+
+display: grid;
+place-items: center;
+
+border-radius: 50%;
+
+background:
+linear-gradient(
+135deg,
+var(--ember),
+var(--storm)
+);
+
+color: white;
+
+box-shadow:
+inset 0 -4px 0 rgba(0,0,0,.08);
+}
+
+.nav-links {
+list-style: none;
+
+display: flex;
+gap: 4px;
+
+font-family: Arial, sans-serif;
+font-size: .72rem;
+font-weight: 700;
+
+text-transform: uppercase;
+letter-spacing: .06em;
+}
+
+.nav-links a {
+display: block;
+
+padding: 9px 11px;
+
+border-radius: 999px;
+
+transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+background: #f0e2ce;
+color: var(--ember-dark);
+}
+
+/* ------------------------------
+HERO
+------------------------------ */
+
+.hero {
+position: relative;
+overflow: hidden;
+
+padding: 90px 0 105px;
+
+background:
+linear-gradient(
+135deg,
+#f6d7b9 0%,
+#eee0c8 35%,
+#d9d8df 68%,
+#d0d8d4 100%
+);
+}
+
+.hero::before {
+content: "";
+
+position: absolute;
+
+width: 430px;
+height: 430px;
+
+right: -130px;
+top: -150px;
+
+border-radius: 50%;
+
+background: rgba(113,109,168,.14);
+}
+
+.hero::after {
+content: "";
+
+position: absolute;
+
+width: 280px;
+height: 280px;
+
+left: -100px;
+bottom: -150px;
+
+border-radius: 50%;
+
+background: rgba(217,95,69,.12);
+}
+
+.hero-inner {
+position: relative;
+z-index: 2;
+
+display: grid;
+grid-template-columns: 1fr .8fr;
+
+gap: 50px;
+
+align-items: center;
+}
+
+.eyebrow {
+display: inline-block;
+
+padding: 8px 15px;
+margin-bottom: 18px;
+
+border-radius: 999px;
+
+background: rgba(255,255,255,.75);
+
+color: var(--earth-dark);
+
+font-family: Arial, sans-serif;
+font-size: .72rem;
+font-weight: 700;
+
+letter-spacing: .14em;
+text-transform: uppercase;
+}
+
+h1 {
+color: var(--earth-dark);
+
+font-size: clamp(3.5rem, 8vw, 6.5rem);
+
+line-height: .88;
+
+letter-spacing: -.04em;
+
+margin-bottom: 22px;
+}
+
+.hero-description {
+max-width: 720px;
+
+color: #544d47;
+
+font-size: 1.12rem;
+}
+
+.hero-art {
+min-height: 470px;
+
+border-radius: 45px 45px 30px 30px;
+
+overflow: hidden;
+
+border: 7px solid rgba(255,255,255,.75);
+
+background:
+linear-gradient(
+135deg,
+var(--ember),
+var(--water),
+var(--storm),
+var(--earth)
+);
+
+box-shadow:
+0 28px 55px rgba(55,45,34,.22);
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.hero-art img {
+width: 100%;
+height: 470px;
+
+display: block;
+
+object-fit: cover;
+}
+
+/* ------------------------------
+CONTENT
+------------------------------ */
+
+section {
+padding: 85px 0;
+}
+
+.heading {
+max-width: 850px;
+
+margin-bottom: 40px;
+}
+
+.kicker {
+color: var(--ember-dark);
+
+font-family: Arial, sans-serif;
+font-size: .72rem;
+font-weight: 700;
+
+letter-spacing: .16em;
+
+text-transform: uppercase;
+}
+
+h2 {
+color: var(--earth-dark);
+
+font-size: clamp(2rem, 5vw, 3.3rem);
+
+line-height: 1.05;
+
+margin: 8px 0 15px;
+}
+
+h3 {
+color: var(--earth-dark);
+
+font-size: 1.35rem;
+
+margin-bottom: 8px;
+}
+
+.heading p {
+color: var(--muted);
+
+font-size: 1rem;
+}
+
+.prose {
+max-width: 850px;
+}
+
+.prose p + p {
+margin-top: 18px;
+}
+
+.prose strong {
+color: var(--earth-dark);
+}
+
+/* ------------------------------
+CARDS
+------------------------------ */
+
+.grid {
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 22px;
+}
+
+.card {
+background: var(--white);
+
+border: 1px solid var(--line);
+
+border-radius: var(--radius);
+
+padding: 28px;
+
+box-shadow:
+0 8px 25px rgba(55,45,34,.06);
+
+transition: .22s;
+}
+
+.card:hover {
+transform: translateY(-5px);
+
+box-shadow: var(--shadow);
+}
+
+.card p {
+color: var(--muted);
+
+font-size: .94rem;
+}
+
+.card p + p {
+margin-top: 14px;
+}
+
+.icon {
+width: 50px;
+height: 50px;
+
+display: grid;
+place-items: center;
+
+margin-bottom: 15px;
+
+border-radius: 17px;
+
+background: #f0e4d3;
+
+font-size: 1.3rem;
+}
+
+/* ------------------------------
+ELEMENTAL BRANCHES
+------------------------------ */
+
+.branch-grid {
+display: grid;
+
+grid-template-columns: repeat(2, 1fr);
+
+gap: 24px;
+}
+
+.branch-card {
+position: relative;
+
+overflow: hidden;
+
+min-height: 360px;
+
+border-radius: 32px;
+
+padding: 32px;
+
+background: var(--white);
+
+border: 1px solid var(--line);
+
+box-shadow:
+0 8px 25px rgba(55,45,34,.07);
+}
+
+.branch-card::after {
+content: "";
+
+position: absolute;
+
+width: 170px;
+height: 170px;
+
+right: -55px;
+top: -55px;
+
+border-radius: 50%;
+
+opacity: .13;
+}
+
+.branch-card.ignari::after {
+background: var(--ember);
+}
+
+.branch-card.aquari::after {
+background: var(--water);
+}
+
+.branch-card.tempesti::after {
+background: var(--storm);
+}
+
+.branch-card.terrani::after {
+background: var(--earth);
+}
+
+.branch-label {
+display: inline-block;
+
+padding: 5px 10px;
+
+margin-bottom: 12px;
+
+border-radius: 999px;
+
+font-family: Arial, sans-serif;
+
+font-size: .65rem;
+
+font-weight: 700;
+
+letter-spacing: .08em;
+
+text-transform: uppercase;
+}
+
+.ignari .branch-label {
+background: #f8ddd1;
+color: var(--ember-dark);
+}
+
+.aquari .branch-label {
+background: #dceef0;
+color: var(--water-dark);
+}
+
+.tempesti .branch-label {
+background: #e3e1f0;
+color: var(--storm-dark);
+}
+
+.terrani .branch-label {
+background: #e8dfd2;
+color: var(--earth-dark);
+}
+
+.branch-card h3 {
+font-size: 1.8rem;
+
+margin-bottom: 13px;
+}
+
+.branch-element {
+font-family: Arial, sans-serif;
+
+font-size: .72rem;
+
+font-weight: 700;
+
+text-transform: uppercase;
+
+letter-spacing: .1em;
+
+margin-bottom: 15px;
+}
+
+.ignari .branch-element {
+color: var(--ember);
+}
+
+.aquari .branch-element {
+color: var(--water-dark);
+}
+
+.tempesti .branch-element {
+color: var(--storm-dark);
+}
+
+.terrani .branch-element {
+color: var(--earth-dark);
+}
+
+.branch-card p {
+color: var(--muted);
+
+font-size: .94rem;
+}
+
+.branch-card p + p {
+margin-top: 14px;
+}
+
+/* ------------------------------
+ELEMENTAL FEATURE STRIP
+------------------------------ */
+
+.element-strip {
+background:
+linear-gradient(
+135deg,
+#8f3d32,
+#315f6c 38%,
+#55517d 68%,
+#51483d
+);
+
+color: white;
+
+padding: 75px 0;
+}
+
+.element-strip h2 {
+color: white;
+}
+
+.element-strip .kicker {
+color: #f7d3a7;
+}
+
+.element-strip p {
+color: #eee5da;
+}
+
+.element-grid {
+display: grid;
+
+grid-template-columns: repeat(4, 1fr);
+
+gap: 18px;
+
+margin-top: 35px;
+}
+
+.element {
+padding: 25px;
+
+border-radius: 23px;
+
+background: rgba(255,255,255,.09);
+
+border: 1px solid rgba(255,255,255,.13);
+}
+
+.element strong {
+display: block;
+
+color: white;
+
+margin-bottom: 7px;
+
+font-size: 1.05rem;
+}
+
+.element span {
+color: #e8ded5;
+
+font-size: .86rem;
+}
+
+/* ------------------------------
+CULTURE CARDS
+------------------------------ */
+
+.culture-grid {
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 22px;
+}
+
+.culture-card {
+background: #f3e8d5;
+
+border: 1px solid rgba(48,46,42,.08);
+
+border-radius: var(--radius);
+
+padding: 28px;
+}
+
+.culture-card h3 {
+margin-bottom: 9px;
+}
+
+.culture-card p {
+color: #6d6961;
+
+font-size: .92rem;
+}
+
+/* ------------------------------
+FIRST BREATH
+------------------------------ */
+
+.breath-box {
+padding: 45px;
+
+border-radius: 35px;
+
+background:
+linear-gradient(
+135deg,
+#f7dfcb,
+#e5e0ec 48%,
+#e1e0ce
+);
+
+box-shadow: var(--shadow);
+}
+
+.breath-grid {
+display: grid;
+
+grid-template-columns: repeat(4, 1fr);
+
+gap: 18px;
+
+margin-top: 30px;
+}
+
+.breath-card {
+padding: 22px;
+
+border-radius: 22px;
+
+background: rgba(255,255,255,.72);
+}
+
+.breath-card h3 {
+font-size: 1.05rem;
+
+margin-bottom: 8px;
+}
+
+.breath-card p {
+color: var(--muted);
+
+font-size: .85rem;
+}
+
+/* ------------------------------
+NAMING
+------------------------------ */
+
+.name-grid {
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 22px;
+}
+
+.name-card {
+background: var(--white);
+
+border-radius: var(--radius);
+
+padding: 28px;
+
+border: 1px solid var(--line);
+}
+
+.name-number {
+font-family: Arial, sans-serif;
+
+font-size: .65rem;
+
+font-weight: 700;
+
+letter-spacing: .12em;
+
+color: var(--ember-dark);
+
+text-transform: uppercase;
+
+margin-bottom: 8px;
+}
+
+.name-card h3 {
+margin-bottom: 10px;
+}
+
+.name-card p {
+color: var(--muted);
+
+font-size: .9rem;
+}
+
+.name-example {
+margin-top: 17px;
+
+padding: 13px 15px;
+
+border-left: 3px solid var(--ember);
+
+background: #f7eee1;
+
+font-style: italic;
+
+font-size: .85rem;
+}
+
+/* ------------------------------
+OCCUPATIONS
+------------------------------ */
+
+.occupation-section {
+background: #eee9df;
+}
+
+.occupation-group {
+margin-bottom: 28px;
+}
+
+.occupation-group h3 {
+margin-bottom: 12px;
+}
+
+.occupation-list {
+display: flex;
+
+flex-wrap: wrap;
+
+gap: 10px;
+}
+
+.occupation {
+padding: 9px 14px;
+
+border-radius: 999px;
+
+background: #fffaf0;
+
+color: var(--earth-dark);
+
+font-family: Arial, sans-serif;
+
+font-size: .76rem;
+
+font-weight: 700;
+
+border: 1px solid var(--line);
+}
+
+/* ------------------------------
+BIOLOGY
+------------------------------ */
+
+.bio-grid {
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 22px;
+}
+
+.bio-card {
+padding: 28px;
+
+border-radius: var(--radius);
+
+background: var(--white);
+
+border: 1px solid var(--line);
+}
+
+.bio-card strong {
+display: block;
+
+color: var(--earth-dark);
+
+font-size: 1.1rem;
+
+margin-bottom: 7px;
+}
+
+.bio-card p {
+color: var(--muted);
+
+font-size: .91rem;
+}
+
+/* ------------------------------
+CREATION BOX
+------------------------------ */
+
+.creation-box {
+padding: 40px;
+
+border-radius: 35px;
+
+background:
+linear-gradient(
+135deg,
+#f3ded0,
+#e5e2ee,
+#e7e0d0
+);
+
+box-shadow: var(--shadow);
+}
+
+.creation-list {
+display: grid;
+
+grid-template-columns: repeat(2, 1fr);
+
+gap: 15px;
+
+margin-top: 25px;
+}
+
+.creation-item {
+padding: 18px 20px;
+
+border-radius: 20px;
+
+background: rgba(255,255,255,.72);
+}
+
+.creation-item strong {
+display: block;
+
+color: var(--earth-dark);
+
+margin-bottom: 4px;
+}
+
+/* ------------------------------
+FOOTER
+------------------------------ */
+
+footer {
+padding: 45px 0;
+
+text-align: center;
+
+color: #e8ded5;
+
+background: #403a35;
+}
+
+footer .brand {
+justify-content: center;
+
+color: white;
+
+margin-bottom: 9px;
+}
+
+footer p {
+font-family: Arial, sans-serif;
+
+font-size: .8rem;
+
+opacity: .84;
+}
+
+/* ------------------------------
+MOBILE
+------------------------------ */
+
+@media (max-width: 900px) {
+
+.nav-links {
+display: none;
+}
+
+.hero-inner {
+grid-template-columns: 1fr;
+}
+
+.grid,
+.culture-grid,
+.bio-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+
+.branch-grid {
+grid-template-columns: 1fr;
+}
+
+.element-grid,
+.breath-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+
+}
+
+@media (max-width: 600px) {
+
+.grid,
+.culture-grid,
+.bio-grid,
+.creation-list,
+.element-grid,
+.breath-grid,
+.name-grid {
+grid-template-columns: 1fr;
+}
+
+.hero-art,
+.hero-art img {
+height: 380px;
+min-height: 380px;
+}
+
+.breath-box,
+.creation-box {
+padding: 28px;
+}
+
+section {
+padding: 65px 0;
+}
+
+}
+
+</style>
 </head>
 
 <body>
@@ -24,50 +1013,20 @@ NAVIGATION
 
 <a class="brand" href="../index.html">
 
-<span class="brand-mark">✦</span>
-Verdigris Isles
-
-</a>
+<span class="brand-mark">✦</span>Verdigris Isles</a>
 
 <ul class="nav-links">
-
-<li>
-<a href="../index.html">Home</a>
-</li>
-
-<li>
-<a href="../world/world.html">World</a>
-</li>
-
-<li>
-<a href="../regions/regions.html">Isles</a>
-</li>
-
-<li>
-<a href="../races/races.html" class="active">Races</a>
-</li>
-
-<li>
-<a href="../world/magic.html">Magic</a>
-</li>
-
-<li>
-<a href="../world/technology.html">Technology</a>
-</li>
-
-<li>
-<a href="../world/history.html">History</a>
-</li>
-
+<li><a href="../index.html">Home</a></li>
+<li><a href="../world/world.html">World</a></li>
+<li><a href="../regions/regions.html">Isles</a></li>
+<li><a href="../races/races.html" class="active">Races</a></li>
+<li><a href="../world/magic.html">Magic</a></li>
+<li><a href="../world/technology.html">Technology</a></li>
+<li><a href="../world/history.html">History</a></li>
 </ul>
-
 </nav>
-
 </div>
-
 </header>
-
-
 <main>
 
 <!-- ==============================
@@ -113,7 +1072,6 @@ alt="Elemental Elyri surrounded by fire, water, wind, stone, and crystals"
 
 </section>
 
-
 <!-- ==============================
 IDENTITY
 ============================== -->
@@ -158,12 +1116,11 @@ branches: Ignari, Aquari, Tempesti, or Terrani.
 
 </section>
 
-
 <!-- ==============================
 BRANCHES
 ============================== -->
 
-<section class="section-muted">
+<section style="background:#eee9df;">
 
 <div class="container">
 
@@ -182,7 +1139,6 @@ occupation, gender, or beliefs.
 </div>
 
 <div class="branch-grid">
-
 
 <!-- IGNARI -->
 
@@ -219,7 +1175,6 @@ without protection.
 
 </article>
 
-
 <!-- AQUARI -->
 
 <article class="branch-card aquari">
@@ -254,7 +1209,6 @@ into rigid structures of ice.
 
 </article>
 
-
 <!-- TEMPESTI -->
 
 <article class="branch-card tempesti">
@@ -288,7 +1242,6 @@ magic carried within their bloodline.
 </p>
 
 </article>
-
 
 <!-- TERRANI -->
 
@@ -328,7 +1281,6 @@ polished gemstone.
 </div>
 
 </section>
-
 
 <!-- ==============================
 ELEMENTAL FEATURES
@@ -403,7 +1355,6 @@ sand, mud, or crystal.
 </div>
 
 </section>
-
 
 <!-- ==============================
 ORIGINS
@@ -512,12 +1463,11 @@ bloodline, however, remain.
 
 </section>
 
-
 <!-- ==============================
 PHYSICAL CHARACTERISTICS
 ============================== -->
 
-<section class="section-light">
+<section style="background:#f0eadf;">
 
 <div class="container">
 
@@ -608,7 +1558,6 @@ humanoid biology and reproduce naturally.
 </div>
 
 </section>
-
 
 <!-- ==============================
 CULTURE
@@ -723,7 +1672,6 @@ left without support are protected by the community.
 
 </section>
 
-
 <!-- ==============================
 DEATH & AETHERITE
 ============================== -->
@@ -791,11 +1739,11 @@ Buried within the earth, returning the body to stone, soil, and land.
 
 </div>
 
-<div class="prose death-note">
+<div class="prose" style="margin-top:35px;">
 
 <p>
 Elyri also refer to Aetherite as
-<strong>"The Poisonous Gift."</strong>
+<strong style="color:#f7d3a7;">"The Poisonous Gift."</strong>
 Their relationship with the material is complicated, shaped by the
 knowledge that it both changed their ancestors and helped create the
 people they are today.
@@ -806,7 +1754,6 @@ people they are today.
 </div>
 
 </section>
-
 
 <!-- ==============================
 ARCHITECTURE
@@ -915,7 +1862,6 @@ resistance, shock resistance, temperature control, and more.
 
 </section>
 
-
 <!-- ==============================
 FIRST BREATH
 ============================== -->
@@ -938,12 +1884,10 @@ during the First Breath, but by then the child has usually developed a
 strong foundation in magical knowledge.
 </p>
 
-<p class="breath-intro">
-
+<p style="margin-top:15px;">
 Around the age of five, the community begins constructing a
 <strong>Waking House</strong>. The child receives it on their sixth
 birthday and decorates it with their family.
-
 </p>
 
 <div class="breath-grid">
@@ -1000,12 +1944,11 @@ Celebrations often become friendly competitions for the best trick.
 
 </section>
 
-
 <!-- ==============================
 THE SLUMBERING
 ============================== -->
 
-<section class="section-muted">
+<section style="background:#eee9df;">
 
 <div class="container">
 
@@ -1043,7 +1986,7 @@ the child's eventual branch.
 
 </div>
 
-<div class="branch-grid cocoon-grid">
+<div class="branch-grid" style="margin-top:35px;">
 
 <article class="card">
 
@@ -1099,7 +2042,6 @@ manifestation of earth.
 </div>
 
 </section>
-
 
 <!-- ==============================
 NAMING
@@ -1182,7 +2124,7 @@ Green Hand · Blue Flame · Ashen Skin · Brilliant Sheen
 
 </div>
 
-<div class="prose naming-note">
+<div class="prose" style="margin-top:30px;">
 
 <p>
 Family members are most likely to use an Elyri's
@@ -1196,7 +2138,6 @@ community generally use the <strong>societal name</strong>.
 </div>
 
 </section>
-
 
 <!-- ==============================
 OCCUPATIONS
@@ -1308,7 +2249,6 @@ adaptations naturally make certain occupations particularly common.
 
 </section>
 
-
 <!-- ==============================
 LIFESPAN & BIOLOGY
 ============================== -->
@@ -1397,7 +2337,6 @@ childhood rather than being born as fully manifested adults.
 </div>
 
 </section>
-
 
 <!-- ==============================
 CHARACTER CREATION
@@ -1508,9 +2447,11 @@ Who helped raise them, and who would they consider family?
 
 </div>
 
-<p class="creation-reminder">
+<p style="margin-top:28px;color:#625c55;">
 
-<strong>Remember:</strong>
+<strong>
+Remember:
+</strong>
 
 An Elyri's branch does not determine their personality, morality,
 occupation, gender, or beliefs.
@@ -1523,16 +2464,15 @@ occupation, gender, or beliefs.
 
 </section>
 
-
 <!-- ==============================
 CLOSING
 ============================== -->
 
-<section class="hero hero-closing">
+<section class="hero" style="padding:75px 0;">
 
 <div class="container">
 
-<div class="heading closing-heading">
+<div class="heading" style="margin:auto;text-align:center;">
 
 <span class="kicker">✦ The Elyri</span>
 
@@ -1553,7 +2493,6 @@ simply a people who survived.
 </section>
 
 </main>
-
 
 <!-- ==============================
 FOOTER
@@ -1576,11 +2515,11 @@ A sunlit world of islands, elemental magic, reclaimed technology,
 and forgotten history.
 </p>
 
-<p class="footer-credit">
+<p style="margin-top:10px;">
 Lore Created by @remmyrice
 </p>
 
-<p class="footer-copyright">
+<p style="margin-top:10px;">
 © 2026 Verdigris Isles
 </p>
 
