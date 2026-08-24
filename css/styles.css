@@ -1231,7 +1231,61 @@ opacity: 0.13;
 
 background: var(--branch-color);
 }
+ /* ==============================
+   PAGE UTILITY SECTIONS
+============================== */
 
+.section-muted {
+  background: #eee9df;
+}
+
+.section-light {
+  background: #f0eadf;
+}
+
+
+/* ==============================
+   ELYRI PAGE UTILITIES
+============================== */
+
+.death-note {
+  margin-top: 35px;
+}
+
+.death-note strong {
+  color: #f7d3a7;
+}
+
+.breath-intro {
+  margin-top: 15px;
+}
+
+.naming-note {
+  margin-top: 30px;
+}
+
+.creation-reminder {
+  margin-top: 28px;
+  color: #625c55;
+}
+
+.cocoon-grid {
+  margin-top: 35px;
+}
+
+.hero-closing {
+  padding: 75px 0;
+}
+
+.closing-heading {
+  margin: auto;
+  text-align: center;
+}
+
+.footer-credit,
+.footer-copyright {
+  margin-top: 10px;
+}
 
 /* -------------------------
 Elyri Branch Colors
