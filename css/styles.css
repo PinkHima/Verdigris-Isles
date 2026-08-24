@@ -2383,3 +2383,95 @@ History Closing
 
   color: white;
 }
+
+
+
+
+
+/* ==============================
+MAP IMAGE VIEWER
+============================== */
+
+.map-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(8, 42, 47, 0.92);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.map-viewer.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.map-viewer img {
+    display: block;
+
+    max-width: 95vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.55);
+
+    cursor: zoom-out;
+}
+
+.map-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10000;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.map-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+}
