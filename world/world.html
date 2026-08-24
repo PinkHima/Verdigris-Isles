@@ -1684,60 +1684,45 @@ A sunlit world of islands, adventure, magic, and forgotten history.
 </footer>
 
 
-<!-- ==============================
-MAP IMAGE VIEWER
-============================== -->
-
-<div
-id="mapViewer"
-class="map-viewer"
-onclick="closeMap(event)"
->
-
-<button
-class="map-close"
-onclick="closeMap()"
-aria-label="Close map"
->
-&times;
-</button>
-
-<img
-id="mapViewerImage"
-src="../assets/World-Map-VI.PNG"
-alt="Expanded map of the known world surrounding the Verdigris Isles"
->
-
-</div>
-
-
-<script>
+  <script>
 
 function openMap() {
 
 const viewer = document.getElementById("mapViewer");
 
+if (!viewer) return;
+
 viewer.classList.add("active");
 
 document.body.style.overflow = "hidden";
+
 }
 
 
 function closeMap(event) {
 
+const viewer = document.getElementById("mapViewer");
+
+if (!viewer) return;
+
+/*
+Only close when:
+- The dark overlay itself is clicked
+- The close button is clicked
+*/
+
 if (
 event &&
-event.target !== event.currentTarget &&
+event.target !== viewer &&
 !event.target.classList.contains("map-close")
 ) {
 return;
 }
 
-const viewer = document.getElementById("mapViewer");
-
 viewer.classList.remove("active");
 
 document.body.style.overflow = "";
+
 }
 
 
@@ -1747,6 +1732,8 @@ if (event.key === "Escape") {
 
 const viewer = document.getElementById("mapViewer");
 
+if (!viewer) return;
+
 viewer.classList.remove("active");
 
 document.body.style.overflow = "";
@@ -1755,7 +1742,34 @@ document.body.style.overflow = "";
 
 });
 
+
+/*
+Keyboard support for the map
+*/
+
+const heroMap = document.querySelector(".hero-art");
+
+if (heroMap) {
+
+heroMap.addEventListener("keydown", function(event) {
+
+if (
+event.key === "Enter" ||
+event.key === " "
+) {
+
+event.preventDefault();
+
+openMap();
+
+}
+
+});
+
+}
+
 </script>
+
 
 </body>
 </html>
