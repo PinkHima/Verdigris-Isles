@@ -1688,88 +1688,82 @@ A sunlit world of islands, adventure, magic, and forgotten history.
 
 function openMap() {
 
-const viewer = document.getElementById("mapViewer");
+    const viewer = document.getElementById("mapViewer");
 
-if (!viewer) return;
+    viewer.classList.add("active");
 
-viewer.classList.add("active");
+    viewer.setAttribute("aria-hidden", "false");
 
-document.body.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
 
 }
 
 
 function closeMap(event) {
 
-const viewer = document.getElementById("mapViewer");
+    const viewer = document.getElementById("mapViewer");
 
-if (!viewer) return;
+    /*
+     * If something inside the viewer was clicked,
+     * only close when it is the background or close button.
+     */
+    if (
+        event &&
+        event.target !== viewer &&
+        !event.target.classList.contains("map-close") &&
+        event.target.id !== "mapViewerImage"
+    ) {
+        return;
+    }
 
-/*
-Only close when:
-- The dark overlay itself is clicked
-- The close button is clicked
-*/
+    viewer.classList.remove("active");
 
-if (
-event &&
-event.target !== viewer &&
-!event.target.classList.contains("map-close")
-) {
-return;
-}
+    viewer.setAttribute("aria-hidden", "true");
 
-viewer.classList.remove("active");
-
-document.body.style.overflow = "";
+    document.body.style.overflow = "";
 
 }
 
 
 document.addEventListener("keydown", function(event) {
 
-if (event.key === "Escape") {
+    if (event.key === "Escape") {
 
-const viewer = document.getElementById("mapViewer");
+        const viewer = document.getElementById("mapViewer");
 
-if (!viewer) return;
+        viewer.classList.remove("active");
 
-viewer.classList.remove("active");
+        viewer.setAttribute("aria-hidden", "true");
 
-document.body.style.overflow = "";
+        document.body.style.overflow = "";
 
-}
+    }
 
 });
 
-
-/*
-Keyboard support for the map
-*/
 
 const heroMap = document.querySelector(".hero-art");
 
 if (heroMap) {
 
-heroMap.addEventListener("keydown", function(event) {
+    heroMap.addEventListener("keydown", function(event) {
 
-if (
-event.key === "Enter" ||
-event.key === " "
-) {
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
 
-event.preventDefault();
+            event.preventDefault();
 
-openMap();
+            openMap();
 
-}
+        }
 
-});
+    });
 
 }
 
 </script>
-
 
 </body>
 </html>
