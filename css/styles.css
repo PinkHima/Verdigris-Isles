@@ -1389,6 +1389,31 @@ min-height: 430px;
 .page-elyri .elyri-creation-box {
 padding: 32px;
 }
+  /* History */
+.history-intro {
+  grid-template-columns: 1fr;
+}
+
+.history-era-strip {
+  grid-template-columns: 1fr;
+}
+
+.history-memory-grid {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+.history-city-grid {
+  grid-template-columns: 1fr;
+}
+
+.history-citadel-facts {
+  grid-template-columns: 1fr;
+}
+
+.history-citadel {
+  padding: 35px;
+}
 }
 
 
@@ -1512,6 +1537,41 @@ min-height: 380px;
 .page-elyri .elyri-breath-box,
 .page-elyri .elyri-creation-box {
 padding: 28px;
+}
+  /* History */
+.page-history .history-hero {
+  min-height: 560px;
+
+  padding: 80px 0 110px;
+}
+
+.history-sun {
+  width: 75px;
+  height: 75px;
+
+  top: 55px;
+  right: 7%;
+}
+
+.history-memory-grid {
+  grid-template-columns: 1fr;
+}
+
+.history-timeline .item {
+  padding-left: 30px;
+}
+
+.history-card,
+.history-present-card {
+  padding: 23px;
+}
+
+.history-citadel {
+  padding: 28px;
+}
+
+.history-closing {
+  padding: 80px 0;
 }
 }
 
