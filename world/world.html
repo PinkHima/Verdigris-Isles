@@ -6,2548 +6,1756 @@
 
 <title>World Regions & Cultures | Verdigris Isles</title>
 
-<style>
-
-:root {
-  --lagoon: #39b9bb;
-  --lagoon-dark: #087f91;
-  --deep-sea: #075c6c;
-
-  --coral: #e9836b;
-  --sand: #f2dfb6;
-  --cream: #fff6df;
-  --foam: #fffdf7;
-
-  --leaf: #4f8c4b;
-  --leaf-dark: #27643d;
-
-  --gold: #d5a63d;
-  --gold-dark: #8f6a22;
-
-  --stone: #5c625e;
-  --ink: #193f46;
-  --muted: #617678;
-
-  --line: rgba(25,63,70,.12);
-  --shadow: 0 18px 45px rgba(14,83,91,.14);
-
-  --radius: 28px;
-  --max: 1180px;
-}
-
-/* ------------------------------
-   BASE
------------------------------- */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  color: var(--ink);
-  background: var(--cream);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(92%, var(--max));
-  margin-inline: auto;
-}
-
-/* ------------------------------
-   NAVIGATION
------------------------------- */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-
-  background: rgba(255,253,247,.94);
-
-  backdrop-filter: blur(14px);
-
-  border-bottom: 1px solid var(--line);
-}
-
-nav {
-  min-height: 76px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.brand-mark {
-  width: 40px;
-  height: 40px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  background: var(--lagoon);
-  color: white;
-
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
-}
-
-.nav-links {
-  list-style: none;
-
-  display: flex;
-  gap: 4px;
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-
-.nav-links a {
-  display: block;
-
-  padding: 9px 11px;
-
-  border-radius: 999px;
-
-  transition: .2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  background: #d9f2ec;
-  color: var(--deep-sea);
-}
-
-/* ------------------------------
-   HERO
------------------------------- */
-
-.hero {
-  position: relative;
-  overflow: hidden;
-
-  padding: 90px 0 105px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #c6f0e9 0%,
-      #eff0ce 55%,
-      #f5dfb7 100%
-    );
-}
-
-.hero-inner {
-  position: relative;
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: 1fr .8fr;
-
-  gap: 50px;
-
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-block;
-
-  padding: 8px 15px;
-  margin-bottom: 18px;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.72);
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-h1 {
-  color: var(--deep-sea);
-
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
-
-  line-height: .88;
-
-  letter-spacing: -.04em;
-
-  margin-bottom: 22px;
-}
-
-.hero-description {
-  max-width: 720px;
-
-  color: #28575c;
-
-  font-size: 1.12rem;
-}
-
-.hero-art {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 4 / 3;
-
-  justify-self: end;
-
-  border-radius: 35px;
-  overflow: hidden;
-
-  border: 7px solid rgba(255,255,255,.75);
-
-  background: #0b3442;
-
-  box-shadow: 0 28px 55px rgba(18,79,81,.22);
-
-  cursor: pointer;
-
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.hero-art:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 32px 65px rgba(18,79,81,.28);
-}
-
-.hero-art img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-
-  transition: transform .35s ease;
-}
-
-.hero-art:hover img {
-  transform: scale(1.03);
-}
-
-  /* ------------------------------
-   MAP IMAGE VIEWER
------------------------------- */
-
-.map-viewer {
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 9999;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  padding: 40px;
-
-  background: rgba(7, 45, 53, .92);
-
-  opacity: 0;
-
-  visibility: hidden;
-
-  pointer-events: none;
-
-  transition:
-    opacity .25s ease,
-    visibility .25s ease;
-}
-
-.map-viewer.active {
-  opacity: 1;
-
-  visibility: visible;
-
-  pointer-events: auto;
-}
-
-.map-viewer img {
-  display: block;
-
-  max-width: 95vw;
-  max-height: 90vh;
-
-  width: auto;
-  height: auto;
-
-  object-fit: contain;
-
-  border-radius: 18px;
-
-  box-shadow: 0 30px 80px rgba(0,0,0,.45);
-
-  transform: scale(.94);
-
-  transition: transform .3s ease;
-}
-
-.map-viewer.active img {
-  transform: scale(1);
-}
-
-.map-close {
-  position: absolute;
-
-  top: 25px;
-  right: 30px;
-
-  width: 52px;
-  height: 52px;
-
-  display: grid;
-  place-items: center;
-
-  border: none;
-
-  border-radius: 50%;
-
-  background: rgba(255,255,255,.15);
-
-  color: white;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 2rem;
-
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition:
-    background .2s ease,
-    transform .2s ease;
-}
-
-.map-close:hover {
-  background: rgba(255,255,255,.28);
-
-  transform: rotate(90deg);
-}
-/* ------------------------------
-   CONTENT
------------------------------- */
-
-section {
-  padding: 85px 0;
-}
-
-.heading {
-  max-width: 850px;
-
-  margin-bottom: 40px;
-}
-
-.kicker {
-  color: var(--coral);
-
-  font-family: Arial, sans-serif;
-  font-size: .72rem;
-  font-weight: 700;
-
-  letter-spacing: .16em;
-
-  text-transform: uppercase;
-}
-
-h2 {
-  color: var(--deep-sea);
-
-  font-size: clamp(2rem, 5vw, 3.3rem);
-
-  line-height: 1.05;
-
-  margin: 8px 0 15px;
-}
-
-h3 {
-  color: var(--deep-sea);
-
-  font-size: 1.35rem;
-
-  margin-bottom: 8px;
-}
-
-.heading p {
-  color: var(--muted);
-
-  font-size: 1rem;
-}
-
-.prose {
-  max-width: 850px;
-}
-
-.prose p + p {
-  margin-top: 18px;
-}
-
-.prose strong {
-  color: var(--deep-sea);
-}
-
-/* ------------------------------
-   REGION GRID
------------------------------- */
-
-.region-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 24px;
-}
-
-.region-card {
-  position: relative;
-
-  overflow: hidden;
-
-  background: var(--foam);
-
-  border: 1px solid var(--line);
-
-  border-radius: var(--radius);
-
-  padding: 30px;
-
-  box-shadow: 0 8px 25px rgba(14,83,91,.06);
-
-  transition: .22s;
-}
-
-.region-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: var(--shadow);
-}
-
-.region-card::after {
-  content: "";
-
-  position: absolute;
-
-  width: 130px;
-  height: 130px;
-
-  right: -45px;
-  top: -45px;
-
-  border-radius: 50%;
-
-  background: rgba(57,185,187,.07);
-}
-
-.region-icon {
-  width: 58px;
-  height: 58px;
-
-  display: grid;
-  place-items: center;
-
-  margin-bottom: 18px;
-
-  border-radius: 19px;
-
-  background: #d9f2ec;
-
-  font-size: 1.6rem;
-}
-
-.region-card h3 {
-  font-size: 1.6rem;
-}
-
-.region-direction {
-  display: inline-block;
-
-  padding: 5px 10px;
-
-  margin-bottom: 15px;
-
-  border-radius: 999px;
-
-  background: #eef1d9;
-
-  color: var(--leaf-dark);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .66rem;
-
-  font-weight: 700;
-
-  letter-spacing: .08em;
-
-  text-transform: uppercase;
-}
-
-.region-government {
-  margin-bottom: 15px;
-
-  color: var(--muted);
-
-  font-size: .9rem;
-}
-
-.region-government strong {
-  color: var(--deep-sea);
-}
-
-.region-card p {
-  color: var(--muted);
-
-  font-size: .94rem;
-}
-
-.region-card p + p {
-  margin-top: 13px;
-}
-
-/* ------------------------------
-   CULTURE CARDS
------------------------------- */
-
-.culture-section {
-  background: #edf5e8;
-}
-
-.culture-grid {
-  display: grid;
-
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 24px;
-}
-
-.culture-card {
-  padding: 32px;
-
-  background: var(--foam);
-
-  border-radius: var(--radius);
-
-  border: 1px solid var(--line);
-
-  box-shadow: 0 8px 25px rgba(14,83,91,.06);
-}
-
-.culture-card h3 {
-  margin-bottom: 15px;
-}
-
-.culture-card p {
-  color: var(--muted);
-
-  font-size: .94rem;
-}
-
-.culture-card p + p {
-  margin-top: 15px;
-}
-
-/* ------------------------------
-   CULTURE FEATURE
------------------------------- */
-
-.culture-feature {
-  margin-top: 25px;
-
-  padding: 25px;
-
-  border-radius: 23px;
-
-  background: #f4e4c3;
-}
-
-.culture-feature strong {
-  display: block;
-
-  margin-bottom: 5px;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .76rem;
-
-  letter-spacing: .08em;
-
-  text-transform: uppercase;
-}
-
-/* ------------------------------
-   KNOWN FOR
------------------------------- */
-
-.known-grid {
-  display: grid;
-
-  grid-template-columns: repeat(5, 1fr);
-
-  gap: 12px;
-
-  margin-top: 25px;
-}
-
-.known-item {
-  padding: 14px;
-
-  text-align: center;
-
-  border-radius: 18px;
-
-  background: #d9f2ec;
-
-  color: var(--deep-sea);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .76rem;
-
-  font-weight: 700;
-}
-
-/* ------------------------------
-   EXPORTS
------------------------------- */
-
-.export-list {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-
-  margin-top: 20px;
-}
-
-.export {
-  padding: 9px 14px;
-
-  border-radius: 999px;
-
-  background: #f4e4c3;
-
-  color: var(--gold-dark);
-
-  font-family: Arial, sans-serif;
-
-  font-size: .76rem;
-
-  font-weight: 700;
-}
-
-/* ------------------------------
-   RELATIONSHIP STRIP
------------------------------- */
-
-.relationship {
-  background: var(--deep-sea);
-
-  color: white;
-
-  padding: 75px 0;
-}
-
-.relationship h2 {
-  color: white;
-}
-
-.relationship .kicker {
-  color: #f4c56a;
-}
-
-.relationship p {
-  color: #d8efea;
-
-  max-width: 850px;
-
-  font-size: 1rem;
-}
-
-.relationship-box {
-  margin-top: 30px;
-
-  padding: 27px;
-
-  border-radius: 25px;
-
-  background: rgba(255,255,255,.08);
-
-  border: 1px solid rgba(255,255,255,.1);
-}
-
-.relationship-box strong {
-  display: block;
-
-  color: white;
-
-  margin-bottom: 7px;
-}
-
-/* ------------------------------
-   CULTURAL COMPARISON
------------------------------- */
-
-.comparison {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 20px;
-}
-
-.comparison-card {
-  padding: 27px;
-
-  border-radius: 25px;
-
-  background: #f4e4c3;
-}
-
-.comparison-card h3 {
-  margin-bottom: 10px;
-}
-
-.comparison-card p {
-  color: #64706c;
-
-  font-size: .9rem;
-}
-
-/* ------------------------------
-   CLOSING
------------------------------- */
-
-.closing {
-  text-align: center;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e3f4eb,
-      #f4e1b9
-    );
-}
-
-.closing .heading {
-  margin: auto;
-}
-
-.closing p {
-  max-width: 720px;
-
-  margin: auto;
-
-  color: var(--muted);
-
-  font-size: 1.05rem;
-}
-
-/* ------------------------------
-   FOOTER
------------------------------- */
-
-footer {
-  padding: 45px 0;
-
-  text-align: center;
-
-  color: #d8efea;
-
-  background: var(--deep-sea);
-}
-
-footer .brand {
-  justify-content: center;
-
-  color: white;
-
-  margin-bottom: 9px;
-}
-
-footer p {
-  font-family: Arial, sans-serif;
-
-  font-size: .8rem;
-
-  opacity: .84;
-}
-
-/* ------------------------------
-   MOBILE
------------------------------- */
-
-@media (max-width: 900px) {
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .region-grid,
-  .culture-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .comparison {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .known-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  .region-grid,
-  .culture-grid,
-  .comparison {
-    grid-template-columns: 1fr;
-  }
-
-  .known-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-art {
-  width: 100%;
-  max-width: none;
-  aspect-ratio: 4 / 3;
-  justify-self: stretch;
-}
-
-  section {
-    padding: 65px 0;
-  }
-
-.map-viewer {
-  padding: 20px;
-}
-
-.map-viewer img {
-  max-width: 96vw;
-  max-height: 85vh;
-
-  border-radius: 12px;
-}
-
-.map-close {
-  top: 15px;
-  right: 15px;
-
-  width: 45px;
-  height: 45px;
-}
-  
-}
-
-</style>
+<link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
 
-
 <!-- ==============================
-     NAVIGATION
+NAVIGATION
 ============================== -->
 
 <header>
+<div class="container">
+<nav>
 
-  <div class="container">
+<a class="brand" href="../index.html">
+<span class="brand-mark">🌿</span>
+Verdigris Isles
+</a>
 
-    <nav>
+<ul class="nav-links">
+<li>
+<a href="../index.html">Home</a>
+</li>
 
-      <a class="brand" href="../index.html">
+<li>
+<a href="../world/world.html" class="active">World</a>
+</li>
 
-        <span class="brand-mark">🌿</span>Verdigris Isles</a>
+<li>
+<a href="../regions/regions.html">Isles</a>
+</li>
 
-      <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="../world/world.html" class="active">World</a></li>
-    <li><a href="../regions/regions.html">Isles</a></li>
-    <li><a href="../races/races.html">Races</a></li>
-    <li><a href="../world/magic.html">Magic</a></li>
-    <li><a href="../world/technology.html">Technology</a></li>
-    <li><a href="../world/history.html">History</a></li>
-      </ul>
+<li>
+<a href="../races/races.html">Races</a>
+</li>
 
-    </nav>
+<li>
+<a href="../world/magic.html">Magic</a>
+</li>
 
-  </div>
+<li>
+<a href="../world/technology.html">Technology</a>
+</li>
 
+<li>
+<a href="../world/history.html">History</a>
+</li>
+</ul>
+
+</nav>
+</div>
 </header>
 
 
 <main>
 
-
 <!-- ==============================
-     HERO
+HERO
 ============================== -->
 
 <section class="hero">
 
-  <div class="container">
+<div class="container">
 
-    <div class="hero-inner">
+<div class="hero-inner">
 
-      <div>
+<div>
 
-        <span class="eyebrow">
-          🌎 Regions of the Known World
-        </span>
+<span class="eyebrow">
+🌎 Regions of the Known World
+</span>
 
-        <h1>Seven Lands.<br>Many Cultures.</h1>
+<h1>
+Seven Lands.<br>
+Many Cultures.
+</h1>
 
-        <p class="hero-description">
-          Beyond the Verdigris Isles lie kingdoms, confederacies, city-states,
-          and maritime powers shaped by radically different landscapes,
-          histories, traditions, and ways of life.
-        </p>
-
-      </div>
-
-
-      <div class="hero-art" onclick="openMap()">
-
-  <img
-    src="../assets/World-Map-VI.PNG"
-    alt="Map of the known world surrounding the Verdigris Isles">
+<p class="hero-description">
+Beyond the Verdigris Isles lie kingdoms, confederacies,
+city-states, and maritime powers shaped by radically different
+landscapes, histories, traditions, and ways of life.
+</p>
 
 </div>
 
-    </div>
 
-  </div>
+<div class="hero-art" onclick="openMap()">
+
+<img
+src="../assets/World-Map-VI.PNG"
+alt="Map of the known world surrounding the Verdigris Isles"
+>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     OVERVIEW
+OVERVIEW
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ The Known World</span>
+<span class="kicker">
+✦ The Known World
+</span>
 
-      <h2>A World of Different Ways of Life</h2>
+<h2>
+A World of Different Ways of Life
+</h2>
 
-    </div>
+</div>
 
-    <div class="prose">
+<div class="prose">
 
-      <p>
-        The Verdigris Isles sit within a wider world of competing kingdoms,
-        maritime powers, frontier nations, and ancient civilizations.
-      </p>
+<p>
+The Verdigris Isles sit within a wider world of competing kingdoms,
+maritime powers, frontier nations, and ancient civilizations.
+</p>
 
-      <p>
-        Each region has developed its own relationship with magic,
-        technology, trade, nature, warfare, and the legacy of the Age of
-        Ascension.
-      </p>
+<p>
+Each region has developed its own relationship with magic,
+technology, trade, nature, warfare, and the legacy of the Age of
+Ascension.
+</p>
 
-      <p>
-        These differences influence everything from architecture and clothing
-        to food, occupations, social customs, religion, education, and the way
-        people understand their place in the world.
-      </p>
+<p>
+These differences influence everything from architecture and clothing
+to food, occupations, social customs, religion, education, and the way
+people understand their place in the world.
+</p>
 
-      <p>
-        The people who arrive in Verde Haven therefore bring more than goods
-        and currency. They bring languages, traditions, beliefs, rivalries,
-        stories, and customs from across the known world.
-      </p>
+<p>
+The people who arrive in Verde Haven therefore bring more than goods
+and currency. They bring languages, traditions, beliefs, rivalries,
+stories, and customs from across the known world.
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
 <!-- ==============================
-     REGION OVERVIEW
+REGION OVERVIEW
 ============================== -->
 
-<section style="background:#edf5e8;">
+<section class="section-tinted">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ The Seven Regions</span>
+<span class="kicker">
+✦ The Seven Regions
+</span>
 
-      <h2>Where the World Meets the Isles</h2>
+<h2>
+Where the World Meets the Isles
+</h2>
 
-      <p>
-        The nations surrounding the Verdigris Isles each possess distinct
-        identities shaped by their geography and history.
-      </p>
+<p>
+The nations surrounding the Verdigris Isles each possess distinct
+identities shaped by their geography and history.
+</p>
 
-    </div>
+</div>
 
 
-    <div class="region-grid">
+<div class="region-grid">
 
 
-      <!-- THALASSAN -->
+<!-- THALASSAN -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">🌊</div>
+<div class="region-icon">
+🌊
+</div>
 
-        <span class="region-direction">
-          Southwest
-        </span>
+<span class="region-direction">
+Southwest
+</span>
 
-        <h3>The Thalassan League</h3>
+<h3>
+The Thalassan League
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> Maritime League of Free Cities
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+Maritime League of Free Cities
+</p>
 
-        <p>
-          The Thalassan League is a coalition of prosperous port cities united
-          through commerce, naval defense, and exploration.
-        </p>
+<p>
+The Thalassan League is a coalition of prosperous port cities united
+through commerce, naval defense, and exploration.
+</p>
 
-        <p>
-          Its influence stretches across the seas through merchant fleets,
-          trade agreements, and financial power rather than territorial
-          conquest. Every major shipping route eventually passes through a
-          Thalassan harbor.
-        </p>
+<p>
+Its influence stretches across the seas through merchant fleets,
+trade agreements, and financial power rather than territorial
+conquest. Every major shipping route eventually passes through a
+Thalassan harbor.
+</p>
 
-      </article>
+</article>
 
 
-      <!-- KHARAD -->
+<!-- KHARAD -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">⛰️</div>
+<div class="region-icon">
+⛰️
+</div>
 
-        <span class="region-direction">
-          Northwest
-        </span>
+<span class="region-direction">
+Northwest
+</span>
 
-        <h3>The Kharad Highlands</h3>
+<h3>
+The Kharad Highlands
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> High Kingdom
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+High Kingdom
+</p>
 
-        <p>
-          The Kharad Highlands are a rugged realm of mountain fortresses,
-          deep valleys, and ancient mines.
-        </p>
+<p>
+The Kharad Highlands are a rugged realm of mountain fortresses,
+deep valleys, and ancient mines.
+</p>
 
-        <p>
-          Rather than pursuing the wonders of Skyglass during the Age of
-          Ascension, the Kharadi perfected metallurgy, engineering, and
-          mechanical craftsmanship.
-        </p>
+<p>
+Rather than pursuing the wonders of Skyglass during the Age of
+Ascension, the Kharadi perfected metallurgy, engineering, and
+mechanical craftsmanship.
+</p>
 
-      </article>
+</article>
 
 
-      <!-- ARDYNWOOD -->
+<!-- ARDYNWOOD -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">🌿</div>
+<div class="region-icon">
+🌿
+</div>
 
-        <span class="region-direction">
-          Northeast
-        </span>
+<span class="region-direction">
+Northeast
+</span>
 
-        <h3>Ardynwood</h3>
+<h3>
+Ardynwood
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> Constitutional Monarchy
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+Constitutional Monarchy
+</p>
 
-        <p>
-          Ardynwood is an ancient woodland kingdom where civilization has
-          grown alongside towering forests instead of replacing them.
-        </p>
+<p>
+Ardynwood is an ancient woodland kingdom where civilization has
+grown alongside towering forests instead of replacing them.
+</p>
 
-        <p>
-          Its cities are woven into colossal trees and connected by elevated
-          walkways, rope bridges, and living architecture cultivated over
-          generations.
-        </p>
+<p>
+Its cities are woven into colossal trees and connected by elevated
+walkways, rope bridges, and living architecture cultivated over
+generations.
+</p>
 
-      </article>
+</article>
 
 
-      <!-- HELIORA -->
+<!-- HELIORA -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">☀️</div>
+<div class="region-icon">
+☀️
+</div>
 
-        <span class="region-direction">
-          North
-        </span>
+<span class="region-direction">
+North
+</span>
 
-        <h3>The Heliora Compact</h3>
+<h3>
+The Heliora Compact
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> Confederation of City-States
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+Confederation of City-States
+</p>
 
-        <p>
-          The Heliora Compact is a confederation of prosperous desert
-          city-states devoted to scholarship, astronomy, mathematics, and
-          magical research.
-        </p>
+<p>
+The Heliora Compact is a confederation of prosperous desert
+city-states devoted to scholarship, astronomy, mathematics, and
+magical research.
+</p>
 
-        <p>
-          Home to renowned universities, observatories, and libraries,
-          Heliora has preserved much of the world's surviving knowledge.
-        </p>
+<p>
+Home to renowned universities, observatories, and libraries,
+Heliora has preserved much of the world's surviving knowledge.
+</p>
 
-      </article>
+</article>
 
 
-      <!-- AZURE -->
+<!-- AZURE -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">🌺</div>
+<div class="region-icon">
+🌺
+</div>
 
-        <span class="region-direction">
-          East
-        </span>
+<span class="region-direction">
+East
+</span>
 
-        <h3>The Azure Confederacy</h3>
+<h3>
+The Azure Confederacy
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> Island Confederation
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+Island Confederation
+</p>
 
-        <p>
-          The Azure Confederacy is a federation of tropical island nations
-          united through trade, culture, and mutual defense.
-        </p>
+<p>
+The Azure Confederacy is a federation of tropical island nations
+united through trade, culture, and mutual defense.
+</p>
 
-        <p>
-          Its people are renowned for generations of maritime tradition,
-          pearl diving, coral architecture, and sustainable ocean living.
-        </p>
+<p>
+Its people are renowned for generations of maritime tradition,
+pearl diving, coral architecture, and sustainable ocean living.
+</p>
 
-      </article>
+</article>
 
 
-      <!-- TALANOR -->
+<!-- TALANOR -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">🐾</div>
+<div class="region-icon">
+🐾
+</div>
 
-        <span class="region-direction">
-          Southeast
-        </span>
+<span class="region-direction">
+Southeast
+</span>
 
-        <h3>The Talanor Dominion</h3>
+<h3>
+The Talanor Dominion
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> Constitutional Monarchy
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+Constitutional Monarchy
+</p>
 
-        <p>
-          Beyond the settled trade routes lies the Talanor Dominion, a rugged
-          frontier nation of towering cliffs, windswept highlands, dense
-          forests, and untamed wilderness.
-        </p>
+<p>
+Beyond the settled trade routes lies the Talanor Dominion, a rugged
+frontier nation of towering cliffs, windswept highlands, dense
+forests, and untamed wilderness.
+</p>
 
-        <p>
-          Rather than seeking wealth through commerce, Talanor has built its
-          reputation on resilience, exploration, and survival.
-        </p>
+<p>
+Rather than seeking wealth through commerce, Talanor has built its
+reputation on resilience, exploration, and survival.
+</p>
 
-      </article>
+</article>
 
 
-      <!-- CAELMONT -->
+<!-- CAELMONT -->
 
-      <article class="region-card">
+<article class="region-card">
 
-        <div class="region-icon">🏛️</div>
+<div class="region-icon">
+🏛️
+</div>
 
-        <span class="region-direction">
-          West
-        </span>
+<span class="region-direction">
+West
+</span>
 
-        <h3>The Caelmont Court</h3>
+<h3>
+The Caelmont Court
+</h3>
 
-        <p class="region-government">
-          <strong>Government:</strong> Noble Court
-        </p>
+<p class="region-government">
+<strong>Government:</strong>
+Noble Court
+</p>
 
-        <p>
-          The Caelmont Court is one of the oldest and most influential realms
-          in the known world, governed by an intricate network of noble houses.
-        </p>
+<p>
+The Caelmont Court is one of the oldest and most influential realms
+in the known world, governed by an intricate network of noble houses.
+</p>
 
-        <p>
-          Court life is an art unto itself, with families competing for
-          influence through lavish galas, patronage, arranged marriages,
-          carefully cultivated reputations, and political maneuvering.
-        </p>
+<p>
+Court life is an art unto itself, with families competing for
+influence through lavish galas, patronage, arranged marriages,
+carefully cultivated reputations, and political maneuvering.
+</p>
 
-      </article>
+</article>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 
 <!-- ==============================
-     THALASSAN CULTURE
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Southwest · Maritime Culture</span>
-
-      <h2>The Thalassan League</h2>
-
-      <p>
-        A culture built around the sea, commerce, and the belief that the
-        world's waters connect rather than divide its peoples.
-      </p>
-
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>🌊 A Life on the Water</h3>
-
-        <p>
-          Thalassan culture revolves around maritime life. Ports serve as
-          centers of commerce, politics, social life, and cultural exchange.
-        </p>
-
-        <p>
-          Families often have long histories connected to particular ships,
-          harbors, merchant houses, or naval traditions.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>⚓ Merchant Traditions</h3>
-
-        <p>
-          Commerce is viewed as both an occupation and an art. Successful
-          merchants are expected to understand negotiation, navigation,
-          diplomacy, finance, and foreign customs.
-        </p>
-
-        <p>
-          Merchant guilds hold considerable cultural influence throughout
-          League society.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🧭 Exploration</h3>
-
-        <p>
-          Exploration is highly respected. Mapping an unfamiliar coastline,
-          discovering a new route, or returning with knowledge from distant
-          waters can bring enormous prestige.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🗺️ Navigation as Heritage</h3>
-
-        <p>
-          Navigation knowledge is frequently passed between generations.
-          Experienced sailors teach younger family members to read currents,
-          stars, winds, reefs, and coastlines.
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <div class="culture-feature">
-
-      <strong>Social Ideal</strong>
-
-      The Thalassan ideal is the capable traveler: someone who can enter an
-      unfamiliar port, understand its people, negotiate fairly, and find their
-      way home.
-
-    </div>
-
-
-    <div class="known-grid">
-
-      <div class="known-item">Merchant Guilds</div>
-      <div class="known-item">Naval Exploration</div>
-      <div class="known-item">Shipbuilding</div>
-      <div class="known-item">Banking</div>
-      <div class="known-item">Cartography</div>
-
-    </div>
-
-
-    <div class="export-list">
-
-      <span class="export">Ships</span>
-      <span class="export">Salt</span>
-      <span class="export">Fine Textiles</span>
-      <span class="export">Seafood</span>
-      <span class="export">Navigation Instruments</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     KHARAD CULTURE
-============================== -->
-
-<section class="culture-section">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Northwest · Mountain Culture</span>
-
-      <h2>The Kharad Highlands</h2>
-
-      <p>
-        A culture shaped by mountains, craftsmanship, engineering, and the
-        pride of building things meant to endure.
-      </p>
-
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>⛰️ Mountain Communities</h3>
-
-        <p>
-          Kharadi settlements are built around valleys, mines, fortresses, and
-          mountain passes. Communities tend to be tightly connected because
-          surviving the Highlands has historically required cooperation.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🔨 Craftsmanship</h3>
-
-        <p>
-          Craftsmanship carries enormous cultural prestige. A person's work
-          is often considered a reflection of their character, patience, and
-          dedication.
-        </p>
-
-        <p>
-          Master smiths, engineers, builders, and mechanics are respected
-          members of society.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>⚙️ Practical Innovation</h3>
-
-        <p>
-          Kharadi culture favors useful innovation over spectacle. Machinery
-          is valued when it solves a problem, improves safety, or allows people
-          to accomplish something previously impossible.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🛡️ The Fortress Ideal</h3>
-
-        <p>
-          Fortification is more than military necessity. Strong walls,
-          reliable bridges, secure roads, and enduring buildings represent
-          stability and responsibility.
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <div class="culture-feature">
-
-      <strong>Social Ideal</strong>
-
-      The Kharadi ideal is the builder: someone whose skill leaves the world
-      stronger than they found it.
-
-    </div>
-
-
-    <div class="known-grid">
-
-      <div class="known-item">Steelworking</div>
-      <div class="known-item">Engineering</div>
-      <div class="known-item">Heavy Armor</div>
-      <div class="known-item">Fortress Cities</div>
-      <div class="known-item">Clockwork</div>
-
-    </div>
-
-
-    <div class="export-list">
-
-      <span class="export">Steel</span>
-      <span class="export">Stone</span>
-      <span class="export">Precision Tools</span>
-      <span class="export">Armor</span>
-      <span class="export">Clockwork Devices</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     ARDYNWOOD CULTURE
+THALASSAN CULTURE
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Northeast · Woodland Culture</span>
+<span class="kicker">
+✦ Southwest · Maritime Culture
+</span>
 
-      <h2>Ardynwood</h2>
+<h2>
+The Thalassan League
+</h2>
 
-      <p>
-        An ancient woodland civilization built around coexistence with the
-        natural world rather than its replacement.
-      </p>
+<p>
+A culture built around the sea, commerce, and the belief that the
+world's waters connect rather than divide its peoples.
+</p>
 
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>🌿 Living Architecture</h3>
-
-        <p>
-          Ardynwood settlements are cultivated rather than simply constructed.
-          Homes, walkways, halls, and gathering places may be grown around
-          living trees over generations.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="culture-card">
+<div class="culture-grid">
 
-        <h3>🦌 Wardens</h3>
+<article class="culture-card">
 
-        <p>
-          Respected wardens protect forests, settlements, and wildlife while
-          helping communities maintain a balance with the natural environment.
-        </p>
+<h3>🌊 A Life on the Water</h3>
 
-      </article>
+<p>
+Thalassan culture revolves around maritime life. Ports serve as
+centers of commerce, politics, social life, and cultural exchange.
+</p>
 
+<p>
+Families often have long histories connected to particular ships,
+harbors, merchant houses, or naval traditions.
+</p>
 
-      <article class="culture-card">
-
-        <h3>🌙 Spirit Traditions</h3>
-
-        <p>
-          Spiritual traditions often emphasize the relationships between
-          people, animals, forests, rivers, and the unseen forces believed to
-          inhabit the natural world.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="culture-card">
+<article class="culture-card">
 
-        <h3>🌱 Local Governance</h3>
+<h3>⚓ Merchant Traditions</h3>
 
-        <p>
-          Though Ardynwood has a monarch, villages and local communities retain
-          significant authority through councils and respected community
-          leaders.
-        </p>
+<p>
+Commerce is viewed as both an occupation and an art. Successful
+merchants are expected to understand negotiation, navigation,
+diplomacy, finance, and foreign customs.
+</p>
 
-      </article>
+<p>
+Merchant guilds hold considerable cultural influence throughout
+League society.
+</p>
 
-    </div>
-
-
-    <div class="culture-feature">
-
-      <strong>Social Ideal</strong>
-
-      The Ardynwood ideal is the caretaker: someone who protects what they
-      inherit so that those who come after them may inherit it as well.
-
-    </div>
+</article>
 
 
-    <div class="known-grid">
+<article class="culture-card">
 
-      <div class="known-item">Herbal Medicine</div>
-      <div class="known-item">Botanical Research</div>
-      <div class="known-item">Spirit Traditions</div>
-      <div class="known-item">Living Architecture</div>
-      <div class="known-item">Wildlife Conservation</div>
+<h3>🧭 Exploration</h3>
 
-    </div>
+<p>
+Exploration is highly respected. Mapping an unfamiliar coastline,
+discovering a new route, or returning with knowledge from distant
+waters can bring enormous prestige.
+</p>
+
+</article>
 
 
-    <div class="export-list">
+<article class="culture-card">
 
-      <span class="export">Medicines</span>
-      <span class="export">Rare Herbs</span>
-      <span class="export">Fine Lumber</span>
-      <span class="export">Natural Dyes</span>
-      <span class="export">Exotic Fruits</span>
-    </div>
+<h3>🗺️ Navigation as Heritage</h3>
 
-  </div>
+<p>
+Navigation knowledge is frequently passed between generations.
+Experienced sailors teach younger family members to read currents,
+stars, winds, reefs, and coastlines.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Thalassan ideal is the capable traveler: someone who can enter an
+unfamiliar port, understand its people, negotiate fairly, and find their
+way home.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Merchant Guilds</div>
+<div class="known-item">Naval Exploration</div>
+<div class="known-item">Shipbuilding</div>
+<div class="known-item">Banking</div>
+<div class="known-item">Cartography</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Ships</span>
+<span class="export">Salt</span>
+<span class="export">Fine Textiles</span>
+<span class="export">Seafood</span>
+<span class="export">Navigation Instruments</span>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     HELIORA CULTURE
+KHARAD CULTURE
 ============================== -->
 
-<section class="culture-section">
+<section class="section-tinted">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ North · Desert Culture</span>
+<span class="kicker">
+✦ Northwest · Mountain Culture
+</span>
 
-      <h2>The Heliora Compact</h2>
+<h2>
+The Kharad Highlands
+</h2>
 
-      <p>
-        A civilization where scholarship, astronomy, mathematics, and magical
-        research form the foundation of society.
-      </p>
+<p>
+A culture shaped by mountains, craftsmanship, engineering, and the
+pride of building things meant to endure.
+</p>
 
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>☀️ Desert City-States</h3>
-
-        <p>
-          Helioran cities rise from the desert as independent centers of
-          learning, trade, and political influence. Their cooperation allows
-          the Compact to function without requiring a single centralized
-          capital.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="culture-card">
+<div class="culture-grid">
 
-        <h3>📚 Knowledge as Legacy</h3>
+<article class="culture-card">
 
-        <p>
-          Books, records, mathematical discoveries, magical research, and
-          historical documents are treated as cultural treasures.
-        </p>
+<h3>⛰️ Mountain Communities</h3>
 
-        <p>
-          Libraries are often among the most important institutions in a
-          Helioran city.
-        </p>
+<p>
+Kharadi settlements are built around valleys, mines, fortresses, and
+mountain passes. Communities tend to be tightly connected because
+surviving the Highlands has historically required cooperation.
+</p>
 
-      </article>
+</article>
 
 
-      <article class="culture-card">
+<article class="culture-card">
 
-        <h3>🔭 The Night Sky</h3>
+<h3>🔨 Craftsmanship</h3>
 
-        <p>
-          Astronomy is deeply embedded within Helioran life. Scholars study
-          celestial movements for scientific, navigational, agricultural, and
-          magical purposes.
-        </p>
+<p>
+Craftsmanship carries enormous cultural prestige. A person's work
+is often considered a reflection of their character, patience, and
+dedication.
+</p>
 
-      </article>
+<p>
+Master smiths, engineers, builders, and mechanics are respected
+members of society.
+</p>
 
-
-      <article class="culture-card">
-
-        <h3>✨ Magical Scholarship</h3>
-
-        <p>
-          Magic is approached as something worthy of careful study. Helioran
-          researchers document magical phenomena and seek to understand the
-          principles behind them.
-        </p>
-
-      </article>
-
-    </div>
+</article>
 
 
-    <div class="culture-feature">
+<article class="culture-card">
 
-      <strong>Social Ideal</strong>
+<h3>⚙️ Practical Innovation</h3>
 
-      The Helioran ideal is the seeker of knowledge: someone who leaves behind
-      ignorance and adds something meaningful to the world's understanding.
+<p>
+Kharadi culture favors useful innovation over spectacle. Machinery
+is valued when it solves a problem, improves safety, or allows people
+to accomplish something previously impossible.
+</p>
 
-    </div>
-
-
-    <div class="known-grid">
-
-      <div class="known-item">Universities</div>
-      <div class="known-item">Astronomy</div>
-      <div class="known-item">Jewelcraft</div>
-      <div class="known-item">Libraries</div>
-      <div class="known-item">Glassmaking</div>
-
-    </div>
+</article>
 
 
-    <div class="export-list">
+<article class="culture-card">
 
-      <span class="export">Gems</span>
-      <span class="export">Glass</span>
-      <span class="export">Spices</span>
-      <span class="export">Books</span>
-      <span class="export">Incense</span>
-    </div>
+<h3>🛡️ The Fortress Ideal</h3>
 
-  </div>
+<p>
+Fortification is more than military necessity. Strong walls,
+reliable bridges, secure roads, and enduring buildings represent
+stability and responsibility.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Kharadi ideal is the builder: someone whose skill leaves the world
+stronger than they found it.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Steelworking</div>
+<div class="known-item">Engineering</div>
+<div class="known-item">Heavy Armor</div>
+<div class="known-item">Fortress Cities</div>
+<div class="known-item">Clockwork</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Steel</span>
+<span class="export">Stone</span>
+<span class="export">Precision Tools</span>
+<span class="export">Armor</span>
+<span class="export">Clockwork Devices</span>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     AZURE CULTURE
-============================== -->
-
-<section>
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ East · Island Culture</span>
-
-      <h2>The Azure Confederacy</h2>
-
-      <p>
-        A tropical maritime civilization built around cooperation, ocean
-        traditions, and sustainable relationships with the sea.
-      </p>
-
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>🌺 Island Communities</h3>
-
-        <p>
-          Azure society is spread across numerous island nations, each with
-          its own customs and traditions while participating in the wider
-          Confederacy.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🤝 Cooperation</h3>
-
-        <p>
-          The Confederacy's strength comes from mutual defense and shared
-          interests rather than conquest. Cooperation between islands is
-          treated as essential to survival.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🐚 Life Beneath the Waves</h3>
-
-        <p>
-          Pearl diving, fishing, shell gathering, and coral craftsmanship are
-          deeply connected to everyday life.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🌊 Sustainable Living</h3>
-
-        <p>
-          Azure traditions emphasize taking from the ocean without destroying
-          the environments that sustain island communities.
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <div class="culture-feature">
-
-      <strong>Social Ideal</strong>
-
-      The Azure ideal is the community member: someone who understands that an
-      island survives through the strength and cooperation of everyone upon it.
-
-    </div>
-
-
-    <div class="known-grid">
-
-      <div class="known-item">Sailing</div>
-      <div class="known-item">Pearl Diving</div>
-      <div class="known-item">Coral Architecture</div>
-      <div class="known-item">Fishing</div>
-      <div class="known-item">Ocean Traditions</div>
-
-    </div>
-
-
-    <div class="export-list">
-
-      <span class="export">Pearls</span>
-      <span class="export">Coral</span>
-      <span class="export">Tropical Fruits</span>
-      <span class="export">Seafood</span>
-      <span class="export">Fine Shells</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     TALANOR CULTURE
-============================== -->
-
-<section class="culture-section">
-
-  <div class="container">
-
-    <div class="heading">
-
-      <span class="kicker">✦ Southeast · Frontier Culture</span>
-
-      <h2>The Talanor Dominion</h2>
-
-      <p>
-        A rugged frontier nation where survival, exploration, and knowledge of
-        the wilderness are valued above wealth and comfort.
-      </p>
-
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>🐾 Frontier Life</h3>
-
-        <p>
-          Talanorian settlements exist alongside vast stretches of wilderness.
-          People are accustomed to traveling long distances and dealing with
-          environments where roads and established settlements may suddenly
-          disappear.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🏹 Rangers & Hunters</h3>
-
-        <p>
-          Rangers, scouts, hunters, and monster hunters occupy an important
-          place in society. Their knowledge can mean the difference between
-          life and death for isolated communities.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🦅 Beast Handling</h3>
-
-        <p>
-          Falconry and the training of useful or dangerous beasts are respected
-          traditions. Animals are valued as companions, working partners, and
-          sources of knowledge about the wilderness.
-        </p>
-
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🗺️ Uncharted Lands</h3>
-
-        <p>
-          Mapping unexplored territory is considered a worthwhile pursuit.
-          Talanorian cartographers frequently record landmarks, monster
-          territories, resources, and safe routes.
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <div class="culture-feature">
-
-      <strong>Social Ideal</strong>
-
-      The Talanorian ideal is the survivor: someone capable of facing the
-      unknown, adapting to hardship, and bringing others safely home.
-
-    </div>
-
-
-    <div class="known-grid">
-
-      <div class="known-item">Frontier Exploration</div>
-      <div class="known-item">Monster Hunting</div>
-      <div class="known-item">Survival Training</div>
-      <div class="known-item">Beast Handling</div>
-      <div class="known-item">Cartography</div>
-
-    </div>
-
-
-    <div class="export-list">
-
-      <span class="export">Exotic Hides & Pelts</span>
-      <span class="export">Monster Components</span>
-      <span class="export">Hardwood Timber</span>
-      <span class="export">Hunting Equipment</span>
-      <span class="export">Medicinal Herbs</span>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ==============================
-     CAELMONT CULTURE
+ARDYNWOOD CULTURE
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ West · Court Culture</span>
+<span class="kicker">
+✦ Northeast · Woodland Culture
+</span>
 
-      <h2>The Caelmont Court</h2>
+<h2>
+Ardynwood
+</h2>
 
-      <p>
-        A realm where prestige, lineage, diplomacy, artistry, and political
-        influence shape nearly every aspect of high society.
-      </p>
+<p>
+An ancient woodland civilization built around coexistence with the
+natural world rather than its replacement.
+</p>
 
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>🏛️ The Great Houses</h3>
-
-        <p>
-          Caelmont society revolves around its noble houses. Family lineage,
-          reputation, alliances, and accumulated influence determine a person's
-          position within courtly society.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="culture-card">
+<div class="culture-grid">
 
-        <h3>🎭 Courtly Performance</h3>
+<article class="culture-card">
 
-        <p>
-          Social interaction is carefully cultivated. Clothing, speech,
-          manners, invitations, gifts, and appearances may all carry political
-          meaning.
-        </p>
+<h3>🌿 Living Architecture</h3>
 
-      </article>
+<p>
+Ardynwood settlements are cultivated rather than simply constructed.
+Homes, walkways, halls, and gathering places may be grown around
+living trees over generations.
+</p>
 
-
-      <article class="culture-card">
-
-        <h3>💍 Alliances & Marriage</h3>
-
-        <p>
-          Marriage can be a powerful political instrument. Arranged marriages,
-          strategic courtships, and family alliances have historically shaped
-          relationships between noble houses.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="culture-card">
+<article class="culture-card">
 
-        <h3>🎨 Patronage</h3>
+<h3>🦌 Wardens</h3>
 
-        <p>
-          Wealthy families compete to sponsor artists, scholars, architects,
-          performers, and craftspeople. Exceptional work can elevate both the
-          creator and the house that supports them.
-        </p>
+<p>
+Respected wardens protect forests, settlements, and wildlife while
+helping communities maintain a balance with the natural environment.
+</p>
 
-      </article>
-
-    </div>
+</article>
 
 
-    <div class="culture-feature">
+<article class="culture-card">
 
-      <strong>Social Ideal</strong>
+<h3>🌙 Spirit Traditions</h3>
 
-      The Caelmont ideal is the cultivated individual: someone who understands
-      etiquette, reputation, influence, and the importance of leaving an
-      unforgettable impression.
+<p>
+Spiritual traditions often emphasize the relationships between
+people, animals, forests, rivers, and the unseen forces believed to
+inhabit the natural world.
+</p>
 
-    </div>
-
-
-    <div class="known-grid">
-
-      <div class="known-item">Noble Houses</div>
-      <div class="known-item">Court Diplomacy</div>
-      <div class="known-item">Fine Arts</div>
-      <div class="known-item">Luxury Craftsmanship</div>
-      <div class="known-item">Political Influence</div>
-
-    </div>
+</article>
 
 
-    <div class="export-list">
+<article class="culture-card">
 
-      <span class="export">Jewelry</span>
-      <span class="export">Artwork</span>
-      <span class="export">Fine Clothing</span>
-      <span class="export">Wine & Spirits</span>
-      <span class="export">Luxury Goods</span>
-    </div>
+<h3>🌱 Local Governance</h3>
 
-  </div>
+<p>
+Though Ardynwood has a monarch, villages and local communities retain
+significant authority through councils and respected community
+leaders.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Ardynwood ideal is the caretaker: someone who protects what they
+inherit so that those who come after them may inherit it as well.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Herbal Medicine</div>
+<div class="known-item">Botanical Research</div>
+<div class="known-item">Spirit Traditions</div>
+<div class="known-item">Living Architecture</div>
+<div class="known-item">Wildlife Conservation</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Medicines</span>
+<span class="export">Rare Herbs</span>
+<span class="export">Fine Lumber</span>
+<span class="export">Natural Dyes</span>
+<span class="export">Exotic Fruits</span>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     VERDIGRIS RELATIONSHIPS
+HELIORA CULTURE
+============================== -->
+
+<section class="section-tinted">
+
+<div class="container">
+
+<div class="heading">
+
+<span class="kicker">
+✦ North · Desert Culture
+</span>
+
+<h2>
+The Heliora Compact
+</h2>
+
+<p>
+A civilization where scholarship, astronomy, mathematics, and magical
+research form the foundation of society.
+</p>
+
+</div>
+
+
+<div class="culture-grid">
+
+<article class="culture-card">
+
+<h3>☀️ Desert City-States</h3>
+
+<p>
+Helioran cities rise from the desert as independent centers of
+learning, trade, and political influence. Their cooperation allows
+the Compact to function without requiring a single centralized
+capital.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>📚 Knowledge as Legacy</h3>
+
+<p>
+Books, records, mathematical discoveries, magical research, and
+historical documents are treated as cultural treasures.
+</p>
+
+<p>
+Libraries are often among the most important institutions in a
+Helioran city.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🔭 The Night Sky</h3>
+
+<p>
+Astronomy is deeply embedded within Helioran life. Scholars study
+celestial movements for scientific, navigational, agricultural, and
+magical purposes.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>✨ Magical Scholarship</h3>
+
+<p>
+Magic is approached as something worthy of careful study. Helioran
+researchers document magical phenomena and seek to understand the
+principles behind them.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Helioran ideal is the seeker of knowledge: someone who leaves behind
+ignorance and adds something meaningful to the world's understanding.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Universities</div>
+<div class="known-item">Astronomy</div>
+<div class="known-item">Jewelcraft</div>
+<div class="known-item">Libraries</div>
+<div class="known-item">Glassmaking</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Gems</span>
+<span class="export">Glass</span>
+<span class="export">Spices</span>
+<span class="export">Books</span>
+<span class="export">Incense</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+AZURE CULTURE
+============================== -->
+
+<section>
+
+<div class="container">
+
+<div class="heading">
+
+<span class="kicker">
+✦ East · Island Culture
+</span>
+
+<h2>
+The Azure Confederacy
+</h2>
+
+<p>
+A tropical maritime civilization built around cooperation, ocean
+traditions, and sustainable relationships with the sea.
+</p>
+
+</div>
+
+
+<div class="culture-grid">
+
+<article class="culture-card">
+
+<h3>🌺 Island Communities</h3>
+
+<p>
+Azure society is spread across numerous island nations, each with
+its own customs and traditions while participating in the wider
+Confederacy.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🤝 Cooperation</h3>
+
+<p>
+The Confederacy's strength comes from mutual defense and shared
+interests rather than conquest. Cooperation between islands is
+treated as essential to survival.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🐚 Life Beneath the Waves</h3>
+
+<p>
+Pearl diving, fishing, shell gathering, and coral craftsmanship are
+deeply connected to everyday life.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🌊 Sustainable Living</h3>
+
+<p>
+Azure traditions emphasize taking from the ocean without destroying
+the environments that sustain island communities.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Azure ideal is the community member: someone who understands that an
+island survives through the strength and cooperation of everyone upon it.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Sailing</div>
+<div class="known-item">Pearl Diving</div>
+<div class="known-item">Coral Architecture</div>
+<div class="known-item">Fishing</div>
+<div class="known-item">Ocean Traditions</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Pearls</span>
+<span class="export">Coral</span>
+<span class="export">Tropical Fruits</span>
+<span class="export">Seafood</span>
+<span class="export">Fine Shells</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+TALANOR CULTURE
+============================== -->
+
+<section class="section-tinted">
+
+<div class="container">
+
+<div class="heading">
+
+<span class="kicker">
+✦ Southeast · Frontier Culture
+</span>
+
+<h2>
+The Talanor Dominion
+</h2>
+
+<p>
+A rugged frontier nation where survival, exploration, and knowledge of
+the wilderness are valued above wealth and comfort.
+</p>
+
+</div>
+
+
+<div class="culture-grid">
+
+<article class="culture-card">
+
+<h3>🐾 Frontier Life</h3>
+
+<p>
+Talanorian settlements exist alongside vast stretches of wilderness.
+People are accustomed to traveling long distances and dealing with
+environments where roads and established settlements may suddenly
+disappear.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🏹 Rangers & Hunters</h3>
+
+<p>
+Rangers, scouts, hunters, and monster hunters occupy an important
+place in society. Their knowledge can mean the difference between
+life and death for isolated communities.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🦅 Beast Handling</h3>
+
+<p>
+Falconry and the training of useful or dangerous beasts are respected
+traditions. Animals are valued as companions, working partners, and
+sources of knowledge about the wilderness.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🗺️ Uncharted Lands</h3>
+
+<p>
+Mapping unexplored territory is considered a worthwhile pursuit.
+Talanorian cartographers frequently record landmarks, monster
+territories, resources, and safe routes.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Talanorian ideal is the survivor: someone capable of facing the
+unknown, adapting to hardship, and bringing others safely home.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Frontier Exploration</div>
+<div class="known-item">Monster Hunting</div>
+<div class="known-item">Survival Training</div>
+<div class="known-item">Beast Handling</div>
+<div class="known-item">Cartography</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Exotic Hides & Pelts</span>
+<span class="export">Monster Components</span>
+<span class="export">Hardwood Timber</span>
+<span class="export">Hunting Equipment</span>
+<span class="export">Medicinal Herbs</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+CAELMONT CULTURE
+============================== -->
+
+<section>
+
+<div class="container">
+
+<div class="heading">
+
+<span class="kicker">
+✦ West · Court Culture
+</span>
+
+<h2>
+The Caelmont Court
+</h2>
+
+<p>
+A realm where prestige, lineage, diplomacy, artistry, and political
+influence shape nearly every aspect of high society.
+</p>
+
+</div>
+
+
+<div class="culture-grid">
+
+<article class="culture-card">
+
+<h3>🏛️ The Great Houses</h3>
+
+<p>
+Caelmont society revolves around its noble houses. Family lineage,
+reputation, alliances, and accumulated influence determine a person's
+position within courtly society.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🎭 Courtly Performance</h3>
+
+<p>
+Social interaction is carefully cultivated. Clothing, speech,
+manners, invitations, gifts, and appearances may all carry political
+meaning.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>💍 Alliances & Marriage</h3>
+
+<p>
+Marriage can be a powerful political instrument. Arranged marriages,
+strategic courtships, and family alliances have historically shaped
+relationships between noble houses.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🎨 Patronage</h3>
+
+<p>
+Wealthy families compete to sponsor artists, scholars, architects,
+performers, and craftspeople. Exceptional work can elevate both the
+creator and the house that supports them.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="culture-feature">
+
+<strong>Social Ideal</strong>
+
+The Caelmont ideal is the cultivated individual: someone who understands
+etiquette, reputation, influence, and the importance of leaving an
+unforgettable impression.
+
+</div>
+
+
+<div class="known-grid">
+
+<div class="known-item">Noble Houses</div>
+<div class="known-item">Court Diplomacy</div>
+<div class="known-item">Fine Arts</div>
+<div class="known-item">Luxury Craftsmanship</div>
+<div class="known-item">Political Influence</div>
+
+</div>
+
+
+<div class="export-list">
+
+<span class="export">Jewelry</span>
+<span class="export">Artwork</span>
+<span class="export">Fine Clothing</span>
+<span class="export">Wine & Spirits</span>
+<span class="export">Luxury Goods</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==============================
+VERDIGRIS RELATIONSHIPS
 ============================== -->
 
 <section class="relationship">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ The Verdigris Connection</span>
+<span class="kicker">
+✦ The Verdigris Connection
+</span>
 
-      <h2>Why They Come to the Isles</h2>
+<h2>
+Why They Come to the Isles
+</h2>
 
-      <p>
-        The Verdigris Isles occupy a unique position in the modern world.
-        Every surrounding power has its own reasons for watching, trading with,
-        studying, or exploring the islands.
-      </p>
+<p>
+The Verdigris Isles occupy a unique position in the modern world.
+Every surrounding power has its own reasons for watching, trading with,
+studying, or exploring the islands.
+</p>
 
-    </div>
-
-
-    <div class="relationship-box">
-
-      <strong>🌊 Thalassan League</strong>
-
-      Sponsors expeditions into the Crownscar in search of lost Ascension
-      navigation technology while maintaining lucrative trade routes with
-      Verde Haven.
-
-    </div>
+</div>
 
 
-    <div class="relationship-box">
+<div class="relationship-box">
 
-      <strong>⛰️ Kharad Highlands</strong>
+<strong>🌊 Thalassan League</strong>
 
-      Kharadi engineers travel to the Isles to study ancient Ascension
-      technology and adapt forgotten designs using modern materials and
-      craftsmanship.
+Sponsors expeditions into the Crownscar in search of lost Ascension
+navigation technology while maintaining lucrative trade routes with
+Verde Haven.
 
-    </div>
-
-
-    <div class="relationship-box">
-
-      <strong>🌿 Ardynwood</strong>
-
-      Herbalists, druids, and naturalists accompany Crownscar expeditions to
-      study how Skyglass and ancient relics continue to affect surrounding
-      ecosystems.
-
-    </div>
+</div>
 
 
-    <div class="relationship-box">
+<div class="relationship-box">
 
-      <strong>☀️ Heliora Compact</strong>
+<strong>⛰️ Kharad Highlands</strong>
 
-      Helioran scholars journey to the Isles seeking forgotten knowledge hidden
-      beneath the Citadel's ruins, believing the Crownscar may hold answers
-      about the Age of Ascension.
+Kharadi engineers travel to the Isles to study ancient Ascension
+technology and adapt forgotten designs using modern materials and
+craftsmanship.
 
-    </div>
-
-
-    <div class="relationship-box">
-
-      <strong>🌺 Azure Confederacy</strong>
-
-      Azure traders and travelers are among the most frequent visitors to
-      Verde Haven, carrying goods, cultures, and stories from across the
-      known world.
-
-    </div>
+</div>
 
 
-    <div class="relationship-box">
+<div class="relationship-box">
 
-      <strong>🐾 Talanor Dominion</strong>
+<strong>🌿 Ardynwood</strong>
 
-      Talanorian rangers and explorers are frequently recruited by the
-      Adventurer's Guild to guide expeditions through the Crownscar and the
-      wilderness of the Verdigris Isles.
+Herbalists, druids, and naturalists accompany Crownscar expeditions to
+study how Skyglass and ancient relics continue to affect surrounding
+ecosystems.
 
-    </div>
+</div>
 
 
-    <div class="relationship-box">
+<div class="relationship-box">
 
-      <strong>🏛️ Caelmont Court</strong>
+<strong>☀️ Heliora Compact</strong>
 
-      Great houses sponsor Crownscar expeditions to acquire relics, lost
-      histories, and priceless artifacts that can elevate their prestige within
-      the Grand Court.
+Helioran scholars journey to the Isles seeking forgotten knowledge hidden
+beneath the Citadel's ruins, believing the Crownscar may hold answers
+about the Age of Ascension.
 
-    </div>
+</div>
 
-  </div>
+
+<div class="relationship-box">
+
+<strong>🌺 Azure Confederacy</strong>
+
+Azure traders and travelers are among the most frequent visitors to
+Verde Haven, carrying goods, cultures, and stories from across the
+known world.
+
+</div>
+
+
+<div class="relationship-box">
+
+<strong>🐾 Talanor Dominion</strong>
+
+Talanorian rangers and explorers are frequently recruited by the
+Adventurer's Guild to guide expeditions through the Crownscar and the
+wilderness of the Verdigris Isles.
+
+</div>
+
+
+<div class="relationship-box">
+
+<strong>🏛️ Caelmont Court</strong>
+
+Great houses sponsor Crownscar expeditions to acquire relics, lost
+histories, and priceless artifacts that can elevate their prestige within
+the Grand Court.
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     CULTURAL COMPARISON
+CULTURAL COMPARISON
 ============================== -->
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Across the World</span>
+<span class="kicker">
+✦ Across the World
+</span>
 
-      <h2>Different Places, Different Values</h2>
+<h2>
+Different Places, Different Values
+</h2>
 
-      <p>
-        No single culture represents the known world. Each region has developed
-        its own answer to what makes a person valuable.
-      </p>
+<p>
+No single culture represents the known world. Each region has developed
+its own answer to what makes a person valuable.
+</p>
 
-    </div>
-
-
-    <div class="comparison">
-
-      <article class="comparison-card">
-
-        <h3>🌊 Thalassan</h3>
-
-        <p>
-          Adaptability, commerce, navigation, and the ability to connect
-          different peoples.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="comparison-card">
+<div class="comparison">
 
-        <h3>⛰️ Kharadi</h3>
+<article class="comparison-card">
+<h3>🌊 Thalassan</h3>
+<p>
+Adaptability, commerce, navigation, and the ability to connect
+different peoples.
+</p>
+</article>
 
-        <p>
-          Skill, craftsmanship, durability, engineering, and building things
-          that endure.
-        </p>
+<article class="comparison-card">
+<h3>⛰️ Kharadi</h3>
+<p>
+Skill, craftsmanship, durability, engineering, and building things
+that endure.
+</p>
+</article>
 
-      </article>
+<article class="comparison-card">
+<h3>🌿 Ardynwood</h3>
+<p>
+Stewardship, balance, community responsibility, and protection of
+the natural world.
+</p>
+</article>
 
+<article class="comparison-card">
+<h3>☀️ Helioran</h3>
+<p>
+Knowledge, scholarship, discovery, mathematics, and the pursuit of
+understanding.
+</p>
+</article>
 
-      <article class="comparison-card">
+<article class="comparison-card">
+<h3>🌺 Azure</h3>
+<p>
+Cooperation, community, maritime tradition, and sustainable
+relationships with the ocean.
+</p>
+</article>
 
-        <h3>🌿 Ardynwood</h3>
+<article class="comparison-card">
+<h3>🐾 Talanorian</h3>
+<p>
+Resilience, survival, exploration, independence, and knowledge of
+dangerous places.
+</p>
+</article>
 
-        <p>
-          Stewardship, balance, community responsibility, and protection of
-          the natural world.
-        </p>
+<article class="comparison-card">
+<h3>🏛️ Caelmont</h3>
+<p>
+Prestige, lineage, diplomacy, reputation, artistry, and political
+influence.
+</p>
+</article>
 
-      </article>
+<article class="comparison-card">
+<h3>🌎 Verdigris</h3>
+<p>
+Adaptation, discovery, reconstruction, and the opportunity to build
+something new from the remnants of the past.
+</p>
+</article>
 
+</div>
 
-      <article class="comparison-card">
-
-        <h3>☀️ Helioran</h3>
-
-        <p>
-          Knowledge, scholarship, discovery, mathematics, and the pursuit of
-          understanding.
-        </p>
-
-      </article>
-
-
-      <article class="comparison-card">
-
-        <h3>🌺 Azure</h3>
-
-        <p>
-          Cooperation, community, maritime tradition, and sustainable
-          relationships with the ocean.
-        </p>
-
-      </article>
-
-
-      <article class="comparison-card">
-
-        <h3>🐾 Talanorian</h3>
-
-        <p>
-          Resilience, survival, exploration, independence, and knowledge of
-          dangerous places.
-        </p>
-
-      </article>
-
-
-      <article class="comparison-card">
-
-        <h3>🏛️ Caelmont</h3>
-
-        <p>
-          Prestige, lineage, diplomacy, reputation, artistry, and political
-          influence.
-        </p>
-
-      </article>
-
-
-      <article class="comparison-card">
-
-        <h3>🌎 Verdigris</h3>
-
-        <p>
-          Adaptation, discovery, reconstruction, and the opportunity to build
-          something new from the remnants of the past.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
 <!-- ==============================
-     CHARACTER BACKGROUND
+CHARACTER BACKGROUND
 ============================== -->
 
-<section style="background:#edf5e8;">
+<section class="section-tinted">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ Character Backgrounds</span>
+<span class="kicker">
+✦ Character Backgrounds
+</span>
 
-      <h2>Where Were You Raised?</h2>
+<h2>
+Where Were You Raised?
+</h2>
 
-      <p>
-        A character's homeland can influence their upbringing, traditions,
-        worldview, education, and relationship with the wider world.
-      </p>
+<p>
+A character's homeland can influence their upbringing, traditions,
+worldview, education, and relationship with the wider world.
+</p>
 
-    </div>
-
-
-    <div class="culture-grid">
-
-      <article class="culture-card">
-
-        <h3>🌊 Thalassan</h3>
-
-        <p>
-          Consider a childhood surrounded by ships, ports, merchants, sailors,
-          and constant travelers.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="culture-card">
+<div class="culture-grid">
 
-        <h3>⛰️ Kharadi</h3>
+<article class="culture-card">
 
-        <p>
-          Consider growing up around mountains, workshops, mines, fortresses,
-          engineers, and master craftsmen.
-        </p>
+<h3>🌊 Thalassan</h3>
 
-      </article>
+<p>
+Consider a childhood surrounded by ships, ports, merchants, sailors,
+and constant travelers.
+</p>
 
-
-      <article class="culture-card">
-
-        <h3>🌿 Ardynwood</h3>
-
-        <p>
-          Consider a childhood within a forest community where nature,
-          spirits, local councils, and wardens shape everyday life.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="culture-card">
+<article class="culture-card">
 
-        <h3>☀️ Helioran</h3>
+<h3>⛰️ Kharadi</h3>
 
-        <p>
-          Consider being raised around scholars, libraries, observatories,
-          universities, mathematics, and magical research.
-        </p>
+<p>
+Consider growing up around mountains, workshops, mines, fortresses,
+engineers, and master craftsmen.
+</p>
 
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🌺 Azure</h3>
-
-        <p>
-          Consider an island upbringing shaped by sailing, fishing, pearl
-          diving, coral architecture, and strong community ties.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="culture-card">
+<article class="culture-card">
 
-        <h3>🐾 Talanorian</h3>
+<h3>🌿 Ardynwood</h3>
 
-        <p>
-          Consider learning survival skills from an early age and growing up
-          around rangers, hunters, explorers, and dangerous wilderness.
-        </p>
+<p>
+Consider a childhood within a forest community where nature,
+spirits, local councils, and wardens shape everyday life.
+</p>
 
-      </article>
-
-
-      <article class="culture-card">
-
-        <h3>🏛️ Caelmont</h3>
-
-        <p>
-          Consider being raised within noble society, where etiquette,
-          reputation, family alliances, education, and political influence
-          shape daily life.
-        </p>
-
-      </article>
+</article>
 
 
-      <article class="culture-card">
+<article class="culture-card">
 
-        <h3>🌿 Verdigris Isles</h3>
+<h3>☀️ Helioran</h3>
 
-        <p>
-          Consider growing up in Verde Haven or another island settlement where
-          cultures from across the world meet amid reconstruction and relic
-          exploration.
-        </p>
+<p>
+Consider being raised around scholars, libraries, observatories,
+universities, mathematics, and magical research.
+</p>
 
-      </article>
+</article>
 
-    </div>
 
-  </div>
+<article class="culture-card">
+
+<h3>🌺 Azure</h3>
+
+<p>
+Consider an island upbringing shaped by sailing, fishing, pearl
+diving, coral architecture, and strong community ties.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🐾 Talanorian</h3>
+
+<p>
+Consider learning survival skills from an early age and growing up
+around rangers, hunters, explorers, and dangerous wilderness.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🏛️ Caelmont</h3>
+
+<p>
+Consider being raised within noble society, where etiquette,
+reputation, family alliances, education, and political influence
+shape daily life.
+</p>
+
+</article>
+
+
+<article class="culture-card">
+
+<h3>🌿 Verdigris Isles</h3>
+
+<p>
+Consider growing up in Verde Haven or another island settlement where
+cultures from across the world meet amid reconstruction and relic
+exploration.
+</p>
+
+</article>
+
+</div>
+
+</div>
 
 </section>
 
 
 <!-- ==============================
-     CLOSING
+CLOSING
 ============================== -->
 
 <section class="closing">
 
-  <div class="container">
+<div class="container">
 
-    <div class="heading">
+<div class="heading">
 
-      <span class="kicker">✦ The Known World</span>
+<span class="kicker">
+✦ The Known World
+</span>
 
-      <h2>
-        Seven Regions. Countless Stories.
-      </h2>
+<h2>
+Seven Regions. Countless Stories.
+</h2>
 
-      <p>
-        The Verdigris Isles may be a frontier of discovery, but the people who
-        arrive there carry entire worlds with them. Every traveler brings a
-        homeland, a history, and a way of seeing the world.
-      </p>
+<p>
+The Verdigris Isles may be a frontier of discovery, but the people who
+arrive there carry entire worlds with them. Every traveler brings a
+homeland, a history, and a way of seeing the world.
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
-
 
 </main>
 
 
 <!-- ==============================
-     FOOTER
+FOOTER
 ============================== -->
 
 <footer>
 
-  <div class="container">
+<div class="container">
 
-    <div class="brand">
+<div class="brand">
 
-      <span class="brand-mark">🌿</span>
-
-      Verdigris Isles
-
-    </div>
-
-    <p>
-      A sunlit world of islands, adventure, magic, and forgotten history.
-    </p>
-
-    <p style="margin-top:10px;">
-      © 2026 Verdigris Isles
-    </p>
-
-  </div>
-
-</footer>
-<!-- ==============================
-     MAP IMAGE VIEWER
-============================== -->
-
-<div id="mapViewer" class="map-viewer" onclick="closeMap(event)">
-
-  <button
-    class="map-close"
-    onclick="closeMap()"
-    aria-label="Close map">
-    &times;
-  </button>
-
-  <img
-    id="mapViewerImage"
-    src="../assets/World-Map-VI.PNG"
-    alt="Expanded map of the known world surrounding the Verdigris Isles">
+<span class="brand-mark">🌿</span>
+Verdigris Isles
 
 </div>
+
+<p>
+A sunlit world of islands, adventure, magic, and forgotten history.
+</p>
+
+<p style="margin-top:10px;">
+© 2026 Verdigris Isles
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- ==============================
+MAP IMAGE VIEWER
+============================== -->
+
+<div
+id="mapViewer"
+class="map-viewer"
+onclick="closeMap(event)"
+>
+
+<button
+class="map-close"
+onclick="closeMap()"
+aria-label="Close map"
+>
+&times;
+</button>
+
+<img
+id="mapViewerImage"
+src="../assets/World-Map-VI.PNG"
+alt="Expanded map of the known world surrounding the Verdigris Isles"
+>
+
+</div>
+
 
 <script>
 
 function openMap() {
-  const viewer = document.getElementById("mapViewer");
 
-  viewer.classList.add("active");
+const viewer = document.getElementById("mapViewer");
 
-  document.body.style.overflow = "hidden";
+viewer.classList.add("active");
+
+document.body.style.overflow = "hidden";
 }
+
 
 function closeMap(event) {
 
-  if (
-    event &&
-    event.target !== event.currentTarget &&
-    !event.target.classList.contains("map-close")
-  ) {
-    return;
-  }
-
-  const viewer = document.getElementById("mapViewer");
-
-  viewer.classList.remove("active");
-
-  document.body.style.overflow = "";
+if (
+event &&
+event.target !== event.currentTarget &&
+!event.target.classList.contains("map-close")
+) {
+return;
 }
+
+const viewer = document.getElementById("mapViewer");
+
+viewer.classList.remove("active");
+
+document.body.style.overflow = "";
+}
+
 
 document.addEventListener("keydown", function(event) {
 
-  if (event.key === "Escape") {
+if (event.key === "Escape") {
 
-    const viewer = document.getElementById("mapViewer");
+const viewer = document.getElementById("mapViewer");
 
-    viewer.classList.remove("active");
+viewer.classList.remove("active");
 
-    document.body.style.overflow = "";
+document.body.style.overflow = "";
 
-  }
+}
 
 });
 
 </script>
+
 </body>
 </html>
