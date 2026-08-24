@@ -1683,7 +1683,29 @@ A sunlit world of islands, adventure, magic, and forgotten history.
 
 </footer>
 
+<!-- ==============================
+MAP IMAGE VIEWER
+============================== -->
 
+<div
+id="mapViewer"
+class="map-viewer"
+onclick="closeMap(event)"
+aria-hidden="true">
+
+<button
+class="map-close"
+onclick="closeMap()"
+aria-label="Close map">
+&times;
+</button>
+
+<img
+id="mapViewerImage"
+src="../assets/Verdigris-Isles.PNG"
+alt="Expanded map of the Verdigris Isles">
+
+</div>
   <script>
 
 function openMap() {
