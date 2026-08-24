@@ -2386,92 +2386,249 @@ History Closing
 
 
 
-
-
-/* ==============================
+/* =========================================================
 MAP IMAGE VIEWER
-============================== */
+========================================================= */
 
 .map-viewer {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
+position: fixed;
+inset: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+z-index: 99999;
 
-    padding: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
 
-    background: rgba(8, 42, 47, 0.92);
-    backdrop-filter: blur(8px);
+width: 100vw;
+height: 100vh;
 
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+padding: 30px;
 
-    transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+background: rgba(8, 42, 47, 0.94);
+
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
+
+transition:
+opacity 0.25s ease,
+visibility 0.25s ease;
 }
 
+
+/* -------------------------
+OPEN STATE
+------------------------- */
+
 .map-viewer.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+opacity: 1;
+
+visibility: visible;
+
+pointer-events: auto;
+}
+
+
+/* -------------------------
+MAP IMAGE
+------------------------- */
+
+.map-viewer img {
+display: block;
+
+width: auto;
+height: auto;
+
+max-width: 95vw;
+max-height: 90vh;
+
+object-fit: contain;
+
+border-radius: 18px;
+
+background: var(--white);
+
+box-shadow:
+0 25px 80px rgba(0, 0, 0, 0.55);
+
+cursor: zoom-out;
+
+user-select: none;
+-webkit-user-drag: none;
+
+animation: mapViewerIn 0.25s ease;
+}
+
+
+/* -------------------------
+MAP OPEN ANIMATION
+------------------------- */
+
+@keyframes mapViewerIn {
+
+from {
+opacity: 0;
+transform: scale(0.96);
+}
+
+to {
+opacity: 1;
+transform: scale(1);
+}
+
+}
+
+
+/* -------------------------
+CLOSE BUTTON
+------------------------- */
+
+.map-close {
+position: absolute;
+
+top: 22px;
+right: 25px;
+
+z-index: 100000;
+
+width: 50px;
+height: 50px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+padding: 0;
+
+border: 1px solid rgba(255, 255, 255, 0.25);
+
+border-radius: 50%;
+
+background: rgba(255, 253, 248, 0.14);
+
+color: white;
+
+font-family: Arial, sans-serif;
+
+font-size: 32px;
+font-weight: 300;
+
+line-height: 1;
+
+cursor: pointer;
+
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+
+transition:
+background 0.2s ease,
+transform 0.2s ease,
+border-color 0.2s ease;
+}
+
+
+.map-close:hover {
+background: rgba(255, 253, 248, 0.25);
+
+border-color:
+rgba(255, 255, 255, 0.45);
+
+transform: scale(1.06);
+}
+
+
+.map-close:active {
+transform: scale(0.95);
+}
+
+
+/* -------------------------
+CLICKABLE HERO MAP
+------------------------- */
+
+.hero-art {
+cursor: zoom-in;
+}
+
+
+/* -------------------------
+KEYBOARD ACCESSIBILITY
+------------------------- */
+
+.hero-art:focus-visible {
+outline: 4px solid var(--lagoon);
+
+outline-offset: 5px;
+}
+
+
+.map-close:focus-visible {
+outline: 3px solid var(--lagoon);
+
+outline-offset: 3px;
+}
+
+
+/* =========================================================
+MAP VIEWER — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+.map-viewer {
+padding: 18px;
 }
 
 .map-viewer img {
-    display: block;
+max-width: 96vw;
+max-height: 86vh;
 
-    max-width: 95vw;
-    max-height: 90vh;
-
-    width: auto;
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.55);
-
-    cursor: zoom-out;
+border-radius: 12px;
 }
 
 .map-close {
-    position: absolute;
+top: 14px;
+right: 14px;
 
-    top: 20px;
-    right: 25px;
+width: 44px;
+height: 44px;
 
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-
-    font-size: 32px;
-    line-height: 1;
-
-    cursor: pointer;
-
-    z-index: 10000;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+font-size: 28px;
 }
 
-.map-close:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: scale(1.05);
 }
+
+
+/* =========================================================
+MAP VIEWER — SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+.map-viewer {
+padding: 12px;
+}
+
+.map-viewer img {
+max-width: 97vw;
+max-height: 84vh;
+
+border-radius: 10px;
+}
+
+.map-close {
+top: 10px;
+right: 10px;
+
+width: 42px;
+height: 42px;
+
+font-size: 26px;
+}
+
+}
+
