@@ -2110,6 +2110,7 @@ color: white;
 }
 
 
+
 /* =========================================================
 27. MAP IMAGE VIEWER
 ========================================================= */
@@ -2282,6 +2283,40 @@ outline-offset: 5px;
 outline: 3px solid var(--lagoon);
 
 outline-offset: 3px;
+}
+
+
+/* =========================================================
+LORE ENTRIES
+========================================================= */
+
+.lore-entry {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.lore-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.lore-section {
+    margin-top: 3rem;
+}
+
+.lore-section h2 {
+    margin-bottom: 1rem;
+}
+
+.lore-note {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    border-radius: 18px;
+}
+
+.lore-note h3 {
+    margin-top: 0;
 }
 
 
