@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Verde Haven | Verdigris Isles</title>
+
+<link rel="stylesheet" href="../css/styles.css">
+
+<style>
+
+/* =========================================================
+   LORE CODEX TEST PAGE
+   ========================================================= */
+
+.lore-codex {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.lore-header {
+    background: var(--navy);
+    color: var(--foam);
+    border-radius: 22px 22px 0 0;
+    padding: 35px 40px;
+    border-bottom: 5px solid var(--lagoon);
+}
+
+.lore-kicker {
+    color: var(--lagoon);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.lore-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.lore-header p {
+    margin: 10px 0 0;
+    opacity: 0.85;
+}
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.lore-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.lore-meta span {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   MAIN CODEX
+   ========================================================= */
+
+.lore-body {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    background: var(--foam);
+    border-radius: 0 0 22px 22px;
+    overflow: hidden;
+    min-height: 650px;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.lore-sidebar {
+    background: var(--sand2);
+    border-right: 1px solid rgba(0,0,0,0.08);
+    padding: 25px 18px;
+}
+
+.lore-sidebar h3 {
+    margin: 0 0 15px;
+    color: var(--deep);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.lore-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lore-tab {
+    border: none;
+    background: transparent;
+    color: var(--stone);
+    text-align: left;
+    padding: 11px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: 0.2s ease;
+}
+
+.lore-tab:hover {
+    background: rgba(49,195,192,0.12);
+    color: var(--deep);
+}
+
+.lore-tab.active {
+    background: var(--lagoon);
+    color: white;
+    font-weight: bold;
+}
+
+/* =========================================================
+   READING AREA
+   ========================================================= */
+
+.lore-reader {
+    padding: 35px 45px;
+    height: 600px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+
+.lore-reader::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lore-reader::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lore-reader::-webkit-scrollbar-thumb {
+    background: var(--lagoon);
+    border-radius: 999px;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.lore-section {
+    max-width: 760px;
+    margin: 0 auto 55px;
+}
+
+.lore-section:last-child {
+    margin-bottom: 20px;
+}
+
+.lore-section h2 {
+    color: var(--deep);
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.lore-section h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: var(--lagoon);
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.lore-section h3 {
+    color: var(--navy);
+    margin-top: 28px;
+}
+
+.lore-section p {
+    line-height: 1.8;
+    color: var(--stone);
+}
+
+/* =========================================================
+   QUICK FACTS
+   ========================================================= */
+
+.quick-facts {
+    background: var(--sand2);
+    border-left: 4px solid var(--lagoon);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.quick-facts h3 {
+    margin-top: 0;
+    color: var(--deep);
+}
+
+.quick-facts dl {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 8px 15px;
+    margin: 0;
+}
+
+.quick-facts dt {
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.quick-facts dd {
+    margin: 0;
+    color: var(--stone);
+}
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.lore-timeline {
+    border-left: 3px solid var(--lagoon);
+    margin: 25px 0;
+    padding-left: 25px;
+}
+
+.timeline-event {
+    margin-bottom: 25px;
+}
+
+.timeline-event strong {
+    display: block;
+    color: var(--deep);
+    margin-bottom: 4px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .lore-codex {
+        padding: 0 10px;
+        margin-top: 20px;
+    }
+
+    .lore-header {
+        padding: 25px;
+    }
+
+    .lore-header h1 {
+        font-size: 2rem;
+    }
+
+    .lore-body {
+        grid-template-columns: 1fr;
+    }
+
+    .lore-sidebar {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding: 15px;
+    }
+
+    .lore-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lore-reader {
+        height: 600px;
+        padding: 25px 20px;
+    }
+
+    .quick-facts dl {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- ==============================
+NAVIGATION
+============================== -->
+
+<header>
+<div class="container">
+
+<nav>
+
+<a class="brand" href="../index.html">
+Verdigris Isles
+</a>
+
+<div class="nav-links">
+
+<a href="../index.html">Home</a>
+<a href="../world/world.html">World</a>
+<a class="active" href="../regions/regions.html">Regions</a>
+<a href="../races/races.html">Races</a>
+
+</div>
+
+</nav>
+
+</div>
+</header>
+
+
+<!-- ==============================
+LORE CODEX
+============================== -->
+
+<main class="lore-codex">
+
+
+<!-- HEADER -->
+
+<header class="lore-header">
+
+<div class="lore-kicker">
+Regional Archive
+</div>
+
+<h1>Verde Haven</h1>
+
+<p>
+The capital city built among the remnants of the fallen Citadel.
+</p>
+
+<div class="lore-meta">
+
+<span>Capital</span>
+<span>Verdigris Isles</span>
+<span>Post-Fall</span>
+<span>113 AF</span>
+
+</div>
+
+</header>
+
+
+<!-- CODEX BODY -->
+
+<div class="lore-body">
+
+
+<!-- SIDEBAR -->
+
+<aside class="lore-sidebar">
+
+<h3>Contents</h3>
+
+<div class="lore-nav">
+
+<button class="lore-tab active"
+onclick="showSection('overview', this)">
+Overview
+</button>
+
+<button class="lore-tab"
+onclick="showSection('history', this)">
+History
+</button>
+
+<button class="lore-tab"
+onclick="showSection('fall', this)">
+The Fall
+</button>
+
+<button class="lore-tab"
+onclick="showSection('settlement', this)">
+Settlement
+</button>
+
+<button class="lore-tab"
+onclick="showSection('gardens', this)">
+The Gardens
+</button>
+
+<button class="lore-tab"
+onclick="showSection('modern', this)">
+Modern City
+</button>
+
+</div>
+
+
+<br>
+
+
+<h3>Related Lore</h3>
+
+<div class="lore-nav">
+
+<button class="lore-tab">
+The Citadel
+</button>
+
+<button class="lore-tab">
+Crownscar
+</button>
+
+<button class="lore-tab">
+Aetherite
+</button>
+
+<button class="lore-tab">
+Drift
+</button>
+
+</div>
+
+</aside>
+
+
+<!-- READING PANEL -->
+
+<article class="lore-reader" id="loreReader">
+
+
+<!-- OVERVIEW -->
+
+<section class="lore-section" id="overview">
+
+<h2>Overview</h2>
+
+<p>
+Verde Haven is the modern capital of the Verdigris Isles, built
+among the surviving remnants of the world that existed before
+the Fall of the Citadel.
+</p>
+
+<p>
+Unlike cities founded from untouched ground, Verde Haven grew
+around ruins, gardens, foundations, and fragments of the old
+world. The result is a city where reclaimed architecture and
+new construction exist side by side.
+</p>
+
+
+<div class="quick-facts">
+
+<h3>Quick Facts</h3>
+
+<dl>
+
+<dt>Type</dt>
+<dd>Capital City</dd>
+
+<dt>Region</dt>
+<dd>Verdigris Isles</dd>
+
+<dt>Era</dt>
+<dd>Post-Fall</dd>
+
+<dt>Known For</dt>
+<dd>Reclaimed architecture, gardens, trade, and magitech</dd>
+
+</dl>
+
+</div>
+
+</section>
+
+
+<!-- HISTORY -->
+
+<section class="lore-section" id="history">
+
+<h2>History</h2>
+
+<p>
+The history of Verde Haven begins before the city itself existed.
+The area was once part of the Citadel's elite residential and
+garden districts.
+</p>
+
+<p>
+When the Citadel fell, portions of these districts were carried
+down with it. The ruins became the foundation upon which later
+generations built their homes.
+</p>
+
+<div class="lore-timeline">
+
+<div class="timeline-event">
+
+<strong>Before 0 FC — The Collapse Begins</strong>
+
+The Citadel's systems begin failing as Aetherite reserves
+become critically depleted.
+
+</div>
+
+<div class="timeline-event">
+
+<strong>0 FC — The Fall</strong>
+
+The Citadel physically collapses, scattering its ruins across
+the surrounding lands.
+
+</div>
+
+<div class="timeline-event">
+
+<strong>After 0 FC — The Settlement Era</strong>
+
+Survivors begin occupying and rebuilding within the ruins.
+
+</div>
+
+<div class="timeline-event">
+
+<strong>Modern Era</strong>
+
+The settlement has grown into Verde Haven, capital of the
+Verdigris Isles.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- THE FALL -->
+
+<section class="lore-section" id="fall">
+
+<h2>The Fall</h2>
+
+<p>
+0 FC marks the physical Fall of the Citadel itself.
+The years leading up to this event belong to the Final Days,
+when the Citadel's infrastructure was already beginning to fail.
+</p>
+
+<p>
+Power became unreliable. Resources were rationed. Systems that
+had once been considered permanent began to fail one after
+another.
+</p>
+
+<p>
+Then the Citadel came down.
+</p>
+
+</section>
+
+
+<!-- SETTLEMENT -->
+
+<section class="lore-section" id="settlement">
+
+<h2>The First Settlement</h2>
+
+<p>
+In the generations following the Fall, survivors discovered
+that the ruins could provide something the open wilderness
+could not: shelter.
+</p>
+
+<p>
+The fallen residential districts became particularly valuable.
+Walls, foundations, gardens, and surviving structures were
+adapted rather than destroyed.
+</p>
+
+</section>
+
+
+<!-- GARDENS -->
+
+<section class="lore-section" id="gardens">
+
+<h2>The Gardens</h2>
+
+<p>
+Among the most remarkable remnants of the old Citadel are the
+elite gardens that once surrounded its residential districts.
+</p>
+
+<p>
+Some sections survived the Fall remarkably well. Others were
+buried beneath debris and slowly reclaimed by vegetation.
+</p>
+
+<p>
+Modern Verde Haven was built around these surviving spaces,
+making the gardens an unusual bridge between the old world
+and the new.
+</p>
+
+</section>
+
+
+<!-- MODERN -->
+
+<section class="lore-section" id="modern">
+
+<h2>Modern Verde Haven</h2>
+
+<p>
+Today, Verde Haven is a thriving capital whose architecture
+reflects centuries of rebuilding.
+</p>
+
+<p>
+Old Citadel structures stand beside nineteenth-century-inspired
+industrial construction, reclaimed magitech machinery, markets,
+workshops, gardens, and residential districts.
+</p>
+
+<p>
+The city is neither entirely old nor entirely new. Its identity
+comes from the layers between the two.
+</p>
+
+</section>
+
+
+</article>
+
+</div>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   LORE NAVIGATION
+   ========================================================= */
+
+function showSection(id, button) {
+
+    const reader = document.getElementById("loreReader");
+    const section = document.getElementById(id);
+
+    document.querySelectorAll(".lore-tab").forEach(tab => {
+        tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    reader.scrollTo({
+        top: section.offsetTop - reader.offsetTop - 20,
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+
+</body>
+</html>
