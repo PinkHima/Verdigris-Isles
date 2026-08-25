@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,286 +12,740 @@
 <style>
 
 /* =========================================================
-   LORE CODEX TEST PAGE
+   VERDIGRIS ISLES
+   LORE CODEX — TEST VERSION
+   ========================================================= */
+
+
+/* =========================================================
+   01. CODEX WRAPPER
    ========================================================= */
 
 .lore-codex {
-    max-width: 1200px;
+
+    max-width: 1250px;
+
     margin: 40px auto;
+
     padding: 0 20px;
+
 }
 
+
 /* =========================================================
-   HEADER
+   02. LORE HEADER
    ========================================================= */
 
 .lore-header {
+
     background: var(--navy);
+
     color: var(--foam);
-    border-radius: 22px 22px 0 0;
+
     padding: 35px 40px;
+
+    border-radius: 24px 24px 0 0;
+
     border-bottom: 5px solid var(--lagoon);
+
 }
+
 
 .lore-kicker {
+
     color: var(--lagoon);
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
-    font-size: 0.8rem;
-    font-weight: bold;
+
+    font-size: .78rem;
+
+    font-weight: 700;
+
     margin-bottom: 8px;
+
 }
+
 
 .lore-header h1 {
+
     margin: 0;
-    font-size: 2.5rem;
+
+    font-size: 2.6rem;
+
 }
 
-.lore-header p {
+
+.lore-subtitle {
+
     margin: 10px 0 0;
-    opacity: 0.85;
+
+    opacity: .85;
+
+    max-width: 700px;
+
+    line-height: 1.6;
+
 }
+
 
 /* =========================================================
-   META
+   03. META PILLS
    ========================================================= */
 
 .lore-meta {
+
     display: flex;
+
     flex-wrap: wrap;
-    gap: 10px;
+
+    gap: 8px;
+
     margin-top: 20px;
+
 }
+
 
 .lore-meta span {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.15);
+
+    background: rgba(255,255,255,.10);
+
+    border: 1px solid rgba(255,255,255,.15);
+
     border-radius: 999px;
+
     padding: 6px 12px;
-    font-size: 0.8rem;
+
+    font-size: .78rem;
+
 }
 
+
 /* =========================================================
-   MAIN CODEX
+   04. CODEX BODY
    ========================================================= */
 
 .lore-body {
+
     display: grid;
-    grid-template-columns: 240px 1fr;
+
+    grid-template-columns: 255px minmax(0, 1fr);
+
     background: var(--foam);
-    border-radius: 0 0 22px 22px;
+
+    border-radius: 0 0 24px 24px;
+
     overflow: hidden;
-    min-height: 650px;
+
+    min-height: 680px;
+
 }
 
+
 /* =========================================================
-   SIDEBAR
+   05. SIDEBAR
    ========================================================= */
 
 .lore-sidebar {
+
     background: var(--sand2);
-    border-right: 1px solid rgba(0,0,0,0.08);
-    padding: 25px 18px;
+
+    border-right: 1px solid rgba(0,0,0,.08);
+
+    padding: 22px 16px;
+
+    overflow-y: auto;
+
 }
 
-.lore-sidebar h3 {
-    margin: 0 0 15px;
+
+.sidebar-heading {
+
     color: var(--deep);
-    font-size: 0.8rem;
+
     text-transform: uppercase;
+
     letter-spacing: 1.5px;
+
+    font-size: .72rem;
+
+    font-weight: 800;
+
+    padding: 5px 12px 10px;
+
 }
 
-.lore-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.lore-tab {
-    border: none;
-    background: transparent;
-    color: var(--stone);
-    text-align: left;
-    padding: 11px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    transition: 0.2s ease;
-}
-
-.lore-tab:hover {
-    background: rgba(49,195,192,0.12);
-    color: var(--deep);
-}
-
-.lore-tab.active {
-    background: var(--lagoon);
-    color: white;
-    font-weight: bold;
-}
 
 /* =========================================================
-   READING AREA
+   06. CATEGORY GROUPS
+   ========================================================= */
+
+.lore-category {
+
+    margin-bottom: 8px;
+
+}
+
+
+.category-toggle {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--navy);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 12px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    font-size: .82rem;
+
+    text-align: left;
+
+}
+
+
+.category-toggle:hover {
+
+    background: rgba(49,195,192,.10);
+
+}
+
+
+.category-arrow {
+
+    transition: transform .2s ease;
+
+}
+
+
+.lore-category.open .category-arrow {
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =========================================================
+   07. CATEGORY LINKS
+   ========================================================= */
+
+.category-links {
+
+    display: none;
+
+    padding: 2px 0 5px 10px;
+
+}
+
+
+.lore-category.open .category-links {
+
+    display: block;
+
+}
+
+
+.lore-tab {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--stone);
+
+    text-align: left;
+
+    padding: 8px 12px 8px 18px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: .82rem;
+
+    transition: .2s ease;
+
+}
+
+
+.lore-tab:hover {
+
+    background: rgba(49,195,192,.10);
+
+    color: var(--deep);
+
+}
+
+
+.lore-tab.active {
+
+    background: var(--lagoon);
+
+    color: white;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   08. READING WINDOW
    ========================================================= */
 
 .lore-reader {
-    padding: 35px 45px;
-    height: 600px;
+
+    height: 680px;
+
     overflow-y: auto;
+
     scroll-behavior: smooth;
+
+    padding: 40px 55px;
+
 }
 
-/* Scrollbar */
-
-.lore-reader::-webkit-scrollbar {
-    width: 8px;
-}
-
-.lore-reader::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.lore-reader::-webkit-scrollbar-thumb {
-    background: var(--lagoon);
-    border-radius: 999px;
-}
 
 /* =========================================================
-   CONTENT
+   09. READER SCROLLBAR
    ========================================================= */
 
-.lore-section {
-    max-width: 760px;
-    margin: 0 auto 55px;
+.lore-reader::-webkit-scrollbar {
+
+    width: 9px;
+
 }
 
-.lore-section:last-child {
-    margin-bottom: 20px;
+
+.lore-reader::-webkit-scrollbar-track {
+
+    background: transparent;
+
 }
 
-.lore-section h2 {
-    color: var(--deep);
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-}
 
-.lore-section h2::after {
-    content: "";
-    display: block;
-    width: 55px;
-    height: 3px;
+.lore-reader::-webkit-scrollbar-thumb {
+
     background: var(--lagoon);
-    margin-top: 10px;
-    border-radius: 5px;
+
+    border-radius: 999px;
+
 }
 
-.lore-section h3 {
-    color: var(--navy);
-    margin-top: 28px;
+
+.lore-reader {
+
+    scrollbar-color: var(--lagoon) transparent;
+
 }
 
-.lore-section p {
-    line-height: 1.8;
-    color: var(--stone);
-}
 
 /* =========================================================
-   QUICK FACTS
+   10. READING CONTENT
+   ========================================================= */
+
+.lore-document {
+
+    max-width: 780px;
+
+    margin: 0 auto;
+
+}
+
+
+.lore-section {
+
+    margin-bottom: 70px;
+
+    scroll-margin-top: 25px;
+
+}
+
+
+.lore-section:last-child {
+
+    margin-bottom: 20px;
+
+}
+
+
+.lore-section h2 {
+
+    color: var(--deep);
+
+    font-size: 1.9rem;
+
+    margin: 0 0 10px;
+
+}
+
+
+.lore-section h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 55px;
+
+    height: 3px;
+
+    background: var(--lagoon);
+
+    border-radius: 999px;
+
+    margin-top: 12px;
+
+}
+
+
+.lore-section h3 {
+
+    color: var(--navy);
+
+    margin-top: 30px;
+
+}
+
+
+.lore-section p {
+
+    color: var(--stone);
+
+    line-height: 1.85;
+
+    margin: 16px 0;
+
+}
+
+
+/* =========================================================
+   11. SECTION INTRO
+   ========================================================= */
+
+.lore-lead {
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================================
+   12. QUICK FACTS
    ========================================================= */
 
 .quick-facts {
+
     background: var(--sand2);
+
     border-left: 4px solid var(--lagoon);
+
     border-radius: 12px;
-    padding: 20px;
-    margin: 25px 0;
+
+    padding: 22px;
+
+    margin: 28px 0;
+
 }
+
 
 .quick-facts h3 {
-    margin-top: 0;
+
+    margin: 0 0 15px;
+
     color: var(--deep);
+
 }
+
 
 .quick-facts dl {
+
     display: grid;
+
     grid-template-columns: 130px 1fr;
-    gap: 8px 15px;
+
+    gap: 9px 15px;
+
     margin: 0;
+
 }
+
 
 .quick-facts dt {
-    font-weight: bold;
+
+    font-weight: 700;
+
     color: var(--navy);
+
 }
+
 
 .quick-facts dd {
+
     margin: 0;
+
     color: var(--stone);
+
 }
 
+
 /* =========================================================
-   TIMELINE
+   13. TIMELINE
    ========================================================= */
 
 .lore-timeline {
+
     border-left: 3px solid var(--lagoon);
-    margin: 25px 0;
+
+    margin: 30px 0;
+
     padding-left: 25px;
+
 }
+
 
 .timeline-event {
-    margin-bottom: 25px;
+
+    margin-bottom: 28px;
+
 }
+
+
+.timeline-event:last-child {
+
+    margin-bottom: 0;
+
+}
+
 
 .timeline-event strong {
+
     display: block;
+
     color: var(--deep);
-    margin-bottom: 4px;
+
+    margin-bottom: 5px;
+
 }
 
+
 /* =========================================================
-   MOBILE
+   14. LORE CALLOUT
    ========================================================= */
 
-@media (max-width: 750px) {
+.lore-callout {
+
+    background: rgba(49,195,192,.08);
+
+    border: 1px solid rgba(49,195,192,.25);
+
+    border-radius: 14px;
+
+    padding: 20px 22px;
+
+    margin: 28px 0;
+
+}
+
+
+.lore-callout strong {
+
+    display: block;
+
+    color: var(--deep);
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =========================================================
+   15. RELATED LORE
+   ========================================================= */
+
+.related-lore {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+.related-lore a {
+
+    display: block;
+
+    background: var(--sand2);
+
+    color: var(--deep);
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    font-weight: 700;
+
+    transition: .2s ease;
+
+}
+
+
+.related-lore a:hover {
+
+    background: var(--lagoon);
+
+    color: white;
+
+}
+
+
+/* =========================================================
+   16. MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
 
     .lore-codex {
+
+        margin: 20px auto;
+
         padding: 0 10px;
-        margin-top: 20px;
+
     }
+
 
     .lore-header {
-        padding: 25px;
+
+        padding: 28px 24px;
+
     }
+
 
     .lore-header h1 {
-        font-size: 2rem;
+
+        font-size: 2.1rem;
+
     }
+
 
     .lore-body {
+
         grid-template-columns: 1fr;
+
     }
+
 
     .lore-sidebar {
+
         border-right: none;
-        border-bottom: 1px solid rgba(0,0,0,0.08);
+
+        border-bottom: 1px solid rgba(0,0,0,.08);
+
+        max-height: none;
+
         padding: 15px;
+
     }
 
-    .lore-nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
 
     .lore-reader {
+
         height: 600px;
-        padding: 25px 20px;
+
+        padding: 30px 22px;
+
     }
 
+
     .quick-facts dl {
+
         grid-template-columns: 1fr;
+
+        gap: 3px;
+
+    }
+
+
+    .quick-facts dd {
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .related-lore {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   17. SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+
+    .lore-meta {
+
+        gap: 6px;
+
+    }
+
+
+    .lore-meta span {
+
+        font-size: .72rem;
+
+    }
+
+
+    .lore-reader {
+
+        height: 550px;
+
+        padding: 25px 18px;
+
+    }
+
+
+    .lore-section h2 {
+
+        font-size: 1.6rem;
+
     }
 
 }
@@ -302,11 +757,13 @@
 
 <body>
 
-<!-- ==============================
-NAVIGATION
-============================== -->
+
+<!-- =====================================================
+     SITE NAVIGATION
+     ===================================================== -->
 
 <header>
+
 <div class="container">
 
 <nav>
@@ -318,26 +775,38 @@ Verdigris Isles
 <div class="nav-links">
 
 <a href="../index.html">Home</a>
-<a href="../world/world.html">World</a>
-<a class="active" href="../regions/regions.html">Regions</a>
-<a href="../races/races.html">Races</a>
+
+<a href="../world/world.html">
+World
+</a>
+
+<a class="active" href="../regions/regions.html">
+Regions
+</a>
+
+<a href="../races/races.html">
+Races
+</a>
 
 </div>
 
 </nav>
 
 </div>
+
 </header>
 
 
-<!-- ==============================
-LORE CODEX
-============================== -->
+<!-- =====================================================
+     LORE CODEX
+     ===================================================== -->
 
 <main class="lore-codex">
 
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
 
 <header class="lore-header">
 
@@ -347,15 +816,21 @@ Regional Archive
 
 <h1>Verde Haven</h1>
 
-<p>
-The capital city built among the remnants of the fallen Citadel.
+<p class="lore-subtitle">
+The capital city built among the remnants of the fallen
+Citadel, where reclaimed ruins, old gardens, and new
+civilization have grown together.
 </p>
+
 
 <div class="lore-meta">
 
 <span>Capital</span>
+
 <span>Verdigris Isles</span>
+
 <span>Post-Fall</span>
+
 <span>113 AF</span>
 
 </div>
@@ -363,18 +838,42 @@ The capital city built among the remnants of the fallen Citadel.
 </header>
 
 
-<!-- CODEX BODY -->
+<!-- =====================================================
+     CODEX BODY
+     ===================================================== -->
 
 <div class="lore-body">
 
 
-<!-- SIDEBAR -->
+<!-- =====================================================
+     SIDEBAR
+     ===================================================== -->
 
 <aside class="lore-sidebar">
 
-<h3>Contents</h3>
 
-<div class="lore-nav">
+<div class="sidebar-heading">
+Contents
+</div>
+
+
+<!-- OVERVIEW -->
+
+<div class="lore-category open">
+
+<button class="category-toggle"
+onclick="toggleCategory(this)">
+
+Overview
+
+<span class="category-arrow">
+›
+</span>
+
+</button>
+
+
+<div class="category-links">
 
 <button class="lore-tab active"
 onclick="showSection('overview', this)">
@@ -382,19 +881,75 @@ Overview
 </button>
 
 <button class="lore-tab"
-onclick="showSection('history', this)">
+onclick="showSection('facts', this)">
+Quick Facts
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<div class="lore-category open">
+
+<button class="category-toggle"
+onclick="toggleCategory(this)">
+
 History
+
+<span class="category-arrow">
+›
+</span>
+
+</button>
+
+
+<div class="category-links">
+
+<button class="lore-tab"
+onclick="showSection('before-fall', this)">
+Before the Fall
+</button>
+
+<button class="lore-tab"
+onclick="showSection('final-days', this)">
+Final Days
 </button>
 
 <button class="lore-tab"
 onclick="showSection('fall', this)">
-The Fall
+0 FC — The Fall
 </button>
 
 <button class="lore-tab"
 onclick="showSection('settlement', this)">
-Settlement
+Settlement Era
 </button>
+
+</div>
+
+</div>
+
+
+<!-- THE CITY -->
+
+<div class="lore-category">
+
+<button class="category-toggle"
+onclick="toggleCategory(this)">
+
+The City
+
+<span class="category-arrow">
+›
+</span>
+
+</button>
+
+
+<div class="category-links">
 
 <button class="lore-tab"
 onclick="showSection('gardens', this)">
@@ -402,9 +957,107 @@ The Gardens
 </button>
 
 <button class="lore-tab"
-onclick="showSection('modern', this)">
-Modern City
+onclick="showSection('architecture', this)">
+Architecture
 </button>
+
+<button class="lore-tab"
+onclick="showSection('districts', this)">
+Districts
+</button>
+
+<button class="lore-tab"
+onclick="showSection('industry', this)">
+Industry
+</button>
+
+<button class="lore-tab"
+onclick="showSection('transportation', this)">
+Transportation
+</button>
+
+</div>
+
+</div>
+
+
+<!-- SOCIETY -->
+
+<div class="lore-category">
+
+<button class="category-toggle"
+onclick="toggleCategory(this)">
+
+Society
+
+<span class="category-arrow">
+›
+</span>
+
+</button>
+
+
+<div class="category-links">
+
+<button class="lore-tab"
+onclick="showSection('culture', this)">
+Culture
+</button>
+
+<button class="lore-tab"
+onclick="showSection('religion', this)">
+Religion
+</button>
+
+<button class="lore-tab"
+onclick="showSection('food', this)">
+Food & Trade
+</button>
+
+<button class="lore-tab"
+onclick="showSection('daily-life', this)">
+Daily Life
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PEOPLE -->
+
+<div class="lore-category">
+
+<button class="category-toggle"
+onclick="toggleCategory(this)">
+
+People
+
+<span class="category-arrow">
+›
+</span>
+
+</button>
+
+
+<div class="category-links">
+
+<button class="lore-tab"
+onclick="showSection('population', this)">
+Population
+</button>
+
+<button class="lore-tab"
+onclick="showSection('factions', this)">
+Factions
+</button>
+
+<button class="lore-tab"
+onclick="showSection('figures', this)">
+Notable Figures
+</button>
+
+</div>
 
 </div>
 
@@ -412,9 +1065,15 @@ Modern City
 <br>
 
 
-<h3>Related Lore</h3>
+<!-- RELATED -->
 
-<div class="lore-nav">
+<div class="sidebar-heading">
+Related Lore
+</div>
+
+
+<div class="category-links"
+style="display:block;">
 
 <button class="lore-tab">
 The Citadel
@@ -434,37 +1093,79 @@ Drift
 
 </div>
 
+
 </aside>
 
 
-<!-- READING PANEL -->
+<!-- =====================================================
+     READING WINDOW
+     ===================================================== -->
 
 <article class="lore-reader" id="loreReader">
 
 
-<!-- OVERVIEW -->
+<div class="lore-document">
+
+
+<!-- =====================================================
+     OVERVIEW
+     ===================================================== -->
 
 <section class="lore-section" id="overview">
 
 <h2>Overview</h2>
 
-<p>
-Verde Haven is the modern capital of the Verdigris Isles, built
-among the surviving remnants of the world that existed before
-the Fall of the Citadel.
+<p class="lore-lead">
+
+Verde Haven is the modern capital of the Verdigris Isles,
+built among the surviving remnants of the civilization that
+existed before the Fall of the Citadel.
+
 </p>
 
 <p>
-Unlike cities founded from untouched ground, Verde Haven grew
-around ruins, gardens, foundations, and fragments of the old
-world. The result is a city where reclaimed architecture and
-new construction exist side by side.
+
+Unlike a city founded from untouched ground, Verde Haven grew
+around ruins, foundations, gardens, and fragments of the old
+world. Old Citadel architecture exists alongside generations
+of new construction.
+
 </p>
 
+<p>
+
+The result is a city that feels neither entirely ancient nor
+entirely modern. Verde Haven is a living record of the world
+that was lost and the civilization that followed it.
+
+</p>
+
+
+<div class="lore-callout">
+
+<strong>
+A City Built From What Survived
+</strong>
+
+Verde Haven's identity comes from the layers of civilization
+built upon one another after the Fall.
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUICK FACTS
+     ===================================================== -->
+
+<section class="lore-section" id="facts">
+
+<h2>Quick Facts</h2>
 
 <div class="quick-facts">
 
-<h3>Quick Facts</h3>
+<h3>Verde Haven</h3>
 
 <dl>
 
@@ -477,8 +1178,17 @@ new construction exist side by side.
 <dt>Era</dt>
 <dd>Post-Fall</dd>
 
+<dt>Founded</dt>
+<dd>Settlement established after 0 FC</dd>
+
 <dt>Known For</dt>
-<dd>Reclaimed architecture, gardens, trade, and magitech</dd>
+<dd>
+Reclaimed Citadel architecture, gardens, trade,
+industry, and magitech
+</dd>
+
+<dt>Major Resource</dt>
+<dd>Reclaimed materials and Drift technology</dd>
 
 </dl>
 
@@ -487,58 +1197,122 @@ new construction exist side by side.
 </section>
 
 
-<!-- HISTORY -->
+<!-- =====================================================
+     BEFORE THE FALL
+     ===================================================== -->
 
-<section class="lore-section" id="history">
+<section class="lore-section" id="before-fall">
 
-<h2>History</h2>
+<h2>Before the Fall</h2>
 
 <p>
-The history of Verde Haven begins before the city itself existed.
-The area was once part of the Citadel's elite residential and
-garden districts.
+
+Before Verde Haven existed, the land was part of the Citadel's
+elite residential and garden districts.
+
 </p>
 
 <p>
-When the Citadel fell, portions of these districts were carried
-down with it. The ruins became the foundation upon which later
-generations built their homes.
+
+The area contained carefully maintained gardens, residences,
+walkways, service structures, and infrastructure designed for
+those who lived close to the highest levels of Citadel society.
+
 </p>
+
+<p>
+
+Much of this district would eventually become buried beneath
+the ruins of the Citadel itself.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL DAYS
+     ===================================================== -->
+
+<section class="lore-section" id="final-days">
+
+<h2>The Final Days</h2>
+
+<p>
+
+The years immediately preceding 0 FC were marked by a gradual
+collapse of Citadel infrastructure.
+
+</p>
+
+<p>
+
+Aetherite reserves became critically depleted. Power systems
+became unreliable, infrastructure began failing, and resources
+were increasingly rationed.
+
+</p>
+
+<p>
+
+The Citadel had once seemed permanent.
+
+It was not.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     THE FALL
+     ===================================================== -->
+
+<section class="lore-section" id="fall">
+
+<h2>0 FC — The Fall</h2>
+
+<p>
+
+0 FC marks the physical Fall of the Citadel itself.
+
+</p>
+
+<p>
+
+The events immediately preceding the catastrophe belong to the
+Final Days. The Fall itself is the moment when the Citadel
+collapsed, destroying enormous portions of the civilization
+that had depended upon it.
+
+</p>
+
 
 <div class="lore-timeline">
 
 <div class="timeline-event">
 
-<strong>Before 0 FC — The Collapse Begins</strong>
+<strong>Before 0 FC</strong>
 
-The Citadel's systems begin failing as Aetherite reserves
-become critically depleted.
-
-</div>
-
-<div class="timeline-event">
-
-<strong>0 FC — The Fall</strong>
-
-The Citadel physically collapses, scattering its ruins across
-the surrounding lands.
+The Collapse Begins.
 
 </div>
 
+
 <div class="timeline-event">
 
-<strong>After 0 FC — The Settlement Era</strong>
+<strong>0 FC</strong>
 
-Survivors begin occupying and rebuilding within the ruins.
+The Citadel physically falls.
 
 </div>
 
+
 <div class="timeline-event">
 
-<strong>Modern Era</strong>
+<strong>After 0 FC</strong>
 
-The settlement has grown into Verde Haven, capital of the
-Verdigris Isles.
+Survivors begin establishing settlements among the ruins.
 
 </div>
 
@@ -547,101 +1321,351 @@ Verdigris Isles.
 </section>
 
 
-<!-- THE FALL -->
-
-<section class="lore-section" id="fall">
-
-<h2>The Fall</h2>
-
-<p>
-0 FC marks the physical Fall of the Citadel itself.
-The years leading up to this event belong to the Final Days,
-when the Citadel's infrastructure was already beginning to fail.
-</p>
-
-<p>
-Power became unreliable. Resources were rationed. Systems that
-had once been considered permanent began to fail one after
-another.
-</p>
-
-<p>
-Then the Citadel came down.
-</p>
-
-</section>
-
-
-<!-- SETTLEMENT -->
+<!-- =====================================================
+     SETTLEMENT
+     ===================================================== -->
 
 <section class="lore-section" id="settlement">
 
-<h2>The First Settlement</h2>
+<h2>The Settlement Era</h2>
 
 <p>
-In the generations following the Fall, survivors discovered
-that the ruins could provide something the open wilderness
-could not: shelter.
+
+In the generations following the Fall, survivors began
+occupying the ruins left behind.
+
 </p>
 
 <p>
-The fallen residential districts became particularly valuable.
-Walls, foundations, gardens, and surviving structures were
-adapted rather than destroyed.
+
+The fallen residential and garden districts proved especially
+valuable. Existing foundations offered shelter, while surviving
+walls and structures could be repaired rather than rebuilt from
+nothing.
+
+</p>
+
+<p>
+
+Over generations, the settlement expanded outward from these
+ruins.
+
 </p>
 
 </section>
 
 
-<!-- GARDENS -->
+<!-- =====================================================
+     GARDENS
+     ===================================================== -->
 
 <section class="lore-section" id="gardens">
 
 <h2>The Gardens</h2>
 
 <p>
-Among the most remarkable remnants of the old Citadel are the
-elite gardens that once surrounded its residential districts.
+
+Among the most recognizable remnants of the old Citadel are
+the gardens that once belonged to its elite residential
+districts.
+
 </p>
 
 <p>
-Some sections survived the Fall remarkably well. Others were
-buried beneath debris and slowly reclaimed by vegetation.
+
+Some survived remarkably intact. Others were buried, overgrown,
+or transformed by generations of settlement.
+
 </p>
 
 <p>
-Modern Verde Haven was built around these surviving spaces,
-making the gardens an unusual bridge between the old world
-and the new.
+
+Modern Verde Haven grew around these surviving spaces rather
+than completely replacing them.
+
 </p>
 
 </section>
 
 
-<!-- MODERN -->
+<!-- =====================================================
+     ARCHITECTURE
+     ===================================================== -->
 
-<section class="lore-section" id="modern">
+<section class="lore-section" id="architecture">
 
-<h2>Modern Verde Haven</h2>
+<h2>Architecture</h2>
 
 <p>
-Today, Verde Haven is a thriving capital whose architecture
-reflects centuries of rebuilding.
+
+Verde Haven's architecture reflects centuries of rebuilding.
+
 </p>
 
 <p>
-Old Citadel structures stand beside nineteenth-century-inspired
-industrial construction, reclaimed magitech machinery, markets,
-workshops, gardens, and residential districts.
-</p>
 
-<p>
-The city is neither entirely old nor entirely new. Its identity
-comes from the layers between the two.
+Reclaimed Citadel stonework can be found beside nineteenth-
+century-inspired industrial buildings, wooden residences,
+metal workshops, and structures incorporating salvaged
+magitech components.
+
 </p>
 
 </section>
 
+
+<!-- =====================================================
+     DISTRICTS
+     ===================================================== -->
+
+<section class="lore-section" id="districts">
+
+<h2>Districts</h2>
+
+<p>
+
+The city is divided into districts that reflect both its
+history and its modern function.
+
+</p>
+
+<p>
+
+The oldest portions of the city remain closely tied to the
+ruins of the Citadel, while newer districts expanded outward
+into areas that were once peripheral settlements.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     INDUSTRY
+     ===================================================== -->
+
+<section class="lore-section" id="industry">
+
+<h2>Industry</h2>
+
+<p>
+
+Verde Haven is one of the major industrial centers of the
+Verdigris Isles.
+
+</p>
+
+<p>
+
+Workshops, factories, foundries, printing houses, and
+magitech repair facilities make use of both conventional
+nineteenth-century technology and carefully reclaimed
+technology from the old world.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     TRANSPORTATION
+     ===================================================== -->
+
+<section class="lore-section" id="transportation">
+
+<h2>Transportation</h2>
+
+<p>
+
+Transportation throughout Verde Haven reflects the city's
+position as both a major trade center and a settlement shaped
+by its waterways.
+
+</p>
+
+<p>
+
+Ships, carts, rail systems, and Drift-powered airboats connect
+the capital to surrounding settlements and trade routes.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     CULTURE
+     ===================================================== -->
+
+<section class="lore-section" id="culture">
+
+<h2>Culture</h2>
+
+<p>
+
+Verde Haven's culture is shaped by the coexistence of old-world
+relics and new-world traditions.
+
+</p>
+
+<p>
+
+The people of the capital live surrounded by evidence of the
+civilization that came before them while simultaneously
+building something distinctly their own.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     RELIGION
+     ===================================================== -->
+
+<section class="lore-section" id="religion">
+
+<h2>Religion</h2>
+
+<p>
+
+Religious traditions in Verde Haven vary considerably between
+communities.
+
+</p>
+
+<p>
+
+Some traditions developed after the Fall, while others preserve
+fragments of older beliefs.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     FOOD & TRADE
+     ===================================================== -->
+
+<section class="lore-section" id="food">
+
+<h2>Food & Trade</h2>
+
+<p>
+
+As the capital, Verde Haven serves as a major center for trade.
+
+</p>
+
+<p>
+
+Produce from surrounding regions, seafood from the coast,
+manufactured goods, reclaimed materials, and specialized
+magitech components all pass through the city.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     DAILY LIFE
+     ===================================================== -->
+
+<section class="lore-section" id="daily-life">
+
+<h2>Daily Life</h2>
+
+<p>
+
+Daily life in Verde Haven combines familiar nineteenth-century
+industrial living with the strange conveniences of reclaimed
+magitech.
+
+</p>
+
+<p>
+
+Markets, workshops, public gardens, waterways, factories, and
+residential neighborhoods all exist within relatively close
+proximity.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     POPULATION
+     ===================================================== -->
+
+<section class="lore-section" id="population">
+
+<h2>Population</h2>
+
+<p>
+
+Verde Haven is one of the most culturally diverse settlements
+in the Verdigris Isles.
+
+</p>
+
+<p>
+
+People from across the archipelago pass through the capital for
+trade, work, education, politics, and exploration.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     FACTIONS
+     ===================================================== -->
+
+<section class="lore-section" id="factions">
+
+<h2>Factions</h2>
+
+<p>
+
+The capital contains representatives of numerous political,
+commercial, cultural, and adventuring organizations.
+
+</p>
+
+<p>
+
+Some operate openly within the city while others maintain
+smaller networks hidden among its districts.
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     NOTABLE FIGURES
+     ===================================================== -->
+
+<section class="lore-section" id="figures">
+
+<h2>Notable Figures</h2>
+
+<p>
+
+This section can contain important historical figures,
+politicians, merchants, explorers, inventors, or other
+individuals associated with Verde Haven.
+
+</p>
+
+</section>
+
+
+</div>
 
 </article>
 
@@ -650,29 +1674,97 @@ comes from the layers between the two.
 </main>
 
 
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
 <script>
 
+
 /* =========================================================
-   LORE NAVIGATION
+   CATEGORY TOGGLES
+   ========================================================= */
+
+function toggleCategory(button) {
+
+    const category = button.parentElement;
+
+    category.classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   SECTION NAVIGATION
    ========================================================= */
 
 function showSection(id, button) {
 
-    const reader = document.getElementById("loreReader");
-    const section = document.getElementById(id);
+    const reader =
+        document.getElementById("loreReader");
 
-    document.querySelectorAll(".lore-tab").forEach(tab => {
-        tab.classList.remove("active");
-    });
+    const section =
+        document.getElementById(id);
+
+
+    if (!section) return;
+
+
+    /* Remove active state */
+
+    document
+        .querySelectorAll(".lore-tab")
+        .forEach(tab => {
+
+            tab.classList.remove("active");
+
+        });
+
+
+    /* Activate selected tab */
 
     button.classList.add("active");
 
+
+    /* Scroll reading window */
+
     reader.scrollTo({
-        top: section.offsetTop - reader.offsetTop - 20,
+
+        top:
+            section.offsetTop
+            - reader.offsetTop
+            - 25,
+
         behavior: "smooth"
+
     });
 
 }
+
+
+/* =========================================================
+   OPEN CATEGORY WHEN TAB IS SELECTED
+   ========================================================= */
+
+document
+    .querySelectorAll(".lore-tab")
+    .forEach(tab => {
+
+        tab.addEventListener("click", function() {
+
+            const category =
+                this.closest(".lore-category");
+
+            if (category) {
+
+                category.classList.add("open");
+
+            }
+
+        });
+
+    });
+
 
 </script>
 
