@@ -1,1815 +1,921 @@
-/* =========================================================
-VERDIGRIS ISLES
-DIGITAL LORE BOOK
-========================================================= */
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
-/* =========================================================
-BOOK VARIABLES
-========================================================= */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-:root {
+<title>The Fall of the Citadel | Verdigris Isles</title>
 
-    --book-paper: #fffdf7;
-    --book-paper-deep: #f5efdf;
-    --book-ink: #24383b;
-    --book-muted: #718083;
-    --book-rule: rgba(18, 74, 85, .18);
+<link rel="stylesheet" href="../css/styles.css">
 
-    --book-lagoon: #31c3c0;
-    --book-deep: #086c78;
-    --book-navy: #124a55;
+</head>
 
-    --book-sand: #f4dfb3;
-    --book-leaf: #5e9b45;
 
-    --book-width: 1040px;
+<body class="lore-book-page">
 
-}
 
+<!-- =========================================================
+SITE HEADER
+========================================================= -->
 
-/* =========================================================
-PAGE
-========================================================= */
+<header class="book-header">
 
-.lore-book-page {
+    <div class="book-header-inner">
 
-    margin: 0;
+        <a class="book-brand" href="../index.html">
+            VERDIGRIS ISLES
+        </a>
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(18, 74, 85, .035),
-            transparent 40%
-        ),
-        #e9e5d9;
+        <div class="book-header-meta">
+            HISTORY · ARCHIVE 01
+        </div>
 
-    color: var(--book-ink);
+        <button class="contents-toggle"
+                type="button"
+                aria-controls="document-contents"
+                aria-expanded="false">
+            Contents
+        </button>
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    </div>
 
-}
+</header>
 
 
-/* =========================================================
-HEADER
-========================================================= */
 
-.book-header {
+<!-- =========================================================
+DOCUMENT
+========================================================= -->
 
-    position: sticky;
+<main class="lore-book">
 
-    top: 0;
 
-    z-index: 100;
+    <!-- =====================================================
+    DOCUMENT COVER
+    ===================================================== -->
 
-    background:
-        rgba(245, 239, 223, .94);
+    <section class="document-cover">
 
-    backdrop-filter:
-        blur(14px);
+        <div class="cover-kicker">
+            HISTORY · THE OLD WORLD
+        </div>
 
-    border-bottom:
-        1px solid var(--book-rule);
+        <h1>
+            The Fall<br>
+            <em>of the Citadel</em>
+        </h1>
 
-}
+        <div class="cover-rule"></div>
 
+        <p class="cover-introduction">
+            The history of the civilization that stood above the
+            old world, the forces that brought it down, and the
+            beginning of the age that followed.
+        </p>
 
-.book-header-inner {
+        <div class="cover-meta">
 
-    width:
-        min(
-            calc(100% - 48px),
-            var(--book-width)
-        );
+            <span>
+                ARCHIVE
+                <strong>01</strong>
+            </span>
 
-    min-height: 64px;
+            <span>
+                PERIOD
+                <strong>Before 0 FC — 0 FC</strong>
+            </span>
 
-    margin: auto;
+            <span>
+                CLASSIFICATION
+                <strong>Historical Record</strong>
+            </span>
 
-    display: flex;
+        </div>
 
-    align-items: center;
+        <div class="cover-footer">
 
-    justify-content: space-between;
+            <span>VERDIGRIS ISLES</span>
 
-}
+            <span>01</span>
 
+        </div>
 
-.book-brand {
+    </section>
 
-    color: var(--book-navy);
 
-    text-decoration: none;
 
-    font-family:
-        Georgia,
-        serif;
+    <!-- =====================================================
+    DOCUMENT CONTENTS
+    ===================================================== -->
 
-    font-size: 13px;
+    <aside id="document-contents" class="document-contents">
 
-    letter-spacing: .18em;
+        <div class="contents-heading">
+            <span>CONTENTS</span>
+            <small>ARCHIVE 01</small>
+        </div>
 
-}
+        <nav>
 
+            <a href="#introduction">
+                <span>01</span>
+                Introduction
+            </a>
 
-.book-header-meta {
+            <a href="#citadel">
+                <span>02</span>
+                The Citadel
+            </a>
 
-    color: var(--book-muted);
+            <a href="#ascension">
+                <span>03</span>
+                The Age of Ascension
+            </a>
 
-    font-family:
-        Arial,
-        sans-serif;
+            <a href="#decline">
+                <span>04</span>
+                The Aetherite Decline
+            </a>
 
-    font-size: 10px;
+            <a href="#final-days">
+                <span>05</span>
+                The Final Days
+            </a>
 
-    letter-spacing: .18em;
+            <a href="#fall">
+                <span>06</span>
+                0 FC — The Fall
+            </a>
 
-}
+            <a href="#aftermath">
+                <span>07</span>
+                The World After
+            </a>
 
+        </nav>
 
-.contents-toggle {
+    </aside>
 
-    border: 0;
 
-    background: none;
 
-    color: var(--book-navy);
+    <!-- =====================================================
+    INTRODUCTION
+    ===================================================== -->
 
-    cursor: pointer;
+    <section id="introduction"
+             class="document-section section-opening">
 
-    font-family:
-        Arial,
-        sans-serif;
+        <div class="section-number">
+            01
+        </div>
 
-    font-size: 11px;
+        <div class="section-heading">
 
-    letter-spacing: .12em;
+            <span class="section-label">
+                INTRODUCTION
+            </span>
 
-    text-transform: uppercase;
+            <h2>
+                The End of an Age
+            </h2>
 
-    padding: 10px 0;
+        </div>
 
-}
 
+        <div class="editorial-grid">
 
-/* =========================================================
-DOCUMENT FRAME
-========================================================= */
+            <div class="main-column">
 
-.lore-book {
+                <p class="lead">
+                    The fall of the Citadel was not a single moment.
+                    It was a process that had already begun long
+                    before the city finally came down.
+                </p>
 
-    width:
-        min(
-            calc(100% - 40px),
-            var(--book-width)
-        );
+                <p>
+                    For generations, the Citadel had represented
+                    the highest achievement of Ascension civilization.
+                    Its towers rose above the surrounding world,
+                    powered by technologies that earlier generations
+                    could scarcely have imagined.
+                </p>
 
-    margin:
-        42px auto 100px;
+                <p>
+                    Aetherite made those achievements possible.
+                    It powered the engines, stabilized the systems,
+                    and provided the foundation upon which the
+                    civilization's extraordinary infrastructure
+                    had been built.
+                </p>
 
-    background:
-        var(--book-paper);
+                <p>
+                    But the resource that had allowed civilization
+                    to reach such heights could not be replaced.
+                </p>
 
-    box-shadow:
-        0 20px 70px rgba(23, 44, 47, .13);
+            </div>
 
-}
 
+            <aside class="margin-note">
 
-/* =========================================================
-COVER
-========================================================= */
+                <span class="note-label">
+                    HISTORICAL NOTE
+                </span>
 
-.document-cover {
+                <p>
+                    The term
+                    <em>0 FC</em>
+                    refers specifically to the physical fall
+                    of the Citadel.
+                </p>
 
-    min-height:
-        720px;
+            </aside>
 
-    padding:
-        90px 90px 50px;
+        </div>
 
-    box-sizing:
-        border-box;
+    </section>
 
-    display:
-        flex;
 
-    flex-direction:
-        column;
 
-    justify-content:
-        space-between;
+    <!-- =====================================================
+    THE CITADEL
+    ===================================================== -->
 
-    background:
-        linear-gradient(
-            145deg,
-            var(--book-paper),
-            var(--book-paper-deep)
-        );
+    <section id="citadel"
+             class="document-section">
 
-}
+        <div class="section-number">
+            02
+        </div>
 
+        <div class="section-heading">
 
-.cover-kicker,
-.section-label,
-.overlay-label {
+            <span class="section-label">
+                THE OLD WORLD
+            </span>
 
-    font-family:
-        Arial,
-        sans-serif;
+            <h2>
+                The Citadel
+            </h2>
 
-    font-size: 10px;
+        </div>
 
-    letter-spacing: .22em;
 
-    text-transform: uppercase;
+        <div class="editorial-grid">
 
-    color:
-        var(--book-deep);
+            <div class="main-column">
 
-}
+                <p class="lead">
+                    Before the fall, the Citadel was more than a
+                    city. It was the center of an entire civilization.
+                </p>
 
+                <p>
+                    Industry, scholarship, commerce, transportation,
+                    and magical research converged within its walls.
+                    The city's influence extended far beyond the
+                    structure itself, reaching into territories that
+                    depended upon its machines, its knowledge, and
+                    its resources.
+                </p>
 
-.document-cover h1 {
+                <p>
+                    The great Ascension Engines formed the heart
+                    of this system. They transformed Aetherite
+                    into usable power and allowed the Citadel to
+                    accomplish feats that had once belonged only
+                    to myth.
+                </p>
 
-    margin:
-        70px 0 30px;
+            </div>
 
-    color:
-        var(--book-navy);
 
-    font-size:
-        clamp(58px, 8vw, 100px);
+            <aside class="margin-note">
 
-    line-height:
-        .92;
+                <span class="note-label">
+                    KEY TERM
+                </span>
 
-    font-weight:
-        normal;
+                <h3>
+                    Aetherite
+                </h3>
 
-    letter-spacing:
-        -.045em;
+                <p>
+                    A rare crystalline material capable of storing
+                    and conducting Aether.
+                </p>
 
-}
+                <a href="#">
+                    View Aetherite →
+                </a>
 
+            </aside>
 
-.document-cover h1 em {
+        </div>
 
-    font-weight:
-        normal;
 
-    color:
-        var(--book-deep);
+        <blockquote class="pull-quote">
 
-}
+            <p>
+                “The Citadel was built upon the belief that
+                progress could continue indefinitely.”
+            </p>
 
+            <cite>
+                Later historical interpretation
+            </cite>
 
-.cover-rule {
+        </blockquote>
 
-    width:
-        90px;
+    </section>
 
-    height:
-        1px;
 
-    background:
-        var(--book-lagoon);
 
-}
+    <!-- =====================================================
+    ASCENSION
+    ===================================================== -->
 
+    <section id="ascension"
+             class="document-section document-section-dark">
 
-.cover-introduction {
+        <div class="section-number">
+            03
+        </div>
 
-    max-width:
-        600px;
+        <div class="section-heading">
 
-    margin:
-        30px 0 0;
+            <span class="section-label">
+                THE ASCENSION ERA
+            </span>
 
-    font-size:
-        19px;
+            <h2>
+                The Age of Ascension
+            </h2>
 
-    line-height:
-        1.7;
+        </div>
 
-    color:
-        #526568;
 
-}
+        <p class="section-lead-wide">
+            The civilization that eventually fell had once seemed
+            incapable of failure.
+        </p>
 
 
-.cover-meta {
+        <div class="wide-prose">
 
-    display:
-        grid;
+            <p>
+                The discovery and refinement of Aetherite changed
+                the trajectory of the world. What had previously
+                been isolated magical practices could now be
+                incorporated into machinery, infrastructure, and
+                industry.
+            </p>
 
-    grid-template-columns:
-        repeat(3, 1fr);
+            <p>
+                Cities expanded. Transportation became faster.
+                Communication crossed distances that had once
+                separated entire regions. Factories operated on
+                systems of power that seemed almost limitless.
+            </p>
 
-    gap:
-        30px;
+            <p>
+                The Citadel became the greatest expression of this
+                philosophy.
+            </p>
 
-    padding-top:
-        40px;
+        </div>
 
-    border-top:
-        1px solid var(--book-rule);
 
-}
+        <div class="era-statement">
 
+            <span>THE ASCENSION PRINCIPLE</span>
 
-.cover-meta span {
+            <strong>
+                If Aether could power it,<br>
+                it could be built.
+            </strong>
 
-    display:
-        flex;
+        </div>
 
-    flex-direction:
-        column;
+    </section>
 
-    gap:
-        7px;
 
-    font-family:
-        Arial,
-        sans-serif;
 
-    font-size:
-        9px;
+    <!-- =====================================================
+    DECLINE
+    ===================================================== -->
 
-    letter-spacing:
-        .15em;
+    <section id="decline"
+             class="document-section">
 
-    color:
-        var(--book-muted);
+        <div class="section-number">
+            04
+        </div>
 
-}
+        <div class="section-heading">
 
+            <span class="section-label">
+                BEFORE 0 FC
+            </span>
 
-.cover-meta strong {
+            <h2>
+                The Aetherite Decline
+            </h2>
 
-    font-family:
-        Georgia,
-        serif;
+        </div>
 
-    font-size:
-        13px;
 
-    font-weight:
-        normal;
+        <div class="editorial-grid">
 
-    letter-spacing:
-        0;
+            <div class="main-column">
 
-    color:
-        var(--book-ink);
+                <p class="lead">
+                    The first signs of collapse were small enough
+                    to dismiss.
+                </p>
 
-}
+                <p>
+                    Aetherite reserves began to diminish. Engines
+                    required increasingly frequent maintenance.
+                    Infrastructure became unreliable, and the
+                    systems responsible for distributing power
+                    could no longer operate at their former
+                    capacity.
+                </p>
 
+                <p>
+                    At first, the problems were treated as
+                    temporary shortages. Production would recover.
+                    New reserves would be discovered. Engineers
+                    would find solutions.
+                </p>
 
-.cover-footer {
+                <p>
+                    That belief lasted until the shortages became
+                    impossible to hide.
+                </p>
 
-    display:
-        flex;
+            </div>
 
-    justify-content:
-        space-between;
 
-    padding-top:
-        30px;
+            <aside class="margin-note">
 
-    font-family:
-        Arial,
-        sans-serif;
+                <span class="note-label">
+                    CHRONOLOGY
+                </span>
 
-    font-size:
-        9px;
+                <dl>
 
-    letter-spacing:
-        .2em;
+                    <div>
+                        <dt>Before 0 FC</dt>
+                        <dd>
+                            Reserves decline
+                        </dd>
+                    </div>
 
-    color:
-        var(--book-muted);
+                    <div>
+                        <dt>Late Collapse</dt>
+                        <dd>
+                            Infrastructure destabilizes
+                        </dd>
+                    </div>
 
-}
+                    <div>
+                        <dt>0 FC</dt>
+                        <dd>
+                            Citadel falls
+                        </dd>
+                    </div>
 
+                </dl>
+
+            </aside>
+
+        </div>
+
+
+        <div class="information-break">
+
+            <div>
+                <span>01</span>
+                Aetherite reserves
+            </div>
+
+            <div>
+                <span>02</span>
+                Power instability
+            </div>
+
+            <div>
+                <span>03</span>
+                Resource rationing
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+    FINAL DAYS
+    ===================================================== -->
+
+    <section id="final-days"
+             class="document-section">
+
+        <div class="section-number">
+            05
+        </div>
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                THE COLLAPSE BEGINS
+            </span>
+
+            <h2>
+                The Final Days
+            </h2>
+
+        </div>
+
+
+        <div class="editorial-grid">
+
+            <div class="main-column">
+
+                <p>
+                    By the final days of the Citadel, daily life
+                    had changed dramatically.
+                </p>
+
+                <p>
+                    Resources were rationed. Power became
+                    increasingly unreliable. Entire sections of
+                    infrastructure operated intermittently or
+                    ceased functioning altogether.
+                </p>
+
+                <p>
+                    The population had begun to understand that
+                    something fundamental was wrong.
+                </p>
+
+                <p>
+                    Yet the Citadel remained standing.
+                </p>
+
+                <p>
+                    Its towers still dominated the horizon. Its
+                    remaining engines still turned. Its institutions
+                    continued to insist that the crisis could be
+                    contained.
+                </p>
+
+            </div>
+
+
+            <aside class="margin-note">
+
+                <span class="note-label">
+                    HISTORICAL OBSERVATION
+                </span>
+
+                <p>
+                    Later accounts often describe the final period
+                    as peaceful immediately before the fall.
+                    Surviving records suggest otherwise.
+                </p>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+    THE FALL
+    ===================================================== -->
+
+    <section id="fall"
+             class="document-section fall-section">
+
+
+        <div class="fall-date">
+            <span>THE YEAR OF THE FALL</span>
+            <strong>0 FC</strong>
+        </div>
+
+
+        <div class="fall-title">
+
+            <span>
+                THE CITADEL
+            </span>
+
+            <h2>
+                Fell.
+            </h2>
+
+        </div>
+
+
+        <div class="fall-prose">
+
+            <p>
+                Whatever remained of the old system failed in a
+                single catastrophic event.
+            </p>
+
+            <p>
+                The Citadel descended from the sky.
+            </p>
+
+            <p>
+                Its fall destroyed the city and shattered the
+                civilization that had depended upon it. Structures
+                that had stood for generations were torn apart.
+                Machinery, archives, homes, laboratories, and
+                entire districts were buried beneath the ruins.
+            </p>
+
+            <p>
+                The impact permanently altered the surrounding
+                landscape.
+            </p>
+
+        </div>
+
+
+        <div class="fall-caption">
+            0 FC marks the physical fall of the Citadel.
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+    AFTERMATH
+    ===================================================== -->
+
+    <section id="aftermath"
+             class="document-section section-closing">
+
+        <div class="section-number">
+            07
+        </div>
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                AFTER THE FALL
+            </span>
+
+            <h2>
+                The World After
+            </h2>
+
+        </div>
+
+
+        <div class="editorial-grid">
+
+            <div class="main-column">
+
+                <p class="lead">
+                    The world did not end with the Citadel.
+                </p>
+
+                <p>
+                    It changed.
+                </p>
+
+                <p>
+                    Survivors scattered into the territories that
+                    remained habitable. Communities formed around
+                    whatever resources could be recovered. Old
+                    technologies were salvaged, repaired, and
+                    repurposed.
+                </p>
+
+                <p>
+                    The civilization that followed was not a
+                    continuation of the old world so much as an
+                    attempt to understand what remained of it.
+                </p>
+
+                <p>
+                    Ruins became settlements. Relics became tools.
+                    Forgotten machines became the foundation for
+                    new inventions.
+                </p>
+
+                <p class="closing-line">
+                    The old world had fallen.
+
+                    <br><br>
+
+                    The next one had begun.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="document-end">
+
+            <span>
+                END OF ARCHIVE
+            </span>
+
+            <strong>
+                VERDIGRIS ISLES
+            </strong>
+
+            <small>
+                HISTORY · ARCHIVE 01
+            </small>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+CONTENTS OVERLAY
+========================================================= -->
+
+<div class="contents-overlay" aria-hidden="true">
+
+    <div class="contents-overlay-inner">
+
+        <button class="contents-close"
+                type="button">
+            Close
+        </button>
+
+        <span class="overlay-label">
+            DOCUMENT CONTENTS
+        </span>
+
+        <h2>
+            The Fall<br>
+            <em>of the Citadel</em>
+        </h2>
+
+        <nav>
+
+            <a href="#introduction">
+                <span>01</span>
+                The End of an Age
+            </a>
+
+            <a href="#citadel">
+                <span>02</span>
+                The Citadel
+            </a>
+
+            <a href="#ascension">
+                <span>03</span>
+                The Age of Ascension
+            </a>
+
+            <a href="#decline">
+                <span>04</span>
+                The Aetherite Decline
+            </a>
+
+            <a href="#final-days">
+                <span>05</span>
+                The Final Days
+            </a>
+
+            <a href="#fall">
+                <span>06</span>
+                0 FC — The Fall
+            </a>
+
+            <a href="#aftermath">
+                <span>07</span>
+                The World After
+            </a>
+
+        </nav>
+
+    </div>
+
+</div>
+
+
+
+<script>
 
 /* =========================================================
 CONTENTS
 ========================================================= */
 
-.document-contents {
+const contentsToggle =
+    document.querySelector(".contents-toggle");
 
-    padding:
-        50px 90px;
+const contentsOverlay =
+    document.querySelector(".contents-overlay");
 
-    border-top:
-        1px solid var(--book-rule);
+const contentsClose =
+    document.querySelector(".contents-close");
 
-    border-bottom:
-        1px solid var(--book-rule);
-
-}
-
-
-.contents-heading {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        baseline;
-
-    margin-bottom:
-        25px;
-
-}
+const contentsLinks =
+    document.querySelectorAll(".contents-overlay a");
 
 
-.contents-heading span {
+function openContents() {
 
-    font-family:
-        Arial,
-        sans-serif;
+    contentsOverlay.classList.add("open");
 
-    font-size:
-        10px;
+    contentsOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
-    letter-spacing:
-        .2em;
-
-    color:
-        var(--book-deep);
+    contentsToggle.setAttribute(
+        "aria-expanded",
+        "true"
+    );
 
 }
 
 
-.contents-heading small {
+function closeContents() {
 
-    font-family:
-        Arial,
-        sans-serif;
+    contentsOverlay.classList.remove("open");
 
-    font-size:
-        9px;
+    contentsOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
-    letter-spacing:
-        .14em;
-
-    color:
-        var(--book-muted);
-
-}
-
-
-.document-contents nav {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    column-gap:
-        60px;
+    contentsToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
 }
 
 
-.document-contents a {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        35px 1fr;
-
-    gap:
-        12px;
-
-    padding:
-        15px 0;
-
-    border-bottom:
-        1px solid var(--book-rule);
-
-    text-decoration:
-        none;
-
-    color:
-        var(--book-ink);
-
-}
+contentsToggle.addEventListener(
+    "click",
+    openContents
+);
 
 
-.document-contents a span {
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        10px;
-
-    color:
-        var(--book-lagoon);
-
-}
+contentsClose.addEventListener(
+    "click",
+    closeContents
+);
 
 
-.document-contents a:hover {
+contentsLinks.forEach(link => {
 
-    color:
-        var(--book-deep);
+    link.addEventListener(
+        "click",
+        closeContents
+    );
 
-}
+});
 
 
 /* =========================================================
-DOCUMENT SECTIONS
+KEYBOARD ACCESS
 ========================================================= */
 
-.document-section {
+document.addEventListener(
+    "keydown",
+    event => {
 
-    position:
-        relative;
+        if (
+            event.key === "Escape" &&
+            contentsOverlay.classList.contains("open")
+        ) {
 
-    padding:
-        120px 90px;
+            closeContents();
 
-    border-bottom:
-        1px solid var(--book-rule);
-
-}
-
-
-.section-number {
-
-    position:
-        absolute;
-
-    top:
-        45px;
-
-    left:
-        90px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        .2em;
-
-    color:
-        var(--book-lagoon);
-
-}
-
-
-.section-heading {
-
-    margin-bottom:
-        60px;
-
-}
-
-
-.section-heading h2 {
-
-    margin:
-        12px 0 0;
-
-    max-width:
-        700px;
-
-    color:
-        var(--book-navy);
-
-    font-size:
-        clamp(42px, 6vw, 72px);
-
-    line-height:
-        .98;
-
-    font-weight:
-        normal;
-
-    letter-spacing:
-        -.035em;
-
-}
-
-
-/* =========================================================
-EDITORIAL GRID
-========================================================= */
-
-.editorial-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        minmax(0, 1fr) 190px;
-
-    gap:
-        90px;
-
-}
-
-
-.main-column {
-
-    max-width:
-        650px;
-
-}
-
-
-.main-column p,
-.wide-prose p,
-.fall-prose p {
-
-    margin:
-        0 0 28px;
-
-    font-size:
-        18px;
-
-    line-height:
-        1.85;
-
-}
-
-
-.main-column .lead {
-
-    font-size:
-        24px;
-
-    line-height:
-        1.55;
-
-    color:
-        var(--book-deep);
-
-}
-
-
-.margin-note {
-
-    align-self:
-        start;
-
-    padding-top:
-        8px;
-
-    border-top:
-        1px solid var(--book-rule);
-
-    color:
-        var(--book-muted);
-
-}
-
-
-.note-label {
-
-    display:
-        block;
-
-    margin-bottom:
-        15px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        .18em;
-
-    color:
-        var(--book-deep);
-
-}
-
-
-.margin-note h3 {
-
-    margin:
-        0 0 10px;
-
-    font-size:
-        20px;
-
-    font-weight:
-        normal;
-
-    color:
-        var(--book-ink);
-
-}
-
-
-.margin-note p {
-
-    margin:
-        0 0 15px;
-
-    font-size:
-        13px;
-
-    line-height:
-        1.65;
-
-}
-
-
-.margin-note a {
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        10px;
-
-    color:
-        var(--book-deep);
-
-    text-decoration:
-        none;
-
-}
-
-
-/* =========================================================
-PULL QUOTE
-========================================================= */
-
-.pull-quote {
-
-    max-width:
-        760px;
-
-    margin:
-        90px auto 10px;
-
-    padding:
-        55px 0;
-
-    border-top:
-        1px solid var(--book-rule);
-
-    border-bottom:
-        1px solid var(--book-rule);
-
-    text-align:
-        center;
-
-}
-
-
-.pull-quote p {
-
-    margin:
-        0;
-
-    font-size:
-        clamp(25px, 4vw, 39px);
-
-    line-height:
-        1.35;
-
-    font-style:
-        italic;
-
-    color:
-        var(--book-deep);
-
-}
-
-
-.pull-quote cite {
-
-    display:
-        block;
-
-    margin-top:
-        25px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        .15em;
-
-    text-transform:
-        uppercase;
-
-    font-style:
-        normal;
-
-    color:
-        var(--book-muted);
-
-}
-
-
-/* =========================================================
-DARK SECTION
-========================================================= */
-
-.document-section-dark {
-
-    background:
-        var(--book-navy);
-
-    color:
-        #edf5f1;
-
-}
-
-
-.document-section-dark .section-heading h2,
-.document-section-dark .section-label {
-
-    color:
-        #f7fff5;
-
-}
-
-
-.section-lead-wide {
-
-    max-width:
-        760px;
-
-    margin:
-        0 auto 65px;
-
-    text-align:
-        center;
-
-    font-size:
-        clamp(25px, 4vw, 42px);
-
-    line-height:
-        1.4;
-
-    color:
-        #bce5df;
-
-}
-
-
-.wide-prose {
-
-    max-width:
-        700px;
-
-    margin:
-        auto;
-
-}
-
-
-.wide-prose p {
-
-    color:
-        #d9e9e5;
-
-}
-
-
-/* =========================================================
-ERA STATEMENT
-========================================================= */
-
-.era-statement {
-
-    margin:
-        100px auto 0;
-
-    padding:
-        55px 20px;
-
-    border-top:
-        1px solid rgba(255,255,255,.18);
-
-    border-bottom:
-        1px solid rgba(255,255,255,.18);
-
-    text-align:
-        center;
-
-}
-
-
-.era-statement span {
-
-    display:
-        block;
-
-    margin-bottom:
-        25px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        .2em;
-
-    color:
-        var(--book-lagoon);
-
-}
-
-
-.era-statement strong {
-
-    font-size:
-        clamp(30px, 5vw, 55px);
-
-    line-height:
-        1.25;
-
-    font-weight:
-        normal;
-
-}
-
-
-/* =========================================================
-INFORMATION BREAK
-========================================================= */
-
-.information-break {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    margin-top:
-        90px;
-
-    border-top:
-        1px solid var(--book-rule);
-
-    border-bottom:
-        1px solid var(--book-rule);
-
-}
-
-
-.information-break div {
-
-    padding:
-        25px 15px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        .05em;
-
-}
-
-
-.information-break div + div {
-
-    border-left:
-        1px solid var(--book-rule);
-
-}
-
-
-.information-break span {
-
-    display:
-        block;
-
-    margin-bottom:
-        8px;
-
-    font-size:
-        9px;
-
-    color:
-        var(--book-lagoon);
-
-}
-
-
-/* =========================================================
-FALL SECTION
-========================================================= */
-
-.fall-section {
-
-    min-height:
-        800px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    justify-content:
-        center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f4dfb3,
-            #fffdf7
-        );
-
-}
-
-
-.fall-date {
-
-    text-align:
-        center;
-
-    margin-bottom:
-        70px;
-
-}
-
-
-.fall-date span {
-
-    display:
-        block;
-
-    margin-bottom:
-        15px;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        .25em;
-
-    color:
-        var(--book-deep);
-
-}
-
-
-.fall-date strong {
-
-    display:
-        block;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(100px, 20vw, 220px);
-
-    line-height:
-        .8;
-
-    font-weight:
-        normal;
-
-    letter-spacing:
-        -.08em;
-
-    color:
-        var(--book-navy);
-
-}
-
-
-.fall-title {
-
-    text-align:
-        center;
-
-}
-
-
-.fall-title span {
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        .3em;
-
-    color:
-        var(--book-deep);
-
-}
-
-
-.fall-title h2 {
-
-    margin:
-        15px 0 55px;
-
-    font-size:
-        clamp(65px, 10vw, 110px);
-
-    line-height:
-        .85;
-
-    font-weight:
-        normal;
-
-    letter-spacing:
-        -.06em;
-
-    color:
-        var(--book-navy);
-
-}
-
-
-.fall-prose {
-
-    max-width:
-        620px;
-
-    margin:
-        auto;
-
-}
-
-
-.fall-prose p {
-
-    text-align:
-        center;
-
-}
-
-
-.fall-caption {
-
-    margin-top:
-        70px;
-
-    text-align:
-        center;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        .16em;
-
-    text-transform:
-        uppercase;
-
-    color:
-        var(--book-muted);
-
-}
-
-
-/* =========================================================
-CLOSING
-========================================================= */
-
-.section-closing {
-
-    padding-bottom:
-        0;
-
-}
-
-
-.closing-line {
-
-    margin-top:
-        70px !important;
-
-    font-size:
-        26px !important;
-
-    line-height:
-        1.5 !important;
-
-    color:
-        var(--book-deep);
-
-}
-
-
-.document-end {
-
-    margin:
-        120px -90px 0;
-
-    padding:
-        60px 90px;
-
-    border-top:
-        1px solid var(--book-rule);
-
-    text-align:
-        center;
-
-}
-
-
-.document-end span,
-.document-end small {
-
-    display:
-        block;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        9px;
-
-    letter-spacing:
-        .2em;
-
-    color:
-        var(--book-muted);
-
-}
-
-
-.document-end strong {
-
-    display:
-        block;
-
-    margin:
-        18px 0;
-
-    font-size:
-        25px;
-
-    font-weight:
-        normal;
-
-    letter-spacing:
-        .1em;
-
-    color:
-        var(--book-navy);
-
-}
-
-
-/* =========================================================
-CONTENTS OVERLAY
-========================================================= */
-
-.contents-overlay {
-
-    position:
-        fixed;
-
-    inset:
-        0;
-
-    z-index:
-        200;
-
-    display:
-        flex;
-
-    justify-content:
-        center;
-
-    align-items:
-        center;
-
-    padding:
-        30px;
-
-    box-sizing:
-        border-box;
-
-    background:
-        rgba(18, 74, 85, .72);
-
-    backdrop-filter:
-        blur(16px);
-
-    opacity:
-        0;
-
-    visibility:
-        hidden;
-
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
-
-}
-
-
-.contents-overlay.open {
-
-    opacity:
-        1;
-
-    visibility:
-        visible;
-
-}
-
-
-.contents-overlay-inner {
-
-    width:
-        min(
-            700px,
-            100%
-        );
-
-    max-height:
-        90vh;
-
-    overflow:
-        auto;
-
-    padding:
-        65px;
-
-    box-sizing:
-        border-box;
-
-    background:
-        var(--book-paper);
-
-    box-shadow:
-        0 30px 100px rgba(0,0,0,.25);
-
-}
-
-
-.contents-close {
-
-    float:
-        right;
-
-    border:
-        0;
-
-    background:
-        none;
-
-    cursor:
-        pointer;
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        10px;
-
-    letter-spacing:
-        .15em;
-
-    text-transform:
-        uppercase;
-
-    color:
-        var(--book-muted);
-
-}
-
-
-.contents-overlay h2 {
-
-    margin:
-        25px 0 60px;
-
-    font-size:
-        clamp(48px, 8vw, 75px);
-
-    line-height:
-        .95;
-
-    font-weight:
-        normal;
-
-    letter-spacing:
-        -.04em;
-
-    color:
-        var(--book-navy);
-
-}
-
-
-.contents-overlay h2 em {
-
-    color:
-        var(--book-deep);
-
-    font-weight:
-        normal;
-
-}
-
-
-.contents-overlay nav {
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-}
-
-
-.contents-overlay nav a {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        40px 1fr;
-
-    gap:
-        15px;
-
-    padding:
-        18px 0;
-
-    border-bottom:
-        1px solid var(--book-rule);
-
-    text-decoration:
-        none;
-
-    font-size:
-        18px;
-
-    color:
-        var(--book-ink);
-
-}
-
-
-.contents-overlay nav a span {
-
-    font-family:
-        Arial,
-        sans-serif;
-
-    font-size:
-        10px;
-
-    color:
-        var(--book-lagoon);
-
-}
-
-
-/* =========================================================
-TABLET
-========================================================= */
-
-@media (max-width: 800px) {
-
-    .book-header-inner {
-
-        width:
-            calc(100% - 30px);
+        }
 
     }
+);
 
+</script>
 
-    .book-header-meta {
 
-        display:
-            none;
-
-    }
-
-
-    .lore-book {
-
-        width:
-            calc(100% - 24px);
-
-        margin-top:
-            12px;
-
-    }
-
-
-    .document-cover {
-
-        min-height:
-            620px;
-
-        padding:
-            65px 45px 35px;
-
-    }
-
-
-    .document-contents {
-
-        padding:
-            40px 45px;
-
-    }
-
-
-    .document-section {
-
-        padding:
-            90px 45px;
-
-    }
-
-
-    .section-number {
-
-        left:
-            45px;
-
-    }
-
-
-    .editorial-grid {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            50px;
-
-    }
-
-
-    .margin-note {
-
-        max-width:
-            500px;
-
-    }
-
-
-    .document-end {
-
-        margin-left:
-            -45px;
-
-        margin-right:
-            -45px;
-
-        padding-left:
-            45px;
-
-        padding-right:
-            45px;
-
-    }
-
-}
-
-
-/* =========================================================
-PHONE
-========================================================= */
-
-@media (max-width: 560px) {
-
-    .book-header-inner {
-
-        min-height:
-            58px;
-
-    }
-
-
-    .book-brand {
-
-        font-size:
-            10px;
-
-    }
-
-
-    .lore-book {
-
-        width:
-            100%;
-
-        margin:
-            0;
-
-        box-shadow:
-            none;
-
-    }
-
-
-    .document-cover {
-
-        min-height:
-            600px;
-
-        padding:
-            55px 28px 30px;
-
-    }
-
-
-    .document-cover h1 {
-
-        margin-top:
-            50px;
-
-        font-size:
-            56px;
-
-    }
-
-
-    .cover-introduction {
-
-        font-size:
-            16px;
-
-    }
-
-
-    .cover-meta {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            20px;
-
-    }
-
-
-    .document-contents {
-
-        display:
-            none;
-
-    }
-
-
-    .document-section {
-
-        padding:
-            80px 28px;
-
-    }
-
-
-    .section-number {
-
-        left:
-            28px;
-
-    }
-
-
-    .section-heading {
-
-        margin-bottom:
-            45px;
-
-    }
-
-
-    .section-heading h2 {
-
-        font-size:
-            48px;
-
-    }
-
-
-    .main-column p,
-    .wide-prose p,
-    .fall-prose p {
-
-        font-size:
-            17px;
-
-        line-height:
-            1.8;
-
-    }
-
-
-    .main-column .lead {
-
-        font-size:
-            21px;
-
-    }
-
-
-    .information-break {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .information-break div + div {
-
-        border-left:
-            0;
-
-        border-top:
-            1px solid var(--book-rule);
-
-    }
-
-
-    .fall-section {
-
-        min-height:
-            700px;
-
-    }
-
-
-    .fall-date strong {
-
-        font-size:
-            120px;
-
-    }
-
-
-    .contents-overlay-inner {
-
-        padding:
-            45px 28px;
-
-    }
-
-
-    .document-end {
-
-        margin:
-            90px -28px 0;
-
-        padding:
-            45px 28px;
-
-    }
-
-}
+</body>
+</html>
