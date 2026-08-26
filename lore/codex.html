@@ -1,1770 +1,918 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Verde Haven | Verdigris Isles</title>
+<title>The Fall of the Citadel | Verdigris Isles</title>
 
 <link rel="stylesheet" href="../css/styles.css">
-
-<style>
-
-/* =========================================================
-   VERDIGRIS ISLES
-   LORE CODEX — TEST VERSION
-   ========================================================= */
-
-
-/* =========================================================
-   01. CODEX WRAPPER
-   ========================================================= */
-
-.lore-codex {
-
-    max-width: 1250px;
-
-    margin: 40px auto;
-
-    padding: 0 20px;
-
-}
-
-
-/* =========================================================
-   02. LORE HEADER
-   ========================================================= */
-
-.lore-header {
-
-    background: var(--navy);
-
-    color: var(--foam);
-
-    padding: 35px 40px;
-
-    border-radius: 24px 24px 0 0;
-
-    border-bottom: 5px solid var(--lagoon);
-
-}
-
-
-.lore-kicker {
-
-    color: var(--lagoon);
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    font-size: .78rem;
-
-    font-weight: 700;
-
-    margin-bottom: 8px;
-
-}
-
-
-.lore-header h1 {
-
-    margin: 0;
-
-    font-size: 2.6rem;
-
-}
-
-
-.lore-subtitle {
-
-    margin: 10px 0 0;
-
-    opacity: .85;
-
-    max-width: 700px;
-
-    line-height: 1.6;
-
-}
-
-
-/* =========================================================
-   03. META PILLS
-   ========================================================= */
-
-.lore-meta {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin-top: 20px;
-
-}
-
-
-.lore-meta span {
-
-    background: rgba(255,255,255,.10);
-
-    border: 1px solid rgba(255,255,255,.15);
-
-    border-radius: 999px;
-
-    padding: 6px 12px;
-
-    font-size: .78rem;
-
-}
-
-
-/* =========================================================
-   04. CODEX BODY
-   ========================================================= */
-
-.lore-body {
-
-    display: grid;
-
-    grid-template-columns: 255px minmax(0, 1fr);
-
-    background: var(--foam);
-
-    border-radius: 0 0 24px 24px;
-
-    overflow: hidden;
-
-    min-height: 680px;
-
-}
-
-
-/* =========================================================
-   05. SIDEBAR
-   ========================================================= */
-
-.lore-sidebar {
-
-    background: var(--sand2);
-
-    border-right: 1px solid rgba(0,0,0,.08);
-
-    padding: 22px 16px;
-
-    overflow-y: auto;
-
-}
-
-
-.sidebar-heading {
-
-    color: var(--deep);
-
-    text-transform: uppercase;
-
-    letter-spacing: 1.5px;
-
-    font-size: .72rem;
-
-    font-weight: 800;
-
-    padding: 5px 12px 10px;
-
-}
-
-
-/* =========================================================
-   06. CATEGORY GROUPS
-   ========================================================= */
-
-.lore-category {
-
-    margin-bottom: 8px;
-
-}
-
-
-.category-toggle {
-
-    width: 100%;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--navy);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 10px 12px;
-
-    border-radius: 9px;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    font-weight: 700;
-
-    font-size: .82rem;
-
-    text-align: left;
-
-}
-
-
-.category-toggle:hover {
-
-    background: rgba(49,195,192,.10);
-
-}
-
-
-.category-arrow {
-
-    transition: transform .2s ease;
-
-}
-
-
-.lore-category.open .category-arrow {
-
-    transform: rotate(90deg);
-
-}
-
-
-/* =========================================================
-   07. CATEGORY LINKS
-   ========================================================= */
-
-.category-links {
-
-    display: none;
-
-    padding: 2px 0 5px 10px;
-
-}
-
-
-.lore-category.open .category-links {
-
-    display: block;
-
-}
-
-
-.lore-tab {
-
-    width: 100%;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--stone);
-
-    text-align: left;
-
-    padding: 8px 12px 8px 18px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-family: inherit;
-
-    font-size: .82rem;
-
-    transition: .2s ease;
-
-}
-
-
-.lore-tab:hover {
-
-    background: rgba(49,195,192,.10);
-
-    color: var(--deep);
-
-}
-
-
-.lore-tab.active {
-
-    background: var(--lagoon);
-
-    color: white;
-
-    font-weight: 700;
-
-}
-
-
-/* =========================================================
-   08. READING WINDOW
-   ========================================================= */
-
-.lore-reader {
-
-    height: 680px;
-
-    overflow-y: auto;
-
-    scroll-behavior: smooth;
-
-    padding: 40px 55px;
-
-}
-
-
-/* =========================================================
-   09. READER SCROLLBAR
-   ========================================================= */
-
-.lore-reader::-webkit-scrollbar {
-
-    width: 9px;
-
-}
-
-
-.lore-reader::-webkit-scrollbar-track {
-
-    background: transparent;
-
-}
-
-
-.lore-reader::-webkit-scrollbar-thumb {
-
-    background: var(--lagoon);
-
-    border-radius: 999px;
-
-}
-
-
-.lore-reader {
-
-    scrollbar-color: var(--lagoon) transparent;
-
-}
-
-
-/* =========================================================
-   10. READING CONTENT
-   ========================================================= */
-
-.lore-document {
-
-    max-width: 780px;
-
-    margin: 0 auto;
-
-}
-
-
-.lore-section {
-
-    margin-bottom: 70px;
-
-    scroll-margin-top: 25px;
-
-}
-
-
-.lore-section:last-child {
-
-    margin-bottom: 20px;
-
-}
-
-
-.lore-section h2 {
-
-    color: var(--deep);
-
-    font-size: 1.9rem;
-
-    margin: 0 0 10px;
-
-}
-
-
-.lore-section h2::after {
-
-    content: "";
-
-    display: block;
-
-    width: 55px;
-
-    height: 3px;
-
-    background: var(--lagoon);
-
-    border-radius: 999px;
-
-    margin-top: 12px;
-
-}
-
-
-.lore-section h3 {
-
-    color: var(--navy);
-
-    margin-top: 30px;
-
-}
-
-
-.lore-section p {
-
-    color: var(--stone);
-
-    line-height: 1.85;
-
-    margin: 16px 0;
-
-}
-
-
-/* =========================================================
-   11. SECTION INTRO
-   ========================================================= */
-
-.lore-lead {
-
-    font-size: 1.05rem;
-
-    line-height: 1.9;
-
-}
-
-
-/* =========================================================
-   12. QUICK FACTS
-   ========================================================= */
-
-.quick-facts {
-
-    background: var(--sand2);
-
-    border-left: 4px solid var(--lagoon);
-
-    border-radius: 12px;
-
-    padding: 22px;
-
-    margin: 28px 0;
-
-}
-
-
-.quick-facts h3 {
-
-    margin: 0 0 15px;
-
-    color: var(--deep);
-
-}
-
-
-.quick-facts dl {
-
-    display: grid;
-
-    grid-template-columns: 130px 1fr;
-
-    gap: 9px 15px;
-
-    margin: 0;
-
-}
-
-
-.quick-facts dt {
-
-    font-weight: 700;
-
-    color: var(--navy);
-
-}
-
-
-.quick-facts dd {
-
-    margin: 0;
-
-    color: var(--stone);
-
-}
-
-
-/* =========================================================
-   13. TIMELINE
-   ========================================================= */
-
-.lore-timeline {
-
-    border-left: 3px solid var(--lagoon);
-
-    margin: 30px 0;
-
-    padding-left: 25px;
-
-}
-
-
-.timeline-event {
-
-    margin-bottom: 28px;
-
-}
-
-
-.timeline-event:last-child {
-
-    margin-bottom: 0;
-
-}
-
-
-.timeline-event strong {
-
-    display: block;
-
-    color: var(--deep);
-
-    margin-bottom: 5px;
-
-}
-
-
-/* =========================================================
-   14. LORE CALLOUT
-   ========================================================= */
-
-.lore-callout {
-
-    background: rgba(49,195,192,.08);
-
-    border: 1px solid rgba(49,195,192,.25);
-
-    border-radius: 14px;
-
-    padding: 20px 22px;
-
-    margin: 28px 0;
-
-}
-
-
-.lore-callout strong {
-
-    display: block;
-
-    color: var(--deep);
-
-    margin-bottom: 7px;
-
-}
-
-
-/* =========================================================
-   15. RELATED LORE
-   ========================================================= */
-
-.related-lore {
-
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 10px;
-
-    margin-top: 25px;
-
-}
-
-
-.related-lore a {
-
-    display: block;
-
-    background: var(--sand2);
-
-    color: var(--deep);
-
-    text-decoration: none;
-
-    border-radius: 12px;
-
-    padding: 14px;
-
-    font-weight: 700;
-
-    transition: .2s ease;
-
-}
-
-
-.related-lore a:hover {
-
-    background: var(--lagoon);
-
-    color: white;
-
-}
-
-
-/* =========================================================
-   16. MOBILE
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-
-    .lore-codex {
-
-        margin: 20px auto;
-
-        padding: 0 10px;
-
-    }
-
-
-    .lore-header {
-
-        padding: 28px 24px;
-
-    }
-
-
-    .lore-header h1 {
-
-        font-size: 2.1rem;
-
-    }
-
-
-    .lore-body {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .lore-sidebar {
-
-        border-right: none;
-
-        border-bottom: 1px solid rgba(0,0,0,.08);
-
-        max-height: none;
-
-        padding: 15px;
-
-    }
-
-
-    .lore-reader {
-
-        height: 600px;
-
-        padding: 30px 22px;
-
-    }
-
-
-    .quick-facts dl {
-
-        grid-template-columns: 1fr;
-
-        gap: 3px;
-
-    }
-
-
-    .quick-facts dd {
-
-        margin-bottom: 8px;
-
-    }
-
-
-    .related-lore {
-
-        grid-template-columns: 1fr;
-
-    }
-
-}
-
-
-/* =========================================================
-   17. SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-
-    .lore-meta {
-
-        gap: 6px;
-
-    }
-
-
-    .lore-meta span {
-
-        font-size: .72rem;
-
-    }
-
-
-    .lore-reader {
-
-        height: 550px;
-
-        padding: 25px 18px;
-
-    }
-
-
-    .lore-section h2 {
-
-        font-size: 1.6rem;
-
-    }
-
-}
-
-</style>
 
 </head>
 
 
-<body>
+<body class="lore-book-page">
 
 
-<!-- =====================================================
-     SITE NAVIGATION
-     ===================================================== -->
+<!-- =========================================================
+SITE HEADER
+========================================================= -->
 
-<header>
+<header class="book-header">
 
-<div class="container">
+    <div class="book-header-inner">
 
-<nav>
+        <a class="book-brand" href="../index.html">
+            VERDIGRIS ISLES
+        </a>
 
-<a class="brand" href="../index.html">
-Verdigris Isles
-</a>
+        <div class="book-header-meta">
+            HISTORY · ARCHIVE 01
+        </div>
 
-<div class="nav-links">
+        <button class="contents-toggle"
+                type="button"
+                aria-controls="document-contents"
+                aria-expanded="false">
+            Contents
+        </button>
 
-<a href="../index.html">Home</a>
-
-<a href="../world/world.html">
-World
-</a>
-
-<a class="active" href="../regions/regions.html">
-Regions
-</a>
-
-<a href="../races/races.html">
-Races
-</a>
-
-</div>
-
-</nav>
-
-</div>
+    </div>
 
 </header>
 
 
-<!-- =====================================================
-     LORE CODEX
-     ===================================================== -->
 
-<main class="lore-codex">
+<!-- =========================================================
+DOCUMENT
+========================================================= -->
 
+<main class="lore-book">
 
-<!-- =====================================================
-     HEADER
-     ===================================================== -->
 
-<header class="lore-header">
+    <!-- =====================================================
+    DOCUMENT COVER
+    ===================================================== -->
 
-<div class="lore-kicker">
-Regional Archive
-</div>
+    <section class="document-cover">
 
-<h1>Verde Haven</h1>
+        <div class="cover-kicker">
+            HISTORY · THE OLD WORLD
+        </div>
 
-<p class="lore-subtitle">
-The capital city built among the remnants of the fallen
-Citadel, where reclaimed ruins, old gardens, and new
-civilization have grown together.
-</p>
+        <h1>
+            The Fall<br>
+            <em>of the Citadel</em>
+        </h1>
 
+        <div class="cover-rule"></div>
 
-<div class="lore-meta">
+        <p class="cover-introduction">
+            The history of the civilization that stood above the
+            old world, the forces that brought it down, and the
+            beginning of the age that followed.
+        </p>
 
-<span>Capital</span>
+        <div class="cover-meta">
 
-<span>Verdigris Isles</span>
+            <span>
+                ARCHIVE
+                <strong>01</strong>
+            </span>
 
-<span>Post-Fall</span>
+            <span>
+                PERIOD
+                <strong>Before 0 FC — 0 FC</strong>
+            </span>
 
-<span>113 AF</span>
+            <span>
+                CLASSIFICATION
+                <strong>Historical Record</strong>
+            </span>
 
-</div>
+        </div>
 
-</header>
+        <div class="cover-footer">
 
+            <span>VERDIGRIS ISLES</span>
 
-<!-- =====================================================
-     CODEX BODY
-     ===================================================== -->
+            <span>01</span>
 
-<div class="lore-body">
+        </div>
 
+    </section>
 
-<!-- =====================================================
-     SIDEBAR
-     ===================================================== -->
 
-<aside class="lore-sidebar">
 
+    <!-- =====================================================
+    DOCUMENT CONTENTS
+    ===================================================== -->
 
-<div class="sidebar-heading">
-Contents
-</div>
+    <aside id="document-contents" class="document-contents">
 
+        <div class="contents-heading">
+            <span>CONTENTS</span>
+            <small>ARCHIVE 01</small>
+        </div>
 
-<!-- OVERVIEW -->
+        <nav>
 
-<div class="lore-category open">
+            <a href="#introduction">
+                <span>01</span>
+                Introduction
+            </a>
 
-<button class="category-toggle"
-onclick="toggleCategory(this)">
+            <a href="#citadel">
+                <span>02</span>
+                The Citadel
+            </a>
 
-Overview
+            <a href="#ascension">
+                <span>03</span>
+                The Age of Ascension
+            </a>
 
-<span class="category-arrow">
-›
-</span>
+            <a href="#decline">
+                <span>04</span>
+                The Aetherite Decline
+            </a>
 
-</button>
+            <a href="#final-days">
+                <span>05</span>
+                The Final Days
+            </a>
 
+            <a href="#fall">
+                <span>06</span>
+                0 FC — The Fall
+            </a>
 
-<div class="category-links">
+            <a href="#aftermath">
+                <span>07</span>
+                The World After
+            </a>
 
-<button class="lore-tab active"
-onclick="showSection('overview', this)">
-Overview
-</button>
+        </nav>
 
-<button class="lore-tab"
-onclick="showSection('facts', this)">
-Quick Facts
-</button>
+    </aside>
 
-</div>
 
-</div>
 
+    <!-- =====================================================
+    INTRODUCTION
+    ===================================================== -->
 
-<!-- HISTORY -->
+    <section id="introduction"
+             class="document-section section-opening">
 
-<div class="lore-category open">
+        <div class="section-number">
+            01
+        </div>
 
-<button class="category-toggle"
-onclick="toggleCategory(this)">
+        <div class="section-heading">
 
-History
+            <span class="section-label">
+                INTRODUCTION
+            </span>
 
-<span class="category-arrow">
-›
-</span>
+            <h2>
+                The End of an Age
+            </h2>
 
-</button>
+        </div>
 
 
-<div class="category-links">
+        <div class="editorial-grid">
 
-<button class="lore-tab"
-onclick="showSection('before-fall', this)">
-Before the Fall
-</button>
+            <div class="main-column">
 
-<button class="lore-tab"
-onclick="showSection('final-days', this)">
-Final Days
-</button>
+                <p class="lead">
+                    The fall of the Citadel was not a single moment.
+                    It was a process that had already begun long
+                    before the city finally came down.
+                </p>
 
-<button class="lore-tab"
-onclick="showSection('fall', this)">
-0 FC — The Fall
-</button>
+                <p>
+                    For generations, the Citadel had represented
+                    the highest achievement of Ascension civilization.
+                    Its towers rose above the surrounding world,
+                    powered by technologies that earlier generations
+                    could scarcely have imagined.
+                </p>
 
-<button class="lore-tab"
-onclick="showSection('settlement', this)">
-Settlement Era
-</button>
+                <p>
+                    Aetherite made those achievements possible.
+                    It powered the engines, stabilized the systems,
+                    and provided the foundation upon which the
+                    civilization's extraordinary infrastructure
+                    had been built.
+                </p>
 
-</div>
+                <p>
+                    But the resource that had allowed civilization
+                    to reach such heights could not be replaced.
+                </p>
 
-</div>
+            </div>
 
 
-<!-- THE CITY -->
+            <aside class="margin-note">
 
-<div class="lore-category">
+                <span class="note-label">
+                    HISTORICAL NOTE
+                </span>
 
-<button class="category-toggle"
-onclick="toggleCategory(this)">
+                <p>
+                    The term
+                    <em>0 FC</em>
+                    refers specifically to the physical fall
+                    of the Citadel.
+                </p>
 
-The City
+            </aside>
 
-<span class="category-arrow">
-›
-</span>
+        </div>
 
-</button>
+    </section>
 
 
-<div class="category-links">
 
-<button class="lore-tab"
-onclick="showSection('gardens', this)">
-The Gardens
-</button>
+    <!-- =====================================================
+    THE CITADEL
+    ===================================================== -->
 
-<button class="lore-tab"
-onclick="showSection('architecture', this)">
-Architecture
-</button>
+    <section id="citadel"
+             class="document-section">
 
-<button class="lore-tab"
-onclick="showSection('districts', this)">
-Districts
-</button>
+        <div class="section-number">
+            02
+        </div>
 
-<button class="lore-tab"
-onclick="showSection('industry', this)">
-Industry
-</button>
+        <div class="section-heading">
 
-<button class="lore-tab"
-onclick="showSection('transportation', this)">
-Transportation
-</button>
+            <span class="section-label">
+                THE OLD WORLD
+            </span>
 
-</div>
+            <h2>
+                The Citadel
+            </h2>
 
-</div>
+        </div>
 
 
-<!-- SOCIETY -->
+        <div class="editorial-grid">
 
-<div class="lore-category">
+            <div class="main-column">
 
-<button class="category-toggle"
-onclick="toggleCategory(this)">
+                <p class="lead">
+                    Before the fall, the Citadel was more than a
+                    city. It was the center of an entire civilization.
+                </p>
 
-Society
+                <p>
+                    Industry, scholarship, commerce, transportation,
+                    and magical research converged within its walls.
+                    The city's influence extended far beyond the
+                    structure itself, reaching into territories that
+                    depended upon its machines, its knowledge, and
+                    its resources.
+                </p>
 
-<span class="category-arrow">
-›
-</span>
+                <p>
+                    The great Ascension Engines formed the heart
+                    of this system. They transformed Aetherite
+                    into usable power and allowed the Citadel to
+                    accomplish feats that had once belonged only
+                    to myth.
+                </p>
 
-</button>
+            </div>
 
 
-<div class="category-links">
+            <aside class="margin-note">
 
-<button class="lore-tab"
-onclick="showSection('culture', this)">
-Culture
-</button>
+                <span class="note-label">
+                    KEY TERM
+                </span>
 
-<button class="lore-tab"
-onclick="showSection('religion', this)">
-Religion
-</button>
+                <h3>
+                    Aetherite
+                </h3>
 
-<button class="lore-tab"
-onclick="showSection('food', this)">
-Food & Trade
-</button>
+                <p>
+                    A rare crystalline material capable of storing
+                    and conducting Aether.
+                </p>
 
-<button class="lore-tab"
-onclick="showSection('daily-life', this)">
-Daily Life
-</button>
+                <a href="#">
+                    View Aetherite →
+                </a>
 
-</div>
+            </aside>
 
-</div>
+        </div>
 
 
-<!-- PEOPLE -->
+        <blockquote class="pull-quote">
 
-<div class="lore-category">
+            <p>
+                “The Citadel was built upon the belief that
+                progress could continue indefinitely.”
+            </p>
 
-<button class="category-toggle"
-onclick="toggleCategory(this)">
+            <cite>
+                Later historical interpretation
+            </cite>
 
-People
+        </blockquote>
 
-<span class="category-arrow">
-›
-</span>
+    </section>
 
-</button>
 
 
-<div class="category-links">
+    <!-- =====================================================
+    ASCENSION
+    ===================================================== -->
 
-<button class="lore-tab"
-onclick="showSection('population', this)">
-Population
-</button>
+    <section id="ascension"
+             class="document-section document-section-dark">
 
-<button class="lore-tab"
-onclick="showSection('factions', this)">
-Factions
-</button>
+        <div class="section-number">
+            03
+        </div>
 
-<button class="lore-tab"
-onclick="showSection('figures', this)">
-Notable Figures
-</button>
+        <div class="section-heading">
 
-</div>
+            <span class="section-label">
+                THE ASCENSION ERA
+            </span>
 
-</div>
+            <h2>
+                The Age of Ascension
+            </h2>
 
+        </div>
 
-<br>
 
+        <p class="section-lead-wide">
+            The civilization that eventually fell had once seemed
+            incapable of failure.
+        </p>
 
-<!-- RELATED -->
 
-<div class="sidebar-heading">
-Related Lore
-</div>
+        <div class="wide-prose">
 
+            <p>
+                The discovery and refinement of Aetherite changed
+                the trajectory of the world. What had previously
+                been isolated magical practices could now be
+                incorporated into machinery, infrastructure, and
+                industry.
+            </p>
 
-<div class="category-links"
-style="display:block;">
+            <p>
+                Cities expanded. Transportation became faster.
+                Communication crossed distances that had once
+                separated entire regions. Factories operated on
+                systems of power that seemed almost limitless.
+            </p>
 
-<button class="lore-tab">
-The Citadel
-</button>
+            <p>
+                The Citadel became the greatest expression of this
+                philosophy.
+            </p>
 
-<button class="lore-tab">
-Crownscar
-</button>
+        </div>
 
-<button class="lore-tab">
-Aetherite
-</button>
 
-<button class="lore-tab">
-Drift
-</button>
+        <div class="era-statement">
 
-</div>
+            <span>THE ASCENSION PRINCIPLE</span>
 
+            <strong>
+                If Aether could power it,<br>
+                it could be built.
+            </strong>
 
-</aside>
+        </div>
 
+    </section>
 
-<!-- =====================================================
-     READING WINDOW
-     ===================================================== -->
 
-<article class="lore-reader" id="loreReader">
 
+    <!-- =====================================================
+    DECLINE
+    ===================================================== -->
 
-<div class="lore-document">
+    <section id="decline"
+             class="document-section">
 
+        <div class="section-number">
+            04
+        </div>
 
-<!-- =====================================================
-     OVERVIEW
-     ===================================================== -->
+        <div class="section-heading">
 
-<section class="lore-section" id="overview">
+            <span class="section-label">
+                BEFORE 0 FC
+            </span>
 
-<h2>Overview</h2>
+            <h2>
+                The Aetherite Decline
+            </h2>
 
-<p class="lore-lead">
+        </div>
 
-Verde Haven is the modern capital of the Verdigris Isles,
-built among the surviving remnants of the civilization that
-existed before the Fall of the Citadel.
 
-</p>
+        <div class="editorial-grid">
 
-<p>
+            <div class="main-column">
 
-Unlike a city founded from untouched ground, Verde Haven grew
-around ruins, foundations, gardens, and fragments of the old
-world. Old Citadel architecture exists alongside generations
-of new construction.
+                <p class="lead">
+                    The first signs of collapse were small enough
+                    to dismiss.
+                </p>
 
-</p>
+                <p>
+                    Aetherite reserves began to diminish. Engines
+                    required increasingly frequent maintenance.
+                    Infrastructure became unreliable, and the
+                    systems responsible for distributing power
+                    could no longer operate at their former
+                    capacity.
+                </p>
 
-<p>
+                <p>
+                    At first, the problems were treated as
+                    temporary shortages. Production would recover.
+                    New reserves would be discovered. Engineers
+                    would find solutions.
+                </p>
 
-The result is a city that feels neither entirely ancient nor
-entirely modern. Verde Haven is a living record of the world
-that was lost and the civilization that followed it.
+                <p>
+                    That belief lasted until the shortages became
+                    impossible to hide.
+                </p>
 
-</p>
+            </div>
 
 
-<div class="lore-callout">
+            <aside class="margin-note">
 
-<strong>
-A City Built From What Survived
-</strong>
+                <span class="note-label">
+                    CHRONOLOGY
+                </span>
 
-Verde Haven's identity comes from the layers of civilization
-built upon one another after the Fall.
+                <dl>
 
-</div>
+                    <div>
+                        <dt>Before 0 FC</dt>
+                        <dd>
+                            Reserves decline
+                        </dd>
+                    </div>
 
-</section>
+                    <div>
+                        <dt>Late Collapse</dt>
+                        <dd>
+                            Infrastructure destabilizes
+                        </dd>
+                    </div>
 
+                    <div>
+                        <dt>0 FC</dt>
+                        <dd>
+                            Citadel falls
+                        </dd>
+                    </div>
 
-<!-- =====================================================
-     QUICK FACTS
-     ===================================================== -->
+                </dl>
 
-<section class="lore-section" id="facts">
+            </aside>
 
-<h2>Quick Facts</h2>
+        </div>
 
-<div class="quick-facts">
 
-<h3>Verde Haven</h3>
+        <div class="information-break">
 
-<dl>
+            <div>
+                <span>01</span>
+                Aetherite reserves
+            </div>
 
-<dt>Type</dt>
-<dd>Capital City</dd>
+            <div>
+                <span>02</span>
+                Power instability
+            </div>
 
-<dt>Region</dt>
-<dd>Verdigris Isles</dd>
+            <div>
+                <span>03</span>
+                Resource rationing
+            </div>
 
-<dt>Era</dt>
-<dd>Post-Fall</dd>
+        </div>
 
-<dt>Founded</dt>
-<dd>Settlement established after 0 FC</dd>
+    </section>
 
-<dt>Known For</dt>
-<dd>
-Reclaimed Citadel architecture, gardens, trade,
-industry, and magitech
-</dd>
 
-<dt>Major Resource</dt>
-<dd>Reclaimed materials and Drift technology</dd>
 
-</dl>
+    <!-- =====================================================
+    FINAL DAYS
+    ===================================================== -->
 
-</div>
+    <section id="final-days"
+             class="document-section">
 
-</section>
+        <div class="section-number">
+            05
+        </div>
 
+        <div class="section-heading">
 
-<!-- =====================================================
-     BEFORE THE FALL
-     ===================================================== -->
+            <span class="section-label">
+                THE COLLAPSE BEGINS
+            </span>
 
-<section class="lore-section" id="before-fall">
+            <h2>
+                The Final Days
+            </h2>
 
-<h2>Before the Fall</h2>
+        </div>
 
-<p>
 
-Before Verde Haven existed, the land was part of the Citadel's
-elite residential and garden districts.
+        <div class="editorial-grid">
 
-</p>
+            <div class="main-column">
 
-<p>
+                <p>
+                    By the final days of the Citadel, daily life
+                    had changed dramatically.
+                </p>
 
-The area contained carefully maintained gardens, residences,
-walkways, service structures, and infrastructure designed for
-those who lived close to the highest levels of Citadel society.
+                <p>
+                    Resources were rationed. Power became
+                    increasingly unreliable. Entire sections of
+                    infrastructure operated intermittently or
+                    ceased functioning altogether.
+                </p>
 
-</p>
+                <p>
+                    The population had begun to understand that
+                    something fundamental was wrong.
+                </p>
 
-<p>
+                <p>
+                    Yet the Citadel remained standing.
+                </p>
 
-Much of this district would eventually become buried beneath
-the ruins of the Citadel itself.
+                <p>
+                    Its towers still dominated the horizon. Its
+                    remaining engines still turned. Its institutions
+                    continued to insist that the crisis could be
+                    contained.
+                </p>
 
-</p>
+            </div>
 
-</section>
 
+            <aside class="margin-note">
 
-<!-- =====================================================
-     FINAL DAYS
-     ===================================================== -->
+                <span class="note-label">
+                    HISTORICAL OBSERVATION
+                </span>
 
-<section class="lore-section" id="final-days">
+                <p>
+                    Later accounts often describe the final period
+                    as peaceful immediately before the fall.
+                    Surviving records suggest otherwise.
+                </p>
 
-<h2>The Final Days</h2>
+            </aside>
 
-<p>
+        </div>
 
-The years immediately preceding 0 FC were marked by a gradual
-collapse of Citadel infrastructure.
+    </section>
 
-</p>
 
-<p>
 
-Aetherite reserves became critically depleted. Power systems
-became unreliable, infrastructure began failing, and resources
-were increasingly rationed.
+    <!-- =====================================================
+    THE FALL
+    ===================================================== -->
 
-</p>
+    <section id="fall"
+             class="document-section fall-section">
 
-<p>
 
-The Citadel had once seemed permanent.
+        <div class="fall-date">
+            <span>THE YEAR OF THE FALL</span>
+            <strong>0 FC</strong>
+        </div>
 
-It was not.
 
-</p>
+        <div class="fall-title">
 
-</section>
+            <span>
+                THE CITADEL
+            </span>
 
+            <h2>
+                Fell.
+            </h2>
 
-<!-- =====================================================
-     THE FALL
-     ===================================================== -->
+        </div>
 
-<section class="lore-section" id="fall">
 
-<h2>0 FC — The Fall</h2>
+        <div class="fall-prose">
 
-<p>
+            <p>
+                Whatever remained of the old system failed in a
+                single catastrophic event.
+            </p>
 
-0 FC marks the physical Fall of the Citadel itself.
+            <p>
+                The Citadel descended from the sky.
+            </p>
 
-</p>
+            <p>
+                Its fall destroyed the city and shattered the
+                civilization that had depended upon it. Structures
+                that had stood for generations were torn apart.
+                Machinery, archives, homes, laboratories, and
+                entire districts were buried beneath the ruins.
+            </p>
 
-<p>
+            <p>
+                The impact permanently altered the surrounding
+                landscape.
+            </p>
 
-The events immediately preceding the catastrophe belong to the
-Final Days. The Fall itself is the moment when the Citadel
-collapsed, destroying enormous portions of the civilization
-that had depended upon it.
+        </div>
 
-</p>
 
+        <div class="fall-caption">
+            0 FC marks the physical fall of the Citadel.
+        </div>
 
-<div class="lore-timeline">
+    </section>
 
-<div class="timeline-event">
 
-<strong>Before 0 FC</strong>
 
-The Collapse Begins.
+    <!-- =====================================================
+    AFTERMATH
+    ===================================================== -->
 
-</div>
+    <section id="aftermath"
+             class="document-section section-closing">
 
+        <div class="section-number">
+            07
+        </div>
 
-<div class="timeline-event">
+        <div class="section-heading">
 
-<strong>0 FC</strong>
+            <span class="section-label">
+                AFTER THE FALL
+            </span>
 
-The Citadel physically falls.
+            <h2>
+                The World After
+            </h2>
 
-</div>
+        </div>
 
 
-<div class="timeline-event">
+        <div class="editorial-grid">
 
-<strong>After 0 FC</strong>
+            <div class="main-column">
 
-Survivors begin establishing settlements among the ruins.
+                <p class="lead">
+                    The world did not end with the Citadel.
+                </p>
 
-</div>
+                <p>
+                    It changed.
+                </p>
 
-</div>
+                <p>
+                    Survivors scattered into the territories that
+                    remained habitable. Communities formed around
+                    whatever resources could be recovered. Old
+                    technologies were salvaged, repaired, and
+                    repurposed.
+                </p>
 
-</section>
+                <p>
+                    The civilization that followed was not a
+                    continuation of the old world so much as an
+                    attempt to understand what remained of it.
+                </p>
 
+                <p>
+                    Ruins became settlements. Relics became tools.
+                    Forgotten machines became the foundation for
+                    new inventions.
+                </p>
 
-<!-- =====================================================
-     SETTLEMENT
-     ===================================================== -->
+                <p class="closing-line">
+                    The old world had fallen.
 
-<section class="lore-section" id="settlement">
+                    <br><br>
 
-<h2>The Settlement Era</h2>
+                    The next one had begun.
+                </p>
 
-<p>
+            </div>
 
-In the generations following the Fall, survivors began
-occupying the ruins left behind.
+        </div>
 
-</p>
 
-<p>
+        <div class="document-end">
 
-The fallen residential and garden districts proved especially
-valuable. Existing foundations offered shelter, while surviving
-walls and structures could be repaired rather than rebuilt from
-nothing.
+            <span>
+                END OF ARCHIVE
+            </span>
 
-</p>
+            <strong>
+                VERDIGRIS ISLES
+            </strong>
 
-<p>
+            <small>
+                HISTORY · ARCHIVE 01
+            </small>
 
-Over generations, the settlement expanded outward from these
-ruins.
+        </div>
 
-</p>
+    </section>
 
-</section>
-
-
-<!-- =====================================================
-     GARDENS
-     ===================================================== -->
-
-<section class="lore-section" id="gardens">
-
-<h2>The Gardens</h2>
-
-<p>
-
-Among the most recognizable remnants of the old Citadel are
-the gardens that once belonged to its elite residential
-districts.
-
-</p>
-
-<p>
-
-Some survived remarkably intact. Others were buried, overgrown,
-or transformed by generations of settlement.
-
-</p>
-
-<p>
-
-Modern Verde Haven grew around these surviving spaces rather
-than completely replacing them.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     ARCHITECTURE
-     ===================================================== -->
-
-<section class="lore-section" id="architecture">
-
-<h2>Architecture</h2>
-
-<p>
-
-Verde Haven's architecture reflects centuries of rebuilding.
-
-</p>
-
-<p>
-
-Reclaimed Citadel stonework can be found beside nineteenth-
-century-inspired industrial buildings, wooden residences,
-metal workshops, and structures incorporating salvaged
-magitech components.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     DISTRICTS
-     ===================================================== -->
-
-<section class="lore-section" id="districts">
-
-<h2>Districts</h2>
-
-<p>
-
-The city is divided into districts that reflect both its
-history and its modern function.
-
-</p>
-
-<p>
-
-The oldest portions of the city remain closely tied to the
-ruins of the Citadel, while newer districts expanded outward
-into areas that were once peripheral settlements.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     INDUSTRY
-     ===================================================== -->
-
-<section class="lore-section" id="industry">
-
-<h2>Industry</h2>
-
-<p>
-
-Verde Haven is one of the major industrial centers of the
-Verdigris Isles.
-
-</p>
-
-<p>
-
-Workshops, factories, foundries, printing houses, and
-magitech repair facilities make use of both conventional
-nineteenth-century technology and carefully reclaimed
-technology from the old world.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     TRANSPORTATION
-     ===================================================== -->
-
-<section class="lore-section" id="transportation">
-
-<h2>Transportation</h2>
-
-<p>
-
-Transportation throughout Verde Haven reflects the city's
-position as both a major trade center and a settlement shaped
-by its waterways.
-
-</p>
-
-<p>
-
-Ships, carts, rail systems, and Drift-powered airboats connect
-the capital to surrounding settlements and trade routes.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     CULTURE
-     ===================================================== -->
-
-<section class="lore-section" id="culture">
-
-<h2>Culture</h2>
-
-<p>
-
-Verde Haven's culture is shaped by the coexistence of old-world
-relics and new-world traditions.
-
-</p>
-
-<p>
-
-The people of the capital live surrounded by evidence of the
-civilization that came before them while simultaneously
-building something distinctly their own.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     RELIGION
-     ===================================================== -->
-
-<section class="lore-section" id="religion">
-
-<h2>Religion</h2>
-
-<p>
-
-Religious traditions in Verde Haven vary considerably between
-communities.
-
-</p>
-
-<p>
-
-Some traditions developed after the Fall, while others preserve
-fragments of older beliefs.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     FOOD & TRADE
-     ===================================================== -->
-
-<section class="lore-section" id="food">
-
-<h2>Food & Trade</h2>
-
-<p>
-
-As the capital, Verde Haven serves as a major center for trade.
-
-</p>
-
-<p>
-
-Produce from surrounding regions, seafood from the coast,
-manufactured goods, reclaimed materials, and specialized
-magitech components all pass through the city.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     DAILY LIFE
-     ===================================================== -->
-
-<section class="lore-section" id="daily-life">
-
-<h2>Daily Life</h2>
-
-<p>
-
-Daily life in Verde Haven combines familiar nineteenth-century
-industrial living with the strange conveniences of reclaimed
-magitech.
-
-</p>
-
-<p>
-
-Markets, workshops, public gardens, waterways, factories, and
-residential neighborhoods all exist within relatively close
-proximity.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     POPULATION
-     ===================================================== -->
-
-<section class="lore-section" id="population">
-
-<h2>Population</h2>
-
-<p>
-
-Verde Haven is one of the most culturally diverse settlements
-in the Verdigris Isles.
-
-</p>
-
-<p>
-
-People from across the archipelago pass through the capital for
-trade, work, education, politics, and exploration.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     FACTIONS
-     ===================================================== -->
-
-<section class="lore-section" id="factions">
-
-<h2>Factions</h2>
-
-<p>
-
-The capital contains representatives of numerous political,
-commercial, cultural, and adventuring organizations.
-
-</p>
-
-<p>
-
-Some operate openly within the city while others maintain
-smaller networks hidden among its districts.
-
-</p>
-
-</section>
-
-
-<!-- =====================================================
-     NOTABLE FIGURES
-     ===================================================== -->
-
-<section class="lore-section" id="figures">
-
-<h2>Notable Figures</h2>
-
-<p>
-
-This section can contain important historical figures,
-politicians, merchants, explorers, inventors, or other
-individuals associated with Verde Haven.
-
-</p>
-
-</section>
-
-
-</div>
-
-</article>
-
-</div>
 
 </main>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
+
+<!-- =========================================================
+CONTENTS OVERLAY
+========================================================= -->
+
+<div class="contents-overlay" aria-hidden="true">
+
+    <div class="contents-overlay-inner">
+
+        <button class="contents-close"
+                type="button">
+            Close
+        </button>
+
+        <span class="overlay-label">
+            DOCUMENT CONTENTS
+        </span>
+
+        <h2>
+            The Fall<br>
+            <em>of the Citadel</em>
+        </h2>
+
+        <nav>
+
+            <a href="#introduction">
+                <span>01</span>
+                The End of an Age
+            </a>
+
+            <a href="#citadel">
+                <span>02</span>
+                The Citadel
+            </a>
+
+            <a href="#ascension">
+                <span>03</span>
+                The Age of Ascension
+            </a>
+
+            <a href="#decline">
+                <span>04</span>
+                The Aetherite Decline
+            </a>
+
+            <a href="#final-days">
+                <span>05</span>
+                The Final Days
+            </a>
+
+            <a href="#fall">
+                <span>06</span>
+                0 FC — The Fall
+            </a>
+
+            <a href="#aftermath">
+                <span>07</span>
+                The World After
+            </a>
+
+        </nav>
+
+    </div>
+
+</div>
+
+
 
 <script>
 
-
 /* =========================================================
-   CATEGORY TOGGLES
-   ========================================================= */
+CONTENTS
+========================================================= */
 
-function toggleCategory(button) {
+const contentsToggle =
+    document.querySelector(".contents-toggle");
 
-    const category = button.parentElement;
+const contentsOverlay =
+    document.querySelector(".contents-overlay");
 
-    category.classList.toggle("open");
+const contentsClose =
+    document.querySelector(".contents-close");
+
+const contentsLinks =
+    document.querySelectorAll(".contents-overlay a");
+
+
+function openContents() {
+
+    contentsOverlay.classList.add("open");
+
+    contentsOverlay.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    contentsToggle.setAttribute(
+        "aria-expanded",
+        "true"
+    );
 
 }
 
 
-/* =========================================================
-   SECTION NAVIGATION
-   ========================================================= */
+function closeContents() {
 
-function showSection(id, button) {
+    contentsOverlay.classList.remove("open");
 
-    const reader =
-        document.getElementById("loreReader");
+    contentsOverlay.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
-    const section =
-        document.getElementById(id);
-
-
-    if (!section) return;
-
-
-    /* Remove active state */
-
-    document
-        .querySelectorAll(".lore-tab")
-        .forEach(tab => {
-
-            tab.classList.remove("active");
-
-        });
-
-
-    /* Activate selected tab */
-
-    button.classList.add("active");
-
-
-    /* Scroll reading window */
-
-    reader.scrollTo({
-
-        top:
-            section.offsetTop
-            - reader.offsetTop
-            - 25,
-
-        behavior: "smooth"
-
-    });
+    contentsToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
 
 }
 
 
+contentsToggle.addEventListener(
+    "click",
+    openContents
+);
+
+
+contentsClose.addEventListener(
+    "click",
+    closeContents
+);
+
+
+contentsLinks.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        closeContents
+    );
+
+});
+
+
 /* =========================================================
-   OPEN CATEGORY WHEN TAB IS SELECTED
-   ========================================================= */
+KEYBOARD ACCESS
+========================================================= */
 
-document
-    .querySelectorAll(".lore-tab")
-    .forEach(tab => {
+document.addEventListener(
+    "keydown",
+    event => {
 
-        tab.addEventListener("click", function() {
+        if (
+            event.key === "Escape" &&
+            contentsOverlay.classList.contains("open")
+        ) {
 
-            const category =
-                this.closest(".lore-category");
+            closeContents();
 
-            if (category) {
+        }
 
-                category.classList.add("open");
-
-            }
-
-        });
-
-    });
-
+    }
+);
 
 </script>
 
