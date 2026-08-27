@@ -190,10 +190,9 @@ align-items: center;
 gap: 10px;
 
 color: var(--deep);
-
+font-family: Arial, sans-serif;
 font-weight: 700;
-letter-spacing: 0.08em;
-
+letter-spacing: .08em;
 text-transform: uppercase;
 white-space: nowrap;
 }
