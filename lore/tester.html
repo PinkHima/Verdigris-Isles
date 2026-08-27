@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +7,485 @@
 <title>The Fall of the Citadel | Verdigris Isles</title>
 
 <link rel="stylesheet" href="../css/styles.css">
+
+<style>
+
+/* =========================================================
+   LORE DOCUMENT
+   ========================================================= */
+
+.lore-page {
+    padding: 50px 0 90px;
+}
+
+.lore-layout {
+    width: min(1250px, calc(100% - 40px));
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 230px minmax(0, 850px);
+    gap: 35px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   DOCUMENT INDEX
+   ========================================================= */
+
+.lore-index {
+    position: sticky;
+    top: 30px;
+
+    padding: 24px 20px;
+
+    background: rgba(247, 255, 245, 0.96);
+    border: 1px solid rgba(18, 74, 85, 0.16);
+    border-radius: 18px;
+
+    box-shadow: 0 12px 35px rgba(18, 74, 85, 0.08);
+}
+
+.index-label {
+    margin-bottom: 5px;
+
+    color: var(--deep);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.index-title {
+    margin: 0 0 20px;
+
+    color: var(--navy);
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+}
+
+.index-rule {
+    height: 1px;
+    margin: 0 0 16px;
+
+    background: rgba(18, 74, 85, 0.14);
+}
+
+.index-section {
+    margin-bottom: 20px;
+}
+
+.index-section-title {
+    margin-bottom: 8px;
+
+    color: var(--stone);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.index-link {
+    position: relative;
+
+    display: block;
+
+    padding: 7px 8px 7px 25px;
+
+    color: var(--stone);
+    text-decoration: none;
+
+    font-size: 0.86rem;
+    line-height: 1.4;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.index-link::before {
+    content: "";
+
+    position: absolute;
+    left: 8px;
+    top: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+    background: transparent;
+
+    transform: translateY(-50%);
+    transition: background 0.2s ease;
+}
+
+.index-link:hover {
+    color: var(--deep);
+    background: rgba(49, 195, 192, 0.08);
+}
+
+.index-link.active {
+    color: var(--deep);
+    font-weight: 700;
+    background: rgba(49, 195, 192, 0.10);
+}
+
+.index-link.active::before {
+    background: var(--lagoon);
+}
+
+
+/* =========================================================
+   DOCUMENT
+   ========================================================= */
+
+.lore-document {
+    min-width: 0;
+
+    background: var(--foam);
+
+    border: 1px solid rgba(18, 74, 85, 0.15);
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 55px rgba(18, 74, 85, 0.10);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DOCUMENT HEADER
+   ========================================================= */
+
+.document-header {
+    position: relative;
+
+    padding: 65px 70px 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 195, 192, 0.11),
+            rgba(247, 255, 245, 0.95) 55%
+        );
+
+    border-bottom: 1px solid rgba(18, 74, 85, 0.13);
+}
+
+.document-kicker {
+    margin-bottom: 12px;
+
+    color: var(--deep);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.document-title {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+
+    line-height: 1.05;
+}
+
+.document-subtitle {
+    max-width: 620px;
+
+    margin: 18px 0 0;
+
+    color: var(--stone);
+
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.document-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-top: 27px;
+}
+
+.document-meta span {
+    padding: 6px 11px;
+
+    color: var(--deep);
+
+    background: rgba(49, 195, 192, 0.09);
+
+    border: 1px solid rgba(49, 195, 192, 0.20);
+    border-radius: 999px;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DOCUMENT BODY
+   ========================================================= */
+
+.document-body {
+    padding: 65px 70px 80px;
+}
+
+.lore-section {
+    scroll-margin-top: 35px;
+}
+
+.lore-section + .lore-section {
+    margin-top: 70px;
+}
+
+.section-number {
+    margin-bottom: 8px;
+
+    color: var(--lagoon);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+}
+
+.lore-section h2 {
+    margin: 0 0 22px;
+
+    color: var(--navy);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+
+    line-height: 1.2;
+}
+
+.lore-section p {
+    margin: 0 0 20px;
+
+    color: #344f55;
+
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.lore-section p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   ORNAMENTAL DIVIDER
+   ========================================================= */
+
+.lore-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin: 60px 0;
+}
+
+.lore-divider::before,
+.lore-divider::after {
+    content: "";
+
+    height: 1px;
+    flex: 1;
+
+    background: rgba(18, 74, 85, 0.14);
+}
+
+.lore-divider span {
+    color: var(--lagoon);
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   HISTORICAL NOTE
+   ========================================================= */
+
+.history-note {
+    margin: 35px 0;
+    padding: 25px 28px;
+
+    background: rgba(244, 223, 179, 0.25);
+
+    border-left: 3px solid var(--sand);
+
+    border-radius: 0 13px 13px 0;
+}
+
+.history-note-label {
+    margin-bottom: 8px;
+
+    color: var(--deep);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.history-note p {
+    margin: 0;
+
+    color: var(--stone);
+
+    font-size: 0.91rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PULL QUOTE
+   ========================================================= */
+
+.lore-quote {
+    margin: 45px 0;
+
+    padding: 10px 35px;
+
+    color: var(--deep);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    font-style: italic;
+
+    line-height: 1.65;
+
+    border-left: 3px solid var(--lagoon);
+}
+
+
+/* =========================================================
+   TIMELINE MARKER
+   ========================================================= */
+
+.date-marker {
+    display: inline-block;
+
+    margin-bottom: 14px;
+    padding: 5px 10px;
+
+    color: white;
+    background: var(--deep);
+
+    border-radius: 999px;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .lore-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .lore-index {
+        position: relative;
+        top: auto;
+
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px 12px;
+    }
+
+    .index-title,
+    .index-label,
+    .index-rule {
+        grid-column: 1 / -1;
+    }
+
+    .index-section {
+        margin-bottom: 8px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .lore-page {
+        padding: 25px 0 55px;
+    }
+
+    .lore-layout {
+        width: min(100% - 20px, 850px);
+        gap: 15px;
+    }
+
+    .lore-index {
+        display: block;
+        padding: 18px;
+    }
+
+    .index-section {
+        margin-bottom: 15px;
+    }
+
+    .document-header {
+        padding: 42px 28px 38px;
+    }
+
+    .document-body {
+        padding: 42px 28px 55px;
+    }
+
+    .document-title {
+        font-size: 2.35rem;
+    }
+
+    .lore-section h2 {
+        font-size: 1.7rem;
+    }
+
+    .lore-section p {
+        font-size: 0.96rem;
+        line-height: 1.8;
+    }
+
+    .lore-quote {
+        padding-left: 20px;
+        padding-right: 10px;
+
+        font-size: 1.15rem;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 <!-- =========================================================
-NAVIGATION
-========================================================= -->
+     NAVIGATION
+     ========================================================= -->
 
 <header>
 <div class="container">
@@ -23,7 +493,7 @@ NAVIGATION
 <nav>
 
 <a class="brand" href="../index.html">
-Verdigris Isles
+    Verdigris Isles
 </a>
 
 <div class="nav-links">
@@ -36,12 +506,12 @@ Verdigris Isles
 
 <a href="../races/races.html">Races</a>
 
+<a class="active" href="history.html">History</a>
+
 <a href="../world/magic.html">Magic</a>
 
 <a href="../world/technology.html">Technology</a>
 
-<a class="active" href="../world/history.html">History</a>
-
 </div>
 
 </nav>
@@ -50,135 +520,73 @@ Verdigris Isles
 </header>
 
 
-
 <!-- =========================================================
-LORE DOCUMENT
-========================================================= -->
+     LORE PAGE
+     ========================================================= -->
 
 <main class="lore-page">
 
-<div class="lore-shell">
+<div class="lore-layout">
 
 
 <!-- =========================================================
-DOCUMENT HEADER
-========================================================= -->
+     DOCUMENT INDEX
+     ========================================================= -->
 
-<header class="lore-header">
+<aside class="lore-index">
 
-<div class="lore-classification">
-HISTORICAL RECORD
-<span>•</span>
-THE OLD WORLD
+<div class="index-label">
+    Document
+</div>
+
+<h2 class="index-title">
+    History
+</h2>
+
+<div class="index-rule"></div>
+
+
+<div class="index-section">
+
+<div class="index-section-title">
+    Contents
+</div>
+
+<a class="index-link active" href="#final-days">
+    01 · Final Days
+</a>
+
+<a class="index-link" href="#collapse">
+    02 · The Collapse
+</a>
+
+<a class="index-link" href="#fall">
+    03 · The Fall
+</a>
+
+<a class="index-link" href="#aftermath">
+    04 · Aftermath
+</a>
+
 </div>
 
 
-<h1>The Fall of the Citadel</h1>
+<div class="index-section">
 
-
-<p class="lore-subtitle">
-The final days of the Ascendant Age and the event that
-shattered the world.
-</p>
-
-
-<div class="lore-meta">
-
-<div>
-<span>ERA</span>
-<strong>0 FC</strong>
+<div class="index-section-title">
+    Related
 </div>
 
-<div>
-<span>SUBJECT</span>
-<strong>The Citadel</strong>
-</div>
-
-<div>
-<span>PERIOD</span>
-<strong>The Sundering</strong>
-</div>
-
-</div>
-
-</header>
-
-
-
-<!-- =========================================================
-DOCUMENT BODY
-========================================================= -->
-
-<div class="lore-document">
-
-
-<!-- =========================================================
-TABLE OF CONTENTS
-========================================================= -->
-
-<aside class="lore-contents">
-
-<div class="contents-label">
-CONTENTS
-</div>
-
-
-<nav>
-
-<a href="#introduction" class="contents-link active">
-<span>01</span>
-Introduction
+<a class="index-link" href="../world/aetherite.html">
+    Aetherite
 </a>
 
-
-<a href="#final-days" class="contents-link">
-<span>02</span>
-The Final Days
+<a class="index-link" href="../world/technology.html">
+    Technology
 </a>
 
-
-<a href="#collapse" class="contents-link">
-<span>03</span>
-The Collapse Begins
-</a>
-
-
-<a href="#fall" class="contents-link">
-<span>04</span>
-The Fall
-</a>
-
-
-<a href="#aftermath" class="contents-link">
-<span>05</span>
-The Aftermath
-</a>
-
-
-<a href="#legacy" class="contents-link">
-<span>06</span>
-Legacy
-</a>
-
-</nav>
-
-
-<div class="contents-divider"></div>
-
-
-<div class="contents-related">
-<span>RELATED RECORDS</span>
-
-<a href="../world/history.html">
-Complete History
-</a>
-
-<a href="../world/magic.html">
-Aether & Magic
-</a>
-
-<a href="../world/technology.html">
-Reclaimed Technology
+<a class="index-link" href="../world/world.html">
+    The Old World
 </a>
 
 </div>
@@ -186,361 +594,209 @@ Reclaimed Technology
 </aside>
 
 
-
 <!-- =========================================================
-READING AREA
-========================================================= -->
+     DOCUMENT
+     ========================================================= -->
 
-<article class="lore-reading">
+<article class="lore-document">
 
 
-<!-- INTRODUCTION -->
+<!-- HEADER -->
 
-<section id="introduction" class="lore-section">
+<header class="document-header">
 
-<div class="section-marker">
-01
+<div class="document-kicker">
+    Historical Record
 </div>
 
-<div class="section-heading">
+<h1 class="document-title">
+    The Fall of the Citadel
+</h1>
 
-<span>HISTORICAL OVERVIEW</span>
-
-<h2>Introduction</h2>
-
-</div>
-
-
-<p class="lead">
-The Citadel was once the greatest achievement of the Ascendant
-Age. It represented the height of civilization: a place where
-magic, engineering, scholarship, and industry existed together
-on a scale the modern world can scarcely comprehend.
+<p class="document-subtitle">
+    The final days of the civilization that once stood at
+    the height of Ascension, and the catastrophe that
+    reshaped the world that followed.
 </p>
 
+<div class="document-meta">
 
-<p>
-Its towers reached above the surrounding world, powered by
-vast reserves of Aetherite and sustained by systems that had
-taken generations to perfect. From the Citadel came discoveries,
-machines, magical disciplines, and technologies that reshaped
-civilization.
-</p>
-
-
-<p>
-Yet the Citadel's greatness depended upon a resource that could
-not be replaced.
-</p>
-
-
-<p>
-When the world's Aetherite reserves began to fail, the foundations
-of the Ascendant Age began to fail with them.
-</p>
-
-
-<blockquote class="lore-quote">
-<span>THE OLD WORLD</span>
-
-"The Citadel did not fall in a single moment.
-Its fall had already begun."
-</blockquote>
-
-</section>
-
-
-
-<!-- FINAL DAYS -->
-
-<section id="final-days" class="lore-section">
-
-<div class="section-marker">
-02
-</div>
-
-<div class="section-heading">
-
-<span>BEFORE 0 FC</span>
-
-<h2>The Final Days</h2>
-
-</div>
-
-
-<p>
-In the period immediately preceding the Fall, the Citadel had
-entered a state of increasing instability.
-</p>
-
-
-<p>
-Aetherite reserves were becoming critically depleted. Systems
-that had once operated continuously began failing without
-warning. Power became unreliable, infrastructure deteriorated,
-and resources were increasingly rationed.
-</p>
-
-
-<p>
-The people of the Citadel did not initially understand that
-they were witnessing the end of an age.
-</p>
-
-
-<p>
-For generations, the city had been built around the assumption
-that its systems would continue functioning. When those systems
-began to fail, there was no simple replacement for them.
-</p>
-
-
-<div class="lore-note">
-
-<div class="note-title">
-HISTORICAL NOTE
-</div>
-
-<p>
-The period immediately preceding 0 FC is generally referred to
-as the <strong>Final Days of the Citadel</strong>. The year 0 FC
-marks the physical Fall itself, rather than the beginning of the
-collapse.
-</p>
-
-</div>
-
-
-<p>
-As shortages worsened, the distinction between ordinary
-maintenance failures and systemic collapse became increasingly
-difficult to maintain.
-</p>
-
-</section>
-
-
-
-<!-- COLLAPSE -->
-
-<section id="collapse" class="lore-section">
-
-<div class="section-marker">
-03
-</div>
-
-<div class="section-heading">
-
-<span>THE COLLAPSE BEGINS</span>
-
-<h2>A Civilization Losing Power</h2>
-
-</div>
-
-
-<p>
-The Citadel's dependence upon Aetherite had always been one of
-its greatest strengths. It had allowed its engineers and
-arcanists to accomplish feats that earlier civilizations could
-only imagine.
-</p>
-
-
-<p>
-It eventually became one of its greatest weaknesses.
-</p>
-
-
-<p>
-As Aetherite reserves dwindled, the systems supporting the
-Citadel became increasingly unreliable. Power networks faltered.
-Industrial operations slowed. Transportation systems became
-difficult to maintain.
-</p>
-
-
-<p>
-The city began rationing what remained.
-</p>
-
-
-<p>
-What had once been abundant became valuable. What had once been
-routine became a privilege.
-</p>
-
-
-<div class="lore-callout">
-
-<div class="callout-symbol">
-◆
-</div>
-
-<div>
-
-<strong>THE AETHERITE CRISIS</strong>
-
-<p>
-The depletion of Aetherite was not simply an energy shortage.
-It represented the loss of the fundamental resource upon which
-the Ascendant civilization had been constructed.
-</p>
-
-</div>
-
-</div>
-
-
-<p>
-Attempts were made to preserve essential systems. Some districts
-were prioritized over others. Industrial facilities were shut
-down or consolidated. Nonessential infrastructure was abandoned.
-</p>
-
-
-<p>
-The Citadel was no longer expanding.
-
-It was attempting to survive.
-</p>
-
-</section>
-
-
-
-<!-- FALL -->
-
-<section id="fall" class="lore-section">
-
-<div class="section-marker">
-04
-</div>
-
-<div class="section-heading">
-
+<span>History</span>
+<span>The Old World</span>
 <span>0 FC</span>
 
-<h2>The Fall</h2>
+</div>
+
+</header>
+
+
+<!-- BODY -->
+
+<div class="document-body">
+
+
+<!-- SECTION 01 -->
+
+<section class="lore-section" id="final-days">
+
+<div class="section-number">
+    01 / FINAL DAYS
+</div>
+
+<h2>
+    The Final Days of the Citadel
+</h2>
+
+<p>
+    Before the Fall, the Citadel stood as the greatest
+    expression of civilization the world had ever known.
+    Its towers reached into the sky, its engines carried
+    entire structures above the earth, and its streets
+    were sustained by systems that had become so deeply
+    integrated into daily life that few could imagine
+    existence without them.
+</p>
+
+<p>
+    Beneath that prosperity, however, the foundations of
+    the Ascension age were beginning to fail.
+    Aetherite reserves were becoming critically depleted.
+    Infrastructure grew increasingly unreliable, and the
+    systems responsible for maintaining the Citadel's
+    extraordinary scale required more resources than the
+    civilization could continue to provide.
+</p>
+
+<div class="history-note">
+
+<div class="history-note-label">
+    Historical Note
+</div>
+
+<p>
+    The final years should not be understood as a single
+    moment of collapse. The Fall was preceded by a
+    prolonged period of shortages, failing infrastructure,
+    rationing, and growing uncertainty.
+</p>
 
 </div>
 
-
-<p class="lead">
-The Fall of the Citadel was not merely the destruction of a
-city. It was the collapse of the central structure upon which
-the old world depended.
-</p>
-
-
 <p>
-At some point during the final crisis, the Citadel's systems
-failed beyond recovery.
-</p>
-
-
-<p>
-The immense structure could no longer maintain itself.
-Infrastructure collapsed. Sections of the city broke apart,
-and the Citadel came down upon the land beneath it.
-</p>
-
-
-<p>
-The event permanently altered the surrounding region.
-</p>
-
-
-<div class="lore-quote-large">
-
-<div>0 FC</div>
-
-<p>
-The year remembered not for what began,
-but for what finally fell.
-</p>
-
-</div>
-
-
-<p>
-The physical destruction of the Citadel became the defining
-event of the new era. Survivors scattered into the world beyond
-the ruins, carrying fragments of knowledge, technology, culture,
-and memory with them.
-</p>
-
-
-<p>
-The age of Ascension was over.
+    Resources were rationed. Industrial production slowed.
+    Repairs that would once have been routine became
+    increasingly difficult as replacement components and
+    refined Aetherite became scarce.
 </p>
 
 </section>
 
 
-
-<!-- AFTERMATH -->
-
-<section id="aftermath" class="lore-section">
-
-<div class="section-marker">
-05
-</div>
-
-<div class="section-heading">
-
-<span>AFTER THE FALL</span>
-
-<h2>The Aftermath</h2>
-
+<div class="lore-divider">
+    <span>✦</span>
 </div>
 
 
+<!-- SECTION 02 -->
+
+<section class="lore-section" id="collapse">
+
+<div class="section-number">
+    02 / COLLAPSE
+</div>
+
+<h2>
+    The Collapse Begins
+</h2>
+
 <p>
-The world that emerged from the disaster was fragmented.
-Communities that had once depended upon the Citadel were forced
-to become self-sufficient.
+    The first failures were isolated.
+    A transport line would stop without warning.
+    A district would lose power for several hours.
+    An industrial engine would require components that
+    could no longer be manufactured.
 </p>
 
-
 <p>
-Old roads became dangerous. Ruined facilities became sources
-of valuable materials. Forgotten machines were stripped for
-parts. Ancient structures were repurposed rather than rebuilt.
+    Individually, these incidents were survivable.
+    Together, they represented something far more serious:
+    the gradual unraveling of the systems upon which the
+    Citadel depended.
 </p>
 
+<div class="lore-quote">
+    “The Citadel did not fall in a single day.
+    By the time the end came, much of it had already
+    begun to disappear.”
+</div>
 
 <p>
-Over generations, survivors learned to live among the remains
-of the civilization that had come before them.
+    As failures multiplied, entire districts became
+    increasingly isolated. Food distribution became
+    unreliable. Manufacturing centers struggled to remain
+    operational. The great infrastructure networks that
+    had once connected the Citadel began to fragment.
 </p>
 
+</section>
+
+
+<div class="lore-divider">
+    <span>✦</span>
+</div>
+
+
+<!-- SECTION 03 -->
+
+<section class="lore-section" id="fall">
+
+<div class="section-number">
+    03 / 0 FC
+</div>
+
+<h2>
+    The Fall
+</h2>
+
+<span class="date-marker">
+    0 FC · THE FALL OF THE CITADEL
+</span>
 
 <p>
-Some ruins became settlements.
+    The final catastrophe came when the systems holding
+    the Citadel aloft could no longer maintain their
+    intended function.
 </p>
 
-
 <p>
-Some became graveyards.
+    What followed became known simply as the Fall.
+    Structures broke apart. Entire sections of the
+    Citadel collapsed from the sky, carrying with them
+    homes, infrastructure, machinery, archives, and
+    countless remnants of the civilization that had
+    created them.
 </p>
 
-
 <p>
-Others became places that people were simply wise enough to
-leave alone.
+    The physical destruction was immense, but the
+    consequences extended far beyond the wreckage.
+    The Fall severed the networks that had connected
+    distant settlements and shattered the political
+    order that had depended upon the Citadel's continued
+    existence.
 </p>
 
+<div class="history-note">
 
-<div class="lore-note">
-
-<div class="note-title">
-THE CROWNSCAR</div>
+<div class="history-note-label">
+    On the Calendar
+</div>
 
 <p>
-The ruins created by the Citadel's destruction became known as
-the <strong>Crownscar</strong>, a vast region where remnants of
-the old civilization remain buried, exposed, and waiting to be
-rediscovered.
+    0 FC refers specifically to the physical Fall of the
+    Citadel itself. The shortages, political instability,
+    and infrastructure failures immediately preceding
+    the disaster belong to the period before 0 FC.
 </p>
 
 </div>
@@ -548,114 +804,104 @@ rediscovered.
 </section>
 
 
-
-<!-- LEGACY -->
-
-<section id="legacy" class="lore-section">
-
-<div class="section-marker">
-06
-</div>
-
-<div class="section-heading">
-
-<span>THE WORLD THAT REMAINS</span>
-
-<h2>Legacy</h2>
-
+<div class="lore-divider">
+    <span>✦</span>
 </div>
 
 
-<p>
-The Citadel is gone, but its influence remains everywhere.
-</p>
+<!-- SECTION 04 -->
 
+<section class="lore-section" id="aftermath">
 
-<p>
-Modern civilization is built among its remnants. Old machines
-continue to shape new inventions. Ruins provide materials,
-knowledge, and dangers in equal measure. Ancient techniques
-are being rediscovered by people who no longer possess the
-context in which they were originally created.
-</p>
-
-
-<p>
-This period of reconstruction has given rise to a new age:
-a civilization piecing together the achievements of the past
-while attempting not to repeat its mistakes.
-</p>
-
-
-<p>
-The people of the Verdigris Isles live in the shadow of that
-history.
-</p>
-
-
-<p>
-They inherit its ruins.
-</p>
-
-
-<p>
-They salvage its machines.
-</p>
-
-
-<p>
-They tell stories about its wonders.
-</p>
-
-
-<p>
-And somewhere beneath the earth, beneath forests and marshes
-and cities built upon forgotten foundations, the old world
-still waits.
-</p>
-
-
-<div class="lore-ending">
-
-<span>END OF RECORD</span>
-
-<div></div>
-
-<strong>THE FALL OF THE CITADEL</strong>
-
-<small>0 FC</small>
-
+<div class="section-number">
+    04 / AFTERMATH
 </div>
+
+<h2>
+    The World After
+</h2>
+
+<p>
+    The world that emerged from the Fall was not the world
+    that had existed before it.
+</p>
+
+<p>
+    Survivors gathered around whatever fragments of
+    civilization remained. Settlements formed beside
+    ruins, old roads became new trade routes, and
+    forgotten technologies were dismantled for parts
+    that could no longer be manufactured.
+</p>
+
+<p>
+    Generations passed. Knowledge that had once been
+    commonplace became specialized, fragmented, or lost.
+    The ruins of the old civilization became both
+    dangerous remnants and invaluable sources of
+    technology.
+</p>
+
+<p>
+    From this period emerged the foundations of the
+    modern Verdigris Isles: a civilization built not
+    upon the untouched legacy of the Old World, but upon
+    the difficult work of reclaiming it.
+</p>
 
 </section>
 
+
+</div>
 
 </article>
-
-</div>
 
 </div>
 
 </main>
 
 
-
 <!-- =========================================================
-FOOTER
-========================================================= -->
+     INDEX SCROLL TRACKING
+     ========================================================= -->
 
-<footer>
+<script>
 
-<div class="container">
+const sections = document.querySelectorAll(".lore-section");
+const links = document.querySelectorAll(".index-link[href^='#']");
 
-<p>
-© Verdigris Isles
-</p>
+const observer = new IntersectionObserver(
+    entries => {
 
-</div>
+        entries.forEach(entry => {
 
-</footer>
+            if (!entry.isIntersecting) return;
 
+            links.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            const activeLink = document.querySelector(
+                `.index-link[href="#${entry.target.id}"]`
+            );
+
+            if (activeLink) {
+                activeLink.classList.add("active");
+            }
+
+        });
+
+    },
+    {
+        rootMargin: "-20% 0px -65% 0px"
+    }
+);
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+</script>
 
 </body>
 </html>
