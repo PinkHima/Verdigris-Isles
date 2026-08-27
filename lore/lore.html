@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lore Archive | Verdigris Isles</title>
+
+<link rel="stylesheet" href="../css/styles.css">
+
+<style>
+
+/* =========================================================
+   LORE ARCHIVE
+   ========================================================= */
+
+.lore-home {
+    padding: 55px 0 90px;
+}
+
+.lore-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   ARCHIVE HEADER
+   ========================================================= */
+
+.lore-header {
+    position: relative;
+
+    max-width: 900px;
+    margin: 0 auto 55px;
+
+    padding: 60px 65px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 195, 192, 0.11),
+            rgba(247, 255, 245, 0.96)
+        );
+
+    border: 1px solid rgba(18, 74, 85, 0.14);
+    border-radius: 24px;
+
+    box-shadow:
+        0 18px 50px rgba(18, 74, 85, 0.08);
+}
+
+.lore-kicker {
+    margin-bottom: 12px;
+
+    color: var(--deep);
+
+    font-size: 0.72rem;
+    font-weight: 800;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.lore-header h1 {
+    margin: 0;
+
+    color: var(--navy);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(2.6rem, 6vw, 4.3rem);
+
+    line-height: 1.05;
+}
+
+.lore-header p {
+    max-width: 680px;
+
+    margin: 22px auto 0;
+
+    color: var(--stone);
+
+    font-size: 1.03rem;
+    line-height: 1.8;
+}
+
+.lore-ornament {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    width: 230px;
+
+    margin: 30px auto 0;
+}
+
+.lore-ornament::before,
+.lore-ornament::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: rgba(18, 74, 85, 0.18);
+}
+
+.lore-ornament span {
+    color: var(--lagoon);
+}
+
+
+/* =========================================================
+   ARCHIVE INTRO
+   ========================================================= */
+
+.archive-intro {
+    max-width: 760px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+}
+
+.archive-intro h2 {
+    margin: 0 0 12px;
+
+    color: var(--navy);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.9rem;
+}
+
+.archive-intro p {
+    margin: 0;
+
+    color: var(--stone);
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   DOCUMENT GRID
+   ========================================================= */
+
+.lore-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   LORE DOCUMENT CARD
+   ========================================================= */
+
+.lore-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 245px;
+
+    padding: 30px;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: var(--foam);
+
+    border: 1px solid rgba(18, 74, 85, 0.14);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(18, 74, 85, 0.055);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+}
+
+.lore-card::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--lagoon);
+
+    transform: scaleY(0);
+
+    transform-origin: bottom;
+
+    transition: transform 0.22s ease;
+}
+
+.lore-card:hover {
+    transform: translateY(-4px);
+
+    border-color: rgba(49, 195, 192, 0.35);
+
+    box-shadow:
+        0 17px 40px rgba(18, 74, 85, 0.10);
+}
+
+.lore-card:hover::after {
+    transform: scaleY(1);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.card-number {
+    margin-bottom: 13px;
+
+    color: var(--lagoon);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+}
+
+.lore-card h3 {
+    margin: 0 0 12px;
+
+    color: var(--navy);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.65rem;
+
+    line-height: 1.2;
+}
+
+.lore-card p {
+    margin: 0;
+
+    color: var(--stone);
+
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+}
+
+.card-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: auto;
+    padding-top: 25px;
+
+    color: var(--deep);
+
+    font-size: 0.72rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+}
+
+.card-arrow {
+    font-size: 1.1rem;
+
+    transition: transform 0.2s ease;
+}
+
+.lore-card:hover .card-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FEATURED DOCUMENT
+   ========================================================= */
+
+.lore-card.featured {
+    grid-column: 1 / -1;
+
+    min-height: 280px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(49, 195, 192, 0.08),
+            var(--foam) 65%
+        );
+}
+
+.lore-card.featured h3 {
+    font-size: 2rem;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.archive-label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 60px 0 25px;
+}
+
+.archive-label::before,
+.archive-label::after {
+    content: "";
+
+    height: 1px;
+
+    flex: 1;
+
+    background: rgba(18, 74, 85, 0.13);
+}
+
+.archive-label span {
+    color: var(--deep);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   QUICK REFERENCE
+   ========================================================= */
+
+.reference-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.reference-link {
+    padding: 18px 20px;
+
+    color: var(--deep);
+
+    text-decoration: none;
+
+    background: rgba(49, 195, 192, 0.055);
+
+    border: 1px solid rgba(49, 195, 192, 0.15);
+
+    border-radius: 13px;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.reference-link:hover {
+    background: rgba(49, 195, 192, 0.12);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .lore-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lore-card.featured {
+        grid-column: auto;
+    }
+
+    .reference-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lore-header {
+        padding: 45px 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .lore-home {
+        padding: 30px 0 60px;
+    }
+
+    .lore-container {
+        width: calc(100% - 20px);
+    }
+
+    .lore-header {
+        padding: 38px 22px;
+        border-radius: 18px;
+    }
+
+    .lore-header h1 {
+        font-size: 2.45rem;
+    }
+
+    .lore-card {
+        padding: 25px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<header>
+<div class="container">
+
+<nav>
+
+<a class="brand" href="../index.html">
+    Verdigris Isles
+</a>
+
+<div class="nav-links">
+
+<a href="../index.html">Home</a>
+
+<a href="../world/world.html">World</a>
+
+<a href="../regions/regions.html">Regions</a>
+
+<a href="../races/races.html">Races</a>
+
+<a class="active" href="lore.html">Lore</a>
+
+</div>
+
+</nav>
+
+</div>
+</header>
+
+
+<!-- =========================================================
+     LORE ARCHIVE
+     ========================================================= -->
+
+<main class="lore-home">
+
+<div class="lore-container">
+
+
+<!-- HEADER -->
+
+<section class="lore-header">
+
+<div class="lore-kicker">
+    The Verdigris Archives
+</div>
+
+<h1>
+    Lore
+</h1>
+
+<p>
+    Records, histories, peoples, places, and remnants
+    of the world that existed before the Fall and the
+    civilization that rose in its aftermath.
+</p>
+
+<div class="lore-ornament">
+    <span>✦</span>
+</div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="archive-intro">
+
+<h2>
+    The Archives
+</h2>
+
+<p>
+    The world of the Verdigris Isles is built upon layers
+    of history. Some are carefully preserved. Others
+    survive only in ruins, fragments of old technology,
+    stories passed between generations, and things whose
+    original meaning has long since been forgotten.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     PRIMARY DOCUMENTS
+     ===================================================== -->
+
+<div class="lore-grid">
+
+
+<!-- HISTORY -->
+
+<a class="lore-card featured" href="history.html">
+
+<div class="card-number">
+    ARCHIVE I · HISTORY
+</div>
+
+<h3>
+    The History of the Isles
+</h3>
+
+<p>
+    From the rise of the Old World and the Ascension age
+    to the depletion of Aetherite, the final days of the
+    Citadel, its fall, and the long reconstruction that
+    followed.
+</p>
+
+<div class="card-footer">
+    <span>Open Document</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+
+<!-- OLD WORLD -->
+
+<a class="lore-card" href="old-world.html">
+
+<div class="card-number">
+    ARCHIVE II
+</div>
+
+<h3>
+    The Old World
+</h3>
+
+<p>
+    Civilization before the Fall: its societies,
+    achievements, infrastructure, and the systems that
+    allowed an extraordinary age to flourish.
+</p>
+
+<div class="card-footer">
+    <span>Explore</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+
+<!-- CITADEL -->
+
+<a class="lore-card" href="citadel.html">
+
+<div class="card-number">
+    ARCHIVE III
+</div>
+
+<h3>
+    The Citadel
+</h3>
+
+<p>
+    The heart of the Ascension age and the greatest
+    achievement of the civilization that came before.
+</p>
+
+<div class="card-footer">
+    <span>Explore</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+
+<!-- AETHERITE -->
+
+<a class="lore-card" href="aetherite.html">
+
+<div class="card-number">
+    ARCHIVE IV
+</div>
+
+<h3>
+    Aetherite
+</h3>
+
+<p>
+    The rare crystal that powered the engines of
+    Ascension and became central to the rise and eventual
+    decline of the Old World.
+</p>
+
+<div class="card-footer">
+    <span>Explore</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+
+<!-- FALL -->
+
+<a class="lore-card" href="fall.html">
+
+<div class="card-number">
+    ARCHIVE V
+</div>
+
+<h3>
+    The Fall
+</h3>
+
+<p>
+    The catastrophe remembered as 0 FC and the event
+    that shattered the world into the fractured
+    civilization of the present.
+</p>
+
+<div class="card-footer">
+    <span>Explore</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+
+<!-- RECONSTRUCTION -->
+
+<a class="lore-card" href="reconstruction.html">
+
+<div class="card-number">
+    ARCHIVE VI
+</div>
+
+<h3>
+    Reconstruction
+</h3>
+
+<p>
+    The generations that followed the Fall, as survivors
+    reclaimed ruins, rebuilt communities, and established
+    the foundations of the modern Isles.
+</p>
+
+<div class="card-footer">
+    <span>Explore</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+
+<!-- TIMELINE -->
+
+<a class="lore-card" href="timeline.html">
+
+<div class="card-number">
+    ARCHIVE VII
+</div>
+
+<h3>
+    Timeline
+</h3>
+
+<p>
+    A concise chronological reference to the major
+    events that shaped the world of Verdigris.
+</p>
+
+<div class="card-footer">
+    <span>Explore</span>
+    <span class="card-arrow">→</span>
+</div>
+
+</a>
+
+</div>
+
+
+<!-- =====================================================
+     QUICK REFERENCE
+     ===================================================== -->
+
+<div class="archive-label">
+    <span>Quick Reference</span>
+</div>
+
+<div class="reference-grid">
+
+<a class="reference-link" href="../world/magic.html">
+    Magic
+</a>
+
+<a class="reference-link" href="../world/technology.html">
+    Technology
+</a>
+
+<a class="reference-link" href="../regions/regions.html">
+    Regions
+</a>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+</body>
+</html>
