@@ -3,1842 +3,622 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Lore Archive | Verdigris Isles</title>
-
 <link rel="stylesheet" href="../css/styles.css">
-
 <style>
-
 /* =========================================================
 VERDIGRIS ISLES
 LORE ARCHIVE
-Botanical Archive Design
 ========================================================= */
-
-
+:root {
+--lore-ink: #20352d;
+--lore-deep: #29483d;
+--lore-green: #426957;
+--lore-sage: #829b84;
+--lore-moss: #687f68;
+--lore-cream: #f3efe2;
+--lore-paper: rgba(248, 246, 235, 0.91);
+--lore-paper-soft: rgba(248, 246, 235, 0.72);
+--lore-line: rgba(54, 82, 67, 0.18);
+--lore-gold: #a88c54;
+--lore-shadow: rgba(25, 48, 38, 0.14);
+}
 /* =========================================================
-01. PAGE FOUNDATION
+PAGE FOUNDATION
 ========================================================= */
-
-html,
-body {
-margin: 0;
-padding: 0;
-min-height: 100%;
-}
-
-body {
-background: var(--pale);
-}
-
-.lore-home {
+.lore-page {
 position: relative;
 isolation: isolate;
-
-min-height: calc(100vh - 76px);
-
-padding: 72px 0 110px;
-
+min-height: 100vh;
 overflow: hidden;
-
 background:
 radial-gradient(
-circle at 10% 15%,
-rgba(49, 195, 192, 0.13),
-transparent 30%
-),
-radial-gradient(
-circle at 90% 25%,
-rgba(94, 155, 69, 0.10),
-transparent 32%
-),
-radial-gradient(
-circle at 48% 88%,
-rgba(190, 238, 231, 0.24),
-transparent 43%
-),
-linear-gradient(
-135deg,
-#f7fff5 0%,
-#eef9f3 46%,
-#f8fcf8 100%
-);
-}
-
-
-/* =========================================================
-02. ATMOSPHERIC BACKGROUND
-========================================================= */
-
-.lore-home::before {
-content: "";
-
-position: absolute;
-inset: -20%;
-
-z-index: -3;
-
-pointer-events: none;
-
-background:
-radial-gradient(
-ellipse at 18% 35%,
-rgba(49, 195, 192, 0.12),
+circle at 12% 18%,
+rgba(119, 151, 116, 0.20),
 transparent 28%
 ),
 radial-gradient(
-ellipse at 82% 18%,
-rgba(94, 155, 69, 0.10),
-transparent 26%
+circle at 88% 12%,
+rgba(168, 140, 84, 0.12),
+transparent 24%
 ),
 radial-gradient(
-ellipse at 66% 75%,
-rgba(233, 133, 104, 0.055),
-transparent 23%
+circle at 82% 76%,
+rgba(82, 118, 92, 0.16),
+transparent 30%
+),
+linear-gradient(
+135deg,
+#e9e6d7 0%,
+#f3f0e4 42%,
+#e7eadc 100%
 );
-
-filter: blur(28px);
-
-animation:
-botanicalAtmosphere 18s ease-in-out infinite alternate;
+color: var(--lore-ink);
 }
-
-
 /* =========================================================
-03. SOFT ORGANIC BACKGROUND WASHES
+BOTANICAL ATMOSPHERE
 ========================================================= */
-
-.lore-home::after {
+.lore-page::before,
+.lore-page::after {
 content: "";
-
 position: absolute;
-inset: 0;
-
-z-index: -2;
-
 pointer-events: none;
-
-background:
-radial-gradient(
-ellipse 110px 230px at 2% 20%,
-rgba(94, 155, 69, 0.075),
-transparent 72%
-),
-
-radial-gradient(
-ellipse 75px 170px at 9% 31%,
-rgba(47, 113, 63, 0.055),
-transparent 72%
-),
-
-radial-gradient(
-ellipse 120px 250px at 98% 16%,
-rgba(47, 113, 63, 0.075),
-transparent 72%
-),
-
-radial-gradient(
-ellipse 80px 180px at 92% 28%,
-rgba(94, 155, 69, 0.065),
-transparent 72%
-),
-
-radial-gradient(
-ellipse 140px 280px at 1% 84%,
-rgba(49, 195, 192, 0.075),
-transparent 72%
-),
-
-radial-gradient(
-ellipse 145px 290px at 99% 85%,
-rgba(94, 155, 69, 0.075),
-transparent 72%
-);
-
-filter: blur(2px);
-}
-
-
-/* =========================================================
-04. BOTANICAL BACKGROUND CONTAINER
-========================================================= */
-
-.botanical-background {
-position: absolute;
-inset: 0;
-
 z-index: -1;
-
+}
+/* Large drifting botanical silhouette */
+.lore-page::before {
+width: 720px;
+height: 720px;
+top: -190px;
+right: -220px;
+opacity: 0.14;
+background:
+radial-gradient(
+ellipse at 40% 42%,
+transparent 0 23%,
+rgba(57, 91, 70, 0.55) 24% 24.8%,
+transparent 25%
+),
+radial-gradient(
+ellipse at 55% 54%,
+transparent 0 17%,
+rgba(57, 91, 70, 0.42) 18% 18.8%,
+transparent 19%
+),
+radial-gradient(
+ellipse at 69% 32%,
+transparent 0 12%,
+rgba(57, 91, 70, 0.38) 13% 13.8%,
+transparent 14%
+);
+transform: rotate(24deg);
+border-radius: 50%;
+}
+/* Soft organic growth lower-left */
+.lore-page::after {
+width: 680px;
+height: 680px;
+bottom: -310px;
+left: -260px;
+opacity: 0.13;
+background:
+radial-gradient(
+ellipse at 55% 40%,
+transparent 0 19%,
+rgba(67, 102, 77, 0.55) 20% 20.8%,
+transparent 21%
+),
+radial-gradient(
+ellipse at 39% 55%,
+transparent 0 14%,
+rgba(67, 102, 77, 0.44) 15% 15.8%,
+transparent 16%
+),
+radial-gradient(
+ellipse at 67% 64%,
+transparent 0 11%,
+rgba(67, 102, 77, 0.38) 12% 12.8%,
+transparent 13%
+);
+transform: rotate(-18deg);
+border-radius: 50%;
+}
+/* =========================================================
+MAIN CONTAINER
+========================================================= */
+.lore-shell {
+width: min(1180px, calc(100% - 36px));
+margin: 0 auto;
+padding: 70px 0 100px;
+}
+/* =========================================================
+HEADER
+========================================================= */
+.lore-header {
+position: relative;
+max-width: 860px;
+margin: 0 auto 70px;
+text-align: center;
+}
+.lore-header::before {
+content: "✦";
+display: block;
+margin-bottom: 12px;
+color: var(--lore-gold);
+font-size: 1.35rem;
+opacity: 0.85;
+}
+.lore-eyebrow {
+margin: 0 0 10px;
+color: var(--lore-moss);
+font-size: 0.76rem;
+font-weight: 700;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+}
+.lore-header h1 {
+margin: 0;
+color: var(--lore-deep);
+font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(2.6rem, 6vw, 4.8rem);
+font-weight: 500;
+line-height: 1.02;
+}
+.lore-subtitle {
+max-width: 720px;
+margin: 22px auto 0;
+color: #53645a;
+font-size: 1.05rem;
+line-height: 1.8;
+}
+/* =========================================================
+SECTION HEADERS
+========================================================= */
+.lore-section {
+margin-bottom: 80px;
+}
+.lore-section-heading {
+display: flex;
+align-items: center;
+gap: 18px;
+margin-bottom: 28px;
+}
+.lore-section-heading::before,
+.lore-section-heading::after {
+content: "";
+height: 1px;
+flex: 1;
+background: linear-gradient(
+to right,
+transparent,
+var(--lore-line)
+);
+}
+.lore-section-heading::after {
+background: linear-gradient(
+to left,
+transparent,
+var(--lore-line)
+);
+}
+.lore-section-heading h2 {
+margin: 0;
+color: var(--lore-deep);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.65rem;
+font-weight: 500;
+text-align: center;
+white-space: nowrap;
+}
+.lore-section-intro {
+max-width: 760px;
+margin: -8px auto 32px;
+color: #5b6b61;
+font-size: 0.94rem;
+line-height: 1.7;
+text-align: center;
+}
+/* =========================================================
+FOUNDATIONAL ARCHIVES
+========================================================= */
+.archive-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 20px;
+}
+.archive-card {
+position: relative;
+display: flex;
+flex-direction: column;
+min-height: 225px;
+padding: 28px 30px;
 overflow: hidden;
-
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.72),
+rgba(237,239,225,0.77)
+);
+border: 1px solid var(--lore-line);
+border-radius: 22px;
+box-shadow:
+0 16px 38px var(--lore-shadow);
+text-decoration: none;
+color: inherit;
+transition:
+transform 0.3s ease,
+box-shadow 0.3s ease,
+border-color 0.3s ease;
+}
+.archive-card::after {
+content: "✦";
+position: absolute;
+right: 24px;
+bottom: 18px;
+color: var(--lore-green);
+opacity: 0.16;
+font-size: 3.2rem;
+line-height: 1;
+}
+.archive-card:hover {
+transform: translateY(-5px);
+border-color: rgba(66, 105, 87, 0.34);
+box-shadow:
+0 22px 48px rgba(25, 48, 38, 0.18);
+}
+.archive-number {
+margin-bottom: 10px;
+color: var(--lore-gold);
+font-size: 0.68rem;
+font-weight: 700;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+}
+.archive-card h3 {
+margin: 0 0 12px;
+color: var(--lore-deep);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.55rem;
+font-weight: 500;
+}
+.archive-card p {
+margin: 0;
+color: #5c6b61;
+font-size: 0.91rem;
+line-height: 1.7;
+}
+.archive-link {
+margin-top: auto;
+padding-top: 22px;
+color: var(--lore-green);
+font-size: 0.74rem;
+font-weight: 700;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+}
+/* =========================================================
+LORE INDEX
+========================================================= */
+.index-panel {
+position: relative;
+padding: 38px;
+background:
+linear-gradient(
+135deg,
+rgba(247, 245, 233, 0.94),
+rgba(230, 236, 222, 0.89)
+);
+border: 1px solid var(--lore-line);
+border-radius: 28px;
+box-shadow:
+0 20px 50px var(--lore-shadow);
+}
+.index-panel::before {
+content: "";
+position: absolute;
+inset: 12px;
+border: 1px solid rgba(66, 105, 87, 0.09);
+border-radius: 20px;
 pointer-events: none;
 }
-
-
+.index-intro {
+position: relative;
+max-width: 680px;
+margin: 0 auto 34px;
+text-align: center;
+}
+.index-intro h3 {
+margin: 0 0 10px;
+color: var(--lore-deep);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.8rem;
+font-weight: 500;
+}
+.index-intro p {
+margin: 0;
+color: #5b6b61;
+font-size: 0.93rem;
+line-height: 1.7;
+}
+.index-grid {
+position: relative;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 14px;
+}
+.index-card {
+display: block;
+padding: 20px;
+background: rgba(255,255,255,0.58);
+border: 1px solid rgba(66, 105, 87, 0.13);
+border-radius: 16px;
+text-decoration: none;
+transition:
+transform 0.25s ease,
+background 0.25s ease,
+border-color 0.25s ease;
+}
+.index-card:hover {
+transform: translateY(-3px);
+background: rgba(255,255,255,0.82);
+border-color: rgba(66, 105, 87, 0.3);
+}
+.index-icon {
+display: block;
+margin-bottom: 9px;
+color: var(--lore-gold);
+font-size: 1.05rem;
+}
+.index-card h4 {
+margin: 0 0 6px;
+color: var(--lore-deep);
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.05rem;
+font-weight: 500;
+}
+.index-card p {
+margin: 0;
+color: #68766c;
+font-size: 0.78rem;
+line-height: 1.55;
+}
 /* =========================================================
-05. VINES
+QUICK REFERENCE
 ========================================================= */
-
-.vine {
-position: absolute;
-
-width: 300px;
-height: 720px;
-
-border:
-2px solid rgba(47, 113, 63, 0.075);
-
-border-left: 0;
-border-bottom: 0;
-
-border-radius: 50%;
-
-filter: blur(0.2px);
-
-opacity: 0.75;
-}
-
-.vine-left {
-left: -210px;
-top: 90px;
-
-transform:
-rotate(-18deg);
-}
-
-.vine-right {
-right: -210px;
-top: 310px;
-
-transform:
-rotate(18deg);
-}
-
-
-/* =========================================================
-06. VINE SECONDARY CURVES
-========================================================= */
-
-.vine-left::before,
-.vine-right::before {
-content: "";
-
-position: absolute;
-
-width: 180px;
-height: 430px;
-
-border:
-1px solid rgba(49, 195, 192, 0.06);
-
-border-radius: 50%;
-}
-
-.vine-left::before {
-left: 90px;
-top: 110px;
-
-transform:
-rotate(24deg);
-}
-
-.vine-right::before {
-right: 90px;
-top: 110px;
-
-transform:
-rotate(-24deg);
-}
-
-
-/* =========================================================
-07. LEAVES
-========================================================= */
-
-.leaf {
-position: absolute;
-
-width: 72px;
-height: 128px;
-
-border-radius:
-100% 0 100% 0;
-
+.quick-reference {
+position: relative;
+padding: 42px;
 background:
 linear-gradient(
 135deg,
-rgba(94, 155, 69, 0.075),
-rgba(49, 195, 192, 0.025)
+rgba(43, 73, 61, 0.96),
+rgba(53, 87, 70, 0.94)
 );
-
-border:
-1px solid rgba(47, 113, 63, 0.055);
-
-transform-origin:
-bottom center;
-
-filter:
-blur(0.2px);
-}
-
-
-/* ---------------------------------------------------------
-LEFT FOLIAGE
---------------------------------------------------------- */
-
-.leaf-1 {
-left: 2%;
-top: 17%;
-
-transform:
-rotate(-28deg);
-}
-
-.leaf-2 {
-left: 5%;
-top: 27%;
-
-transform:
-rotate(22deg)
-scale(0.75);
-}
-
-.leaf-3 {
-left: 1%;
-bottom: 18%;
-
-transform:
-rotate(-12deg)
-scale(1.15);
-}
-
-
-/* ---------------------------------------------------------
-RIGHT FOLIAGE
---------------------------------------------------------- */
-
-.leaf-4 {
-right: 2%;
-top: 13%;
-
-transform:
-rotate(32deg);
-}
-
-.leaf-5 {
-right: 5%;
-top: 23%;
-
-transform:
-rotate(-24deg)
-scale(0.78);
-}
-
-.leaf-6 {
-right: 1%;
-bottom: 14%;
-
-transform:
-rotate(18deg)
-scale(1.2);
-}
-
-
-/* =========================================================
-08. LEAF VEINS
-========================================================= */
-
-.leaf::after {
-content: "";
-
-position: absolute;
-
-left: 50%;
-top: 8px;
-
-width: 1px;
-height: calc(100% - 16px);
-
-background:
-rgba(47, 113, 63, 0.075);
-
-transform:
-rotate(-22deg);
-
-transform-origin:
-center;
-}
-
-
-/* =========================================================
-09. FLOATING PETALS
-========================================================= */
-
-.petal {
-position: absolute;
-
-width: 18px;
-height: 30px;
-
-border-radius:
-100% 0 100% 0;
-
-background:
-rgba(233, 133, 104, 0.055);
-
-border:
-1px solid rgba(233, 133, 104, 0.035);
-
-transform:
-rotate(45deg);
-}
-
-
-/* Petal positions */
-
-.petal-1 {
-left: 17%;
-top: 19%;
-}
-
-.petal-2 {
-left: 83%;
-top: 35%;
-
-transform:
-rotate(105deg);
-}
-
-.petal-3 {
-left: 13%;
-bottom: 25%;
-
-transform:
-rotate(-25deg);
-}
-
-.petal-4 {
-right: 14%;
-bottom: 18%;
-
-transform:
-rotate(75deg);
-}
-
-
-/* =========================================================
-10. SMALL BOTANICAL PARTICLES
-========================================================= */
-
-.botanical-background::before {
-content: "✦  ·  ✧      ·        ✦       ·   ✧";
-
-position: absolute;
-
-left: 8%;
-top: 44%;
-
-width: 84%;
-
-color:
-rgba(49, 195, 192, 0.10);
-
-font-size: 0.7rem;
-
-letter-spacing: 4.5rem;
-
-white-space: nowrap;
-
-opacity: 0.55;
-
-transform:
-rotate(-8deg);
-}
-
-
-/* =========================================================
-11. BOTANICAL ANIMATION
-========================================================= */
-
-@keyframes botanicalAtmosphere {
-
-0% {
-transform:
-translate3d(-1%, -1%, 0)
-scale(1);
-}
-
-50% {
-transform:
-translate3d(1%, 1%, 0)
-scale(1.025);
-}
-
-100% {
-transform:
-translate3d(-1%, 1%, 0)
-scale(1.04);
-}
-}
-
-
-/* =========================================================
-12. CONTENT CONTAINER
-========================================================= */
-
-.lore-container {
-position: relative;
-z-index: 2;
-
-width:
-min(1160px, calc(100% - 40px));
-
-margin:
-0 auto;
-}
-
-
-/* =========================================================
-13. ARCHIVE HEADER
-========================================================= */
-
-.lore-header {
-position: relative;
-
-width:
-min(880px, 100%);
-
-margin:
-0 auto 62px;
-
-padding:
-64px 68px;
-
-box-sizing:
-border-box;
-
-text-align:
-center;
-
-background:
-linear-gradient(
-135deg,
-rgba(49, 195, 192, 0.12),
-rgba(255, 253, 248, 0.95) 58%,
-rgba(247, 255, 245, 0.97)
-);
-
-border:
-1px solid rgba(18, 74, 85, 0.12);
-
-border-radius:
-26px;
-
+border-radius: 30px;
+color: #f1eee2;
 box-shadow:
-0 10px 25px rgba(18, 74, 85, 0.04),
-0 25px 60px rgba(18, 74, 85, 0.07);
-
-overflow:
-hidden;
+0 24px 55px rgba(25, 48, 38, 0.23);
+overflow: hidden;
 }
-
-
-/* =========================================================
-14. HEADER BOTANICAL GLOW
-========================================================= */
-
-.lore-header::before {
+.quick-reference::before,
+.quick-reference::after {
 content: "";
-
 position: absolute;
-
-width: 400px;
-height: 400px;
-
-top: -240px;
+border: 1px solid rgba(231, 224, 196, 0.13);
+border-radius: 50%;
+pointer-events: none;
+}
+.quick-reference::before {
+width: 420px;
+height: 420px;
+top: -270px;
 right: -100px;
-
-border-radius: 50%;
-
-background:
-radial-gradient(
-circle,
-rgba(49, 195, 192, 0.13),
-transparent 70%
-);
-
-pointer-events:
-none;
 }
-
-
-/* =========================================================
-15. HEADER ACCENT
-========================================================= */
-
-.lore-header::after {
-content: "";
-
-position: absolute;
-
-left: 50%;
-bottom: 0;
-
-width: 110px;
-height: 2px;
-
-transform:
-translateX(-50%);
-
-background:
-var(--lagoon);
-
-opacity:
-0.65;
+.quick-reference::after {
+width: 300px;
+height: 300px;
+bottom: -210px;
+left: -80px;
 }
-
-
-/* =========================================================
-16. HEADER TYPOGRAPHY
-========================================================= */
-
-.lore-kicker {
+.quick-heading {
 position: relative;
-z-index: 2;
-
-margin-bottom:
-15px;
-
-color:
-var(--deep);
-
-font-family:
-Arial,
-sans-serif;
-
-font-size:
-0.70rem;
-
-font-weight:
-800;
-
-letter-spacing:
-0.24em;
-
-text-transform:
-uppercase;
+max-width: 720px;
+margin: 0 auto 35px;
+text-align: center;
 }
-
-.lore-header h1 {
+.quick-heading .eyebrow {
+margin-bottom: 9px;
+color: #c9b57b;
+font-size: 0.68rem;
+font-weight: 700;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+}
+.quick-heading h2 {
+margin: 0 0 12px;
+color: #f2eee1;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 2rem;
+font-weight: 500;
+}
+.quick-heading p {
+margin: 0;
+color: rgba(242, 238, 225, 0.72);
+font-size: 0.9rem;
+line-height: 1.7;
+}
+.quick-grid {
 position: relative;
-z-index: 2;
-
-margin:
-0 0 20px;
-
-color:
-var(--deep);
-
-font-family:
-Georgia,
-"Times New Roman",
-serif;
-
-font-size:
-clamp(3.2rem, 7vw, 5.2rem);
-
-line-height:
-0.95;
-
-letter-spacing:
--0.045em;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 14px;
 }
-
-.lore-header p {
-position: relative;
-z-index: 2;
-
-max-width:
-700px;
-
-margin:
-0 auto;
-
-color:
-var(--stone);
-
-font-size:
-1rem;
-
-line-height:
-1.8;
-}
-
-.lore-ornament {
-position: relative;
-z-index: 2;
-
-margin-top:
-27px;
-
-color:
-var(--lagoon);
-
-font-size:
-1.1rem;
-
-opacity:
-0.85;
-}
-
-
-/* =========================================================
-17. ARCHIVE INTRO
-========================================================= */
-
-.archive-intro {
-max-width:
-820px;
-
-margin:
-0 auto 46px;
-
-padding:
-0 !important;
-
-text-align:
-center;
-}
-
-.archive-intro h2 {
-margin:
-0 0 15px;
-
-color:
-var(--deep);
-
-font-family:
-Georgia,
-"Times New Roman",
-serif;
-
-font-size:
-clamp(2rem, 4vw, 2.8rem);
-
-line-height:
-1.1;
-}
-
-.archive-intro p {
-margin:
-0;
-
-color:
-var(--muted);
-
-font-size:
-0.98rem;
-
-line-height:
-1.8;
-}
-
-
-/* =========================================================
-18. ARCHIVE GRID
-========================================================= */
-
-.lore-grid {
-display:
-grid;
-
-grid-template-columns:
-repeat(2, minmax(0, 1fr));
-
-gap:
-20px;
-
-width:
-100%;
-
-margin:
-0;
-
-padding:
-0 !important;
-}
-
-
-/* =========================================================
-19. ARCHIVE CARDS
-========================================================= */
-
-.lore-card {
-position:
-relative;
-
-display:
-flex;
-
-flex-direction:
-column;
-
-min-width:
-0;
-
-min-height:
-225px;
-
-box-sizing:
-border-box;
-
-padding:
-28px 30px 25px;
-
-color:
-var(--ink);
-
-text-decoration:
-none;
-
-background:
-linear-gradient(
-145deg,
-rgba(255, 253, 248, 0.94),
-rgba(247, 255, 245, 0.88)
-);
-
-border:
-1px solid var(--line);
-
-border-radius:
-21px;
-
-box-shadow:
-var(--shadow-small);
-
-overflow:
-hidden;
-
+.quick-card {
+display: flex;
+flex-direction: column;
+min-height: 145px;
+padding: 22px;
+background: rgba(255,255,255,0.075);
+border: 1px solid rgba(240,236,220,0.13);
+border-radius: 17px;
+color: inherit;
+text-decoration: none;
 transition:
-transform 0.24s ease,
-box-shadow 0.24s ease,
-border-color 0.24s ease;
+transform 0.25s ease,
+background 0.25s ease;
 }
-
-
+.quick-card:hover {
+transform: translateY(-3px);
+background: rgba(255,255,255,0.12);
+}
+.quick-card span {
+margin-bottom: 8px;
+color: #c9b57b;
+font-size: 0.66rem;
+font-weight: 700;
+letter-spacing: 0.13em;
+text-transform: uppercase;
+}
+.quick-card h3 {
+margin: 0 0 8px;
+color: #f1eee2;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 1.12rem;
+font-weight: 500;
+}
+.quick-card p {
+margin: 0;
+color: rgba(241, 238, 226, 0.68);
+font-size: 0.77rem;
+line-height: 1.55;
+}
 /* =========================================================
-20. CARD BOTANICAL GLOW
+LORE ADDITION RULE
 ========================================================= */
-
-.lore-card::before {
-content: "";
-
-position:
-absolute;
-
-width:
-240px;
-
-height:
-240px;
-
-top:
--150px;
-
-right:
--80px;
-
-border-radius:
-50%;
-
-background:
-radial-gradient(
-circle,
-rgba(94, 155, 69, 0.10),
-rgba(94, 155, 69, 0) 70%
-);
-
-pointer-events:
-none;
+.archive-note {
+margin-top: 24px;
+padding: 18px 22px;
+background: rgba(255,255,255,0.47);
+border-left: 3px solid var(--lore-gold);
+border-radius: 0 12px 12px 0;
 }
-
-
+.archive-note strong {
+color: var(--lore-deep);
+}
+.archive-note p {
+margin: 5px 0 0;
+color: #637067;
+font-size: 0.82rem;
+line-height: 1.65;
+}
 /* =========================================================
-21. CARD BOTTOM BOTANICAL ACCENT
+FOOTER DIVIDER
 ========================================================= */
-
-.lore-card::after {
-content: "";
-
-position:
-absolute;
-
-left:
-30px;
-
-bottom:
-0;
-
-width:
-52px;
-
-height:
-2px;
-
-background:
-var(--lagoon);
-
-opacity:
-0.40;
-
-transition:
-width 0.24s ease,
-opacity 0.24s ease;
+.lore-end {
+margin-top: 75px;
+text-align: center;
+color: rgba(66, 105, 87, 0.45);
 }
-
-.lore-card:hover {
-transform:
-translateY(-4px);
-
-border-color:
-rgba(49, 195, 192, 0.28);
-
-box-shadow:
-var(--shadow);
+.lore-end::before {
+content: "✦";
+display: block;
+margin-bottom: 12px;
+color: var(--lore-gold);
 }
-
-.lore-card:hover::after {
-width:
-90px;
-
-opacity:
-0.70;
+.lore-end p {
+margin: 0;
+font-family: Georgia, "Times New Roman", serif;
+font-size: 0.86rem;
+font-style: italic;
 }
-
-
 /* =========================================================
-22. FEATURED HISTORY CARD
+RESPONSIVE
 ========================================================= */
-
-.lore-card.featured {
-grid-column:
-1 / -1;
-
-min-height:
-275px;
-
-padding:
-36px 40px 29px;
-
-background:
-linear-gradient(
-135deg,
-rgba(49, 195, 192, 0.12),
-rgba(255, 253, 248, 0.96) 58%,
-rgba(247, 255, 245, 0.94)
-);
-
-border-color:
-rgba(49, 195, 192, 0.18);
-}
-
-.lore-card.featured::before {
-width:
-430px;
-
-height:
-430px;
-
-top:
--270px;
-
-right:
--100px;
-}
-
-.lore-card.featured::after {
-left:
-40px;
-
-width:
-88px;
-}
-
-
-/* =========================================================
-23. CARD NUMBER
-========================================================= */
-
-.card-number {
-position:
-relative;
-
-z-index:
-2;
-
-margin-bottom:
-13px;
-
-color:
-var(--coral);
-
-font-family:
-Arial,
-sans-serif;
-
-font-size:
-0.64rem;
-
-font-weight:
-800;
-
-letter-spacing:
-0.18em;
-
-text-transform:
-uppercase;
-}
-
-
-/* =========================================================
-24. CARD TITLE
-========================================================= */
-
-.lore-card h3 {
-position:
-relative;
-
-z-index:
-2;
-
-margin:
-0 0 12px;
-
-color:
-var(--deep);
-
-font-family:
-Georgia,
-"Times New Roman",
-serif;
-
-font-size:
-1.58rem;
-
-line-height:
-1.18;
-
-letter-spacing:
--0.015em;
-}
-
-.lore-card.featured h3 {
-font-size:
-clamp(2rem, 4vw, 2.65rem);
-}
-
-
-/* =========================================================
-25. CARD DESCRIPTION
-========================================================= */
-
-.lore-card p {
-position:
-relative;
-
-z-index:
-2;
-
-max-width:
-760px;
-
-margin:
-0;
-
-color:
-var(--muted);
-
-font-size:
-0.88rem;
-
-line-height:
-1.68;
-}
-
-
-/* =========================================================
-26. CARD FOOTER
-========================================================= */
-
-.card-footer {
-position:
-relative;
-
-z-index:
-2;
-
-display:
-flex;
-
-align-items:
-center;
-
-justify-content:
-space-between;
-
-gap:
-20px;
-
-margin-top:
-auto;
-
-padding-top:
-20px;
-
-color:
-var(--deep);
-
-font-family:
-Arial,
-sans-serif;
-
-font-size:
-0.65rem;
-
-font-weight:
-800;
-
-letter-spacing:
-0.13em;
-
-text-transform:
-uppercase;
-}
-
-.card-arrow {
-display:
-inline-flex;
-
-flex-shrink:
-0;
-
-align-items:
-center;
-
-justify-content:
-center;
-
-width:
-34px;
-
-height:
-34px;
-
-box-sizing:
-border-box;
-
-color:
-var(--lagoon);
-
-border:
-1px solid rgba(49, 195, 192, 0.23);
-
-border-radius:
-50%;
-
-font-family:
-Georgia,
-"Times New Roman",
-serif;
-
-font-size:
-1rem;
-
-transition:
-transform 0.24s ease,
-background 0.24s ease;
-}
-
-.lore-card:hover .card-arrow {
-transform:
-translateX(3px);
-
-background:
-rgba(49, 195, 192, 0.09);
-}
-
-
-/* =========================================================
-27. QUICK REFERENCE LABEL
-========================================================= */
-
-.archive-label {
-display:
-flex;
-
-align-items:
-center;
-
-gap:
-17px;
-
-margin:
-62px 0 20px;
-
-padding:
-0 !important;
-
-color:
-var(--deep);
-
-font-family:
-Arial,
-sans-serif;
-
-font-size:
-0.67rem;
-
-font-weight:
-800;
-
-letter-spacing:
-0.19em;
-
-text-transform:
-uppercase;
-}
-
-.archive-label::before,
-.archive-label::after {
-content:
-"";
-
-display:
-block;
-
-height:
-1px;
-
-background:
-rgba(18, 74, 85, 0.14);
-}
-
-.archive-label::before {
-width:
-45px;
-}
-
-.archive-label::after {
-flex:
-1;
-}
-
-
-/* =========================================================
-28. QUICK REFERENCE GRID
-========================================================= */
-
-.reference-grid {
-display:
-grid;
-
-grid-template-columns:
-repeat(3, minmax(0, 1fr));
-
-gap:
-14px;
-
-width:
-100%;
-
-margin:
-0;
-
-padding:
-0 !important;
-}
-
-
-/* =========================================================
-29. QUICK REFERENCE LINKS
-========================================================= */
-
-.reference-link {
-display:
-flex;
-
-align-items:
-center;
-
-justify-content:
-center;
-
-min-height:
-58px;
-
-box-sizing:
-border-box;
-
-padding:
-14px 20px;
-
-color:
-var(--deep);
-
-text-decoration:
-none;
-
-background:
-linear-gradient(
-145deg,
-rgba(255, 253, 248, 0.80),
-rgba(49, 195, 192, 0.055)
-);
-
-border:
-1px solid rgba(49, 195, 192, 0.16);
-
-border-radius:
-15px;
-
-font-family:
-Arial,
-sans-serif;
-
-font-size:
-0.74rem;
-
-font-weight:
-800;
-
-letter-spacing:
-0.07em;
-
-text-transform:
-uppercase;
-
-box-shadow:
-0 6px 18px rgba(18, 74, 85, 0.035);
-
-transition:
-transform 0.22s ease,
-background 0.22s ease,
-border-color 0.22s ease,
-box-shadow 0.22s ease;
-}
-
-.reference-link:hover {
-transform:
-translateY(-3px);
-
-background:
-linear-gradient(
-145deg,
-rgba(49, 195, 192, 0.10),
-rgba(255, 253, 248, 0.92)
-);
-
-border-color:
-rgba(49, 195, 192, 0.30);
-
-box-shadow:
-0 10px 24px rgba(18, 74, 85, 0.06);
-}
-
-
-/* =========================================================
-30. TABLET
-========================================================= */
-
 @media (max-width: 900px) {
-
-.lore-home {
-padding:
-58px 0 90px;
+.archive-grid {
+grid-template-columns: 1fr;
 }
-
-.lore-container {
-width:
-min(92%, 760px);
+.index-grid,
+.quick-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-
+.index-panel,
+.quick-reference {
+padding: 30px;
+}
+}
+@media (max-width: 620px) {
+.lore-shell {
+width: min(100% - 24px, 1180px);
+padding-top: 45px;
+padding-bottom: 70px;
+}
 .lore-header {
-margin-bottom:
-52px;
-
-padding:
-55px 45px;
+margin-bottom: 50px;
 }
-
-.lore-card {
-min-height:
-235px;
-
-padding:
-27px 27px 24px;
-}
-
-.lore-card.featured {
-min-height:
-285px;
-
-padding:
-33px 33px 27px;
-}
-}
-
-
-/* =========================================================
-31. MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-.lore-home {
-padding:
-42px 0 70px;
-}
-
-.lore-container {
-width:
-calc(100% - 28px);
-}
-
-/* Hide large botanical geometry on small screens */
-
-.vine {
-opacity:
-0.45;
-}
-
-.vine-left {
-left:
--255px;
-}
-
-.vine-right {
-right:
--255px;
-}
-
-.leaf {
-opacity:
-0.65;
-
-transform:
-scale(0.72);
-}
-
-.leaf-1 {
-left:
--12%;
-}
-
-.leaf-3 {
-left:
--10%;
-}
-
-.leaf-4 {
-right:
--12%;
-}
-
-.leaf-6 {
-right:
--10%;
-}
-
-.botanical-background::before {
-letter-spacing:
-2rem;
-
-opacity:
-0.35;
-}
-
-
-/* Header */
-
-.lore-header {
-margin-bottom:
-43px;
-
-padding:
-45px 26px;
-
-border-radius:
-21px;
-}
-
 .lore-header h1 {
-font-size:
-3.25rem;
+font-size: 2.7rem;
 }
-
-.lore-header p {
-font-size:
-0.90rem;
-
-line-height:
-1.7;
+.lore-subtitle {
+font-size: 0.92rem;
 }
-
-
-/* Intro */
-
-.archive-intro {
-margin-bottom:
-35px;
+.lore-section {
+margin-bottom: 58px;
 }
-
-.archive-intro h2 {
-font-size:
-2rem;
+.lore-section-heading h2 {
+font-size: 1.35rem;
 }
-
-.archive-intro p {
-font-size:
-0.90rem;
+.archive-card {
+min-height: auto;
+padding: 24px;
 }
-
-
-/* Cards */
-
-.lore-grid {
-grid-template-columns:
-1fr;
-
-gap:
-15px;
+.index-grid,
+.quick-grid {
+grid-template-columns: 1fr;
 }
-
-.lore-card,
-.lore-card.featured {
-grid-column:
-auto;
-
-min-height:
-245px;
-
-padding:
-27px 24px 24px;
-
-border-radius:
-18px;
+.index-panel,
+.quick-reference {
+padding: 24px;
+border-radius: 22px;
 }
-
-.lore-card.featured {
-min-height:
-265px;
-}
-
-.lore-card h3 {
-font-size:
-1.46rem;
-}
-
-.lore-card.featured h3 {
-font-size:
-1.90rem;
-}
-
-.lore-card p {
-font-size:
-0.86rem;
-
-line-height:
-1.65;
-}
-
-.lore-card::after,
-.lore-card.featured::after {
-left:
-24px;
-}
-
-
-/* Quick reference */
-
-.archive-label {
-margin-top:
-50px;
-}
-
-.reference-grid {
-grid-template-columns:
-1fr;
-
-gap:
-10px;
-}
-
-.reference-link {
-min-height:
-56px;
+.quick-heading h2 {
+font-size: 1.7rem;
 }
 }
-
-
-/* =========================================================
-32. SMALL PHONES
-========================================================= */
-
-@media (max-width: 430px) {
-
-.lore-container {
-width:
-calc(100% - 20px);
-}
-
-.lore-home {
-padding:
-32px 0 58px;
-}
-
-.lore-header {
-padding:
-38px 20px;
-
-border-radius:
-18px;
-}
-
-.lore-header h1 {
-font-size:
-2.75rem;
-}
-
-.lore-header p {
-font-size:
-0.84rem;
-}
-
-.lore-kicker {
-font-size:
-0.61rem;
-
-letter-spacing:
-0.19em;
-}
-
-.lore-card,
-.lore-card.featured {
-padding:
-24px 20px 23px;
-}
-
-.lore-card.featured h3 {
-font-size:
-1.68rem;
-}
-
-.lore-card h3 {
-font-size:
-1.36rem;
-}
-
-.lore-card p {
-font-size:
-0.83rem;
-}
-
-.card-footer {
-padding-top:
-19px;
-
-font-size:
-0.60rem;
-}
-}
-
-
-/* =========================================================
-33. REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-.lore-home::before {
-animation:
-none;
-}
-
-.lore-card,
-.reference-link,
-.card-arrow {
-transition:
-none;
-}
-}
-
 </style>
 </head>
-
-
 <body>
-
-
-<!-- =========================================================
-NAVIGATION
-========================================================= -->
-
-<header class="site-header">
-
-<div class="container">
-
-<nav class="site-nav">
-
-<a
-class="brand"
-href="../index.html">
-
-<span class="brand-mark">
-🌿
-</span>
-
-Verdigris Isles
-
-</a>
-
-
-<ul class="nav-links">
-
-<li>
-<a href="../index.html">
-Home
-</a>
-</li>
-
-<li>
-<a href="../world/world.html">
-World
-</a>
-</li>
-
-<li>
-<a href="../regions/regions.html">
-Isles
-</a>
-</li>
-
-<li>
-<a href="../races/races.html">
-Races
-</a>
-</li>
-
-<li>
-<a href="../world/magic.html">
-Magic
-</a>
-</li>
-
-<li>
-<a href="../world/technology.html">
-Technology
-</a>
-</li>
-
-<li>
-<a
-href="lore.html"
-class="active">
-Lore
-</a>
-</li>
-
-</ul>
-
-</nav>
-
-</div>
-
-</header>
-
-
-<!-- =========================================================
-LORE ARCHIVE
-========================================================= -->
-
-<main class="lore-home">
-
-
-<!-- =====================================================
-BOTANICAL BACKGROUND
-===================================================== -->
-
-<div
-class="botanical-background"
-aria-hidden="true">
-
-<span class="vine vine-left"></span>
-<span class="vine vine-right"></span>
-
-<span class="leaf leaf-1"></span>
-<span class="leaf leaf-2"></span>
-<span class="leaf leaf-3"></span>
-<span class="leaf leaf-4"></span>
-<span class="leaf leaf-5"></span>
-<span class="leaf leaf-6"></span>
-
-<span class="petal petal-1"></span>
-<span class="petal petal-2"></span>
-<span class="petal petal-3"></span>
-<span class="petal petal-4"></span>
-
-</div>
-
-
-<!-- =====================================================
-CONTENT
-===================================================== -->
-
-<div class="lore-container">
-
-
+<!-- =======================================================
+SITE NAVIGATION
+======================================================= -->
+<!--
+Keep your existing site navigation here if it is generated
+by your master stylesheet/layout.
+-->
+<main class="lore-page">
+<div class="lore-shell">
 <!-- =================================================
-ARCHIVE HEADER
+HEADER
 ================================================= -->
-
-<section class="lore-header">
-
-<div class="lore-kicker">
+<header class="lore-header">
+<p class="lore-eyebrow">
 The Verdigris Archives
-</div>
-
-<h1>
-Lore
-</h1>
-
-<p>
+</p>
+<h1>Lore</h1>
+<p class="lore-subtitle">
 Records, histories, peoples, places, and remnants
 of the world that existed before the Fall and the
 civilization that rose in its aftermath.
 </p>
-
-<div
-class="lore-ornament"
-aria-hidden="true">
-✦
-</div>
-
-</section>
-
-
+</header>
 <!-- =================================================
-INTRODUCTION
+FOUNDATIONAL ARCHIVES
 ================================================= -->
-
-<section class="archive-intro">
-
-<h2>
-The Archives
-</h2>
-
-<p>
+<section class="lore-section">
+<div class="lore-section-heading">
+<h2>The Archives</h2>
+</div>
+<p class="lore-section-intro">
 The world of the Verdigris Isles is built upon
 layers of history. Some are carefully preserved.
 Others survive only in ruins, fragments of old
@@ -1846,320 +626,360 @@ technology, stories passed between generations,
 and things whose original meaning has long since
 been forgotten.
 </p>
-
-</section>
-
-
-<!-- =================================================
-PRIMARY ARCHIVE DOCUMENTS
-================================================= -->
-
-<div class="lore-grid">
-
-
-<!-- HISTORY -->
-
-<a
-class="lore-card featured"
-href="../world/history.html">
-
-<div class="card-number">
+<div class="archive-grid">
+<!-- ARCHIVE I -->
+<a href="history.html" class="archive-card">
+<span class="archive-number">
 Archive I · History
-</div>
-
+</span>
 <h3>
 The History of the Isles
 </h3>
-
 <p>
 From the rise of the Old World and the
 Ascension age to the depletion of Aetherite,
-the final days of the Citadel, its fall, and
-the long reconstruction that followed.
+the final days of the Citadel, its fall,
+and the long reconstruction that followed.
 </p>
-
-<div class="card-footer">
-
-<span>
-Open Document
+<span class="archive-link">
+Open Archive →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
-<!-- OLD WORLD -->
-
-<a
-class="lore-card"
-href="old-world.html">
-
-<div class="card-number">
-Archive II
-</div>
-
+<!-- ARCHIVE II -->
+<a href="old-world.html" class="archive-card">
+<span class="archive-number">
+Archive II · The Old World
+</span>
 <h3>
 The Old World
 </h3>
-
 <p>
 Civilization before the Fall: its societies,
 achievements, infrastructure, and the systems
 that allowed an extraordinary age to flourish.
 </p>
-
-<div class="card-footer">
-
-<span>
-Explore
+<span class="archive-link">
+Explore →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
-<!-- CITADEL -->
-
-<a
-class="lore-card"
-href="citadel.html">
-
-<div class="card-number">
-Archive III
-</div>
-
+<!-- ARCHIVE III -->
+<a href="citadel.html" class="archive-card">
+<span class="archive-number">
+Archive III · The Citadel
+</span>
 <h3>
 The Citadel
 </h3>
-
 <p>
 The heart of the Ascension age and the greatest
 achievement of the civilization that came before.
 </p>
-
-<div class="card-footer">
-
-<span>
-Explore
+<span class="archive-link">
+Explore →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
-<!-- AETHERITE -->
-
-<a
-class="lore-card"
-href="aetherite.html">
-
-<div class="card-number">
-Archive IV
-</div>
-
+<!-- ARCHIVE IV -->
+<a href="aetherite.html" class="archive-card">
+<span class="archive-number">
+Archive IV · Aetherite
+</span>
 <h3>
 Aetherite
 </h3>
-
 <p>
 The rare crystal that powered the engines of
 Ascension and became central to the rise and
 eventual decline of the Old World.
 </p>
-
-<div class="card-footer">
-
-<span>
-Explore
+<span class="archive-link">
+Explore →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
-<!-- FALL -->
-
-<a
-class="lore-card"
-href="fall.html">
-
-<div class="card-number">
-Archive V
-</div>
-
+<!-- ARCHIVE V -->
+<a href="the-fall.html" class="archive-card">
+<span class="archive-number">
+Archive V · The Fall
+</span>
 <h3>
 The Fall
 </h3>
-
 <p>
 The catastrophe remembered as 0 FC and the
 event that shattered the world into the
 fractured civilization of the present.
 </p>
-
-<div class="card-footer">
-
-<span>
-Explore
+<span class="archive-link">
+Explore →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
-<!-- RECONSTRUCTION -->
-
-<a
-class="lore-card"
-href="reconstruction.html">
-
-<div class="card-number">
-Archive VI
-</div>
-
+<!-- ARCHIVE VI -->
+<a href="reconstruction.html" class="archive-card">
+<span class="archive-number">
+Archive VI · Reconstruction
+</span>
 <h3>
 Reconstruction
 </h3>
-
 <p>
 The generations that followed the Fall, as
 survivors reclaimed ruins, rebuilt communities,
 and established the foundations of the modern Isles.
 </p>
-
-<div class="card-footer">
-
-<span>
-Explore
+<span class="archive-link">
+Explore →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
-<!-- TIMELINE -->
-
-<a
-class="lore-card"
-href="timeline.html">
-
-<div class="card-number">
-Archive VII
-</div>
-
+<!-- ARCHIVE VII -->
+<a href="timeline.html" class="archive-card">
+<span class="archive-number">
+Archive VII · Timeline
+</span>
 <h3>
 Timeline
 </h3>
-
 <p>
 A concise chronological reference to the major
 events that shaped the world of Verdigris.
 </p>
-
-<div class="card-footer">
-
-<span>
-Explore
+<span class="archive-link">
+Explore →
 </span>
-
-<span
-class="card-arrow"
-aria-hidden="true">
-→
-</span>
-
-</div>
-
 </a>
-
-
 </div>
-
-
+<div class="archive-note">
+<strong>
+How new lore fits into the Archives
+</strong>
+<p>
+These seven Archives preserve the foundational
+history of the setting. New locations, people,
+organizations, cultures, objects, and other lore
+do not need to become new numbered Archives.
+Instead, they belong in the Lore Index below.
+</p>
+</div>
+</section>
+<!-- =================================================
+LORE INDEX
+================================================= -->
+<section class="lore-section">
+<div class="lore-section-heading">
+<h2>Lore Index</h2>
+</div>
+<p class="lore-section-intro">
+The growing catalog of individual lore entries
+that make up the living world of the Verdigris Isles.
+This is where new additions belong.
+</p>
+<div class="index-panel">
+<div class="index-intro">
+<h3>
+Explore the World
+</h3>
+<p>
+Unlike the numbered Archives, the Lore Index
+is designed to grow. New entries can be added
+here without changing the structure of the
+main archive.
+</p>
+</div>
+<div class="index-grid">
+<a href="locations.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Places & Locations
+</h4>
+<p>
+Cities, towns, landmarks, districts,
+ruins, buildings, and notable places.
+</p>
+</a>
+<a href="people.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+People
+</h4>
+<p>
+Important figures, historical personalities,
+NPCs, leaders, scholars, and other individuals.
+</p>
+</a>
+<a href="factions.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Factions & Organizations
+</h4>
+<p>
+Guilds, governments, orders, societies,
+companies, and other organizations.
+</p>
+</a>
+<a href="cultures.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Culture & Society
+</h4>
+<p>
+Customs, traditions, festivals, religion,
+social practices, and everyday life.
+</p>
+</a>
+<a href="magic.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Magic
+</h4>
+<p>
+Magical practices, phenomena, terminology,
+materials, limitations, and discoveries.
+</p>
+</a>
+<a href="technology.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Technology
+</h4>
+<p>
+Reclaimed magitech, machinery, transportation,
+infrastructure, weapons, and inventions.
+</p>
+</a>
+<a href="artifacts.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Artifacts & Objects
+</h4>
+<p>
+Relics, heirlooms, tools, strange objects,
+recovered technology, and notable possessions.
+</p>
+</a>
+<a href="events.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Events
+</h4>
+<p>
+Historical incidents, discoveries,
+conflicts, disasters, and notable happenings.
+</p>
+</a>
+<a href="terminology.html" class="index-card">
+<span class="index-icon">❧</span>
+<h4>
+Terminology
+</h4>
+<p>
+Setting-specific words, expressions,
+titles, concepts, and commonly used terms.
+</p>
+</a>
+</div>
+</div>
+</section>
 <!-- =================================================
 QUICK REFERENCE
 ================================================= -->
-
-<div class="archive-label">
-
-<span>
+<section class="lore-section">
+<div class="quick-reference">
+<div class="quick-heading">
+<div class="eyebrow">
+For Players & Readers
+</div>
+<h2>
 Quick Reference
+</h2>
+<p>
+The essential information needed to understand
+and participate in the world without reading
+the entire archive.
+</p>
+</div>
+<div class="quick-grid">
+<a href="../magic/magic.html" class="quick-card">
+<span>
+World
 </span>
-
-</div>
-
-
-<nav
-class="reference-grid"
-aria-label="Lore quick reference">
-
-<a
-class="reference-link"
-href="../world/magic.html">
+<h3>
 Magic
+</h3>
+<p>
+The fundamental principles, costs,
+limitations, and practices of magic.
+</p>
 </a>
-
-<a
-class="reference-link"
-href="../world/technology.html">
+<a href="../technology/technology.html" class="quick-card">
+<span>
+World
+</span>
+<h3>
 Technology
+</h3>
+<p>
+The reclaimed magitech and industrial
+technology of the modern Isles.
+</p>
 </a>
-
-<a
-class="reference-link"
-href="../regions/regions.html">
+<a href="../isles/regions.html" class="quick-card">
+<span>
+Places
+</span>
+<h3>
 Regions
+</h3>
+<p>
+The major regions and territories that
+make up the Verdigris Isles.
+</p>
 </a>
-
-</nav>
-
-
+<a href="../races/races.html" class="quick-card">
+<span>
+Peoples
+</span>
+<h3>
+Peoples & Races
+</h3>
+<p>
+The peoples of the Isles and the basics
+needed to understand them.
+</p>
+</a>
+<a href="../world/currency.html" class="quick-card">
+<span>
+Society
+</span>
+<h3>
+Currency & Economy
+</h3>
+<p>
+The currencies, trade systems, and
+economic foundations of the setting.
+</p>
+</a>
+<a href="timeline.html" class="quick-card">
+<span>
+History
+</span>
+<h3>
+Timeline
+</h3>
+<p>
+A quick chronological overview of the
+events that shaped the modern world.
+</p>
+</a>
 </div>
-
+</div>
+</section>
+<!-- =================================================
+CLOSING
+================================================= -->
+<div class="lore-end">
+<p>
+Some histories are written. Others are waiting to be found.
+</p>
+</div>
+</div>
 </main>
-
-
 </body>
 </html>
