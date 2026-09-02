@@ -11,8 +11,9 @@
 <style>
 
 /* =========================================================
-   VERDIGRIS ISLES — LORE ARCHIVE
-   Page-specific styling
+   VERDIGRIS ISLES
+   LORE ARCHIVE
+   Botanical Archive Design
    ========================================================= */
 
 
@@ -41,7 +42,28 @@ body {
 
     overflow: hidden;
 
-    background: #edf7f4;
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(49, 195, 192, 0.13),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 25%,
+            rgba(94, 155, 69, 0.10),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 48% 88%,
+            rgba(190, 238, 231, 0.24),
+            transparent 43%
+        ),
+        linear-gradient(
+            135deg,
+            #f7fff5 0%,
+            #eef9f3 46%,
+            #f8fcf8 100%
+        );
 }
 
 
@@ -49,210 +71,492 @@ body {
    02. ATMOSPHERIC BACKGROUND
    ========================================================= */
 
-/*
-   IMPORTANT:
-   The atmospheric background is intentionally separated
-   from the gridlines.
-
-   ::before = watercolor / sea-glass atmosphere
-   ::after  = subtle cartographic grid
-
-   This prevents the grid from becoming the dominant
-   background layer.
-*/
-
 .lore-home::before {
     content: "";
 
     position: absolute;
-    z-index: 0;
+    inset: -20%;
 
-    inset: 0;
+    z-index: -3;
 
     pointer-events: none;
 
     background:
         radial-gradient(
-            ellipse 620px 440px at -5% 5%,
-            rgba(49, 195, 192, 0.20) 0%,
-            rgba(49, 195, 192, 0.09) 42%,
-            rgba(49, 195, 192, 0.00) 75%
+            ellipse at 18% 35%,
+            rgba(49, 195, 192, 0.12),
+            transparent 28%
         ),
-
         radial-gradient(
-            ellipse 570px 430px at 105% 7%,
-            rgba(18, 74, 85, 0.12) 0%,
-            rgba(49, 195, 192, 0.045) 44%,
-            rgba(49, 195, 192, 0.00) 75%
+            ellipse at 82% 18%,
+            rgba(94, 155, 69, 0.10),
+            transparent 26%
         ),
-
         radial-gradient(
-            ellipse 680px 500px at -7% 96%,
-            rgba(49, 195, 192, 0.13) 0%,
-            rgba(49, 195, 192, 0.035) 46%,
-            rgba(49, 195, 192, 0.00) 76%
-        ),
-
-        radial-gradient(
-            ellipse 620px 500px at 108% 96%,
-            rgba(18, 74, 85, 0.085) 0%,
-            rgba(49, 195, 192, 0.025) 46%,
-            rgba(49, 195, 192, 0.00) 76%
-        ),
-
-        radial-gradient(
-            ellipse 900px 1000px at 50% 43%,
-            rgba(255, 255, 255, 0.82) 0%,
-            rgba(255, 255, 255, 0.46) 45%,
-            rgba(255, 255, 255, 0.00) 78%
-        ),
-
-        linear-gradient(
-            135deg,
-            #e8f5f1 0%,
-            #f5fbf8 47%,
-            #eaf5f2 100%
+            ellipse at 66% 75%,
+            rgba(233, 133, 104, 0.055),
+            transparent 23%
         );
+
+    filter: blur(28px);
+
+    animation:
+        botanicalAtmosphere 18s ease-in-out infinite alternate;
 }
 
 
 /* =========================================================
-   03. CARTOGRAPHIC GRID
+   03. SOFT ORGANIC BACKGROUND WASHES
    ========================================================= */
 
 .lore-home::after {
     content: "";
 
     position: absolute;
-    z-index: 0;
-
     inset: 0;
+
+    z-index: -2;
 
     pointer-events: none;
 
-    opacity: 0.65;
-
-    background-image:
-        linear-gradient(
-            rgba(18, 74, 85, 0.038) 1px,
-            transparent 1px
+    background:
+        radial-gradient(
+            ellipse 110px 230px at 2% 20%,
+            rgba(94, 155, 69, 0.075),
+            transparent 72%
         ),
-        linear-gradient(
-            90deg,
-            rgba(18, 74, 85, 0.038) 1px,
-            transparent 1px
+
+        radial-gradient(
+            ellipse 75px 170px at 9% 31%,
+            rgba(47, 113, 63, 0.055),
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 120px 250px at 98% 16%,
+            rgba(47, 113, 63, 0.075),
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 80px 180px at 92% 28%,
+            rgba(94, 155, 69, 0.065),
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 140px 280px at 1% 84%,
+            rgba(49, 195, 192, 0.075),
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 145px 290px at 99% 85%,
+            rgba(94, 155, 69, 0.075),
+            transparent 72%
         );
 
-    background-size:
-        90px 90px,
-        90px 90px;
+    filter: blur(2px);
 }
 
 
 /* =========================================================
-   04. DECORATIVE MAP RINGS
+   04. BOTANICAL BACKGROUND CONTAINER
    ========================================================= */
 
-.lore-home .lore-map-ring {
+.botanical-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   05. VINES
+   ========================================================= */
+
+.vine {
     position: absolute;
 
-    z-index: 0;
-
-    width: 650px;
-    height: 650px;
-
-    top: 330px;
-    left: 50%;
-
-    transform: translateX(-50%);
+    width: 300px;
+    height: 720px;
 
     border:
-        1px solid rgba(49, 195, 192, 0.055);
+        2px solid rgba(47, 113, 63, 0.075);
+
+    border-left: 0;
+    border-bottom: 0;
 
     border-radius: 50%;
 
-    box-shadow:
-        0 0 0 75px rgba(49, 195, 192, 0.014),
-        0 0 0 150px rgba(49, 195, 192, 0.010);
+    filter: blur(0.2px);
 
-    pointer-events: none;
+    opacity: 0.75;
+}
+
+.vine-left {
+    left: -210px;
+    top: 90px;
+
+    transform:
+        rotate(-18deg);
+}
+
+.vine-right {
+    right: -210px;
+    top: 310px;
+
+    transform:
+        rotate(18deg);
 }
 
 
 /* =========================================================
-   05. CONTENT LAYER
+   06. VINE SECONDARY CURVES
+   ========================================================= */
+
+.vine-left::before,
+.vine-right::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 430px;
+
+    border:
+        1px solid rgba(49, 195, 192, 0.06);
+
+    border-radius: 50%;
+}
+
+.vine-left::before {
+    left: 90px;
+    top: 110px;
+
+    transform:
+        rotate(24deg);
+}
+
+.vine-right::before {
+    right: 90px;
+    top: 110px;
+
+    transform:
+        rotate(-24deg);
+}
+
+
+/* =========================================================
+   07. LEAVES
+   ========================================================= */
+
+.leaf {
+    position: absolute;
+
+    width: 72px;
+    height: 128px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(94, 155, 69, 0.075),
+            rgba(49, 195, 192, 0.025)
+        );
+
+    border:
+        1px solid rgba(47, 113, 63, 0.055);
+
+    transform-origin:
+        bottom center;
+
+    filter:
+        blur(0.2px);
+}
+
+
+/* ---------------------------------------------------------
+   LEFT FOLIAGE
+   --------------------------------------------------------- */
+
+.leaf-1 {
+    left: 2%;
+    top: 17%;
+
+    transform:
+        rotate(-28deg);
+}
+
+.leaf-2 {
+    left: 5%;
+    top: 27%;
+
+    transform:
+        rotate(22deg)
+        scale(0.75);
+}
+
+.leaf-3 {
+    left: 1%;
+    bottom: 18%;
+
+    transform:
+        rotate(-12deg)
+        scale(1.15);
+}
+
+
+/* ---------------------------------------------------------
+   RIGHT FOLIAGE
+   --------------------------------------------------------- */
+
+.leaf-4 {
+    right: 2%;
+    top: 13%;
+
+    transform:
+        rotate(32deg);
+}
+
+.leaf-5 {
+    right: 5%;
+    top: 23%;
+
+    transform:
+        rotate(-24deg)
+        scale(0.78);
+}
+
+.leaf-6 {
+    right: 1%;
+    bottom: 14%;
+
+    transform:
+        rotate(18deg)
+        scale(1.2);
+}
+
+
+/* =========================================================
+   08. LEAF VEINS
+   ========================================================= */
+
+.leaf::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 8px;
+
+    width: 1px;
+    height: calc(100% - 16px);
+
+    background:
+        rgba(47, 113, 63, 0.075);
+
+    transform:
+        rotate(-22deg);
+
+    transform-origin:
+        center;
+}
+
+
+/* =========================================================
+   09. FLOATING PETALS
+   ========================================================= */
+
+.petal {
+    position: absolute;
+
+    width: 18px;
+    height: 30px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        rgba(233, 133, 104, 0.055);
+
+    border:
+        1px solid rgba(233, 133, 104, 0.035);
+
+    transform:
+        rotate(45deg);
+}
+
+
+/* Petal positions */
+
+.petal-1 {
+    left: 17%;
+    top: 19%;
+}
+
+.petal-2 {
+    left: 83%;
+    top: 35%;
+
+    transform:
+        rotate(105deg);
+}
+
+.petal-3 {
+    left: 13%;
+    bottom: 25%;
+
+    transform:
+        rotate(-25deg);
+}
+
+.petal-4 {
+    right: 14%;
+    bottom: 18%;
+
+    transform:
+        rotate(75deg);
+}
+
+
+/* =========================================================
+   10. SMALL BOTANICAL PARTICLES
+   ========================================================= */
+
+.botanical-background::before {
+    content: "✦  ·  ✧      ·        ✦       ·   ✧";
+
+    position: absolute;
+
+    left: 8%;
+    top: 44%;
+
+    width: 84%;
+
+    color:
+        rgba(49, 195, 192, 0.10);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4.5rem;
+
+    white-space: nowrap;
+
+    opacity: 0.55;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+/* =========================================================
+   11. BOTANICAL ANIMATION
+   ========================================================= */
+
+@keyframes botanicalAtmosphere {
+
+    0% {
+        transform:
+            translate3d(-1%, -1%, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate3d(1%, 1%, 0)
+            scale(1.025);
+    }
+
+    100% {
+        transform:
+            translate3d(-1%, 1%, 0)
+            scale(1.04);
+    }
+}
+
+
+/* =========================================================
+   12. CONTENT CONTAINER
    ========================================================= */
 
 .lore-container {
     position: relative;
     z-index: 2;
 
-    width: min(1160px, calc(100% - 40px));
+    width:
+        min(1160px, calc(100% - 40px));
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 }
 
 
 /* =========================================================
-   06. HEADER
+   13. ARCHIVE HEADER
    ========================================================= */
 
 .lore-header {
     position: relative;
 
-    width: min(880px, 100%);
+    width:
+        min(880px, 100%);
 
-    margin: 0 auto 68px;
+    margin:
+        0 auto 62px;
 
-    padding: 66px 70px;
+    padding:
+        64px 68px;
 
-    box-sizing: border-box;
+    box-sizing:
+        border-box;
 
-    text-align: center;
+    text-align:
+        center;
 
     background:
         linear-gradient(
             135deg,
-            rgba(49, 195, 192, 0.13),
+            rgba(49, 195, 192, 0.12),
             rgba(255, 253, 248, 0.95) 58%,
             rgba(247, 255, 245, 0.97)
         );
 
     border:
-        1px solid rgba(18, 74, 85, 0.13);
+        1px solid rgba(18, 74, 85, 0.12);
 
-    border-radius: 26px;
+    border-radius:
+        26px;
 
     box-shadow:
-        0 10px 25px rgba(18, 74, 85, 0.045),
-        0 25px 60px rgba(18, 74, 85, 0.075);
+        0 10px 25px rgba(18, 74, 85, 0.04),
+        0 25px 60px rgba(18, 74, 85, 0.07);
 
-    overflow: hidden;
+    overflow:
+        hidden;
 }
 
 
-/*
-   Override the global:
-   section { padding: 95px 0; }
-*/
-
-.lore-home .lore-header {
-    padding-top: 66px;
-    padding-bottom: 66px;
-}
-
-
-/* Header atmospheric glow */
+/* =========================================================
+   14. HEADER BOTANICAL GLOW
+   ========================================================= */
 
 .lore-header::before {
     content: "";
 
     position: absolute;
 
-    width: 380px;
-    height: 380px;
+    width: 400px;
+    height: 400px;
 
-    top: -220px;
+    top: -240px;
     right: -100px;
 
     border-radius: 50%;
@@ -260,15 +564,18 @@ body {
     background:
         radial-gradient(
             circle,
-            rgba(49, 195, 192, 0.14),
-            rgba(49, 195, 192, 0.00) 70%
+            rgba(49, 195, 192, 0.13),
+            transparent 70%
         );
 
-    pointer-events: none;
+    pointer-events:
+        none;
 }
 
 
-/* Header bottom accent */
+/* =========================================================
+   15. HEADER ACCENT
+   ========================================================= */
 
 .lore-header::after {
     content: "";
@@ -281,182 +588,238 @@ body {
     width: 110px;
     height: 2px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    background: var(--lagoon);
+    background:
+        var(--lagoon);
 
-    opacity: 0.65;
+    opacity:
+        0.65;
 }
 
 
 /* =========================================================
-   07. HEADER TYPOGRAPHY
+   16. HEADER TYPOGRAPHY
    ========================================================= */
 
 .lore-kicker {
     position: relative;
     z-index: 2;
 
-    margin-bottom: 15px;
+    margin-bottom:
+        15px;
 
-    color: var(--deep);
+    color:
+        var(--deep);
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
-    font-size: 0.70rem;
-    font-weight: 800;
+    font-size:
+        0.70rem;
 
-    letter-spacing: 0.24em;
+    font-weight:
+        800;
 
-    text-transform: uppercase;
+    letter-spacing:
+        0.24em;
+
+    text-transform:
+        uppercase;
 }
 
 .lore-header h1 {
     position: relative;
     z-index: 2;
 
-    margin: 0 0 20px;
+    margin:
+        0 0 20px;
 
-    color: var(--deep);
+    color:
+        var(--deep);
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: clamp(3.2rem, 7vw, 5.2rem);
+    font-size:
+        clamp(3.2rem, 7vw, 5.2rem);
 
-    line-height: 0.95;
+    line-height:
+        0.95;
 
-    letter-spacing: -0.045em;
+    letter-spacing:
+        -0.045em;
 }
 
 .lore-header p {
     position: relative;
     z-index: 2;
 
-    max-width: 700px;
+    max-width:
+        700px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    color: var(--stone);
+    color:
+        var(--stone);
 
-    font-size: 1rem;
+    font-size:
+        1rem;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 .lore-ornament {
     position: relative;
     z-index: 2;
 
-    margin-top: 27px;
+    margin-top:
+        27px;
 
-    color: var(--lagoon);
+    color:
+        var(--lagoon);
 
-    font-size: 1.1rem;
+    font-size:
+        1.1rem;
 
-    opacity: 0.85;
+    opacity:
+        0.85;
 }
 
 
 /* =========================================================
-   08. ARCHIVE INTRODUCTION
+   17. ARCHIVE INTRO
    ========================================================= */
 
 .archive-intro {
-    max-width: 820px;
+    max-width:
+        820px;
 
-    margin: 0 auto 48px;
+    margin:
+        0 auto 46px;
 
-    padding: 0 !important;
+    padding:
+        0 !important;
 
-    text-align: center;
+    text-align:
+        center;
 }
 
 .archive-intro h2 {
-    margin: 0 0 15px;
+    margin:
+        0 0 15px;
 
-    color: var(--deep);
+    color:
+        var(--deep);
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size:
+        clamp(2rem, 4vw, 2.8rem);
 
-    line-height: 1.1;
+    line-height:
+        1.1;
 }
 
 .archive-intro p {
-    margin: 0;
+    margin:
+        0;
 
-    color: var(--muted);
+    color:
+        var(--muted);
 
-    font-size: 0.98rem;
+    font-size:
+        0.98rem;
 
-    line-height: 1.8;
+    line-height:
+        1.8;
 }
 
 
 /* =========================================================
-   09. PRIMARY ARCHIVE GRID
+   18. ARCHIVE GRID
    ========================================================= */
 
 .lore-grid {
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 22px;
+    gap:
+        20px;
 
-    width: 100%;
+    width:
+        100%;
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 0 !important;
+    padding:
+        0 !important;
 }
 
 
 /* =========================================================
-   10. ARCHIVE CARDS
+   19. ARCHIVE CARDS
    ========================================================= */
 
 .lore-card {
-    position: relative;
+    position:
+        relative;
 
-    display: flex;
-    flex-direction: column;
+    display:
+        flex;
 
-    min-width: 0;
-    min-height: 285px;
+    flex-direction:
+        column;
 
-    box-sizing: border-box;
+    min-width:
+        0;
 
-    padding: 32px 32px 28px;
+    min-height:
+        225px;
 
-    color: var(--ink);
+    box-sizing:
+        border-box;
 
-    text-decoration: none;
+    padding:
+        28px 30px 25px;
+
+    color:
+        var(--ink);
+
+    text-decoration:
+        none;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255, 253, 248, 0.95),
-            rgba(247, 255, 245, 0.91)
+            rgba(255, 253, 248, 0.94),
+            rgba(247, 255, 245, 0.88)
         );
 
     border:
         1px solid var(--line);
 
-    border-radius: 24px;
+    border-radius:
+        21px;
 
     box-shadow:
         var(--shadow-small);
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     transition:
         transform 0.24s ease,
@@ -465,231 +828,333 @@ body {
 }
 
 
-/* Card glow */
+/* =========================================================
+   20. CARD BOTANICAL GLOW
+   ========================================================= */
 
 .lore-card::before {
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    width: 230px;
-    height: 230px;
+    width:
+        240px;
 
-    top: -130px;
-    right: -85px;
+    height:
+        240px;
 
-    border-radius: 50%;
+    top:
+        -150px;
+
+    right:
+        -80px;
+
+    border-radius:
+        50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(49, 195, 192, 0.12),
-            rgba(49, 195, 192, 0) 70%
+            rgba(94, 155, 69, 0.10),
+            rgba(94, 155, 69, 0) 70%
         );
 
-    pointer-events: none;
+    pointer-events:
+        none;
 }
 
 
-/* Card bottom accent */
+/* =========================================================
+   21. CARD BOTTOM BOTANICAL ACCENT
+   ========================================================= */
 
 .lore-card::after {
     content: "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 32px;
-    bottom: 0;
+    left:
+        30px;
 
-    width: 55px;
-    height: 2px;
+    bottom:
+        0;
 
-    background: var(--lagoon);
+    width:
+        52px;
 
-    opacity: 0.40;
+    height:
+        2px;
+
+    background:
+        var(--lagoon);
+
+    opacity:
+        0.40;
 
     transition:
         width 0.24s ease,
         opacity 0.24s ease;
 }
 
-
-/* Hover */
-
 .lore-card:hover {
-    transform: translateY(-5px);
+    transform:
+        translateY(-4px);
 
     border-color:
-        rgba(49, 195, 192, 0.30);
+        rgba(49, 195, 192, 0.28);
 
     box-shadow:
         var(--shadow);
 }
 
 .lore-card:hover::after {
-    width: 95px;
+    width:
+        90px;
 
-    opacity: 0.70;
+    opacity:
+        0.70;
 }
 
 
 /* =========================================================
-   11. FEATURED HISTORY CARD
+   22. FEATURED HISTORY CARD
    ========================================================= */
 
 .lore-card.featured {
-    grid-column: 1 / -1;
+    grid-column:
+        1 / -1;
 
-    min-height: 315px;
+    min-height:
+        275px;
 
-    padding: 40px 42px 32px;
+    padding:
+        36px 40px 29px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(49, 195, 192, 0.13),
-            rgba(255, 253, 248, 0.96) 57%,
-            rgba(247, 255, 245, 0.95)
+            rgba(49, 195, 192, 0.12),
+            rgba(255, 253, 248, 0.96) 58%,
+            rgba(247, 255, 245, 0.94)
         );
 
     border-color:
-        rgba(49, 195, 192, 0.19);
+        rgba(49, 195, 192, 0.18);
 }
 
 .lore-card.featured::before {
-    width: 430px;
-    height: 430px;
+    width:
+        430px;
 
-    top: -250px;
-    right: -90px;
+    height:
+        430px;
+
+    top:
+        -270px;
+
+    right:
+        -100px;
 }
 
 .lore-card.featured::after {
-    left: 42px;
+    left:
+        40px;
 
-    width: 90px;
+    width:
+        88px;
 }
 
 
 /* =========================================================
-   12. CARD CONTENT
+   23. CARD NUMBER
    ========================================================= */
 
 .card-number {
-    position: relative;
-    z-index: 2;
+    position:
+        relative;
 
-    margin-bottom: 16px;
+    z-index:
+        2;
 
-    color: var(--coral);
+    margin-bottom:
+        13px;
 
-    font-family: Arial, sans-serif;
+    color:
+        var(--coral);
 
-    font-size: 0.66rem;
-    font-weight: 800;
+    font-family:
+        Arial,
+        sans-serif;
 
-    letter-spacing: 0.18em;
+    font-size:
+        0.64rem;
 
-    text-transform: uppercase;
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.18em;
+
+    text-transform:
+        uppercase;
 }
 
+
+/* =========================================================
+   24. CARD TITLE
+   ========================================================= */
+
 .lore-card h3 {
-    position: relative;
-    z-index: 2;
+    position:
+        relative;
 
-    margin: 0 0 13px;
+    z-index:
+        2;
 
-    color: var(--deep);
+    margin:
+        0 0 12px;
+
+    color:
+        var(--deep);
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 1.65rem;
+    font-size:
+        1.58rem;
 
-    line-height: 1.18;
+    line-height:
+        1.18;
 
-    letter-spacing: -0.015em;
+    letter-spacing:
+        -0.015em;
 }
 
 .lore-card.featured h3 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-}
-
-.lore-card p {
-    position: relative;
-    z-index: 2;
-
-    max-width: 760px;
-
-    margin: 0;
-
-    color: var(--muted);
-
-    font-size: 0.92rem;
-
-    line-height: 1.75;
+    font-size:
+        clamp(2rem, 4vw, 2.65rem);
 }
 
 
 /* =========================================================
-   13. CARD FOOTER
+   25. CARD DESCRIPTION
+   ========================================================= */
+
+.lore-card p {
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    max-width:
+        760px;
+
+    margin:
+        0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        0.88rem;
+
+    line-height:
+        1.68;
+}
+
+
+/* =========================================================
+   26. CARD FOOTER
    ========================================================= */
 
 .card-footer {
-    position: relative;
-    z-index: 2;
+    position:
+        relative;
 
-    display: flex;
+    z-index:
+        2;
 
-    align-items: center;
-    justify-content: space-between;
+    display:
+        flex;
 
-    gap: 20px;
+    align-items:
+        center;
 
-    margin-top: auto;
+    justify-content:
+        space-between;
 
-    padding-top: 26px;
+    gap:
+        20px;
 
-    color: var(--deep);
+    margin-top:
+        auto;
 
-    font-family: Arial, sans-serif;
+    padding-top:
+        20px;
 
-    font-size: 0.68rem;
-    font-weight: 800;
+    color:
+        var(--deep);
 
-    letter-spacing: 0.13em;
+    font-family:
+        Arial,
+        sans-serif;
 
-    text-transform: uppercase;
+    font-size:
+        0.65rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.13em;
+
+    text-transform:
+        uppercase;
 }
 
 .card-arrow {
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    flex-shrink: 0;
+    flex-shrink:
+        0;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
 
-    width: 35px;
-    height: 35px;
+    justify-content:
+        center;
 
-    box-sizing: border-box;
+    width:
+        34px;
 
-    color: var(--lagoon);
+    height:
+        34px;
+
+    box-sizing:
+        border-box;
+
+    color:
+        var(--lagoon);
 
     border:
         1px solid rgba(49, 195, 192, 0.23);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 1rem;
+    font-size:
+        1rem;
 
     transition:
         transform 0.24s ease,
@@ -697,7 +1162,8 @@ body {
 }
 
 .lore-card:hover .card-arrow {
-    transform: translateX(3px);
+    transform:
+        translateX(3px);
 
     background:
         rgba(49, 195, 192, 0.09);
@@ -705,113 +1171,153 @@ body {
 
 
 /* =========================================================
-   14. QUICK REFERENCE
+   27. QUICK REFERENCE LABEL
    ========================================================= */
 
 .archive-label {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 17px;
+    gap:
+        17px;
 
-    margin: 68px 0 22px;
+    margin:
+        62px 0 20px;
 
-    padding: 0 !important;
+    padding:
+        0 !important;
 
-    color: var(--deep);
+    color:
+        var(--deep);
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
-    font-size: 0.68rem;
-    font-weight: 800;
+    font-size:
+        0.67rem;
 
-    letter-spacing: 0.19em;
+    font-weight:
+        800;
 
-    text-transform: uppercase;
+    letter-spacing:
+        0.19em;
+
+    text-transform:
+        uppercase;
 }
 
 .archive-label::before,
 .archive-label::after {
-    content: "";
+    content:
+        "";
 
-    display: block;
+    display:
+        block;
 
-    height: 1px;
+    height:
+        1px;
 
     background:
         rgba(18, 74, 85, 0.14);
 }
 
 .archive-label::before {
-    width: 45px;
+    width:
+        45px;
 }
 
 .archive-label::after {
-    flex: 1;
+    flex:
+        1;
 }
 
 
 /* =========================================================
-   15. REFERENCE GRID
+   28. QUICK REFERENCE GRID
    ========================================================= */
 
 .reference-grid {
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 15px;
+    gap:
+        14px;
 
-    width: 100%;
+    width:
+        100%;
 
-    margin: 0;
+    margin:
+        0;
 
-    padding: 0 !important;
+    padding:
+        0 !important;
 }
 
 
 /* =========================================================
-   16. REFERENCE LINKS
+   29. QUICK REFERENCE LINKS
    ========================================================= */
 
 .reference-link {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
 
-    min-height: 62px;
+    justify-content:
+        center;
 
-    box-sizing: border-box;
+    min-height:
+        58px;
 
-    padding: 15px 20px;
+    box-sizing:
+        border-box;
 
-    color: var(--deep);
+    padding:
+        14px 20px;
 
-    text-decoration: none;
+    color:
+        var(--deep);
+
+    text-decoration:
+        none;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255, 253, 248, 0.82),
+            rgba(255, 253, 248, 0.80),
             rgba(49, 195, 192, 0.055)
         );
 
     border:
-        1px solid rgba(49, 195, 192, 0.17);
+        1px solid rgba(49, 195, 192, 0.16);
 
-    border-radius: 16px;
+    border-radius:
+        15px;
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
-    font-size: 0.76rem;
-    font-weight: 800;
+    font-size:
+        0.74rem;
 
-    letter-spacing: 0.07em;
+    font-weight:
+        800;
 
-    text-transform: uppercase;
+    letter-spacing:
+        0.07em;
+
+    text-transform:
+        uppercase;
 
     box-shadow:
         0 6px 18px rgba(18, 74, 85, 0.035);
@@ -824,7 +1330,8 @@ body {
 }
 
 .reference-link:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     background:
         linear-gradient(
@@ -834,265 +1341,340 @@ body {
         );
 
     border-color:
-        rgba(49, 195, 192, 0.32);
+        rgba(49, 195, 192, 0.30);
 
     box-shadow:
-        0 10px 24px rgba(18, 74, 85, 0.065);
+        0 10px 24px rgba(18, 74, 85, 0.06);
 }
 
 
 /* =========================================================
-   17. TABLET
+   30. TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
 
     .lore-home {
-        padding: 58px 0 90px;
+        padding:
+            58px 0 90px;
     }
 
     .lore-container {
-        width: min(92%, 760px);
+        width:
+            min(92%, 760px);
     }
 
     .lore-header {
-        margin-bottom: 56px;
+        margin-bottom:
+            52px;
 
         padding:
-            56px 48px;
-    }
-
-    .lore-home .lore-header {
-        padding-top: 56px;
-        padding-bottom: 56px;
-    }
-
-    .lore-grid {
-        gap: 18px;
+            55px 45px;
     }
 
     .lore-card {
-        min-height: 275px;
+        min-height:
+            235px;
 
         padding:
-            29px 28px 27px;
+            27px 27px 24px;
     }
 
     .lore-card.featured {
-        min-height: 300px;
+        min-height:
+            285px;
 
         padding:
-            35px 34px 30px;
-    }
-
-    .reference-grid {
-        gap: 13px;
+            33px 33px 27px;
     }
 }
 
 
 /* =========================================================
-   18. MOBILE
+   31. MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
 
     .lore-home {
-        padding: 42px 0 70px;
+        padding:
+            42px 0 70px;
     }
 
     .lore-container {
-        width: calc(100% - 28px);
+        width:
+            calc(100% - 28px);
     }
 
-    .lore-home::after {
-        background-size:
-            60px 60px,
-            60px 60px;
+    /* Hide large botanical geometry on small screens */
+
+    .vine {
+        opacity:
+            0.45;
     }
 
-    .lore-map-ring {
-        display: none;
+    .vine-left {
+        left:
+            -255px;
     }
+
+    .vine-right {
+        right:
+            -255px;
+    }
+
+    .leaf {
+        opacity:
+            0.65;
+
+        transform:
+            scale(0.72);
+    }
+
+    .leaf-1 {
+        left:
+            -12%;
+    }
+
+    .leaf-3 {
+        left:
+            -10%;
+    }
+
+    .leaf-4 {
+        right:
+            -12%;
+    }
+
+    .leaf-6 {
+        right:
+            -10%;
+    }
+
+    .botanical-background::before {
+        letter-spacing:
+            2rem;
+
+        opacity:
+            0.35;
+    }
+
+
+    /* Header */
 
     .lore-header {
-        margin-bottom: 45px;
+        margin-bottom:
+            43px;
 
         padding:
-            46px 27px;
+            45px 26px;
 
-        border-radius: 21px;
-    }
-
-    .lore-home .lore-header {
-        padding-top: 46px;
-        padding-bottom: 46px;
+        border-radius:
+            21px;
     }
 
     .lore-header h1 {
-        font-size: 3.25rem;
+        font-size:
+            3.25rem;
     }
 
     .lore-header p {
-        font-size: 0.91rem;
+        font-size:
+            0.90rem;
 
-        line-height: 1.7;
+        line-height:
+            1.7;
     }
 
+
+    /* Intro */
+
     .archive-intro {
-        margin-bottom: 36px;
+        margin-bottom:
+            35px;
     }
 
     .archive-intro h2 {
-        font-size: 2rem;
+        font-size:
+            2rem;
     }
 
     .archive-intro p {
-        font-size: 0.91rem;
+        font-size:
+            0.90rem;
     }
 
-    .lore-grid {
-        grid-template-columns: 1fr;
 
-        gap: 16px;
+    /* Cards */
+
+    .lore-grid {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            15px;
     }
 
     .lore-card,
     .lore-card.featured {
-        grid-column: auto;
+        grid-column:
+            auto;
 
-        min-height: 255px;
+        min-height:
+            245px;
 
         padding:
-            28px 25px 26px;
+            27px 24px 24px;
 
-        border-radius: 18px;
+        border-radius:
+            18px;
     }
 
     .lore-card.featured {
-        min-height: 275px;
+        min-height:
+            265px;
     }
 
     .lore-card h3 {
-        font-size: 1.48rem;
+        font-size:
+            1.46rem;
     }
 
     .lore-card.featured h3 {
-        font-size: 1.9rem;
+        font-size:
+            1.90rem;
     }
 
     .lore-card p {
-        font-size: 0.88rem;
+        font-size:
+            0.86rem;
 
-        line-height: 1.68;
+        line-height:
+            1.65;
     }
 
-    .lore-card::after {
-        left: 25px;
-    }
-
+    .lore-card::after,
     .lore-card.featured::after {
-        left: 25px;
+        left:
+            24px;
     }
+
+
+    /* Quick reference */
 
     .archive-label {
-        margin-top: 52px;
+        margin-top:
+            50px;
     }
 
     .reference-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
-        gap: 11px;
+        gap:
+            10px;
     }
 
     .reference-link {
-        min-height: 58px;
+        min-height:
+            56px;
     }
 }
 
 
 /* =========================================================
-   19. SMALL PHONES
+   32. SMALL PHONES
    ========================================================= */
 
 @media (max-width: 430px) {
 
     .lore-container {
-        width: calc(100% - 20px);
+        width:
+            calc(100% - 20px);
     }
 
     .lore-home {
-        padding-top: 32px;
-        padding-bottom: 58px;
+        padding:
+            32px 0 58px;
     }
 
     .lore-header {
         padding:
-            39px 21px;
+            38px 20px;
 
-        border-radius: 18px;
-    }
-
-    .lore-home .lore-header {
-        padding-top: 39px;
-        padding-bottom: 39px;
+        border-radius:
+            18px;
     }
 
     .lore-header h1 {
-        font-size: 2.75rem;
+        font-size:
+            2.75rem;
     }
 
     .lore-header p {
-        font-size: 0.86rem;
+        font-size:
+            0.84rem;
     }
 
     .lore-kicker {
-        font-size: 0.62rem;
+        font-size:
+            0.61rem;
 
-        letter-spacing: 0.20em;
+        letter-spacing:
+            0.19em;
     }
 
     .lore-card,
     .lore-card.featured {
         padding:
-            25px 21px 24px;
+            24px 20px 23px;
     }
 
     .lore-card.featured h3 {
-        font-size: 1.7rem;
+        font-size:
+            1.68rem;
     }
 
     .lore-card h3 {
-        font-size: 1.38rem;
+        font-size:
+            1.36rem;
     }
 
     .lore-card p {
-        font-size: 0.85rem;
+        font-size:
+            0.83rem;
     }
 
     .card-footer {
-        padding-top: 21px;
+        padding-top:
+            19px;
 
-        font-size: 0.61rem;
+        font-size:
+            0.60rem;
     }
 }
 
 
 /* =========================================================
-   20. REDUCED MOTION
+   33. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
+    .lore-home::before {
+        animation:
+            none;
+    }
+
     .lore-card,
     .reference-link,
     .card-arrow {
-        transition: none;
+        transition:
+            none;
     }
 }
 
 </style>
-
 </head>
 
 
@@ -1109,19 +1691,65 @@ body {
 
         <nav class="site-nav">
 
-            <a class="brand" href="../index.html">
-                <span class="brand-mark">🌿</span>
+            <a
+                class="brand"
+                href="../index.html">
+
+                <span class="brand-mark">
+                    🌿
+                </span>
+
                 Verdigris Isles
+
             </a>
 
+
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../world/world.html">World</a></li>
-                <li><a href="../regions/regions.html">Isles</a></li>
-                <li><a href="../races/races.html">Races</a></li>
-                <li><a href="../world/magic.html">Magic</a></li>
-                <li><a href="../world/technology.html">Technology</a></li>
-                <li><a href="../lore.html">Lore</a></li>
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../world/world.html">
+                        World
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../regions/regions.html">
+                        Isles
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../races/races.html">
+                        Races
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../world/magic.html">
+                        Magic
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../world/technology.html">
+                        Technology
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="lore.html"
+                        class="active">
+                        Lore
+                    </a>
+                </li>
+
             </ul>
 
         </nav>
@@ -1136,6 +1764,37 @@ body {
      ========================================================= -->
 
 <main class="lore-home">
+
+
+    <!-- =====================================================
+         BOTANICAL BACKGROUND
+         ===================================================== -->
+
+    <div
+        class="botanical-background"
+        aria-hidden="true">
+
+        <span class="vine vine-left"></span>
+        <span class="vine vine-right"></span>
+
+        <span class="leaf leaf-1"></span>
+        <span class="leaf leaf-2"></span>
+        <span class="leaf leaf-3"></span>
+        <span class="leaf leaf-4"></span>
+        <span class="leaf leaf-5"></span>
+        <span class="leaf leaf-6"></span>
+
+        <span class="petal petal-1"></span>
+        <span class="petal petal-2"></span>
+        <span class="petal petal-3"></span>
+        <span class="petal petal-4"></span>
+
+    </div>
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
 
     <div class="lore-container">
 
@@ -1160,7 +1819,9 @@ body {
                 civilization that rose in its aftermath.
             </p>
 
-            <div class="lore-ornament">
+            <div
+                class="lore-ornament"
+                aria-hidden="true">
                 ✦
             </div>
 
@@ -1190,16 +1851,17 @@ body {
 
 
         <!-- =================================================
-             PRIMARY DOCUMENTS
+             PRIMARY ARCHIVE DOCUMENTS
              ================================================= -->
 
-        <section class="lore-grid">
+        <div class="lore-grid">
 
 
             <!-- HISTORY -->
 
-            <a class="lore-card featured"
-               href="../world/history.html">
+            <a
+                class="lore-card featured"
+                href="../world/history.html">
 
                 <div class="card-number">
                     Archive I · History
@@ -1217,8 +1879,17 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Open Document</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Open Document
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
@@ -1226,8 +1897,9 @@ body {
 
             <!-- OLD WORLD -->
 
-            <a class="lore-card"
-               href="old-world.html">
+            <a
+                class="lore-card"
+                href="old-world.html">
 
                 <div class="card-number">
                     Archive II
@@ -1244,8 +1916,17 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Explore</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Explore
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
@@ -1253,8 +1934,9 @@ body {
 
             <!-- CITADEL -->
 
-            <a class="lore-card"
-               href="citadel.html">
+            <a
+                class="lore-card"
+                href="citadel.html">
 
                 <div class="card-number">
                     Archive III
@@ -1270,8 +1952,17 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Explore</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Explore
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
@@ -1279,8 +1970,9 @@ body {
 
             <!-- AETHERITE -->
 
-            <a class="lore-card"
-               href="aetherite.html">
+            <a
+                class="lore-card"
+                href="aetherite.html">
 
                 <div class="card-number">
                     Archive IV
@@ -1297,8 +1989,17 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Explore</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Explore
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
@@ -1306,8 +2007,9 @@ body {
 
             <!-- FALL -->
 
-            <a class="lore-card"
-               href="fall.html">
+            <a
+                class="lore-card"
+                href="fall.html">
 
                 <div class="card-number">
                     Archive V
@@ -1324,8 +2026,17 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Explore</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Explore
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
@@ -1333,8 +2044,9 @@ body {
 
             <!-- RECONSTRUCTION -->
 
-            <a class="lore-card"
-               href="reconstruction.html">
+            <a
+                class="lore-card"
+                href="reconstruction.html">
 
                 <div class="card-number">
                     Archive VI
@@ -1351,8 +2063,17 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Explore</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Explore
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
@@ -1360,8 +2081,9 @@ body {
 
             <!-- TIMELINE -->
 
-            <a class="lore-card"
-               href="timeline.html">
+            <a
+                class="lore-card"
+                href="timeline.html">
 
                 <div class="card-number">
                     Archive VII
@@ -1377,13 +2099,23 @@ body {
                 </p>
 
                 <div class="card-footer">
-                    <span>Explore</span>
-                    <span class="card-arrow">→</span>
+
+                    <span>
+                        Explore
+                    </span>
+
+                    <span
+                        class="card-arrow"
+                        aria-hidden="true">
+                        →
+                    </span>
+
                 </div>
 
             </a>
 
-        </section>
+
+        </div>
 
 
         <!-- =================================================
@@ -1391,24 +2123,33 @@ body {
              ================================================= -->
 
         <div class="archive-label">
-            <span>Quick Reference</span>
+
+            <span>
+                Quick Reference
+            </span>
+
         </div>
 
-        <nav class="reference-grid"
-             aria-label="Lore quick reference">
 
-            <a class="reference-link"
-               href="../world/magic.html">
+        <nav
+            class="reference-grid"
+            aria-label="Lore quick reference">
+
+            <a
+                class="reference-link"
+                href="../world/magic.html">
                 Magic
             </a>
 
-            <a class="reference-link"
-               href="../world/technology.html">
+            <a
+                class="reference-link"
+                href="../world/technology.html">
                 Technology
             </a>
 
-            <a class="reference-link"
-               href="../regions/regions.html">
+            <a
+                class="reference-link"
+                href="../regions/regions.html">
                 Regions
             </a>
 
