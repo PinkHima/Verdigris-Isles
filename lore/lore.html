@@ -12,391 +12,496 @@
 /* =========================================================
    LORE ARCHIVE
    ========================================================= */
-.lore-home {
-    padding: 60px 0 100px;
+
+body {
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4fbf7 0%,
+            #edf8f4 35%,
+            #f8fcf9 68%,
+            #edf6f3 100%
+        );
 }
+
+.lore-home {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 60px 0 100px;
+
+    background-image:
+
+        /* Faint cartographic grid */
+        linear-gradient(
+            rgba(18, 74, 85, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(18, 74, 85, 0.035) 1px,
+            transparent 1px
+        ),
+
+        /* Upper-left watercolor wash */
+        radial-gradient(
+            ellipse 38% 30% at 4% 10%,
+            rgba(49, 195, 192, 0.13),
+            rgba(49, 195, 192, 0.055) 42%,
+            transparent 76%
+        ),
+
+        /* Upper-right watercolor wash */
+        radial-gradient(
+            ellipse 34% 32% at 96% 15%,
+            rgba(25, 111, 119, 0.075),
+            rgba(49, 195, 192, 0.035) 43%,
+            transparent 78%
+        ),
+
+        /* Lower-left watercolor wash */
+        radial-gradient(
+            ellipse 42% 34% at 2% 91%,
+            rgba(35, 139, 137, 0.10),
+            rgba(49, 195, 192, 0.045) 45%,
+            transparent 78%
+        ),
+
+        /* Lower-right watercolor wash */
+        radial-gradient(
+            ellipse 40% 38% at 98% 88%,
+            rgba(18, 74, 85, 0.075),
+            rgba(49, 195, 192, 0.035) 42%,
+            transparent 76%
+        ),
+
+        /* Central paper illumination */
+        radial-gradient(
+            ellipse 65% 70% at 50% 45%,
+            rgba(255, 255, 255, 0.42),
+            transparent 72%
+        );
+
+    background-size:
+        90px 90px,
+        90px 90px,
+        auto,
+        auto,
+        auto,
+        auto,
+        auto;
+
+    background-position:
+        center,
+        center,
+        center,
+        center,
+        center,
+        center,
+        center;
+
+    background-blend-mode:
+        multiply,
+        multiply,
+        normal,
+        normal,
+        normal,
+        normal,
+        normal;
+}
+
 .lore-container {
+    position: relative;
+
     width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
 }
+
+
+/* =========================================================
+   ATMOSPHERIC VIGNETTE
+   ========================================================= */
+
+.lore-home::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        /* Left sea-glass haze */
+        radial-gradient(
+            ellipse 28% 65% at -4% 50%,
+            rgba(36, 143, 143, 0.11),
+            transparent 72%
+        ),
+
+        /* Right deep teal haze */
+        radial-gradient(
+            ellipse 28% 65% at 104% 50%,
+            rgba(20, 82, 94, 0.085),
+            transparent 72%
+        ),
+
+        /* Bottom atmospheric haze */
+        radial-gradient(
+            ellipse 70% 25% at 50% 105%,
+            rgba(49, 195, 192, 0.075),
+            transparent 75%
+        );
+
+    filter: blur(2px);
+}
+
+
+/* =========================================================
+   BOTANICAL / SEA-GROWTH MARGINALIA
+   ========================================================= */
+
+.lore-home::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: 35px;
+    left: -25px;
+
+    width: 250px;
+    height: 780px;
+
+    pointer-events: none;
+
+    opacity: 0.42;
+
+    /*
+       Layered gradients create an understated botanical
+       silhouette without requiring an external image.
+    */
+    background:
+
+        /* Winding stems */
+        linear-gradient(
+            103deg,
+            transparent 0%,
+            transparent 22%,
+            rgba(18, 74, 85, 0.12) 22.3%,
+            rgba(18, 74, 85, 0.12) 22.8%,
+            transparent 23.1%,
+            transparent 42%,
+            rgba(18, 74, 85, 0.085) 42.3%,
+            rgba(18, 74, 85, 0.085) 42.8%,
+            transparent 43.1%,
+            transparent 63%,
+            rgba(18, 74, 85, 0.075) 63.3%,
+            rgba(18, 74, 85, 0.075) 63.8%,
+            transparent 64%
+        ),
+
+        /* Upper leaves */
+        radial-gradient(
+            ellipse 28px 9px at 31% 12%,
+            rgba(18, 74, 85, 0.12) 0%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 32px 10px at 43% 17%,
+            rgba(35, 139, 137, 0.10) 0%,
+            transparent 72%
+        ),
+
+        /* Middle leaves */
+        radial-gradient(
+            ellipse 35px 10px at 27% 31%,
+            rgba(18, 74, 85, 0.095) 0%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 28px 9px at 46% 38%,
+            rgba(35, 139, 137, 0.085) 0%,
+            transparent 72%
+        ),
+
+        /* Lower leaves */
+        radial-gradient(
+            ellipse 38px 11px at 24% 57%,
+            rgba(18, 74, 85, 0.09) 0%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 32px 10px at 44% 68%,
+            rgba(35, 139, 137, 0.085) 0%,
+            transparent 72%
+        ),
+
+        radial-gradient(
+            ellipse 40px 11px at 27% 81%,
+            rgba(18, 74, 85, 0.09) 0%,
+            transparent 72%
+        );
+
+    filter: blur(0.2px);
+
+    transform: rotate(-3deg);
+}
+
+
+/* =========================================================
+   ARCHIVE COMPASS / CARTOGRAPHIC GEOMETRY
+   ========================================================= */
+
+.lore-container::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: 180px;
+    right: -110px;
+
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    opacity: 0.16;
+
+    background:
+
+        /* Compass rings */
+        radial-gradient(
+            circle,
+            transparent 0%,
+            transparent 31%,
+            rgba(18, 74, 85, 0.10) 31.2%,
+            rgba(18, 74, 85, 0.10) 31.6%,
+            transparent 31.8%,
+            transparent 48%,
+            rgba(18, 74, 85, 0.075) 48.2%,
+            rgba(18, 74, 85, 0.075) 48.6%,
+            transparent 48.8%,
+            transparent 65%,
+            rgba(18, 74, 85, 0.055) 65.2%,
+            rgba(18, 74, 85, 0.055) 65.6%,
+            transparent 65.8%
+        ),
+
+        /* Vertical axis */
+        linear-gradient(
+            90deg,
+            transparent 49.6%,
+            rgba(18, 74, 85, 0.12) 49.8%,
+            rgba(18, 74, 85, 0.12) 50.2%,
+            transparent 50.4%
+        ),
+
+        /* Horizontal axis */
+        linear-gradient(
+            0deg,
+            transparent 49.6%,
+            rgba(18, 74, 85, 0.12) 49.8%,
+            rgba(18, 74, 85, 0.12) 50.2%,
+            transparent 50.4%
+        );
+
+    transform: rotate(17deg);
+}
+
+
+/* =========================================================
+   CENTRAL ATMOSPHERIC GLOW
+   ========================================================= */
+
+.lore-container::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: 360px;
+    left: 50%;
+
+    width: 520px;
+    height: 520px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 195, 192, 0.055) 0%,
+            rgba(49, 195, 192, 0.025) 36%,
+            transparent 70%
+        );
+
+    filter: blur(12px);
+}
+
+
 /* =========================================================
    ARCHIVE HEADER
    ========================================================= */
+
 .lore-header {
     position: relative;
     max-width: 900px;
     margin: 0 auto 58px;
     padding: 64px 68px;
     text-align: center;
+
     background:
         linear-gradient(
             135deg,
             rgba(49, 195, 192, 0.13),
             rgba(247, 255, 245, 0.97) 70%
         );
+
     border: 1px solid rgba(18, 74, 85, 0.13);
     border-radius: 24px;
+
     box-shadow:
         0 8px 18px rgba(18, 74, 85, 0.035),
         0 22px 55px rgba(18, 74, 85, 0.075);
+
     overflow: hidden;
 }
+
+
 /* Subtle atmospheric highlight */
+
 .lore-header::before {
     content: "";
     position: absolute;
     top: -120px;
     right: -100px;
+
     width: 300px;
     height: 300px;
+
     border-radius: 50%;
+
     background: rgba(49, 195, 192, 0.055);
+
     pointer-events: none;
 }
+
+
 /* Bottom accent */
+
 .lore-header::after {
     content: "";
     position: absolute;
     left: 50%;
     bottom: 0;
+
     width: 90px;
     height: 2px;
+
     transform: translateX(-50%);
+
     background: var(--lagoon);
     opacity: 0.55;
 }
+
+
 .lore-kicker {
     position: relative;
+
     margin-bottom: 14px;
+
     color: var(--deep);
+
     font-size: 0.7rem;
     font-weight: 800;
+
     letter-spacing: 0.24em;
     text-transform: uppercase;
 }
-.lore-header h1 {
-    position: relative;
-    margin: 0;
-    color: var(--navy);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2.7rem, 6vw, 4.4rem);
-    font-weight: 600;
-    letter-spacing: -0.025em;
-    line-height: 1.05;
-}
-.lore-header p {
-    position: relative;
-    max-width: 680px;
-    margin: 24px auto 0;
-    color: var(--stone);
-    font-size: 1rem;
-    line-height: 1.85;
-}
-.lore-ornament {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 230px;
-    margin: 32px auto 0;
-}
-.lore-ornament::before,
-.lore-ornament::after {
-    content: "";
-    height: 1px;
-    flex: 1;
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(18, 74, 85, 0.20)
-        );
-}
-.lore-ornament::after {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(18, 74, 85, 0.20)
-        );
-}
-.lore-ornament span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    color: var(--lagoon);
-    font-size: 0.75rem;
-}
+
+
 /* =========================================================
-   ARCHIVE INTRO
+   ARCHIVE CONTENT DEPTH
    ========================================================= */
-.archive-intro {
-    max-width: 770px;
-    margin: 0 auto 48px;
-    text-align: center;
+
+.lore-card,
+.archive-intro,
+.reference-grid > * {
+    position: relative;
 }
-.archive-intro h2 {
-    margin: 0 0 13px;
-    color: var(--navy);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.95rem;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-}
-.archive-intro p {
-    margin: 0;
-    color: var(--stone);
-    font-size: 0.96rem;
-    line-height: 1.82;
-}
-/* =========================================================
-   DOCUMENT GRID
-   ========================================================= */
-.lore-grid {
-    display: grid;
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-/* =========================================================
-   LORE DOCUMENT CARD
-   ========================================================= */
+
+
+/*
+   Slightly translucent cards allow the atmospheric background
+   to remain visible around the archive without sacrificing
+   readability.
+*/
+
 .lore-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 245px;
-    padding: 31px 32px 29px;
-    color: inherit;
-    text-decoration: none;
-    background:
-        linear-gradient(
-            145deg,
-            var(--foam),
-            rgba(247, 255, 245, 0.96)
-        );
-    border: 1px solid rgba(18, 74, 85, 0.12);
-    border-radius: 18px;
-    box-shadow:
-        0 5px 14px rgba(18, 74, 85, 0.025),
-        0 12px 30px rgba(18, 74, 85, 0.045);
-    overflow: hidden;
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
+    background-color: rgba(250, 253, 250, 0.82);
 }
-/* Left accent */
-.lore-card::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 3px;
-    height: 100%;
-    background:
-        linear-gradient(
-            to bottom,
-            transparent,
-            var(--lagoon) 25%,
-            var(--lagoon) 75%,
-            transparent
-        );
-    transform: scaleY(0);
-    transform-origin: center;
-    transition:
-        transform 0.3s ease;
-}
-/* Very subtle upper highlight */
-.lore-card::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 1px;
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(49, 195, 192, 0.28),
-            transparent
-        );
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-.lore-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(49, 195, 192, 0.28);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(49, 195, 192, 0.035),
-            var(--foam)
-        );
-    box-shadow:
-        0 8px 18px rgba(18, 74, 85, 0.045),
-        0 20px 42px rgba(18, 74, 85, 0.085);
-}
-.lore-card:hover::after {
-    transform: scaleY(1);
-}
-.lore-card:hover::before {
-    opacity: 1;
-}
-/* =========================================================
-   CARD CONTENT
-   ========================================================= */
-.card-number {
-    margin-bottom: 14px;
-    color: var(--lagoon);
-    font-size: 0.66rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-}
-.lore-card h3 {
-    margin: 0 0 13px;
-    color: var(--navy);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.68rem;
-    font-weight: 600;
-    letter-spacing: -0.012em;
-    line-height: 1.2;
-}
-.lore-card p {
-    margin: 0;
-    color: var(--stone);
-    font-size: 0.91rem;
-    line-height: 1.75;
-}
-.card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: auto;
-    padding-top: 27px;
-    color: var(--deep);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.11em;
-    text-transform: uppercase;
-}
-.card-arrow {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    border: 1px solid rgba(18, 74, 85, 0.12);
-    border-radius: 50%;
-    font-size: 0.95rem;
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
-}
-.lore-card:hover .card-arrow {
-    transform: translateX(4px);
-    background: rgba(49, 195, 192, 0.09);
-    border-color: rgba(49, 195, 192, 0.25);
-}
-/* =========================================================
-   FEATURED DOCUMENT
-   ========================================================= */
+
+
 .lore-card.featured {
-    grid-column: 1 / -1;
-    min-height: 280px;
-    background:
-        linear-gradient(
-            120deg,
-            rgba(49, 195, 192, 0.075),
-            var(--foam) 68%
-        );
+    background-color: rgba(250, 253, 250, 0.88);
 }
-.lore-card.featured h3 {
-    font-size: 2.05rem;
-}
-.lore-card.featured .card-number {
-    letter-spacing: 0.2em;
-}
+
+
 /* =========================================================
-   SECTION LABEL
+   REFERENCE LINKS
    ========================================================= */
-.archive-label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 64px 0 27px;
-}
-.archive-label::before,
-.archive-label::after {
-    content: "";
-    height: 1px;
-    flex: 1;
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(18, 74, 85, 0.14)
-        );
-}
-.archive-label::after {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(18, 74, 85, 0.14)
-        );
-}
-.archive-label span {
-    color: var(--deep);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-/* =========================================================
-   QUICK REFERENCE
-   ========================================================= */
-.reference-grid {
-    display: grid;
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-    gap: 16px;
-}
+
 .reference-link {
     position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     min-height: 58px;
+
     padding: 17px 20px;
+
     color: var(--deep);
     text-decoration: none;
+
     background:
         linear-gradient(
             145deg,
             rgba(49, 195, 192, 0.045),
             rgba(49, 195, 192, 0.075)
         );
+
     border: 1px solid rgba(49, 195, 192, 0.14);
     border-radius: 13px;
+
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.015em;
+
     box-shadow:
         0 4px 12px rgba(18, 74, 85, 0.025);
+
     transition:
         background 0.22s ease,
         transform 0.22s ease,
         border-color 0.22s ease,
         box-shadow 0.22s ease;
 }
+
+
 .reference-link:hover {
     background:
         linear-gradient(
@@ -404,72 +509,237 @@
             rgba(49, 195, 192, 0.10),
             rgba(49, 195, 192, 0.14)
         );
+
     border-color: rgba(49, 195, 192, 0.25);
+
     transform: translateY(-2px);
+
     box-shadow:
         0 8px 18px rgba(18, 74, 85, 0.055);
 }
+
+
 /* =========================================================
-   RESPONSIVE
+   ARCHIVAL TYPOGRAPHY DETAILS
    ========================================================= */
+
+.archive-label,
+.lore-kicker {
+    letter-spacing: 0.18em;
+}
+
+
+.lore-ornament {
+    opacity: 0.78;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+    .lore-home::after {
+        left: -35px;
+        width: 290px;
+    }
+
+    .lore-container::before {
+        right: -135px;
+
+        width: 480px;
+        height: 480px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .lore-home {
+        background-size:
+            70px 70px,
+            70px 70px,
+            auto,
+            auto,
+            auto,
+            auto,
+            auto;
+    }
+
+    .lore-home::after {
+        left: -80px;
+
+        opacity: 0.28;
+
+        transform:
+            scale(0.82)
+            rotate(-3deg);
+
+        transform-origin: top left;
+    }
+
+    .lore-container::before {
+        right: -170px;
+
+        transform:
+            scale(0.78)
+            rotate(17deg);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 750px) {
+
+    .lore-home {
+        padding: 60px 0 100px;
+
+        background-size:
+            58px 58px,
+            58px 58px,
+            auto,
+            auto,
+            auto,
+            auto,
+            auto;
+    }
+
     .lore-grid {
         grid-template-columns: 1fr;
     }
+
     .lore-card.featured {
         grid-column: auto;
     }
+
     .reference-grid {
         grid-template-columns: 1fr;
     }
+
     .lore-header {
         padding: 48px 32px;
     }
+
     .lore-card.featured h3 {
         font-size: 1.85rem;
     }
+
+
+    /* Reduce decoration without removing the atmosphere */
+
+    .lore-home::after {
+        left: -125px;
+
+        opacity: 0.20;
+
+        transform:
+            scale(0.65)
+            rotate(-3deg);
+    }
+
+    .lore-container::before {
+        right: -215px;
+        top: 300px;
+
+        opacity: 0.09;
+
+        transform:
+            scale(0.65)
+            rotate(17deg);
+    }
+
+    .lore-container::after {
+        top: 300px;
+
+        width: 350px;
+        height: 350px;
+    }
 }
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 500px) {
+
     .lore-home {
         padding: 32px 0 65px;
     }
+
     .lore-container {
         width: calc(100% - 20px);
     }
+
     .lore-header {
         padding: 40px 23px;
         border-radius: 19px;
     }
+
     .lore-header h1 {
         font-size: 2.5rem;
     }
+
     .lore-header p {
         font-size: 0.94rem;
     }
+
     .archive-intro {
         margin-bottom: 38px;
     }
+
     .archive-intro h2 {
         font-size: 1.7rem;
     }
+
     .lore-card {
         min-height: 225px;
         padding: 26px 25px 25px;
         border-radius: 16px;
     }
+
     .lore-card h3 {
         font-size: 1.52rem;
     }
+
     .lore-card.featured {
         min-height: 245px;
     }
+
     .lore-card.featured h3 {
         font-size: 1.72rem;
     }
+
     .archive-label {
         margin-top: 50px;
     }
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .lore-home,
+    .lore-home::before,
+    .lore-home::after,
+    .lore-container::before,
+    .lore-container::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
 </style>
 </head>
 
