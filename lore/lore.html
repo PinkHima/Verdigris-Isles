@@ -14,61 +14,77 @@
    ========================================================= */
 
 .lore-home {
-    position: relative;
-    isolation: isolate;
-
     padding: 60px 0 100px;
-
     overflow: hidden;
 
     /*
-       Main parchment / sea-glass atmosphere
-    */
-    background:
-        /* faint map grid */
+     * Layered atmospheric background
+     *
+     * Layer 1-2  : faint cartographic grid
+     * Layer 3-6  : watercolor / sea-glass washes
+     * Layer 7    : soft parchment base
+     */
+
+    background-image:
+
+        /* Fine horizontal map lines */
         linear-gradient(
-            rgba(18, 74, 85, 0.025) 1px,
+            rgba(18, 74, 85, 0.028) 1px,
             transparent 1px
         ),
+
+        /* Fine vertical map lines */
         linear-gradient(
             90deg,
-            rgba(18, 74, 85, 0.025) 1px,
+            rgba(18, 74, 85, 0.028) 1px,
             transparent 1px
         ),
 
-        /* upper left watercolor */
+        /* Upper-left sea-glass wash */
         radial-gradient(
-            ellipse 40% 30% at 0% 5%,
-            rgba(49, 195, 192, 0.12),
-            transparent 72%
+            ellipse 520px 360px at -80px 80px,
+            rgba(49, 195, 192, 0.14),
+            rgba(49, 195, 192, 0.055) 45%,
+            transparent 75%
         ),
 
-        /* upper right watercolor */
+        /* Upper-right deep teal wash */
         radial-gradient(
-            ellipse 35% 32% at 100% 12%,
-            rgba(18, 74, 85, 0.07),
-            transparent 72%
+            ellipse 460px 360px at calc(100% + 70px) 100px,
+            rgba(18, 74, 85, 0.075),
+            rgba(49, 195, 192, 0.025) 48%,
+            transparent 76%
         ),
 
-        /* lower left watercolor */
+        /* Lower-left wash */
         radial-gradient(
-            ellipse 42% 32% at 0% 92%,
-            rgba(49, 195, 192, 0.09),
-            transparent 72%
+            ellipse 560px 400px at -80px calc(100% - 60px),
+            rgba(49, 195, 192, 0.10),
+            rgba(49, 195, 192, 0.025) 48%,
+            transparent 76%
         ),
 
-        /* lower right watercolor */
+        /* Lower-right wash */
         radial-gradient(
-            ellipse 42% 36% at 100% 90%,
+            ellipse 520px 420px at calc(100% + 80px) calc(100% - 50px),
             rgba(18, 74, 85, 0.065),
-            transparent 72%
+            rgba(49, 195, 192, 0.025) 48%,
+            transparent 76%
         ),
 
-        /* clean center */
+        /* Soft illuminated center */
+        radial-gradient(
+            ellipse 800px 900px at 50% 42%,
+            rgba(255, 255, 255, 0.62),
+            rgba(255, 255, 255, 0.18) 52%,
+            transparent 78%
+        ),
+
+        /* Base */
         linear-gradient(
             135deg,
             #f4fbf7 0%,
-            #eef8f4 45%,
+            #edf8f4 45%,
             #f8fcf9 100%
         );
 
@@ -79,9 +95,11 @@
         auto,
         auto,
         auto,
+        auto,
         auto;
 
     background-position:
+        center,
         center,
         center,
         center,
@@ -97,238 +115,8 @@
    ========================================================= */
 
 .lore-container {
-    position: relative;
-
     width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
-
-    z-index: 2;
-}
-
-
-/* =========================================================
-   ATMOSPHERIC EDGE VIGNETTE
-   ========================================================= */
-
-.lore-home::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    z-index: 0;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            ellipse 25% 65% at -3% 50%,
-            rgba(36, 143, 143, 0.10),
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 25% 65% at 103% 50%,
-            rgba(20, 82, 94, 0.075),
-            transparent 75%
-        ),
-        radial-gradient(
-            ellipse 70% 25% at 50% 105%,
-            rgba(49, 195, 192, 0.055),
-            transparent 75%
-        );
-}
-
-
-/* =========================================================
-   BOTANICAL MARGINALIA
-   ========================================================= */
-
-.lore-home::after {
-    content: "";
-
-    position: absolute;
-
-    left: -35px;
-    top: 45px;
-
-    width: 250px;
-    height: 760px;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    opacity: 0.32;
-
-    /*
-       Fine winding stems
-    */
-    background:
-
-        linear-gradient(
-            104deg,
-            transparent 0%,
-            transparent 21%,
-            rgba(18, 74, 85, 0.16) 21.3%,
-            rgba(18, 74, 85, 0.16) 21.8%,
-            transparent 22.1%,
-
-            transparent 41%,
-            rgba(18, 74, 85, 0.12) 41.3%,
-            rgba(18, 74, 85, 0.12) 41.8%,
-            transparent 42.1%,
-
-            transparent 62%,
-            rgba(18, 74, 85, 0.10) 62.3%,
-            rgba(18, 74, 85, 0.10) 62.8%,
-            transparent 63.1%
-        ),
-
-        /*
-           Leaves
-        */
-        radial-gradient(
-            ellipse 34px 10px at 30% 12%,
-            rgba(18, 74, 85, 0.14),
-            transparent 72%
-        ),
-
-        radial-gradient(
-            ellipse 38px 11px at 44% 18%,
-            rgba(35, 139, 137, 0.11),
-            transparent 72%
-        ),
-
-        radial-gradient(
-            ellipse 38px 11px at 25% 31%,
-            rgba(18, 74, 85, 0.11),
-            transparent 72%
-        ),
-
-        radial-gradient(
-            ellipse 34px 10px at 46% 39%,
-            rgba(35, 139, 137, 0.10),
-            transparent 72%
-        ),
-
-        radial-gradient(
-            ellipse 40px 11px at 23% 55%,
-            rgba(18, 74, 85, 0.095),
-            transparent 72%
-        ),
-
-        radial-gradient(
-            ellipse 35px 10px at 45% 68%,
-            rgba(35, 139, 137, 0.09),
-            transparent 72%
-        ),
-
-        radial-gradient(
-            ellipse 42px 12px at 25% 82%,
-            rgba(18, 74, 85, 0.095),
-            transparent 72%
-        );
-
-    transform: rotate(-3deg);
-}
-
-
-/* =========================================================
-   ARCHIVAL COMPASS
-   ========================================================= */
-
-.lore-container::before {
-    content: "";
-
-    position: absolute;
-
-    top: 150px;
-    right: -120px;
-
-    width: 420px;
-    height: 420px;
-
-    z-index: 0;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    opacity: 0.13;
-
-    background:
-        radial-gradient(
-            circle,
-            transparent 0%,
-            transparent 30%,
-
-            rgba(18, 74, 85, 0.12) 30.4%,
-            rgba(18, 74, 85, 0.12) 30.8%,
-
-            transparent 31.2%,
-            transparent 47%,
-
-            rgba(18, 74, 85, 0.09) 47.4%,
-            rgba(18, 74, 85, 0.09) 47.8%,
-
-            transparent 48.2%,
-            transparent 64%,
-
-            rgba(18, 74, 85, 0.065) 64.4%,
-            rgba(18, 74, 85, 0.065) 64.8%,
-
-            transparent 65.2%
-        ),
-
-        linear-gradient(
-            90deg,
-            transparent 49.5%,
-            rgba(18, 74, 85, 0.10) 49.8%,
-            rgba(18, 74, 85, 0.10) 50.2%,
-            transparent 50.5%
-        ),
-
-        linear-gradient(
-            0deg,
-            transparent 49.5%,
-            rgba(18, 74, 85, 0.10) 49.8%,
-            rgba(18, 74, 85, 0.10) 50.2%,
-            transparent 50.5%
-        );
-
-    transform: rotate(17deg);
-}
-
-
-/* =========================================================
-   CENTRAL ATMOSPHERIC GLOW
-   ========================================================= */
-
-.lore-container::after {
-    content: "";
-
-    position: absolute;
-
-    top: 350px;
-    left: 50%;
-
-    width: 500px;
-    height: 500px;
-
-    z-index: 0;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(49, 195, 192, 0.045),
-            transparent 70%
-        );
 }
 
 
@@ -341,7 +129,6 @@
 
     max-width: 900px;
     margin: 0 auto 58px;
-
     padding: 64px 68px;
 
     text-align: center;
@@ -354,7 +141,6 @@
         );
 
     border: 1px solid rgba(18, 74, 85, 0.13);
-
     border-radius: 24px;
 
     box-shadow:
@@ -362,12 +148,12 @@
         0 22px 55px rgba(18, 74, 85, 0.075);
 
     overflow: hidden;
-
-    z-index: 3;
 }
 
 
-/* Subtle atmospheric highlight */
+/* =========================================================
+   HEADER ATMOSPHERE
+   ========================================================= */
 
 .lore-header::before {
     content: "";
@@ -385,7 +171,7 @@
     background:
         radial-gradient(
             circle,
-            rgba(49, 195, 192, 0.07),
+            rgba(49, 195, 192, 0.075),
             transparent 70%
         );
 
@@ -414,6 +200,10 @@
 }
 
 
+/* =========================================================
+   HEADER TYPOGRAPHY
+   ========================================================= */
+
 .lore-kicker {
     position: relative;
 
@@ -427,42 +217,62 @@
     letter-spacing: 0.24em;
 
     text-transform: uppercase;
-
-    z-index: 2;
 }
 
 
 /* =========================================================
-   ARCHIVE CONTENT
+   ARCHIVE INTRO
    ========================================================= */
 
-.archive-intro,
-.lore-grid,
-.reference-grid,
-.archive-label {
+.archive-intro {
     position: relative;
-
-    z-index: 2;
 }
 
 
-/* Slight transparency lets the atmosphere remain visible */
+/* =========================================================
+   ARCHIVE GRID
+   ========================================================= */
+
+.lore-grid {
+    position: relative;
+}
+
+
+/* =========================================================
+   LORE CARDS
+   ========================================================= */
 
 .lore-card {
     position: relative;
 
-    background-color: rgba(250, 253, 250, 0.84);
+    /*
+     * Slight translucency allows the atmospheric background
+     * to remain visible around the cards.
+     */
+    background-color: rgba(250, 253, 250, 0.88);
 }
 
 
 .lore-card.featured {
-    background-color: rgba(250, 253, 250, 0.90);
+    background-color: rgba(250, 253, 250, 0.93);
 }
 
 
 /* =========================================================
-   REFERENCE LINKS
+   QUICK REFERENCE
    ========================================================= */
+
+.archive-label {
+    position: relative;
+
+    letter-spacing: 0.18em;
+}
+
+
+.reference-grid {
+    position: relative;
+}
+
 
 .reference-link {
     position: relative;
@@ -504,8 +314,6 @@
         transform 0.22s ease,
         border-color 0.22s ease,
         box-shadow 0.22s ease;
-
-    z-index: 2;
 }
 
 
@@ -527,14 +335,8 @@
 
 
 /* =========================================================
-   ARCHIVAL TYPOGRAPHY
+   ORNAMENT
    ========================================================= */
-
-.archive-label,
-.lore-kicker {
-    letter-spacing: 0.18em;
-}
-
 
 .lore-ornament {
     opacity: 0.78;
@@ -542,7 +344,7 @@
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -555,26 +357,8 @@
             auto,
             auto,
             auto,
+            auto,
             auto;
-    }
-
-    .lore-home::after {
-        left: -80px;
-        opacity: 0.25;
-
-        transform:
-            scale(0.82)
-            rotate(-3deg);
-
-        transform-origin: top left;
-    }
-
-    .lore-container::before {
-        right: -170px;
-
-        transform:
-            scale(0.78)
-            rotate(17deg);
     }
 }
 
@@ -591,6 +375,7 @@
         background-size:
             58px 58px,
             58px 58px,
+            auto,
             auto,
             auto,
             auto,
@@ -616,37 +401,6 @@
 
     .lore-card.featured h3 {
         font-size: 1.85rem;
-    }
-
-
-    /* Keep atmosphere, reduce visual weight */
-
-    .lore-home::after {
-        left: -125px;
-
-        opacity: 0.17;
-
-        transform:
-            scale(0.65)
-            rotate(-3deg);
-    }
-
-    .lore-container::before {
-        right: -215px;
-        top: 300px;
-
-        opacity: 0.07;
-
-        transform:
-            scale(0.65)
-            rotate(17deg);
-    }
-
-    .lore-container::after {
-        top: 300px;
-
-        width: 350px;
-        height: 350px;
     }
 }
 
@@ -688,10 +442,7 @@
 
     .lore-card {
         min-height: 225px;
-
-        padding:
-            26px 25px 25px;
-
+        padding: 26px 25px 25px;
         border-radius: 16px;
     }
 
@@ -719,13 +470,8 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-    .lore-home,
-    .lore-home::before,
-    .lore-home::after,
-    .lore-container::before,
-    .lore-container::after {
-        animation: none !important;
-        transition: none !important;
+    .reference-link {
+        transition: none;
     }
 }
 
