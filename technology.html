@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technology | Verdigris Isles</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+:root{
+  --ink:#20352d;--deep:#29483d;--green:#426957;--sage:#829b84;
+  --moss:#687f68;--cream:#f3efe2;--paper:rgba(248,246,235,.92);
+  --line:rgba(54,82,67,.18);--gold:#a88c54;--shadow:rgba(25,48,38,.13);
+}
+.lore-index-page{position:relative;isolation:isolate;min-height:100vh;overflow:hidden;
+  background:radial-gradient(circle at 10% 18%,rgba(119,151,116,.18),transparent 28%),
+  radial-gradient(circle at 88% 12%,rgba(168,140,84,.11),transparent 24%),
+  radial-gradient(circle at 82% 78%,rgba(82,118,92,.14),transparent 30%),
+  linear-gradient(135deg,#e9e6d7,#f3f0e4 44%,#e7eadc);color:var(--ink)}
+.lore-index-page:before,.lore-index-page:after{content:"";position:absolute;z-index:-1;pointer-events:none;border:1px solid rgba(57,91,70,.11);border-radius:50%}
+.lore-index-page:before{width:620px;height:620px;right:-260px;top:-250px;transform:rotate(22deg)}
+.lore-index-page:after{width:520px;height:520px;left:-250px;bottom:-270px;transform:rotate(-18deg)}
+.lore-index-shell{width:min(1120px,calc(100% - 30px));margin:auto;padding:56px 0 90px}
+.lore-index-header{text-align:center;max-width:780px;margin:0 auto 46px}
+.lore-index-kicker{margin:0 0 10px;color:var(--moss);font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+.lore-index-header h1{margin:0;color:var(--deep);font:500 clamp(2.4rem,5vw,4rem)/1.05 Georgia,"Times New Roman",serif}
+.lore-index-header p{margin:18px auto 0;max-width:690px;color:#59695f;line-height:1.75;font-size:.95rem}
+.lore-index-tools{display:flex;gap:12px;align-items:center;margin:0 0 28px;flex-wrap:wrap}
+.lore-index-search{flex:1 1 300px;padding:13px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.65);color:var(--ink);font:inherit;outline:none}
+.lore-index-search:focus{border-color:rgba(66,105,87,.42);box-shadow:0 0 0 3px rgba(66,105,87,.08)}
+.lore-index-back{padding:12px 17px;border-radius:999px;background:rgba(255,255,255,.58);border:1px solid var(--line);color:var(--green);text-decoration:none;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.lore-index-panel{padding:30px;background:var(--paper);border:1px solid var(--line);border-radius:26px;box-shadow:0 18px 45px var(--shadow)}
+.lore-index-panel h2{margin:0 0 7px;color:var(--deep);font:500 1.7rem Georgia,"Times New Roman",serif}
+.lore-index-panel>p{margin:0 0 25px;color:#637067;font-size:.86rem;line-height:1.65}
+.lore-index-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.lore-entry-card{display:flex;flex-direction:column;min-height:155px;padding:21px;background:rgba(255,255,255,.55);border:1px solid rgba(66,105,87,.14);border-radius:17px;text-decoration:none;color:inherit;transition:.25s ease}
+.lore-entry-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.82);border-color:rgba(66,105,87,.3);box-shadow:0 10px 25px rgba(25,48,38,.08)}
+.lore-entry-type{margin-bottom:8px;color:var(--gold);font-size:.63rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.lore-entry-card h3{margin:0 0 8px;color:var(--deep);font:500 1.12rem Georgia,"Times New Roman",serif}
+.lore-entry-card p{margin:0;color:#68766c;font-size:.78rem;line-height:1.55}
+.lore-empty{padding:28px;border:1px dashed rgba(66,105,87,.25);border-radius:17px;background:rgba(255,255,255,.35);color:#68766c;text-align:center;line-height:1.7}
+.lore-empty strong{display:block;color:var(--deep);font:500 1.1rem Georgia,"Times New Roman",serif;margin-bottom:6px}
+.lore-index-note{margin-top:22px;padding:17px 20px;border-left:3px solid var(--gold);background:rgba(255,255,255,.45);border-radius:0 12px 12px 0;color:#637067;font-size:.8rem;line-height:1.65}
+.lore-index-note strong{color:var(--deep)}
+@media(max-width:850px){.lore-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.lore-index-shell{padding-top:38px}.lore-index-grid{grid-template-columns:1fr}.lore-index-panel{padding:22px}.lore-index-header h1{font-size:2.5rem}}
+</style>
+</head>
+<body>
+<main class="lore-index-page">
+  <div class="lore-index-shell">
+    <header class="lore-index-header">
+      <p class="lore-index-kicker">Lore Index · Technology</p>
+      <h1>Technology</h1>
+      <p>Reclaimed magitech, industrial machinery, transportation, infrastructure, communication, tools, weapons, and inventions of the modern Isles.</p>
+    </header>
+
+    <div class="lore-index-tools">
+      <a class="lore-index-back" href="lore.html">← Lore Archive</a>
+      <input class="lore-index-search" id="loreSearch" type="search" placeholder="Search this index…" aria-label="Search this lore index">
+    </div>
+
+    <section class="lore-index-panel">
+      <h2>Technology</h2>
+      <p>New additions belong here as concise directory entries. The detailed lore should live on its own page.</p>
+      <div class="lore-empty" id="emptyState">
+  <strong>No entries have been added yet.</strong>
+  This index is intentionally ready for future lore. When a new entry is created, add a card here rather than creating another numbered Archive.
+</div>
+      <div class="lore-index-note"><strong>Index rule:</strong> Technology entries belong here when they describe a distinct invention or system. Broad technological rules and the overall technology level should remain in the main Technology section.</div>
+    </section>
+  </div>
+</main>
+
+<script>
+(function() {
+  const input = document.getElementById("loreSearch");
+  const grid = document.getElementById("entryGrid");
+  const noResults = document.getElementById("noResults");
+  if (!input || !grid) return;
+  const cards = [...grid.querySelectorAll(".lore-entry-card")];
+  input.addEventListener("input", function() {
+    const q = this.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const match = !q || card.dataset.search.includes(q);
+      card.style.display = match ? "" : "none";
+      if (match) visible++;
+    });
+    if (noResults) noResults.style.display = visible ? "none" : "block";
+  });
+})();
+</script>
+</body>
+</html>
